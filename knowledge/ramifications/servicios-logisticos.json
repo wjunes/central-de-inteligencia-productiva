@@ -1,0 +1,224 @@
+{
+  "activity_id": "servicios-logisticos",
+  "activity_name": "Servicios logísticos y agenciamiento",
+  "sector_id": "logistica-transporte",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 21,
+  "ramifications": [
+    {
+      "id": "comercio-exterior",
+      "name": "Comercio exterior y trading",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-exterior",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regimen-aduanero",
+      "name": "Regimen aduanero",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad",
+      "name": "Conectividad",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sistemas-informacion",
+      "name": "Sistemas informacion",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "personal-especializado",
+      "name": "Personal especializado",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "red-transporte",
+      "name": "Red transporte",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "depositos",
+      "name": "Depositos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "puertos-terminales",
+      "name": "Operación portuaria y terminales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "puertos-terminales",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "almacenamiento-deposito",
+      "name": "Almacenamiento y depósito",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "almacenamiento-deposito",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "software-ti",
+      "name": "Desarrollo de software y servicios informáticos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "software-ti",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regional-mercosur",
+      "name": "Regional mercosur",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-global",
+      "name": "Mercado global",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "freight-forwarding",
+      "name": "Freight forwarding",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "despacho-aduana",
+      "name": "Despacho aduana",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "operacion-3pl",
+      "name": "Operacion 3pl",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "courier",
+      "name": "Courier",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ultima-milla",
+      "name": "Ultima milla",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sectorial",
+      "name": "Normativa sectorial",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "flete-internacional",
+      "name": "Flete marítimo internacional",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

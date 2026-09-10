@@ -1,0 +1,224 @@
+{
+  "activity_id": "telecomunicaciones",
+  "activity_name": "Telecomunicaciones",
+  "sector_id": "servicios-productivos-tecnologicos",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 21,
+  "ramifications": [
+    {
+      "id": "inversion-red",
+      "name": "Inversion red",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "marco-regulatorio",
+      "name": "Marco regulatorio",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "espectro-asignado",
+      "name": "Espectro asignado",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "red-fibra",
+      "name": "Red fibra",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "espectro",
+      "name": "Espectro",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "infraestructura-movil",
+      "name": "Infraestructura movil",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cables-submarinos",
+      "name": "Cables submarinos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "data-centers",
+      "name": "Centros de datos e infraestructura digital",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "data-centers",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "software-ti",
+      "name": "Desarrollo de software y servicios informáticos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "software-ti",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-globales-exportacion",
+      "name": "Servicios globales de exportación",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-globales-exportacion",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-audiovisuales",
+      "name": "Producción audiovisual y de contenidos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-audiovisuales",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regional-mercosur",
+      "name": "Regional mercosur",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "telefonia-movil",
+      "name": "Telefonia movil",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "banda-ancha",
+      "name": "Banda ancha",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-datos",
+      "name": "Servicios datos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad-internacional",
+      "name": "Conectividad internacional",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversion-publica",
+      "name": "Inversión pública",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sectorial",
+      "name": "Normativa sectorial",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-datos",
+      "name": "Demanda datos",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

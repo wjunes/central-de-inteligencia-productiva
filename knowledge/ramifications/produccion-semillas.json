@@ -1,0 +1,233 @@
+{
+  "activity_id": "produccion-semillas",
+  "activity_name": "Producción de semillas",
+  "sector_id": "agropecuario",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 22,
+  "ramifications": [
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "propiedad-intelectual-vegetal",
+      "name": "Propiedad intelectual vegetal",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-inase",
+      "name": "Normativa inase",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "material-genetico",
+      "name": "Material genetico",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "campos-multiplicacion",
+      "name": "Campos multiplicacion",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plantas-acondicionamiento",
+      "name": "Plantas acondicionamiento",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agricultura-secano",
+      "name": "Agricultura de secano",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "agricultura-secano",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "id-biotecnologia",
+      "name": "Investigación, desarrollo y biotecnología",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "id-biotecnologia",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-mayorista-agroinsumos",
+      "name": "Comercio mayorista de insumos agropecuarios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-mayorista-agroinsumos",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regional-mercosur",
+      "name": "Regional mercosur",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "semilla-certificada",
+      "name": "Semilla certificada",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "semilla-forrajera",
+      "name": "Semilla forrajera",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sectorial",
+      "name": "Normativa sectorial",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

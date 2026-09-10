@@ -1,0 +1,112 @@
+{
+  "activity_id": "hidroelectrica",
+  "activity_name": "Generación hidroeléctrica",
+  "sector_id": "energia",
+  "level": "subactivity",
+  "parent_activity_id": "generacion-electrica",
+  "ramification_count": 10,
+  "ramifications": [
+    {
+      "id": "hidrologia",
+      "name": "Hidrología",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "gestion-embalses",
+      "name": "Gestion embalses",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "recurso-hidrico",
+      "name": "Recurso hídrico",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transmision-distribucion-electrica",
+      "name": "Transmisión y distribución eléctrica",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transmision-distribucion-electrica",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "arroz",
+      "name": "Arroz",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "arroz",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regional-mercosur",
+      "name": "Regional mercosur",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "energia-electrica",
+      "name": "Energia electrica",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-electrica",
+      "name": "Demanda electrica",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

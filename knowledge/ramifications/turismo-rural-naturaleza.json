@@ -1,0 +1,245 @@
+{
+  "activity_id": "turismo-rural-naturaleza",
+  "activity_name": "Turismo rural y de naturaleza",
+  "sector_id": "turismo",
+  "level": "subactivity",
+  "parent_activity_id": "turismo",
+  "ramification_count": 23,
+  "ramifications": [
+    {
+      "id": "recursos-naturales",
+      "name": "Recursos naturales",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "promocion",
+      "name": "Promocion",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caminos-rurales",
+      "name": "Caminos rurales",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "establecimientos-rurales",
+      "name": "Establecimientos rurales",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "atractivos-naturales",
+      "name": "Atractivos naturales",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "guias",
+      "name": "Guias",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "infraestructura",
+      "name": "Infraestructura",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "alojamiento",
+      "name": "Servicios de alojamiento",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "alojamiento",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "viticultura",
+      "name": "Viticultura",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "viticultura",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vinos",
+      "name": "Elaboración de vino",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "vinos",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ganaderia",
+      "name": "Ganadería",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "ganaderia",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "pesca-artesanal",
+      "name": "Pesca artesanal",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "pesca-artesanal",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-receptivo",
+      "name": "Turismo receptivo",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "estadias-estancia",
+      "name": "Estadias estancia",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "enoturismo",
+      "name": "Enoturismo",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "termas",
+      "name": "Termas",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ecoturismo",
+      "name": "Ecoturismo",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "pesca-deportiva",
+      "name": "Pesca deportiva",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "estacionalidad",
+      "name": "Estacionalidad",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "situacion-argentina-brasil",
+      "name": "Situación económica de Argentina y Brasil",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,233 @@
+{
+  "activity_id": "cultivo-soja",
+  "activity_name": "Cultivo de soja",
+  "sector_id": "agropecuario",
+  "level": "subactivity",
+  "parent_activity_id": "agricultura-secano",
+  "ramification_count": 22,
+  "ramifications": [
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-chicago",
+      "name": "Precios de referencia (Chicago)",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "logistica-granos",
+      "name": "Logistica granos",
+      "category": "logistics",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "semillas",
+      "name": "Semillas",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "fertilizantes",
+      "name": "Fertilizantes",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agroquimicos",
+      "name": "Agroquímicos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inoculantes",
+      "name": "Inoculantes",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "acopio-granos",
+      "name": "Acopio y comercialización de granos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "acopio-granos",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "elaboracion-aceites",
+      "name": "Molienda de oleaginosos y aceites",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "elaboracion-aceites",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "puertos-terminales",
+      "name": "Operación portuaria y terminales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "puertos-terminales",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "soja",
+      "name": "Soja",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sequia",
+      "name": "Sequía",
+      "category": "climate_factors",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-china",
+      "name": "Demanda de China",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "concentracion-de-la-demanda-en-china",
+      "name": "Concentración de la demanda en China",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

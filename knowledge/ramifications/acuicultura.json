@@ -1,0 +1,273 @@
+{
+  "activity_id": "acuicultura",
+  "activity_name": "Acuicultura",
+  "sector_id": "pesca-acuicultura",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 26,
+  "ramifications": [
+    {
+      "id": "calidad-agua",
+      "name": "Calidad agua",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sanidad-acuicola",
+      "name": "Sanidad acuícola",
+      "category": "sanitary_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "costo-raciones",
+      "name": "Costo raciones",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "alevines",
+      "name": "Alevines",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "raciones-acuicolas",
+      "name": "Raciones acuicolas",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agua",
+      "name": "Agua",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "estanques-jaulas",
+      "name": "Estanques jaulas",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-pesquera",
+      "name": "Procesamiento de productos pesqueros",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-pesquera",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "id-biotecnologia",
+      "name": "Investigación, desarrollo y biotecnología",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "id-biotecnologia",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-exterior",
+      "name": "Comercio exterior y trading",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-exterior",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "esturion",
+      "name": "Esturion",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caviar",
+      "name": "Caviar",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "trucha",
+      "name": "Trucha",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tilapia",
+      "name": "Tilapia",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-ambiental",
+      "name": "Normativa ambiental",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "endurecimiento-de-exigencias-ambientales",
+      "name": "Endurecimiento de exigencias ambientales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

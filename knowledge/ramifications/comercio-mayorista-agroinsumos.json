@@ -1,0 +1,224 @@
+{
+  "activity_id": "comercio-mayorista-agroinsumos",
+  "activity_name": "Comercio mayorista de insumos agropecuarios",
+  "sector_id": "comercio",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 21,
+  "ramifications": [
+    {
+      "id": "campana-agricola",
+      "name": "Campana agricola",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-commodities",
+      "name": "Precios de commodities",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "credito",
+      "name": "Crédito",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "stock-insumos",
+      "name": "Stock insumos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "red-sucursales",
+      "name": "Red sucursales",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "logistica",
+      "name": "Logistica",
+      "category": "logistics",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "credito-comercial",
+      "name": "Credito comercial",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agricultura-secano",
+      "name": "Agricultura de secano",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "agricultura-secano",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ganaderia",
+      "name": "Ganadería",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "ganaderia",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-quimica",
+      "name": "Industria química",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-quimica",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "maquinaria-equipo",
+      "name": "Fabricación de maquinaria y equipo",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "maquinaria-equipo",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "venta-agroinsumos",
+      "name": "Venta agroinsumos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "asesoramiento-tecnico-comercial",
+      "name": "Asesoramiento tecnico comercial",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "financiacion-insumos",
+      "name": "Financiacion insumos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tasa-interes",
+      "name": "Tasa de interés",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

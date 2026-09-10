@@ -1,0 +1,273 @@
+{
+  "activity_id": "citricultura",
+  "activity_name": "Citricultura",
+  "sector_id": "agropecuario",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 26,
+  "ramifications": [
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sanidad-vegetal",
+      "name": "Sanidad vegetal",
+      "category": "sanitary_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "acceso-mercados",
+      "name": "Acceso a mercados y barreras",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "logistica-refrigerada",
+      "name": "Logistica refrigerada",
+      "category": "logistics",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plantas-citricas",
+      "name": "Plantas citricas",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "fertilizantes",
+      "name": "Fertilizantes",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agroquimicos",
+      "name": "Agroquímicos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agua-riego",
+      "name": "Agua de riego",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-frutihorticola",
+      "name": "Procesamiento de frutas y hortalizas",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-frutihorticola",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-exterior",
+      "name": "Comercio exterior y trading",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-exterior",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "puertos-terminales",
+      "name": "Operación portuaria y terminales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "puertos-terminales",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "naranja",
+      "name": "Naranja",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mandarina",
+      "name": "Mandarina",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "limon",
+      "name": "Limon",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "pomelo",
+      "name": "Pomelo",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "acuerdos-comerciales",
+      "name": "Acuerdos comerciales",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "nuevos-acuerdos-comerciales",
+      "name": "Nuevos acuerdos comerciales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

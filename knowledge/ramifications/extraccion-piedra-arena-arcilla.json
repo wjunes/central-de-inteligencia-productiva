@@ -1,0 +1,194 @@
+{
+  "activity_id": "extraccion-piedra-arena-arcilla",
+  "activity_name": "Extracción de piedra, arena y arcilla",
+  "sector_id": "mineria-extractivas",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 18,
+  "ramifications": [
+    {
+      "id": "cercania-obra",
+      "name": "Cercania obra",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "combustibles",
+      "name": "Refinación y distribución de combustibles",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "combustibles",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "licencia-ambiental",
+      "name": "Autorización ambiental",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "explosivos",
+      "name": "Explosivos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "maquinaria-movimiento-suelo",
+      "name": "Maquinaria movimiento suelo",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "construccion-edificios",
+      "name": "Construcción de edificios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "construccion-edificios",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "obras-infraestructura",
+      "name": "Obras de infraestructura",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "obras-infraestructura",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "productos-minerales-no-metalicos",
+      "name": "Fabricación de productos minerales no metálicos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "productos-minerales-no-metalicos",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "arido-triturado",
+      "name": "Arido triturado",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "arena",
+      "name": "Arena",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "balastro",
+      "name": "Balastro",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "arcilla",
+      "name": "Arcilla",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "piedra-ornamental",
+      "name": "Piedra ornamental",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversion-publica",
+      "name": "Inversión pública",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-construccion",
+      "name": "Demanda de la construcción",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-ambiental",
+      "name": "Normativa ambiental",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "endurecimiento-de-exigencias-ambientales",
+      "name": "Endurecimiento de exigencias ambientales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

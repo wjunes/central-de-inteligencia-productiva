@@ -1,0 +1,287 @@
+{
+  "activity_id": "reparacion-mantenimiento-industrial-naval",
+  "activity_name": "Reparación y mantenimiento industrial y naval",
+  "sector_id": "industria-manufacturera",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 27,
+  "ramifications": [
+    {
+      "id": "parque-instalado",
+      "name": "Parque instalado",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "disponibilidad-repuestos",
+      "name": "Disponibilidad repuestos",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mano-de-obra-especializada",
+      "name": "Mano de obra especializada",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "talleres",
+      "name": "Talleres",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "repuestos",
+      "name": "Repuestos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "personal-especializado",
+      "name": "Personal especializado",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "instrumental",
+      "name": "Instrumental",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "diques-varaderos",
+      "name": "Diques varaderos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "maquinaria-equipo",
+      "name": "Fabricación de maquinaria y equipo",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "maquinaria-equipo",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-metalica",
+      "name": "Industria metalúrgica y productos de metal",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-metalica",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "material-transporte",
+      "name": "Fabricación de material de transporte",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "material-transporte",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transporte-maritimo-fluvial",
+      "name": "Transporte marítimo y fluvial",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transporte-maritimo-fluvial",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "puertos-terminales",
+      "name": "Operación portuaria y terminales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "puertos-terminales",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "generacion-electrica",
+      "name": "Generación de energía eléctrica",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "generacion-electrica",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "obras-infraestructura",
+      "name": "Obras de infraestructura",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "obras-infraestructura",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regional-mercosur",
+      "name": "Regional mercosur",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mantenimiento-industrial",
+      "name": "Mantenimiento industrial",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "reparacion-maquinaria",
+      "name": "Reparacion maquinaria",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "reparacion-naval",
+      "name": "Reparacion naval",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "recambio-repuestos",
+      "name": "Recambio repuestos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-dique-varadero",
+      "name": "Servicios dique varadero",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "actividad-economica",
+      "name": "Nivel de actividad económica",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precio-petroleo",
+      "name": "Precio del petróleo",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversion-privada",
+      "name": "Inversión privada",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "shock-de-precio-del-petroleo",
+      "name": "Shock de precio del petróleo",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

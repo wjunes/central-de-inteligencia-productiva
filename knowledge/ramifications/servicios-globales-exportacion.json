@@ -1,0 +1,264 @@
+{
+  "activity_id": "servicios-globales-exportacion",
+  "activity_name": "Servicios globales de exportación",
+  "sector_id": "servicios-productivos-tecnologicos",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 25,
+  "ramifications": [
+    {
+      "id": "regimen-zonas-francas",
+      "name": "Régimen de zonas francas",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "disponibilidad-talento",
+      "name": "Disponibilidad de talento",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "idiomas",
+      "name": "Idiomas",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad",
+      "name": "Conectividad",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "talento-calificado",
+      "name": "Talento calificado",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "infraestructura-oficinas",
+      "name": "Infraestructura oficinas",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "software-ti",
+      "name": "Desarrollo de software y servicios informáticos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "software-ti",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-profesionales",
+      "name": "Servicios profesionales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-profesionales",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-financieros",
+      "name": "Servicios financieros y seguros",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-financieros",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "telecomunicaciones",
+      "name": "Telecomunicaciones",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "telecomunicaciones",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-global",
+      "name": "Mercado global",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-compartidos",
+      "name": "Servicios compartidos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "bpo",
+      "name": "Bpo",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "kpo",
+      "name": "Kpo",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "contact-center",
+      "name": "Contact center",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-financieros-back-office",
+      "name": "Servicios financieros back office",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-externa",
+      "name": "Demanda externa",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-promocion",
+      "name": "Regímenes de promoción de inversiones",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "costos-laborales",
+      "name": "Costos laborales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "atraccion-de-inversion",
+      "name": "Atracción de inversión y nuevos proyectos",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "escasez-de-talento-especializado",
+      "name": "Escasez de talento especializado",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

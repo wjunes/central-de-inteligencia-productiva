@@ -1,0 +1,164 @@
+{
+  "activity_id": "pesca-artesanal",
+  "activity_name": "Pesca artesanal",
+  "sector_id": "pesca-acuicultura",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 15,
+  "ramifications": [
+    {
+      "id": "estado-recursos-costeros",
+      "name": "Estado de los recursos costeros",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cadena-frio",
+      "name": "Cadena frio",
+      "category": "logistics",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "embarcaciones-menores",
+      "name": "Embarcaciones menores",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "artes-de-pesca",
+      "name": "Artes de pesca",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "combustibles",
+      "name": "Refinación y distribución de combustibles",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "combustibles",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-pesquera",
+      "name": "Procesamiento de productos pesqueros",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-pesquera",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-minorista",
+      "name": "Comercio minorista",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-minorista",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-rural-naturaleza",
+      "name": "Turismo rural y de naturaleza",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "turismo-rural-naturaleza",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "pescado-fresco-costero",
+      "name": "Pescado fresco costero",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "moluscos",
+      "name": "Moluscos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "crustaceos",
+      "name": "Crustaceos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "consumo-interno",
+      "name": "Consumo interno",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

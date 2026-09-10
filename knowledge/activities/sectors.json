@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "generated": "2026-09-10",
+  "sectors": [
+    {
+      "id": "agropecuario",
+      "name": "Agropecuario",
+      "description": "Producción primaria animal y vegetal: ganadería, lechería, agricultura de secano, arroz, hortifruticultura y servicios agropecuarios.",
+      "order": 1
+    },
+    {
+      "id": "forestal-celulosa",
+      "name": "Forestal y celulosa",
+      "description": "Silvicultura, cosecha forestal y transformación industrial de la madera en celulosa, tableros, madera aserrada y papel.",
+      "order": 2
+    },
+    {
+      "id": "pesca-acuicultura",
+      "name": "Pesca y acuicultura",
+      "description": "Captura industrial y artesanal de recursos acuáticos, acuicultura y procesamiento de productos pesqueros.",
+      "order": 3
+    },
+    {
+      "id": "mineria-extractivas",
+      "name": "Minería y actividades extractivas",
+      "description": "Extracción de minerales metalíferos y no metalíferos, piedra, arena y arcilla.",
+      "order": 4
+    },
+    {
+      "id": "energia",
+      "name": "Energía",
+      "description": "Generación, transmisión y distribución eléctrica, combustibles, gas, biocombustibles e hidrógeno verde.",
+      "order": 5
+    },
+    {
+      "id": "industria-manufacturera",
+      "name": "Industria manufacturera",
+      "description": "Transformación industrial de bienes: alimentos y bebidas, cuero, textil, química, metalmecánica, plásticos y minerales no metálicos.",
+      "order": 6
+    },
+    {
+      "id": "construccion",
+      "name": "Construcción",
+      "description": "Edificación residencial y no residencial, obras de infraestructura, instalaciones especializadas y desarrollo inmobiliario.",
+      "order": 7
+    },
+    {
+      "id": "logistica-transporte",
+      "name": "Logística y transporte",
+      "description": "Transporte de carga y pasajeros por todos los modos, operación portuaria, almacenamiento y servicios logísticos.",
+      "order": 8
+    },
+    {
+      "id": "comercio",
+      "name": "Comercio vinculado a la producción",
+      "description": "Comercialización mayorista y minorista de insumos y productos, acopio de granos y comercio exterior.",
+      "order": 9
+    },
+    {
+      "id": "turismo",
+      "name": "Turismo",
+      "description": "Alojamiento, gastronomía, agencias y operadores, transporte turístico y turismo rural, de naturaleza, cultural y de reuniones.",
+      "order": 10
+    },
+    {
+      "id": "servicios-productivos-tecnologicos",
+      "name": "Servicios productivos y tecnológicos",
+      "description": "Software, servicios globales de exportación, telecomunicaciones, audiovisual, industrias creativas, servicios profesionales, financieros y I+D.",
+      "order": 11
+    },
+    {
+      "id": "agua-ambiente",
+      "name": "Agua, ambiente y servicios ambientales",
+      "description": "Captación y potabilización de agua, saneamiento, gestión de residuos, reciclaje y economía circular.",
+      "order": 12
+    }
+  ]
+}

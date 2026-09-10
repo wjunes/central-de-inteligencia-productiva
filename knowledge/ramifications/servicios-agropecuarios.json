@@ -1,0 +1,196 @@
+{
+  "activity_id": "servicios-agropecuarios",
+  "activity_name": "Servicios agropecuarios",
+  "sector_id": "agropecuario",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 18,
+  "ramifications": [
+    {
+      "id": "parque-maquinaria",
+      "name": "Parque maquinaria",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "combustibles",
+      "name": "Refinación y distribución de combustibles",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "combustibles",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "maquinaria-agricola",
+      "name": "Maquinaria agrícola",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mano-de-obra-especializada",
+      "name": "Mano de obra especializada",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agricultura-secano",
+      "name": "Agricultura de secano",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "agricultura-secano",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ganaderia",
+      "name": "Ganadería",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "ganaderia",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "lecheria",
+      "name": "Lechería",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "lecheria",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "arroz",
+      "name": "Arroz",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "arroz",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-tecnicos-agroveterinarios",
+      "name": "Servicios técnicos agropecuarios y veterinarios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-tecnicos-agroveterinarios",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-siembra",
+      "name": "Servicios siembra",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-cosecha",
+      "name": "Servicios cosecha",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-pulverizacion",
+      "name": "Servicios pulverizacion",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-esquila",
+      "name": "Servicios esquila",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tasa-interes",
+      "name": "Tasa de interés",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

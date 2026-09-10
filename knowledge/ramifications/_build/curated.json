@@ -1,0 +1,229 @@
+{
+  "ganaderia": {
+    "relevance_overrides": [
+      {"id": "frigorifica", "relevance": "critical"},
+      {"id": "exportacion", "relevance": "critical"},
+      {"id": "pasturas", "relevance": "critical"}
+    ],
+    "children": {
+      "pasturas": [
+        {"id": "pasturas-naturales", "name": "Campo natural", "category": "resources", "relation": "dependency", "direction": "direct", "relevance": "high", "depth": 2, "children": []},
+        {"id": "pasturas-mejoradas", "name": "Pasturas mejoradas y verdeos", "category": "resources", "relation": "dependency", "direction": "direct", "relevance": "medium", "depth": 2, "children": []}
+      ],
+      "granos-forrajeros": [
+        {"id": "cultivo-maiz-sorgo", "name": "Maíz y sorgo", "category": "related_activities", "relation": "related_activity", "target_activity_id": "cultivo-maiz-sorgo", "direction": "indirect", "relevance": "medium", "depth": 2, "children": []},
+        {"id": "cultivo-soja", "name": "Soja", "category": "related_activities", "relation": "related_activity", "target_activity_id": "cultivo-soja", "direction": "indirect", "relevance": "low", "depth": 2, "children": []}
+      ],
+      "clima": [
+        {"id": "sequia", "name": "Sequía", "category": "climate_factors", "relation": "risk", "direction": "direct", "relevance": "critical", "depth": 2, "children": []},
+        {"id": "deficit-forrajero", "name": "Déficit forrajero", "category": "climate_factors", "relation": "risk", "direction": "direct", "relevance": "high", "depth": 2, "children": []}
+      ],
+      "exportacion": [
+        {"id": "demanda-china", "name": "Demanda de China", "category": "demand_factors", "relation": "market", "direction": "indirect", "relevance": "critical", "depth": 2, "children": []},
+        {"id": "union-europea", "name": "Unión Europea (cuota Hilton, 481)", "category": "markets", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []},
+        {"id": "estados-unidos", "name": "Estados Unidos", "category": "markets", "relation": "market", "direction": "indirect", "relevance": "medium", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "brote-aftosa", "name": "Brote de fiebre aftosa u otra emergencia sanitaria", "category": "risks", "relation": "risk", "direction": "direct", "relevance": "critical", "depth": 1, "children": []},
+      {"id": "carne-baja-emisiones", "name": "Demanda de carne baja en emisiones / trazable", "category": "opportunities", "relation": "opportunity", "direction": "indirect", "relevance": "medium", "depth": 1, "children": []}
+    ]
+  },
+
+  "agricultura-secano": {
+    "relevance_overrides": [
+      {"id": "clima", "relevance": "critical"},
+      {"id": "acopio-granos", "relevance": "critical"}
+    ],
+    "children": {
+      "clima": [
+        {"id": "sequia", "name": "Sequía", "category": "climate_factors", "relation": "risk", "direction": "direct", "relevance": "critical", "depth": 2, "children": []},
+        {"id": "exceso-hidrico", "name": "Exceso hídrico en cosecha", "category": "climate_factors", "relation": "risk", "direction": "direct", "relevance": "high", "depth": 2, "children": []}
+      ],
+      "precios-internacionales": [
+        {"id": "precios-chicago", "name": "Precios de referencia (CBOT)", "category": "economic_factors", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []},
+        {"id": "demanda-china", "name": "Demanda de China (soja)", "category": "demand_factors", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []}
+      ],
+      "costo-insumos": [
+        {"id": "precio-fertilizantes", "name": "Precio internacional de fertilizantes", "category": "cost_factors", "relation": "cost", "direction": "indirect", "relevance": "high", "depth": 2, "children": []},
+        {"id": "precio-gasoil", "name": "Precio del gasoil", "category": "cost_factors", "relation": "cost", "direction": "direct", "relevance": "medium", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "logistica-fluvial-hidrovia", "name": "Logística fluvial e hidrovía", "category": "logistics", "relation": "infrastructure", "direction": "indirect", "relevance": "medium", "depth": 1, "children": []}
+    ]
+  },
+
+  "lecheria": {
+    "relevance_overrides": [
+      {"id": "industria-lactea", "relevance": "critical"},
+      {"id": "remision-leche", "relevance": "critical"}
+    ],
+    "children": {
+      "precios-internacionales": [
+        {"id": "precio-leche-polvo-gdt", "name": "Precio internacional de leche en polvo (GDT)", "category": "economic_factors", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []}
+      ],
+      "clima": [
+        {"id": "sequia", "name": "Sequía y estrés hídrico", "category": "climate_factors", "relation": "risk", "direction": "direct", "relevance": "critical", "depth": 2, "children": []}
+      ],
+      "costo-insumos": [
+        {"id": "precio-raciones", "name": "Precio de raciones y granos", "category": "cost_factors", "relation": "cost", "direction": "direct", "relevance": "high", "depth": 2, "children": []}
+      ]
+    },
+    "add": []
+  },
+
+  "arroz": {
+    "relevance_overrides": [
+      {"id": "molineria", "relevance": "critical"},
+      {"id": "disponibilidad-agua", "relevance": "critical"},
+      {"id": "costo-energia", "relevance": "critical"}
+    ],
+    "children": {
+      "disponibilidad-agua": [
+        {"id": "represas-riego", "name": "Represas y sistemas de riego", "category": "infrastructure", "relation": "dependency", "direction": "direct", "relevance": "critical", "depth": 2, "children": []},
+        {"id": "hidrologia", "name": "Régimen de lluvias y llenado de represas", "category": "climate_factors", "relation": "impact", "direction": "direct", "relevance": "high", "depth": 2, "children": []}
+      ],
+      "exportacion": [
+        {"id": "mercado-brasil-arroz", "name": "Brasil", "category": "markets", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []},
+        {"id": "mercado-iraq-arroz", "name": "Irak y Medio Oriente", "category": "markets", "relation": "market", "direction": "indirect", "relevance": "medium", "depth": 2, "children": []}
+      ]
+    },
+    "add": []
+  },
+
+  "silvicultura": {
+    "relevance_overrides": [
+      {"id": "industria-celulosa", "relevance": "critical"},
+      {"id": "incendios", "relevance": "high"}
+    ],
+    "children": {
+      "transporte-carga-carretera": [
+        {"id": "transporte-ferroviario", "name": "Transporte ferroviario", "category": "logistics", "relation": "related_activity", "target_activity_id": "transporte-ferroviario", "direction": "indirect", "relevance": "high", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "certificacion-fsc", "name": "Certificación forestal (FSC / PEFC)", "category": "regulatory_factors", "relation": "regulation", "direction": "direct", "relevance": "high", "depth": 1, "children": []},
+      {"id": "mercado-bonos-carbono", "name": "Mercado de bonos de carbono forestal", "category": "opportunities", "relation": "opportunity", "direction": "indirect", "relevance": "medium", "depth": 1, "children": []}
+    ]
+  },
+
+  "industria-celulosa": {
+    "relevance_overrides": [
+      {"id": "silvicultura", "relevance": "critical"},
+      {"id": "exportacion", "relevance": "critical"},
+      {"id": "disponibilidad-agua", "relevance": "critical"}
+    ],
+    "children": {
+      "exportacion": [
+        {"id": "demanda-china", "name": "Demanda de China", "category": "demand_factors", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []},
+        {"id": "precio-celulosa-bhkp", "name": "Precio internacional de celulosa (BHKP)", "category": "economic_factors", "relation": "market", "direction": "indirect", "relevance": "critical", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "conflicto-ambiental-rio", "name": "Conflicto ambiental transfronterizo por uso de agua", "category": "risks", "relation": "risk", "direction": "indirect", "relevance": "medium", "depth": 1, "children": []}
+    ]
+  },
+
+  "frigorifica": {
+    "relevance_overrides": [
+      {"id": "ganaderia", "relevance": "critical"},
+      {"id": "exportacion", "relevance": "critical"},
+      {"id": "acceso-mercados", "relevance": "critical"}
+    ],
+    "children": {
+      "exportacion": [
+        {"id": "demanda-china", "name": "Demanda de China", "category": "demand_factors", "relation": "market", "direction": "indirect", "relevance": "critical", "depth": 2, "children": []},
+        {"id": "union-europea", "name": "Unión Europea (cuotas)", "category": "markets", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []},
+        {"id": "estatus-sanitario-pais", "name": "Estatus sanitario del país", "category": "sanitary_factors", "relation": "regulation", "direction": "direct", "relevance": "critical", "depth": 2, "children": []}
+      ],
+      "oferta-ganado": [
+        {"id": "ciclo-ganadero", "name": "Fase del ciclo ganadero", "category": "economic_factors", "relation": "impact", "direction": "direct", "relevance": "high", "depth": 2, "children": []},
+        {"id": "competencia-exportacion-pie", "name": "Competencia de la exportación de ganado en pie", "category": "competitive_factors", "relation": "competitor", "direction": "direct", "relevance": "high", "depth": 2, "children": []}
+      ]
+    },
+    "add": []
+  },
+
+  "generacion-electrica": {
+    "relevance_overrides": [
+      {"id": "hidrologia", "relevance": "critical"},
+      {"id": "transmision-distribucion-electrica", "relevance": "critical"}
+    ],
+    "children": {
+      "hidrologia": [
+        {"id": "sequia", "name": "Sequía (año seco)", "category": "climate_factors", "relation": "risk", "direction": "direct", "relevance": "critical", "depth": 2, "children": []}
+      ],
+      "combustibles-fosiles": [
+        {"id": "precio-petroleo", "name": "Precio del petróleo", "category": "economic_factors", "relation": "cost", "direction": "direct", "relevance": "high", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "demanda-hidrogeno-verde", "name": "Demanda de energía para hidrógeno verde y data centers", "category": "opportunities", "relation": "opportunity", "direction": "indirect", "relevance": "high", "depth": 1, "children": []}
+    ]
+  },
+
+  "turismo": {
+    "relevance_overrides": [
+      {"id": "situacion-argentina-brasil", "relevance": "critical"},
+      {"id": "conectividad-aerea", "relevance": "critical"}
+    ],
+    "children": {
+      "situacion-argentina-brasil": [
+        {"id": "tipo-cambio-real-bilateral", "name": "Tipo de cambio real con Argentina y Brasil", "category": "economic_factors", "relation": "impact", "direction": "direct", "relevance": "critical", "depth": 2, "children": []},
+        {"id": "ingreso-disponible-regional", "name": "Ingreso disponible en la región", "category": "demand_factors", "relation": "impact", "direction": "indirect", "relevance": "high", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "eventos-clima-costa", "name": "Clima estival en la costa", "category": "climate_factors", "relation": "impact", "direction": "direct", "relevance": "high", "depth": 1, "children": []},
+      {"id": "nueva-conectividad-aerea", "name": "Nuevas rutas y frecuencias aéreas", "category": "opportunities", "relation": "opportunity", "direction": "indirect", "relevance": "high", "depth": 1, "children": []}
+    ]
+  },
+
+  "software-ti": {
+    "relevance_overrides": [
+      {"id": "disponibilidad-talento", "relevance": "critical"},
+      {"id": "regimen-promocion-software", "relevance": "critical"}
+    ],
+    "children": {
+      "disponibilidad-talento": [
+        {"id": "formacion-tic", "name": "Formación de profesionales TIC", "category": "labor_factors", "relation": "dependency", "direction": "direct", "relevance": "high", "depth": 2, "children": []},
+        {"id": "competencia-salarial-global", "name": "Competencia salarial global por talento", "category": "labor_factors", "relation": "competitor", "direction": "direct", "relevance": "high", "depth": 2, "children": []}
+      ],
+      "demanda-externa": [
+        {"id": "ciclo-inversion-tecnologica-eeuu", "name": "Ciclo de inversión tecnológica en EE.UU.", "category": "demand_factors", "relation": "market", "direction": "indirect", "relevance": "high", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "adopcion-ia", "name": "Adopción de inteligencia artificial", "category": "technologies", "relation": "opportunity", "direction": "indirect", "relevance": "high", "depth": 1, "children": []}
+    ]
+  },
+
+  "cultivo-cana-azucar": {
+    "relevance_overrides": [
+      {"id": "industria-azucarera", "relevance": "critical"},
+      {"id": "planta-industrial-unica", "relevance": "critical"},
+      {"id": "politica-agroenergetica", "relevance": "critical"}
+    ],
+    "children": {},
+    "add": [
+      {"id": "cambio-en-mandato-de-mezcla", "name": "Cambio en el mandato de mezcla de etanol", "category": "risks", "relation": "risk", "direction": "direct", "relevance": "high", "depth": 1, "children": []}
+    ]
+  },
+
+  "pesca-industrial": {
+    "relevance_overrides": [
+      {"id": "industria-pesquera", "relevance": "critical"},
+      {"id": "estado-recursos", "relevance": "critical"},
+      {"id": "cuotas-captura", "relevance": "critical"}
+    ],
+    "children": {
+      "acuerdo-argentina": [
+        {"id": "zona-comun-pesca", "name": "Zona Común de Pesca Argentino-Uruguaya", "category": "regulatory_factors", "relation": "regulation", "direction": "direct", "relevance": "critical", "depth": 2, "children": []}
+      ]
+    },
+    "add": [
+      {"id": "sobrepesca", "name": "Sobrepesca y colapso de stocks", "category": "risks", "relation": "risk", "direction": "direct", "relevance": "critical", "depth": 1, "children": []}
+    ]
+  }
+}

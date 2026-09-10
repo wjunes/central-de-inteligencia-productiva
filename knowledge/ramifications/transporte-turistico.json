@@ -1,0 +1,195 @@
+{
+  "activity_id": "transporte-turistico",
+  "activity_name": "Transporte turístico",
+  "sector_id": "turismo",
+  "level": "subactivity",
+  "parent_activity_id": "turismo",
+  "ramification_count": 18,
+  "ramifications": [
+    {
+      "id": "flujo-turistico",
+      "name": "Flujo turístico",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "estado-rutas",
+      "name": "Estado de las rutas",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "combustibles",
+      "name": "Refinación y distribución de combustibles",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "combustibles",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vehiculos",
+      "name": "Vehiculos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conductores-guias",
+      "name": "Conductores guias",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "seguros",
+      "name": "Seguros",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transporte-pasajeros",
+      "name": "Transporte de pasajeros",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transporte-pasajeros",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agencias-operadores",
+      "name": "Agencias de viaje y operadores turísticos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "agencias-operadores",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "alojamiento",
+      "name": "Servicios de alojamiento",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "alojamiento",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-rural-naturaleza",
+      "name": "Turismo rural y de naturaleza",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "turismo-rural-naturaleza",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-receptivo",
+      "name": "Turismo receptivo",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "traslados-turisticos",
+      "name": "Traslados turisticos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "excursiones",
+      "name": "Excursiones",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "city-tours",
+      "name": "City tours",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "estacionalidad",
+      "name": "Estacionalidad",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "situacion-argentina-brasil",
+      "name": "Situación económica de Argentina y Brasil",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad-aerea",
+      "name": "Conectividad aérea",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

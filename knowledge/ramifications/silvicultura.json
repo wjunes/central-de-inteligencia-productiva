@@ -1,0 +1,337 @@
+{
+  "activity_id": "silvicultura",
+  "activity_name": "Silvicultura y extracción de madera",
+  "sector_id": "forestal-celulosa",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 31,
+  "ramifications": [
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "incendios",
+      "name": "Incendios forestales",
+      "category": "climate_factors",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caminos-rurales",
+      "name": "Caminos rurales",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "certificacion-forestal",
+      "name": "Certificacion forestal",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plantines",
+      "name": "Plantines",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tierra-forestal",
+      "name": "Tierra forestal",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "fertilizantes",
+      "name": "Fertilizantes",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "maquinaria-forestal",
+      "name": "Maquinaria forestal",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-celulosa",
+      "name": "Producción de celulosa",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-celulosa",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-madera",
+      "name": "Industria de la madera",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-madera",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-papel",
+      "name": "Fabricación de papel y cartón",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-papel",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transporte-carga-carretera",
+      "name": "Transporte de carga por carretera",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transporte-carga-carretera",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [
+        {
+          "id": "transporte-ferroviario",
+          "name": "Transporte ferroviario",
+          "category": "logistics",
+          "relation": "related_activity",
+          "target_activity_id": "transporte-ferroviario",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "generacion-electrica",
+      "name": "Generación de energía eléctrica",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "generacion-electrica",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "rolos-pulpa",
+      "name": "Rolos pulpa",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "rolos-aserrio",
+      "name": "Rolos aserrio",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "madera-en-pie",
+      "name": "Madera en pie",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "biomasa-forestal",
+      "name": "Biomasa forestal",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "costos-logisticos",
+      "name": "Costos logísticos",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-ambiental",
+      "name": "Normativa ambiental",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "endurecimiento-de-exigencias-ambientales",
+      "name": "Endurecimiento de exigencias ambientales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "certificacion-fsc",
+      "name": "Certificación forestal (FSC / PEFC)",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-bonos-carbono",
+      "name": "Mercado de bonos de carbono forestal",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

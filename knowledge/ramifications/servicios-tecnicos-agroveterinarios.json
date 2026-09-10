@@ -1,0 +1,286 @@
+{
+  "activity_id": "servicios-tecnicos-agroveterinarios",
+  "activity_name": "Servicios técnicos agropecuarios y veterinarios",
+  "sector_id": "agropecuario",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 27,
+  "ramifications": [
+    {
+      "id": "padron-profesionales",
+      "name": "Padron profesionales",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sanitaria",
+      "name": "Normativa sanitaria",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "adopcion-tecnologica",
+      "name": "Adopción tecnológica",
+      "category": "technologies",
+      "relation": "complement",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "profesionales-agroveterinarios",
+      "name": "Profesionales agroveterinarios",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "laboratorios-diagnostico",
+      "name": "Laboratorios diagnostico",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "software-gestion-agro",
+      "name": "Software gestion agro",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "insumos-veterinarios",
+      "name": "Insumos veterinarios",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ganaderia",
+      "name": "Ganadería",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "ganaderia",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "lecheria",
+      "name": "Lechería",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "lecheria",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agricultura-secano",
+      "name": "Agricultura de secano",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "agricultura-secano",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-agropecuarios",
+      "name": "Servicios agropecuarios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-agropecuarios",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-mayorista-agroinsumos",
+      "name": "Comercio mayorista de insumos agropecuarios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-mayorista-agroinsumos",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "id-biotecnologia",
+      "name": "Investigación, desarrollo y biotecnología",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "id-biotecnologia",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regional-mercosur",
+      "name": "Regional mercosur",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "asistencia-tecnica-agropecuaria",
+      "name": "Asistencia tecnica agropecuaria",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-veterinarios-productivos",
+      "name": "Servicios veterinarios productivos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "asesoramiento-agronomico",
+      "name": "Asesoramiento agronomico",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "planes-sanitarios",
+      "name": "Planes sanitarios",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "planes-nutricionales",
+      "name": "Planes nutricionales",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sanidad-animal",
+      "name": "Sanidad animal",
+      "category": "sanitary_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sanidad-vegetal",
+      "name": "Sanidad vegetal",
+      "category": "sanitary_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

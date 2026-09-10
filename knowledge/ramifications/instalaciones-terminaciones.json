@@ -1,0 +1,203 @@
+{
+  "activity_id": "instalaciones-terminaciones",
+  "activity_name": "Instalaciones y terminaciones especializadas",
+  "sector_id": "construccion",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 19,
+  "ramifications": [
+    {
+      "id": "actividad-construccion",
+      "name": "Actividad construccion",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mano-de-obra-especializada",
+      "name": "Mano de obra especializada",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "insumos-importados",
+      "name": "Insumos importados",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cables",
+      "name": "Cables",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caneria",
+      "name": "Caneria",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "equipos-hvac",
+      "name": "Equipos hvac",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "revestimientos",
+      "name": "Revestimientos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "aberturas",
+      "name": "Aberturas",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "construccion-edificios",
+      "name": "Construcción de edificios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "construccion-edificios",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-electrica-electronica",
+      "name": "Fabricación de productos eléctricos y electrónicos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-electrica-electronica",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "productos-quimicos-diversos",
+      "name": "Productos químicos diversos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "productos-quimicos-diversos",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "instalacion-electrica",
+      "name": "Instalacion electrica",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "instalacion-sanitaria",
+      "name": "Instalacion sanitaria",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "climatizacion",
+      "name": "Climatizacion",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversion-publica",
+      "name": "Inversión pública",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tasa-interes",
+      "name": "Tasa de interés",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "costo-materiales",
+      "name": "Costo de los materiales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

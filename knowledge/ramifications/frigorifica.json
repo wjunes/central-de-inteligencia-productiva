@@ -1,0 +1,377 @@
+{
+  "activity_id": "frigorifica",
+  "activity_name": "Industria frigorífica",
+  "sector_id": "industria-manufacturera",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 32,
+  "ramifications": [
+    {
+      "id": "oferta-ganado",
+      "name": "Oferta de ganado",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [
+        {
+          "id": "ciclo-ganadero",
+          "name": "Fase del ciclo ganadero",
+          "category": "economic_factors",
+          "relation": "impact",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "competencia-exportacion-pie",
+          "name": "Competencia de la exportación de ganado en pie",
+          "category": "competitive_factors",
+          "relation": "competitor",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "habilitaciones-sanitarias",
+      "name": "Habilitaciones sanitarias",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "acceso-mercados",
+      "name": "Acceso a mercados y barreras",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "costo-energia",
+      "name": "Costo de la energía",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ganado-en-pie",
+      "name": "Ganado en pie",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "energia-frio",
+      "name": "Energia frio",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agua-industrial",
+      "name": "Agua industrial",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "envases",
+      "name": "Envases",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mano-de-obra",
+      "name": "Mano de obra",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ganaderia",
+      "name": "Ganadería",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "ganaderia",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "curtiembre",
+      "name": "Curtiembres y productos de cuero",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "curtiembre",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "puertos-terminales",
+      "name": "Operación portuaria y terminales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "puertos-terminales",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transporte-carga-carretera",
+      "name": "Transporte de carga por carretera",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transporte-carga-carretera",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-exterior",
+      "name": "Comercio exterior y trading",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-exterior",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [
+        {
+          "id": "union-europea",
+          "name": "Unión Europea (cuotas)",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "estatus-sanitario-pais",
+          "name": "Estatus sanitario del país",
+          "category": "sanitary_factors",
+          "relation": "regulation",
+          "direction": "direct",
+          "relevance": "critical",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "carne-bovina-procesada",
+      "name": "Carne bovina procesada",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "carne-ovina-procesada",
+      "name": "Carne ovina procesada",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "menudencias",
+      "name": "Menudencias",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cueros-salados",
+      "name": "Cueros salados",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "harinas-carne",
+      "name": "Harinas carne",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-china",
+      "name": "Demanda de China",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "acuerdos-comerciales",
+      "name": "Acuerdos comerciales",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sanitaria",
+      "name": "Normativa sanitaria",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "concentracion-de-la-demanda-en-china",
+      "name": "Concentración de la demanda en China",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "nuevos-acuerdos-comerciales",
+      "name": "Nuevos acuerdos comerciales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

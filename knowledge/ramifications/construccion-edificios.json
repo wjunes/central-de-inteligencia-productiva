@@ -1,0 +1,245 @@
+{
+  "activity_id": "construccion-edificios",
+  "activity_name": "Construcción de edificios",
+  "sector_id": "construccion",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 23,
+  "ramifications": [
+    {
+      "id": "credito-hipotecario",
+      "name": "Crédito hipotecario",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversion-privada",
+      "name": "Inversión privada",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "regimen-vivienda-promovida",
+      "name": "Régimen de vivienda promovida",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mano-de-obra",
+      "name": "Mano de obra",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cemento",
+      "name": "Cemento",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "hierro",
+      "name": "Hierro",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "aridos",
+      "name": "Aridos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "madera",
+      "name": "Madera",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "maquinaria-vial",
+      "name": "Maquinaria vial",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "productos-minerales-no-metalicos",
+      "name": "Fabricación de productos minerales no metálicos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "productos-minerales-no-metalicos",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-metalica",
+      "name": "Industria metalúrgica y productos de metal",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-metalica",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "instalaciones-terminaciones",
+      "name": "Instalaciones y terminaciones especializadas",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "instalaciones-terminaciones",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "promocion-inmobiliaria",
+      "name": "Promoción y desarrollo inmobiliario",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "promocion-inmobiliaria",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-profesionales",
+      "name": "Servicios profesionales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-profesionales",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "viviendas",
+      "name": "Viviendas",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "edificios-comerciales",
+      "name": "Edificios comerciales",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "naves-industriales",
+      "name": "Naves industriales",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tasa-interes",
+      "name": "Tasa de interés",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversion-publica",
+      "name": "Inversión pública",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "costo-materiales",
+      "name": "Costo de los materiales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "salario-real",
+      "name": "Salario real",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

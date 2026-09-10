@@ -1,0 +1,194 @@
+{
+  "activity_id": "comercio-mayorista-general",
+  "activity_name": "Comercio mayorista general",
+  "sector_id": "comercio",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 18,
+  "ramifications": [
+    {
+      "id": "consumo-interno",
+      "name": "Consumo interno",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cadena-suministro",
+      "name": "Cadena suministro",
+      "category": "logistics",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "margenes",
+      "name": "Margenes",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "stock",
+      "name": "Stock",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "flota-reparto",
+      "name": "Flota reparto",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "depositos",
+      "name": "Depositos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sistemas-gestion",
+      "name": "Sistemas gestion",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-minorista",
+      "name": "Comercio minorista",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-minorista",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "otros-alimentos",
+      "name": "Otros productos alimenticios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "otros-alimentos",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "bebidas",
+      "name": "Elaboración de bebidas",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "bebidas",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "almacenamiento-deposito",
+      "name": "Almacenamiento y depósito",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "almacenamiento-deposito",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "distribucion-mayorista",
+      "name": "Distribucion mayorista",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "logistica-distribucion",
+      "name": "Logistica distribucion",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "credito-comercial",
+      "name": "Credito comercial",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "salario-real",
+      "name": "Salario real",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "informalidad",
+      "name": "Informalidad",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

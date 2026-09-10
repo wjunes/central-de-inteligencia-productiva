@@ -1,0 +1,214 @@
+{
+  "activity_id": "saneamiento-tratamiento",
+  "activity_name": "Saneamiento y tratamiento de aguas residuales",
+  "sector_id": "agua-ambiente",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 20,
+  "ramifications": [
+    {
+      "id": "inversion-infraestructura",
+      "name": "Inversion infraestructura",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cobertura-red",
+      "name": "Cobertura red",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-vertidos",
+      "name": "Normativa vertidos",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "redes-colectoras",
+      "name": "Redes colectoras",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plantas-tratamiento",
+      "name": "Plantas tratamiento",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "energia",
+      "name": "Energía",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "insumos-quimicos",
+      "name": "Insumos quimicos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "obras-infraestructura",
+      "name": "Obras de infraestructura",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "obras-infraestructura",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "captacion-potabilizacion-agua",
+      "name": "Captación, potabilización y distribución de agua",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "captacion-potabilizacion-agua",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "gestion-residuos-reciclaje",
+      "name": "Gestión de residuos y reciclaje",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "gestion-residuos-reciclaje",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "curtiembre",
+      "name": "Curtiembres y productos de cuero",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "curtiembre",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicio-saneamiento",
+      "name": "Servicio saneamiento",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "efluente-tratado",
+      "name": "Efluente tratado",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "lodos",
+      "name": "Lodos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversion-publica",
+      "name": "Inversión pública",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-ambiental",
+      "name": "Normativa ambiental",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "financiamiento-multilateral",
+      "name": "Financiamiento multilateral",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "urbanizacion",
+      "name": "Urbanización",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "endurecimiento-de-exigencias-ambientales",
+      "name": "Endurecimiento de exigencias ambientales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,203 @@
+{
+  "activity_id": "cultivo-cana-azucar",
+  "activity_name": "Cultivo de caña de azúcar",
+  "sector_id": "agropecuario",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 19,
+  "ramifications": [
+    {
+      "id": "disponibilidad-agua",
+      "name": "Disponibilidad de agua",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "planta-industrial-unica",
+      "name": "Planta industrial unica",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "politica-agroenergetica",
+      "name": "Política agroenergética",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plantines-cana",
+      "name": "Plantines cana",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agua-riego",
+      "name": "Agua de riego",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "fertilizantes",
+      "name": "Fertilizantes",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agroquimicos",
+      "name": "Agroquímicos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "maquinaria-cosecha",
+      "name": "Maquinaria cosecha",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-azucarera",
+      "name": "Industria azucarera y sucroalcoholera",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-azucarera",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "biocombustibles",
+      "name": "Producción de biocombustibles",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "biocombustibles",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-agropecuarios",
+      "name": "Servicios agropecuarios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-agropecuarios",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cana-azucar",
+      "name": "Cana azucar",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sectorial",
+      "name": "Normativa sectorial",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precio-petroleo",
+      "name": "Precio del petróleo",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "shock-de-precio-del-petroleo",
+      "name": "Shock de precio del petróleo",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cambio-en-mandato-de-mezcla",
+      "name": "Cambio en el mandato de mezcla de etanol",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "activity_id": "ganaderia",
+  "activity_name": "Ganadería",
+  "sector_id": "agropecuario",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 32,
+  "ramifications": [
+    {
+      "id": "pasturas",
+      "name": "Pasturas",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [
+        {
+          "id": "pasturas-naturales",
+          "name": "Campo natural",
+          "category": "resources",
+          "relation": "dependency",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "pasturas-mejoradas",
+          "name": "Pasturas mejoradas y verdeos",
+          "category": "resources",
+          "relation": "dependency",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "disponibilidad-agua",
+      "name": "Disponibilidad de agua",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sanidad-animal",
+      "name": "Sanidad animal",
+      "category": "sanitary_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "clima",
+      "name": "Clima",
+      "category": "climate_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [
+        {
+          "id": "deficit-forrajero",
+          "name": "Déficit forrajero",
+          "category": "climate_factors",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "granos-forrajeros",
+      "name": "Granos forrajeros",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": [
+        {
+          "id": "cultivo-maiz-sorgo",
+          "name": "Maíz y sorgo",
+          "category": "related_activities",
+          "relation": "related_activity",
+          "target_activity_id": "cultivo-maiz-sorgo",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "cultivo-soja",
+          "name": "Soja",
+          "category": "related_activities",
+          "relation": "related_activity",
+          "target_activity_id": "cultivo-soja",
+          "direction": "indirect",
+          "relevance": "low",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "genetica-animal",
+      "name": "Genética animal",
+      "category": "technologies",
+      "relation": "complement",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agricultura-secano",
+      "name": "Agricultura de secano",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "agricultura-secano",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "frigorifica",
+      "name": "Industria frigorífica",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "frigorifica",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "industria-textil-vestimenta",
+      "name": "Industria textil y de la vestimenta",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "industria-textil-vestimenta",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "curtiembre",
+      "name": "Curtiembres y productos de cuero",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "curtiembre",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transporte-carga-carretera",
+      "name": "Transporte de carga por carretera",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transporte-carga-carretera",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-agropecuarios",
+      "name": "Servicios agropecuarios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-agropecuarios",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [
+        {
+          "id": "union-europea",
+          "name": "Unión Europea (cuota Hilton, 481)",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "estados-unidos",
+          "name": "Estados Unidos",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "carne-bovina",
+      "name": "Carne bovina",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "carne-ovina",
+      "name": "Carne ovina",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "lana",
+      "name": "Lana",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cueros",
+      "name": "Cueros",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ganado-en-pie",
+      "name": "Ganado en pie",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "sequia",
+      "name": "Sequía",
+      "category": "climate_factors",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-china",
+      "name": "Demanda de China",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sanitaria",
+      "name": "Normativa sanitaria",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "evento-climatico-adverso",
+      "name": "Evento climático adverso",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "concentracion-de-la-demanda-en-china",
+      "name": "Concentración de la demanda en China",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "brote-aftosa",
+      "name": "Brote de fiebre aftosa u otra emergencia sanitaria",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "carne-baja-emisiones",
+      "name": "Demanda de carne baja en emisiones / trazable",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

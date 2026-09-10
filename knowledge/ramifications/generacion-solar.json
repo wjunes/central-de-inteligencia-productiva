@@ -1,0 +1,153 @@
+{
+  "activity_id": "generacion-solar",
+  "activity_name": "Generación solar fotovoltaica",
+  "sector_id": "energia",
+  "level": "subactivity",
+  "parent_activity_id": "generacion-electrica",
+  "ramification_count": 14,
+  "ramifications": [
+    {
+      "id": "recurso-solar",
+      "name": "Recurso solar",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "capacidad-transmision",
+      "name": "Capacidad de transmisión",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "paneles-fotovoltaicos",
+      "name": "Paneles fotovoltaicos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transmision-distribucion-electrica",
+      "name": "Transmisión y distribución eléctrica",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transmision-distribucion-electrica",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "hidrogeno-verde",
+      "name": "Hidrógeno verde y derivados",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "hidrogeno-verde",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "construccion-edificios",
+      "name": "Construcción de edificios",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "construccion-edificios",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "energia-electrica",
+      "name": "Energia electrica",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-electrica",
+      "name": "Demanda electrica",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tasa-interes",
+      "name": "Tasa de interés",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precios-internacionales",
+      "name": "Precios internacionales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sectorial",
+      "name": "Normativa sectorial",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "caida-de-precios-internacionales",
+      "name": "Caída sostenida de precios internacionales",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "suba-sostenida-de-precios",
+      "name": "Suba sostenida de precios internacionales",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

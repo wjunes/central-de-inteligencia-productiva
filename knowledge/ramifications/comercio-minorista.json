@@ -1,0 +1,194 @@
+{
+  "activity_id": "comercio-minorista",
+  "activity_name": "Comercio minorista",
+  "sector_id": "comercio",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 18,
+  "ramifications": [
+    {
+      "id": "consumo-interno",
+      "name": "Consumo interno",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-receptivo",
+      "name": "Turismo receptivo",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "diferencia-precios-frontera",
+      "name": "Diferencia de precios en frontera",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "locales",
+      "name": "Locales",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "stock",
+      "name": "Stock",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "personal",
+      "name": "Personal",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plataformas-venta",
+      "name": "Plataformas venta",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-mayorista-general",
+      "name": "Comercio mayorista general",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "comercio-mayorista-general",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "panaderia-farinaceos",
+      "name": "Panificados y productos farináceos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "panaderia-farinaceos",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-logisticos",
+      "name": "Servicios logísticos y agenciamiento",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-logisticos",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "software-ti",
+      "name": "Desarrollo de software y servicios informáticos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "software-ti",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "venta-minorista-alimentos",
+      "name": "Venta minorista alimentos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "venta-minorista-especializada",
+      "name": "Venta minorista especializada",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "comercio-electronico",
+      "name": "Comercio electronico",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "salario-real",
+      "name": "Salario real",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "situacion-argentina-brasil",
+      "name": "Situación económica de Argentina y Brasil",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "informalidad",
+      "name": "Informalidad",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

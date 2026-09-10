@@ -1,0 +1,214 @@
+{
+  "activity_id": "agencias-operadores",
+  "activity_name": "Agencias de viaje y operadores turísticos",
+  "sector_id": "turismo",
+  "level": "subactivity",
+  "parent_activity_id": "turismo",
+  "ramification_count": 20,
+  "ramifications": [
+    {
+      "id": "flujo-turistico",
+      "name": "Flujo turístico",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad",
+      "name": "Conectividad",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "promocion-pais",
+      "name": "Promocion pais",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "acuerdos-proveedores",
+      "name": "Acuerdos proveedores",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plataformas-reserva",
+      "name": "Plataformas reserva",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "personal-especializado",
+      "name": "Personal especializado",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "alojamiento",
+      "name": "Servicios de alojamiento",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "alojamiento",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transporte-aereo",
+      "name": "Transporte aéreo",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transporte-aereo",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transporte-pasajeros",
+      "name": "Transporte de pasajeros",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transporte-pasajeros",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-rural-naturaleza",
+      "name": "Turismo rural y de naturaleza",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "turismo-rural-naturaleza",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-receptivo",
+      "name": "Turismo receptivo",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "paquetes-turisticos",
+      "name": "Paquetes turisticos",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicio-receptivo",
+      "name": "Servicio receptivo",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "excursiones",
+      "name": "Excursiones",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "intermediacion",
+      "name": "Intermediacion",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "situacion-argentina-brasil",
+      "name": "Situación económica de Argentina y Brasil",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad-aerea",
+      "name": "Conectividad aérea",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "estacionalidad",
+      "name": "Estacionalidad",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

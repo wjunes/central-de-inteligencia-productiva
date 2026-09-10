@@ -1,0 +1,133 @@
+{
+  "activity_id": "generacion-eolica",
+  "activity_name": "Generación eólica",
+  "sector_id": "energia",
+  "level": "subactivity",
+  "parent_activity_id": "generacion-electrica",
+  "ramification_count": 12,
+  "ramifications": [
+    {
+      "id": "recurso-eolico",
+      "name": "Recurso eólico",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "capacidad-transmision",
+      "name": "Capacidad de transmisión",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "contratos-ppa",
+      "name": "Contratos ppa",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "aerogeneradores",
+      "name": "Aerogeneradores",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "transmision-distribucion-electrica",
+      "name": "Transmisión y distribución eléctrica",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "transmision-distribucion-electrica",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "hidrogeno-verde",
+      "name": "Hidrógeno verde y derivados",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "hidrogeno-verde",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-profesionales",
+      "name": "Servicios profesionales",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-profesionales",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "energia-electrica",
+      "name": "Energia electrica",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-electrica",
+      "name": "Demanda electrica",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tasa-interes",
+      "name": "Tasa de interés",
+      "category": "financial_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-sectorial",
+      "name": "Normativa sectorial",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "activity_id": "software-ti",
+  "activity_name": "Desarrollo de software y servicios informáticos",
+  "sector_id": "servicios-productivos-tecnologicos",
+  "level": "activity",
+  "parent_activity_id": null,
+  "ramification_count": 28,
+  "ramifications": [
+    {
+      "id": "disponibilidad-talento",
+      "name": "Disponibilidad de talento",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [
+        {
+          "id": "formacion-tic",
+          "name": "Formación de profesionales TIC",
+          "category": "labor_factors",
+          "relation": "dependency",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "competencia-salarial-global",
+          "name": "Competencia salarial global por talento",
+          "category": "labor_factors",
+          "relation": "competitor",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "regimen-promocion-software",
+      "name": "Régimen de promoción del software",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad-internacional",
+      "name": "Conectividad internacional",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "talento-ti",
+      "name": "Talento ti",
+      "category": "labor_factors",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "infraestructura-cloud",
+      "name": "Infraestructura cloud",
+      "category": "infrastructure",
+      "relation": "infrastructure",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "herramientas-desarrollo",
+      "name": "Herramientas desarrollo",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad",
+      "name": "Conectividad",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-globales-exportacion",
+      "name": "Servicios globales de exportación",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "servicios-globales-exportacion",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "data-centers",
+      "name": "Centros de datos e infraestructura digital",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "data-centers",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "telecomunicaciones",
+      "name": "Telecomunicaciones",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "telecomunicaciones",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "id-biotecnologia",
+      "name": "Investigación, desarrollo y biotecnología",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "id-biotecnologia",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "exportacion",
+      "name": "Exportacion",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-global",
+      "name": "Mercado global",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "software-a-medida",
+      "name": "Software a medida",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "productos-saas",
+      "name": "Productos saas",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-integracion",
+      "name": "Servicios integracion",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ciberseguridad",
+      "name": "Ciberseguridad",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "soporte-ti",
+      "name": "Soporte ti",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "demanda-externa",
+      "name": "Demanda externa",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "ciclo-inversion-tecnologica-eeuu",
+          "name": "Ciclo de inversión tecnológica en EE.UU.",
+          "category": "demand_factors",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "normativa-promocion",
+      "name": "Regímenes de promoción de inversiones",
+      "category": "regulatory_factors",
+      "relation": "regulation",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "costos-laborales",
+      "name": "Costos laborales",
+      "category": "cost_factors",
+      "relation": "cost",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "cierre-o-restriccion-de-mercados",
+      "name": "Cierre o restricción de mercados de exportación",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "apertura-de-nuevos-mercados",
+      "name": "Apertura de nuevos mercados",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "atraccion-de-inversion",
+      "name": "Atracción de inversión y nuevos proyectos",
+      "category": "opportunities",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "escasez-de-talento-especializado",
+      "name": "Escasez de talento especializado",
+      "category": "risks",
+      "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "adopcion-ia",
+      "name": "Adopción de inteligencia artificial",
+      "category": "technologies",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}

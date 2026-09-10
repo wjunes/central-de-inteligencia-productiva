@@ -1,0 +1,194 @@
+{
+  "activity_id": "alojamiento",
+  "activity_name": "Servicios de alojamiento",
+  "sector_id": "turismo",
+  "level": "subactivity",
+  "parent_activity_id": "turismo",
+  "ramification_count": 18,
+  "ramifications": [
+    {
+      "id": "flujo-turistico",
+      "name": "Flujo turístico",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "conectividad-aerea",
+      "name": "Conectividad aérea",
+      "category": "resources",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "estacionalidad",
+      "name": "Estacionalidad",
+      "category": "demand_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inmuebles",
+      "name": "Inmuebles",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "personal",
+      "name": "Personal",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "servicios-basicos",
+      "name": "Servicios basicos",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plataformas-reserva",
+      "name": "Plataformas reserva",
+      "category": "inputs",
+      "relation": "input",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "gastronomia",
+      "name": "Servicios de gastronomía",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "gastronomia",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "agencias-operadores",
+      "name": "Agencias de viaje y operadores turísticos",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "agencias-operadores",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-rural-naturaleza",
+      "name": "Turismo rural y de naturaleza",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "turismo-rural-naturaleza",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "promocion-inmobiliaria",
+      "name": "Promoción y desarrollo inmobiliario",
+      "category": "related_activities",
+      "relation": "related_activity",
+      "target_activity_id": "promocion-inmobiliaria",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "turismo-receptivo",
+      "name": "Turismo receptivo",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercado-interno",
+      "name": "Mercado interno",
+      "category": "markets",
+      "relation": "market",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "plazas-hoteleras",
+      "name": "Plazas hoteleras",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "alojamiento-rural",
+      "name": "Alojamiento rural",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "alquiler-temporario",
+      "name": "Alquiler temporario",
+      "category": "products",
+      "relation": "output",
+      "direction": "direct",
+      "relevance": "low",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "situacion-argentina-brasil",
+      "name": "Situación económica de Argentina y Brasil",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    }
+  ]
+}
