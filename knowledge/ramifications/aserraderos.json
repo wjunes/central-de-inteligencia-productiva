@@ -14,7 +14,18 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "competencia-con-celulosa",
+          "name": "Competencia por rollos con la industria de celulosa",
+          "category": "competitive_factors",
+          "relation": "competitor",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "costo-energia",
@@ -24,11 +35,22 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "autoabastecimiento-con-residuos",
+          "name": "Autoabastecimiento energético con residuos de aserrío",
+          "category": "opportunities",
+          "relation": "opportunity",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "rolos-aserrio",
-      "name": "Rolos aserrio",
+      "name": "Rollos para aserrío",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -80,7 +102,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 24,
+  "ramification_count": 31,
   "ramifications": [
     {
       "id": "disponibilidad-agua",
@@ -88,7 +88,7 @@
     },
     {
       "id": "energia-riego",
-      "name": "Energia riego",
+      "name": "Energía riego",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -99,8 +99,8 @@
     {
       "id": "molineria",
       "name": "Molinería",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "molineria",
       "direction": "direct",
       "relevance": "critical",
@@ -132,8 +132,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -142,34 +142,13 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": [
-        {
-          "id": "mercado-brasil-arroz",
-          "name": "Brasil",
-          "category": "markets",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        },
-        {
-          "id": "mercado-iraq-arroz",
-          "name": "Irak y Medio Oriente",
-          "category": "markets",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "medium",
-          "depth": 2,
-          "children": []
-        }
-      ]
+      "children": []
     },
     {
       "id": "arroz-cascara",
@@ -268,6 +247,288 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-insumos",
+      "name": "Agua de riego, energía, semilla y fertilizantes",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Cultivo de arroz bajo riego",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transformacion-molineria",
+      "name": "Industria molinera arrocera",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "molineria"
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de arroz elaborado",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Brasil, Medio Oriente, Unión Europea, Perú",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-arroz",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "brasil",
+          "name": "Brasil",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "brasil-demanda",
+              "name": "Demanda — Brasil",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-precios",
+              "name": "Precios — Brasil",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Brasil",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-competencia",
+              "name": "Competencia de otros orígenes — Brasil",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "medio-oriente",
+          "name": "Irak y Medio Oriente",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "medio-oriente-demanda",
+              "name": "Demanda — Irak y Medio Oriente",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "medio-oriente-precios",
+              "name": "Precios — Irak y Medio Oriente",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "medio-oriente-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Irak y Medio Oriente",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "medio-oriente-competencia",
+              "name": "Competencia de otros orígenes — Irak y Medio Oriente",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "union-europea",
+          "name": "Unión Europea",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "union-europea-demanda",
+              "name": "Demanda — Unión Europea",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-precios",
+              "name": "Precios — Unión Europea",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Unión Europea",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-competencia",
+              "name": "Competencia de otros orígenes — Unión Europea",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "peru-mexico",
+          "name": "Perú y México",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "peru-mexico-demanda",
+              "name": "Demanda — Perú y México",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "peru-mexico-precios",
+              "name": "Precios — Perú y México",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "peru-mexico-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Perú y México",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "peru-mexico-competencia",
+              "name": "Competencia de otros orígenes — Perú y México",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "acuerdo-de-precio-convenio",
+      "name": "Acuerdo de precio del convenio arrocero",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "critical",
       "depth": 1,
       "children": []
     }

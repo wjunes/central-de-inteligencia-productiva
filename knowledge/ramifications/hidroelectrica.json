@@ -14,11 +14,22 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "sequia",
+          "name": "Sequía plurianual",
+          "category": "climate_factors",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "critical",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "gestion-embalses",
-      "name": "Gestion embalses",
+      "name": "Gestión de embalses",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -80,7 +91,7 @@
     },
     {
       "id": "energia-electrica",
-      "name": "Energia electrica",
+      "name": "Energía eléctrica",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -96,11 +107,22 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "fenomeno-enso",
+          "name": "Fenómeno El Niño / La Niña",
+          "category": "climate_factors",
+          "relation": "impact",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "demanda-electrica",
-      "name": "Demanda electrica",
+      "name": "Demanda eléctrica",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "indirect",

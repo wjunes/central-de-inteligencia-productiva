@@ -68,7 +68,7 @@
     },
     {
       "id": "sistemas-gestion",
-      "name": "Sistemas gestion",
+      "name": "Sistemas gestión",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -79,8 +79,8 @@
     {
       "id": "comercio-minorista",
       "name": "Comercio minorista",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-minorista",
       "direction": "direct",
       "relevance": "high",
@@ -112,8 +112,8 @@
     {
       "id": "almacenamiento-deposito",
       "name": "Almacenamiento y depósito",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "almacenamiento-deposito",
       "direction": "direct",
       "relevance": "medium",
@@ -132,7 +132,7 @@
     },
     {
       "id": "distribucion-mayorista",
-      "name": "Distribucion mayorista",
+      "name": "Distribución mayorista",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -142,7 +142,7 @@
     },
     {
       "id": "logistica-distribucion",
-      "name": "Logistica distribucion",
+      "name": "Logística distribución",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -152,7 +152,7 @@
     },
     {
       "id": "credito-comercial",
-      "name": "Credito comercial",
+      "name": "Crédito comercial",
       "category": "products",
       "relation": "output",
       "direction": "direct",

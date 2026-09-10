@@ -58,7 +58,7 @@
     },
     {
       "id": "quimicos-curtido",
-      "name": "Quimicos curtido",
+      "name": "Químicos de curtido",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -89,8 +89,8 @@
     {
       "id": "frigorifica",
       "name": "Industria frigorífica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "frigorifica",
       "direction": "direct",
       "relevance": "high",
@@ -100,8 +100,8 @@
     {
       "id": "ganaderia",
       "name": "Ganadería",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "ganaderia",
       "direction": "direct",
       "relevance": "high",
@@ -111,8 +111,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -122,8 +122,8 @@
     {
       "id": "industria-quimica",
       "name": "Industria química",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-quimica",
       "direction": "direct",
       "relevance": "medium",
@@ -132,7 +132,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

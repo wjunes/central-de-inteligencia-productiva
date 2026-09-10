@@ -90,8 +90,8 @@
     {
       "id": "servicios-profesionales",
       "name": "Servicios profesionales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-profesionales",
       "direction": "direct",
       "relevance": "medium",
@@ -101,8 +101,8 @@
     {
       "id": "id-biotecnologia",
       "name": "Investigación, desarrollo y biotecnología",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "id-biotecnologia",
       "direction": "direct",
       "relevance": "medium",
@@ -132,7 +132,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

@@ -14,7 +14,18 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "irradiacion-estacional",
+          "name": "Estacionalidad de la irradiación",
+          "category": "climate_factors",
+          "relation": "impact",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "capacidad-transmision",
@@ -34,7 +45,28 @@
       "direction": "direct",
       "relevance": "medium",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "precio-modulos",
+          "name": "Precio internacional de módulos fotovoltaicos",
+          "category": "cost_factors",
+          "relation": "cost",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "generacion-distribuida",
+          "name": "Expansión de la generación distribuida",
+          "category": "technologies",
+          "relation": "opportunity",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "transmision-distribucion-electrica",
@@ -50,8 +82,8 @@
     {
       "id": "hidrogeno-verde",
       "name": "Hidrógeno verde y derivados",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "hidrogeno-verde",
       "direction": "direct",
       "relevance": "high",
@@ -81,7 +113,7 @@
     },
     {
       "id": "energia-electrica",
-      "name": "Energia electrica",
+      "name": "Energía eléctrica",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -91,7 +123,7 @@
     },
     {
       "id": "demanda-electrica",
-      "name": "Demanda electrica",
+      "name": "Demanda eléctrica",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "indirect",

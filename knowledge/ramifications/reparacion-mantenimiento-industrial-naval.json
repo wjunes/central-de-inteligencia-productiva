@@ -89,8 +89,8 @@
     {
       "id": "maquinaria-equipo",
       "name": "Fabricación de maquinaria y equipo",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "maquinaria-equipo",
       "direction": "direct",
       "relevance": "medium",
@@ -100,8 +100,8 @@
     {
       "id": "industria-metalica",
       "name": "Industria metalúrgica y productos de metal",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-metalica",
       "direction": "direct",
       "relevance": "medium",
@@ -122,8 +122,8 @@
     {
       "id": "transporte-maritimo-fluvial",
       "name": "Transporte marítimo y fluvial",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-maritimo-fluvial",
       "direction": "direct",
       "relevance": "medium",
@@ -133,8 +133,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -195,7 +195,7 @@
     },
     {
       "id": "reparacion-maquinaria",
-      "name": "Reparacion maquinaria",
+      "name": "Reparación maquinaria",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -205,7 +205,7 @@
     },
     {
       "id": "reparacion-naval",
-      "name": "Reparacion naval",
+      "name": "Reparación naval",
       "category": "products",
       "relation": "output",
       "direction": "direct",

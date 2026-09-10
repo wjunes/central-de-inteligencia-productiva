@@ -80,8 +80,8 @@
     {
       "id": "comercio-minorista",
       "name": "Comercio minorista",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-minorista",
       "direction": "direct",
       "relevance": "medium",
@@ -111,7 +111,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -141,7 +141,7 @@
     },
     {
       "id": "indumentaria-diseno",
-      "name": "Indumentaria diseno",
+      "name": "Indumentaria diseño",
       "category": "products",
       "relation": "output",
       "direction": "direct",

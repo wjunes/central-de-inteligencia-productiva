@@ -68,7 +68,7 @@
     },
     {
       "id": "insumos-quimicos",
-      "name": "Insumos quimicos",
+      "name": "Insumos químicos",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",

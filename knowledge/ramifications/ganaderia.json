@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 32,
+  "ramification_count": 42,
   "ramifications": [
     {
       "id": "pasturas",
@@ -90,22 +90,11 @@
         {
           "id": "cultivo-maiz-sorgo",
           "name": "Maíz y sorgo",
-          "category": "related_activities",
-          "relation": "related_activity",
+          "category": "suppliers",
+          "relation": "supplier",
           "target_activity_id": "cultivo-maiz-sorgo",
           "direction": "indirect",
           "relevance": "medium",
-          "depth": 2,
-          "children": []
-        },
-        {
-          "id": "cultivo-soja",
-          "name": "Soja",
-          "category": "related_activities",
-          "relation": "related_activity",
-          "target_activity_id": "cultivo-soja",
-          "direction": "indirect",
-          "relevance": "low",
           "depth": 2,
           "children": []
         }
@@ -135,8 +124,8 @@
     {
       "id": "frigorifica",
       "name": "Industria frigorífica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "frigorifica",
       "direction": "direct",
       "relevance": "critical",
@@ -157,8 +146,8 @@
     {
       "id": "curtiembre",
       "name": "Curtiembres y productos de cuero",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "curtiembre",
       "direction": "direct",
       "relevance": "high",
@@ -168,8 +157,8 @@
     {
       "id": "transporte-carga-carretera",
       "name": "Transporte de carga por carretera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-carga-carretera",
       "direction": "direct",
       "relevance": "medium",
@@ -179,8 +168,8 @@
     {
       "id": "servicios-agropecuarios",
       "name": "Servicios agropecuarios",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-agropecuarios",
       "direction": "direct",
       "relevance": "high",
@@ -199,34 +188,13 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": [
-        {
-          "id": "union-europea",
-          "name": "Unión Europea (cuota Hilton, 481)",
-          "category": "markets",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        },
-        {
-          "id": "estados-unidos",
-          "name": "Estados Unidos",
-          "category": "markets",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "medium",
-          "depth": 2,
-          "children": []
-        }
-      ]
+      "children": []
     },
     {
       "id": "carne-bovina",
@@ -400,11 +368,226 @@
     },
     {
       "id": "carne-baja-emisiones",
-      "name": "Demanda de carne baja en emisiones / trazable",
+      "name": "Demanda de carne baja en emisiones y trazable",
       "category": "opportunities",
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-comercio-mayorista-agroinsumos",
+      "name": "Proveedores de insumos agropecuarios",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-mayorista-agroinsumos"
+    },
+    {
+      "id": "vc-servicios-servicios-tecnicos-agroveterinarios",
+      "name": "Servicios veterinarios y técnicos",
+      "category": "value_chain",
+      "stage": "servicios",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "servicios-tecnicos-agroveterinarios"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Producción: cría, recría e invernada",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transformacion-frigorifica",
+      "name": "Transformación: industria frigorífica",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "frigorifica"
+    },
+    {
+      "id": "vc-distribucion-transporte-carga-carretera",
+      "name": "Distribución: transporte de haciendas y carne",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "transporte-carga-carretera"
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Comercialización y exportación",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercados internacionales de carne",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-ganado",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "china",
+          "name": "China (carne)",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "critical",
+          "depth": 2,
+          "children": [
+            {
+              "id": "china-demanda",
+              "name": "Demanda — China (carne)",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-precios",
+              "name": "Precios — China (carne)",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — China (carne)",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-competencia",
+              "name": "Competencia de otros orígenes — China (carne)",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "turquia-magreb",
+          "name": "Turquía y Magreb (ganado en pie)",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "turquia-magreb-demanda",
+              "name": "Demanda — Turquía y Magreb (ganado en pie)",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "turquia-magreb-precios",
+              "name": "Precios — Turquía y Magreb (ganado en pie)",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "turquia-magreb-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Turquía y Magreb (ganado en pie)",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "turquia-magreb-competencia",
+              "name": "Competencia de otros orígenes — Turquía y Magreb (ganado en pie)",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intencion-de-retencion-o-liquidacion",
+      "name": "Señal de retención o liquidación de vientres",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "habilitacion-de-nuevos-mercados",
+      "name": "Habilitación sanitaria de nuevos mercados",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

@@ -14,7 +14,18 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "relacion-maiz-cerdo",
+          "name": "Relación de precios maíz/cerdo",
+          "category": "economic_factors",
+          "relation": "cost",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "sanidad-animal",
@@ -24,7 +35,18 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "peste-porcina-africana",
+          "name": "Riesgo de peste porcina africana en la región",
+          "category": "sanitary_factors",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "critical",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "granos-forrajeros",
@@ -127,7 +149,28 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "sustitucion-entre-carnes",
+          "name": "Sustitución entre carne porcina, aviar y bovina",
+          "category": "demand_factors",
+          "relation": "competitor",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "competencia-importacion-brasil",
+          "name": "Competencia de la importación desde Brasil",
+          "category": "competitive_factors",
+          "relation": "competitor",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "normativa-sanitaria",

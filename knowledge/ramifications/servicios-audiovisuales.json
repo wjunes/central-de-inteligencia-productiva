@@ -18,7 +18,7 @@
     },
     {
       "id": "cabina-produccion",
-      "name": "Cabina produccion",
+      "name": "Cabina producción",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -58,7 +58,7 @@
     },
     {
       "id": "equipamiento-tecnico",
-      "name": "Equipamiento tecnico",
+      "name": "Equipamiento técnico",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -111,8 +111,8 @@
     {
       "id": "software-ti",
       "name": "Desarrollo de software y servicios informáticos",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "software-ti",
       "direction": "direct",
       "relevance": "medium",
@@ -122,8 +122,8 @@
     {
       "id": "telecomunicaciones",
       "name": "Telecomunicaciones",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "telecomunicaciones",
       "direction": "direct",
       "relevance": "high",
@@ -132,7 +132,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

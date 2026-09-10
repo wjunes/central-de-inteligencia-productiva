@@ -18,7 +18,7 @@
     },
     {
       "id": "contratos-venta-energia",
-      "name": "Contratos venta energia",
+      "name": "Contratos venta energía",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -34,11 +34,22 @@
       "direction": "direct",
       "relevance": "medium",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "disponibilidad-residuos-forestales",
+          "name": "Disponibilidad de residuos forestales",
+          "category": "resources",
+          "relation": "dependency",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "cascara-arroz",
-      "name": "Cascara arroz",
+      "name": "Cáscara de arroz",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -112,7 +123,7 @@
     },
     {
       "id": "energia-electrica",
-      "name": "Energia electrica",
+      "name": "Energía eléctrica",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -142,7 +153,7 @@
     },
     {
       "id": "demanda-electrica",
-      "name": "Demanda electrica",
+      "name": "Demanda eléctrica",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "indirect",

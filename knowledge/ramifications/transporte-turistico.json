@@ -29,8 +29,8 @@
     {
       "id": "combustibles",
       "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "combustibles",
       "direction": "direct",
       "relevance": "medium",
@@ -70,8 +70,8 @@
     {
       "id": "transporte-pasajeros",
       "name": "Transporte de pasajeros",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-pasajeros",
       "direction": "direct",
       "relevance": "medium",

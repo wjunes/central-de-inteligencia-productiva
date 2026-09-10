@@ -4,7 +4,7 @@
   "sector_id": "servicios-productivos-tecnologicos",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 28,
+  "ramification_count": 34,
   "ramifications": [
     {
       "id": "disponibilidad-talento",
@@ -59,7 +59,7 @@
     },
     {
       "id": "talento-ti",
-      "name": "Talento ti",
+      "name": "Talento en tecnología",
       "category": "labor_factors",
       "relation": "dependency",
       "direction": "direct",
@@ -69,7 +69,7 @@
     },
     {
       "id": "infraestructura-cloud",
-      "name": "Infraestructura cloud",
+      "name": "Infraestructura en la nube",
       "category": "infrastructure",
       "relation": "infrastructure",
       "direction": "direct",
@@ -100,8 +100,8 @@
     {
       "id": "servicios-globales-exportacion",
       "name": "Servicios globales de exportación",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-globales-exportacion",
       "direction": "direct",
       "relevance": "high",
@@ -111,8 +111,8 @@
     {
       "id": "data-centers",
       "name": "Centros de datos e infraestructura digital",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "data-centers",
       "direction": "direct",
       "relevance": "high",
@@ -122,8 +122,8 @@
     {
       "id": "telecomunicaciones",
       "name": "Telecomunicaciones",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "telecomunicaciones",
       "direction": "direct",
       "relevance": "high",
@@ -133,8 +133,8 @@
     {
       "id": "id-biotecnologia",
       "name": "Investigación, desarrollo y biotecnología",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "id-biotecnologia",
       "direction": "direct",
       "relevance": "medium",
@@ -143,7 +143,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -229,18 +229,7 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": [
-        {
-          "id": "ciclo-inversion-tecnologica-eeuu",
-          "name": "Ciclo de inversión tecnológica en EE.UU.",
-          "category": "demand_factors",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
+      "children": []
     },
     {
       "id": "tipo-de-cambio",
@@ -319,6 +308,71 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-insumos",
+      "name": "Talento, infraestructura cloud y conectividad",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Desarrollo de software y productos",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-comercializacion-servicios-globales-exportacion",
+      "name": "Exportación de servicios",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "servicios-globales-exportacion"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Estados Unidos, Unión Europea, América Latina",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "ciclo-de-inversion-tecnologica-global",
+      "name": "Ciclo de inversión tecnológica global",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "nuevos-regimenes-de-talento",
+      "name": "Cambios en regímenes de promoción y talento",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
       "depth": 1,
       "children": []
     }

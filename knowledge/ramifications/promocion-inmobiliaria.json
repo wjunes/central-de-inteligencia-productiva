@@ -100,8 +100,8 @@
     {
       "id": "servicios-financieros",
       "name": "Servicios financieros y seguros",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-financieros",
       "direction": "direct",
       "relevance": "medium",
@@ -111,8 +111,8 @@
     {
       "id": "servicios-profesionales",
       "name": "Servicios profesionales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-profesionales",
       "direction": "direct",
       "relevance": "medium",

@@ -122,8 +122,8 @@
     {
       "id": "comercio-minorista",
       "name": "Comercio minorista",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-minorista",
       "direction": "direct",
       "relevance": "medium",

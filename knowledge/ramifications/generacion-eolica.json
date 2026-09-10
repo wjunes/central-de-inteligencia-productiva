@@ -14,7 +14,28 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "variabilidad-interanual-viento",
+          "name": "Variabilidad interanual del viento",
+          "category": "climate_factors",
+          "relation": "impact",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "curtailment",
+          "name": "Restricción de despacho por exceso de oferta",
+          "category": "infrastructure",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "capacidad-transmision",
@@ -28,7 +49,7 @@
     },
     {
       "id": "contratos-ppa",
-      "name": "Contratos ppa",
+      "name": "Contratos de compraventa de energía (PPA)",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -44,7 +65,28 @@
       "direction": "direct",
       "relevance": "medium",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "repotenciacion",
+          "name": "Repotenciación y fin de vida útil de parques",
+          "category": "technologies",
+          "relation": "opportunity",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "mantenimiento-especializado",
+          "name": "Mantenimiento especializado y repuestos",
+          "category": "services",
+          "relation": "supplier",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "transmision-distribucion-electrica",
@@ -60,8 +102,8 @@
     {
       "id": "hidrogeno-verde",
       "name": "Hidrógeno verde y derivados",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "hidrogeno-verde",
       "direction": "direct",
       "relevance": "high",
@@ -71,8 +113,8 @@
     {
       "id": "servicios-profesionales",
       "name": "Servicios profesionales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-profesionales",
       "direction": "direct",
       "relevance": "medium",
@@ -91,7 +133,7 @@
     },
     {
       "id": "energia-electrica",
-      "name": "Energia electrica",
+      "name": "Energía eléctrica",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -101,7 +143,7 @@
     },
     {
       "id": "demanda-electrica",
-      "name": "Demanda electrica",
+      "name": "Demanda eléctrica",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "indirect",

@@ -28,7 +28,7 @@
     },
     {
       "id": "promocion-sede",
-      "name": "Promocion sede",
+      "name": "Promoción sede",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -78,7 +78,7 @@
     },
     {
       "id": "tecnologia-eventos",
-      "name": "Tecnologia eventos",
+      "name": "Tecnología eventos",
       "category": "technologies",
       "relation": "complement",
       "direction": "direct",
@@ -111,8 +111,8 @@
     {
       "id": "transporte-aereo",
       "name": "Transporte aéreo",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-aereo",
       "direction": "direct",
       "relevance": "medium",

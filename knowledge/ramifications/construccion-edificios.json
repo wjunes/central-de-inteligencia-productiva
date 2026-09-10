@@ -4,7 +4,7 @@
   "sector_id": "construccion",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 23,
+  "ramification_count": 25,
   "ramifications": [
     {
       "id": "credito-hipotecario",
@@ -12,7 +12,7 @@
       "category": "financial_factors",
       "relation": "cost",
       "direction": "direct",
-      "relevance": "high",
+      "relevance": "critical",
       "depth": 1,
       "children": []
     },
@@ -32,9 +32,20 @@
       "category": "regulatory_factors",
       "relation": "regulation",
       "direction": "direct",
-      "relevance": "high",
+      "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "cambios-en-topes-y-beneficios",
+          "name": "Cambios en topes y beneficios de la vivienda promovida",
+          "category": "regulatory_factors",
+          "relation": "regulation",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "mano-de-obra",
@@ -110,8 +121,8 @@
     {
       "id": "industria-metalica",
       "name": "Industria metalúrgica y productos de metal",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-metalica",
       "direction": "direct",
       "relevance": "high",
@@ -143,8 +154,8 @@
     {
       "id": "servicios-profesionales",
       "name": "Servicios profesionales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-profesionales",
       "direction": "direct",
       "relevance": "medium",
@@ -238,6 +249,26 @@
       "relation": "dependency",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "permisos-de-construccion",
+      "name": "Evolución de permisos de construcción",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "anuncios-de-grandes-obras",
+      "name": "Anuncios de grandes proyectos de inversión",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

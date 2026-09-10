@@ -4,7 +4,7 @@
   "sector_id": "forestal-celulosa",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 29,
+  "ramification_count": 37,
   "ramifications": [
     {
       "id": "abastecimiento-madera",
@@ -48,7 +48,7 @@
     },
     {
       "id": "rolos-pulpa",
-      "name": "Rolos pulpa",
+      "name": "Rollos para pulpa",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -58,7 +58,7 @@
     },
     {
       "id": "quimicos-blanqueo",
-      "name": "Quimicos blanqueo",
+      "name": "Químicos de blanqueo",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -79,8 +79,8 @@
     {
       "id": "silvicultura",
       "name": "Silvicultura y extracción de madera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "silvicultura",
       "direction": "direct",
       "relevance": "critical",
@@ -101,8 +101,8 @@
     {
       "id": "transporte-ferroviario",
       "name": "Transporte ferroviario de carga",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-ferroviario",
       "direction": "direct",
       "relevance": "high",
@@ -112,8 +112,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "critical",
@@ -123,8 +123,8 @@
     {
       "id": "industria-quimica",
       "name": "Industria química",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-quimica",
       "direction": "direct",
       "relevance": "medium",
@@ -133,24 +133,13 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": [
-        {
-          "id": "precio-celulosa-bhkp",
-          "name": "Precio internacional de celulosa (BHKP)",
-          "category": "economic_factors",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "critical",
-          "depth": 2,
-          "children": []
-        }
-      ]
+      "children": []
     },
     {
       "id": "celulosa-kraft",
@@ -164,7 +153,7 @@
     },
     {
       "id": "energia-electrica-excedente",
-      "name": "Energia electrica excedente",
+      "name": "Energía eléctrica excedente",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -309,6 +298,197 @@
       "relation": "risk",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-silvicultura",
+      "name": "Abastecimiento de madera de eucalipto",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "silvicultura"
+    },
+    {
+      "id": "vc-insumos-generacion-electrica",
+      "name": "Energía y agua industrial",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "generacion-electrica"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Producción de pulpa kraft blanqueada",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-distribucion-transporte-ferroviario",
+      "name": "Ferrocarril Central y logística portuaria",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "transporte-ferroviario"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercados internacionales de celulosa (China, Europa)",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-celulosa",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "china",
+          "name": "China",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "critical",
+          "depth": 2,
+          "children": [
+            {
+              "id": "china-demanda",
+              "name": "Demanda — China",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-precios",
+              "name": "Precios — China",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — China",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-competencia",
+              "name": "Competencia de otros orígenes — China",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "europa-occidental",
+          "name": "Europa occidental",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "europa-occidental-demanda",
+              "name": "Demanda — Europa occidental",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "europa-occidental-precios",
+              "name": "Precios — Europa occidental",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "europa-occidental-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Europa occidental",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "europa-occidental-competencia",
+              "name": "Competencia de otros orígenes — Europa occidental",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decision-de-nueva-capacidad",
+      "name": "Anuncio de nueva planta o ampliación de capacidad",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "precio-fibra-corta-china",
+      "name": "Precio de fibra corta en China",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "critical",
       "depth": 1,
       "children": []
     }

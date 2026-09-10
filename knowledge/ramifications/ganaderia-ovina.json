@@ -38,7 +38,7 @@
     },
     {
       "id": "genetica-ovina",
-      "name": "Genetica ovina",
+      "name": "Genética ovina",
       "category": "technologies",
       "relation": "complement",
       "direction": "direct",
@@ -49,8 +49,8 @@
     {
       "id": "industria-textil-vestimenta",
       "name": "Industria textil y de la vestimenta",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-textil-vestimenta",
       "direction": "direct",
       "relevance": "critical",
@@ -60,8 +60,8 @@
     {
       "id": "frigorifica",
       "name": "Industria frigorífica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "frigorifica",
       "direction": "direct",
       "relevance": "critical",
@@ -70,7 +70,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

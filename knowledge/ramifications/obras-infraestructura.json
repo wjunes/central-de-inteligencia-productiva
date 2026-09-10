@@ -8,7 +8,7 @@
   "ramifications": [
     {
       "id": "presupuesto-publico",
-      "name": "Presupuesto publico",
+      "name": "Presupuesto público",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -89,8 +89,8 @@
     {
       "id": "extraccion-piedra-arena-arcilla",
       "name": "Extracción de piedra, arena y arcilla",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "extraccion-piedra-arena-arcilla",
       "direction": "direct",
       "relevance": "high",
@@ -111,8 +111,8 @@
     {
       "id": "combustibles",
       "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "combustibles",
       "direction": "direct",
       "relevance": "high",
@@ -122,8 +122,8 @@
     {
       "id": "transporte-ferroviario",
       "name": "Transporte ferroviario de carga",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-ferroviario",
       "direction": "direct",
       "relevance": "high",

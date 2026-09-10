@@ -79,11 +79,11 @@
     {
       "id": "viticultura",
       "name": "Viticultura",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "viticultura",
       "direction": "direct",
-      "relevance": "medium",
+      "relevance": "high",
       "depth": 1,
       "children": []
     },
@@ -101,8 +101,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -121,7 +121,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

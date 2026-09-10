@@ -4,7 +4,7 @@
   "sector_id": "energia",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 29,
+  "ramification_count": 31,
   "ramifications": [
     {
       "id": "inversion-extranjera",
@@ -42,13 +42,13 @@
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
-      "relevance": "critical",
+      "relevance": "high",
       "depth": 1,
       "children": []
     },
     {
       "id": "energia-renovable",
-      "name": "Energia renovable",
+      "name": "Energía renovable",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -89,8 +89,8 @@
     {
       "id": "generacion-eolica",
       "name": "Generación eólica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "generacion-eolica",
       "direction": "direct",
       "relevance": "critical",
@@ -100,8 +100,8 @@
     {
       "id": "generacion-solar",
       "name": "Generación solar fotovoltaica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "generacion-solar",
       "direction": "direct",
       "relevance": "high",
@@ -111,8 +111,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "critical",
@@ -122,8 +122,8 @@
     {
       "id": "industria-quimica",
       "name": "Industria química",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-quimica",
       "direction": "direct",
       "relevance": "medium",
@@ -133,8 +133,8 @@
     {
       "id": "servicios-profesionales",
       "name": "Servicios profesionales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-profesionales",
       "direction": "direct",
       "relevance": "high",
@@ -143,7 +143,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -158,17 +158,6 @@
       "relation": "market",
       "direction": "direct",
       "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "hidrogeno-verde",
-      "name": "Hidrógeno verde y derivados",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "hidrogeno-verde",
-      "direction": "direct",
-      "relevance": "medium",
       "depth": 1,
       "children": []
     },
@@ -299,6 +288,36 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "competencia-global-de-proyectos",
+      "name": "Competencia global de proyectos de hidrógeno",
+      "category": "competitive_factors",
+      "relation": "competitor",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "decisiones-finales-de-inversion",
+      "name": "Decisiones finales de inversión de proyectos",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "politica-europea-de-hidrogeno",
+      "name": "Política e incentivos de hidrógeno de la Unión Europea",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

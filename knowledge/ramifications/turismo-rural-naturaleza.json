@@ -28,7 +28,7 @@
     },
     {
       "id": "promocion",
-      "name": "Promocion",
+      "name": "Promoción",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",

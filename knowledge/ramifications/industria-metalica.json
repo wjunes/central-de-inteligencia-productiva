@@ -89,8 +89,8 @@
     {
       "id": "construccion-edificios",
       "name": "Construcción de edificios",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "construccion-edificios",
       "direction": "direct",
       "relevance": "high",
@@ -100,8 +100,8 @@
     {
       "id": "maquinaria-equipo",
       "name": "Fabricación de maquinaria y equipo",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "maquinaria-equipo",
       "direction": "direct",
       "relevance": "high",
@@ -182,7 +182,7 @@
     },
     {
       "id": "productos-metalicos",
-      "name": "Productos metalicos",
+      "name": "Productos metálicos",
       "category": "products",
       "relation": "output",
       "direction": "direct",

@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 19,
+  "ramification_count": 22,
   "ramifications": [
     {
       "id": "disponibilidad-agua",
@@ -48,7 +48,7 @@
     },
     {
       "id": "plantines-cana",
-      "name": "Plantines cana",
+      "name": "Plantines caña",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -99,8 +99,8 @@
     {
       "id": "industria-azucarera",
       "name": "Industria azucarera y sucroalcoholera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-azucarera",
       "direction": "direct",
       "relevance": "critical",
@@ -110,8 +110,8 @@
     {
       "id": "biocombustibles",
       "name": "Producción de biocombustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "biocombustibles",
       "direction": "direct",
       "relevance": "high",
@@ -121,8 +121,8 @@
     {
       "id": "servicios-agropecuarios",
       "name": "Servicios agropecuarios",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-agropecuarios",
       "direction": "direct",
       "relevance": "medium",
@@ -141,7 +141,7 @@
     },
     {
       "id": "cana-azucar",
-      "name": "Cana azucar",
+      "name": "Caña de azúcar",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -194,6 +194,40 @@
       "name": "Cambio en el mandato de mezcla de etanol",
       "category": "risks",
       "relation": "risk",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Cultivo de caña bajo riego en Bella Unión",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transformacion-industria-azucarera",
+      "name": "Industria azucarera y sucroalcoholera",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "industria-azucarera"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercado interno de azúcar y etanol",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
       "direction": "direct",
       "relevance": "high",
       "depth": 1,

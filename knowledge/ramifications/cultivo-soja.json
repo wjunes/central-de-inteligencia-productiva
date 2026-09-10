@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "subactivity",
   "parent_activity_id": "agricultura-secano",
-  "ramification_count": 22,
+  "ramification_count": 23,
   "ramifications": [
     {
       "id": "clima",
@@ -28,7 +28,7 @@
     },
     {
       "id": "logistica-granos",
-      "name": "Logistica granos",
+      "name": "Logística de granos",
       "category": "logistics",
       "relation": "dependency",
       "direction": "direct",
@@ -79,8 +79,8 @@
     {
       "id": "acopio-granos",
       "name": "Acopio y comercialización de granos",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "acopio-granos",
       "direction": "direct",
       "relevance": "medium",
@@ -90,8 +90,8 @@
     {
       "id": "elaboracion-aceites",
       "name": "Molienda de oleaginosos y aceites",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "elaboracion-aceites",
       "direction": "direct",
       "relevance": "critical",
@@ -101,8 +101,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -111,7 +111,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -228,6 +228,119 @@
       "relevance": "high",
       "depth": 1,
       "children": []
+    },
+    {
+      "id": "mercados-destino-soja",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "china",
+          "name": "China",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "critical",
+          "depth": 2,
+          "children": [
+            {
+              "id": "china-demanda",
+              "name": "Demanda — China",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-precios",
+              "name": "Precios — China",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — China",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-competencia",
+              "name": "Competencia de otros orígenes — China",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "union-europea",
+          "name": "Unión Europea",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "union-europea-demanda",
+              "name": "Demanda — Unión Europea",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-precios",
+              "name": "Precios — Unión Europea",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Unión Europea",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-competencia",
+              "name": "Competencia de otros orígenes — Unión Europea",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }

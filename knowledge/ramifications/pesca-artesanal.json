@@ -14,7 +14,28 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "corvina-brotola",
+          "name": "Estado de corvina, brótola y pescadilla",
+          "category": "resources",
+          "relation": "dependency",
+          "direction": "direct",
+          "relevance": "critical",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "areas-de-exclusion",
+          "name": "Áreas de exclusión y vedas",
+          "category": "regulatory_factors",
+          "relation": "regulation",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "clima",
@@ -28,13 +49,24 @@
     },
     {
       "id": "cadena-frio",
-      "name": "Cadena frio",
+      "name": "Cadena de frío",
       "category": "logistics",
       "relation": "dependency",
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "infraestructura-desembarco",
+          "name": "Infraestructura de desembarco y frío en puertos artesanales",
+          "category": "infrastructure",
+          "relation": "dependency",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "embarcaciones-menores",
@@ -59,8 +91,8 @@
     {
       "id": "combustibles",
       "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "combustibles",
       "direction": "direct",
       "relevance": "medium",
@@ -70,19 +102,19 @@
     {
       "id": "industria-pesquera",
       "name": "Procesamiento de productos pesqueros",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-pesquera",
       "direction": "direct",
-      "relevance": "medium",
+      "relevance": "high",
       "depth": 1,
       "children": []
     },
     {
       "id": "comercio-minorista",
       "name": "Comercio minorista",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-minorista",
       "direction": "direct",
       "relevance": "medium",

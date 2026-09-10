@@ -89,8 +89,8 @@
     {
       "id": "agricultura-secano",
       "name": "Agricultura de secano",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "agricultura-secano",
       "direction": "direct",
       "relevance": "critical",
@@ -122,8 +122,8 @@
     {
       "id": "biocombustibles",
       "name": "Producción de biocombustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "biocombustibles",
       "direction": "direct",
       "relevance": "high",
@@ -142,7 +142,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

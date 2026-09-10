@@ -79,8 +79,8 @@
     {
       "id": "industria-quimica",
       "name": "Industria química",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-quimica",
       "direction": "direct",
       "relevance": "medium",
@@ -90,8 +90,8 @@
     {
       "id": "id-biotecnologia",
       "name": "Investigación, desarrollo y biotecnología",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "id-biotecnologia",
       "direction": "direct",
       "relevance": "high",
@@ -101,8 +101,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -111,7 +111,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -141,7 +141,7 @@
     },
     {
       "id": "canamo-industrial",
-      "name": "Canamo industrial",
+      "name": "Cáñamo industrial",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -161,7 +161,7 @@
     },
     {
       "id": "semillas-canamo",
-      "name": "Semillas canamo",
+      "name": "Semillas cáñamo",
       "category": "products",
       "relation": "output",
       "direction": "direct",

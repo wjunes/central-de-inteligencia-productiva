@@ -90,8 +90,8 @@
     {
       "id": "muebles",
       "name": "Fabricación de muebles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "muebles",
       "direction": "direct",
       "relevance": "high",
@@ -111,7 +111,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

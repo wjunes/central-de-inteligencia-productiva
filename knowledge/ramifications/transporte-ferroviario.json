@@ -112,8 +112,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -162,12 +162,11 @@
     },
     {
       "id": "combustibles",
-      "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "combustibles",
+      "name": "Combustibles",
+      "category": "economic_factors",
+      "relation": "impact",
       "direction": "direct",
-      "relevance": "medium",
+      "relevance": "high",
       "depth": 1,
       "children": []
     },

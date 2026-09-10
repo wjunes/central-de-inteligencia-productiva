@@ -48,7 +48,7 @@
     },
     {
       "id": "cana-azucar",
-      "name": "Cana azucar",
+      "name": "Caña de azúcar",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -78,7 +78,7 @@
     },
     {
       "id": "insumos-quimicos",
-      "name": "Insumos quimicos",
+      "name": "Insumos químicos",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -89,8 +89,8 @@
     {
       "id": "cultivo-cana-azucar",
       "name": "Cultivo de caña de azúcar",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "cultivo-cana-azucar",
       "direction": "direct",
       "relevance": "critical",
@@ -100,8 +100,8 @@
     {
       "id": "biocombustibles",
       "name": "Producción de biocombustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "biocombustibles",
       "direction": "direct",
       "relevance": "high",

@@ -18,7 +18,7 @@
     },
     {
       "id": "logistica-importacion",
-      "name": "Logistica importacion",
+      "name": "Logística importación",
       "category": "logistics",
       "relation": "dependency",
       "direction": "direct",
@@ -28,7 +28,7 @@
     },
     {
       "id": "planta-refinacion",
-      "name": "Planta refinacion",
+      "name": "Planta refinación",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -38,7 +38,7 @@
     },
     {
       "id": "petroleo-crudo",
-      "name": "Petroleo crudo",
+      "name": "Petróleo crudo",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -69,8 +69,8 @@
     {
       "id": "transporte-carga-carretera",
       "name": "Transporte de carga por carretera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-carga-carretera",
       "direction": "direct",
       "relevance": "high",
@@ -91,8 +91,8 @@
     {
       "id": "servicios-logisticos",
       "name": "Servicios logísticos y agenciamiento",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "servicios-logisticos",
       "direction": "direct",
       "relevance": "medium",

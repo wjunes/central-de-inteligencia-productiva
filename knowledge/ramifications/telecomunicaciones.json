@@ -38,7 +38,7 @@
     },
     {
       "id": "red-fibra",
-      "name": "Red fibra",
+      "name": "Red de fibra óptica",
       "category": "infrastructure",
       "relation": "infrastructure",
       "direction": "direct",
@@ -79,8 +79,8 @@
     {
       "id": "data-centers",
       "name": "Centros de datos e infraestructura digital",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "data-centers",
       "direction": "direct",
       "relevance": "high",
@@ -90,8 +90,8 @@
     {
       "id": "software-ti",
       "name": "Desarrollo de software y servicios informáticos",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "software-ti",
       "direction": "direct",
       "relevance": "high",
@@ -101,8 +101,8 @@
     {
       "id": "servicios-globales-exportacion",
       "name": "Servicios globales de exportación",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-globales-exportacion",
       "direction": "direct",
       "relevance": "high",

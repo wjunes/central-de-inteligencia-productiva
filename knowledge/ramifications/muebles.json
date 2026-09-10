@@ -28,7 +28,7 @@
     },
     {
       "id": "diseno",
-      "name": "Diseno",
+      "name": "Diseño",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -89,8 +89,8 @@
     {
       "id": "industria-madera",
       "name": "Industria de la madera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-madera",
       "direction": "direct",
       "relevance": "high",
@@ -100,8 +100,8 @@
     {
       "id": "tableros-madera",
       "name": "Tableros y madera reconstituida",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "tableros-madera",
       "direction": "direct",
       "relevance": "high",
@@ -142,7 +142,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

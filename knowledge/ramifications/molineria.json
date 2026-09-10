@@ -28,7 +28,7 @@
     },
     {
       "id": "logistica-exportacion",
-      "name": "Logistica exportacion",
+      "name": "Logística exportación",
       "category": "logistics",
       "relation": "dependency",
       "direction": "direct",
@@ -58,7 +58,7 @@
     },
     {
       "id": "maiz",
-      "name": "Maiz",
+      "name": "Maíz",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -89,8 +89,8 @@
     {
       "id": "arroz",
       "name": "Arroz",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "arroz",
       "direction": "direct",
       "relevance": "critical",
@@ -100,8 +100,8 @@
     {
       "id": "cultivo-cereales-invierno",
       "name": "Cultivo de cereales de invierno",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "cultivo-cereales-invierno",
       "direction": "direct",
       "relevance": "high",
@@ -143,7 +143,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

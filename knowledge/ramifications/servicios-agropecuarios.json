@@ -19,8 +19,8 @@
     {
       "id": "combustibles",
       "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "combustibles",
       "direction": "direct",
       "relevance": "medium",
@@ -104,8 +104,8 @@
     {
       "id": "servicios-tecnicos-agroveterinarios",
       "name": "Servicios técnicos agropecuarios y veterinarios",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-tecnicos-agroveterinarios",
       "direction": "direct",
       "relevance": "high",

@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 20,
+  "ramification_count": 24,
   "ramifications": [
     {
       "id": "clima",
@@ -110,7 +110,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -204,6 +204,52 @@
       "category": "opportunities",
       "relation": "opportunity",
       "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Cultivo de vid",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transformacion-vinos",
+      "name": "Elaboración de vino en bodegas",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "vinos"
+    },
+    {
+      "id": "vc-comercializacion-turismo-rural-naturaleza",
+      "name": "Enoturismo y venta directa",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "turismo-rural-naturaleza"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercado interno y exportación de vinos finos",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
       "relevance": "medium",
       "depth": 1,
       "children": []

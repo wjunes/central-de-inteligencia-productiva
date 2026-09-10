@@ -8,7 +8,7 @@
   "ramifications": [
     {
       "id": "energia-renovable",
-      "name": "Energia renovable",
+      "name": "Energía renovable",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -48,7 +48,7 @@
     },
     {
       "id": "energia-electrica",
-      "name": "Energia electrica",
+      "name": "Energía eléctrica",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -121,8 +121,8 @@
     {
       "id": "telecomunicaciones",
       "name": "Telecomunicaciones",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "telecomunicaciones",
       "direction": "direct",
       "relevance": "high",
@@ -132,8 +132,8 @@
     {
       "id": "software-ti",
       "name": "Desarrollo de software y servicios informáticos",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "software-ti",
       "direction": "direct",
       "relevance": "high",
@@ -143,8 +143,8 @@
     {
       "id": "servicios-globales-exportacion",
       "name": "Servicios globales de exportación",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-globales-exportacion",
       "direction": "direct",
       "relevance": "medium",
@@ -163,7 +163,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

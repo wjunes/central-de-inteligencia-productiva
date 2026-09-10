@@ -58,7 +58,7 @@
     },
     {
       "id": "software-gestion-agro",
-      "name": "Software gestion agro",
+      "name": "Software gestión agro",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -112,8 +112,8 @@
     {
       "id": "servicios-agropecuarios",
       "name": "Servicios agropecuarios",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-agropecuarios",
       "direction": "direct",
       "relevance": "high",
@@ -123,8 +123,8 @@
     {
       "id": "comercio-mayorista-agroinsumos",
       "name": "Comercio mayorista de insumos agropecuarios",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "comercio-mayorista-agroinsumos",
       "direction": "direct",
       "relevance": "medium",
@@ -134,8 +134,8 @@
     {
       "id": "id-biotecnologia",
       "name": "Investigación, desarrollo y biotecnología",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "id-biotecnologia",
       "direction": "direct",
       "relevance": "medium",
@@ -164,7 +164,7 @@
     },
     {
       "id": "asistencia-tecnica-agropecuaria",
-      "name": "Asistencia tecnica agropecuaria",
+      "name": "Asistencia técnica agropecuaria",
       "category": "products",
       "relation": "output",
       "direction": "direct",

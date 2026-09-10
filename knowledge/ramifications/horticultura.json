@@ -89,8 +89,8 @@
     {
       "id": "industria-frutihorticola",
       "name": "Procesamiento de frutas y hortalizas",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-frutihorticola",
       "direction": "direct",
       "relevance": "high",
@@ -100,8 +100,8 @@
     {
       "id": "comercio-mayorista-general",
       "name": "Comercio mayorista general",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-mayorista-general",
       "direction": "direct",
       "relevance": "medium",
@@ -111,8 +111,8 @@
     {
       "id": "transporte-carga-carretera",
       "name": "Transporte de carga por carretera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-carga-carretera",
       "direction": "direct",
       "relevance": "medium",

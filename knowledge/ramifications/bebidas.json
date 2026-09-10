@@ -78,7 +78,7 @@
     },
     {
       "id": "malta",
-      "name": "Malta",
+      "name": "Malta cervecera",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -130,8 +130,8 @@
     {
       "id": "cultivo-cereales-invierno",
       "name": "Cultivo de cereales de invierno",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "cultivo-cereales-invierno",
       "direction": "direct",
       "relevance": "high",
@@ -152,8 +152,8 @@
     {
       "id": "comercio-minorista",
       "name": "Comercio minorista",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-minorista",
       "direction": "direct",
       "relevance": "medium",
@@ -172,7 +172,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -213,11 +213,10 @@
     {
       "id": "cerveza",
       "name": "Elaboración de cerveza",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "cerveza",
+      "category": "products",
+      "relation": "output",
       "direction": "direct",
-      "relevance": "medium",
+      "relevance": "low",
       "depth": 1,
       "children": []
     },

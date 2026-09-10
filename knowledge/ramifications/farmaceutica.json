@@ -38,7 +38,7 @@
     },
     {
       "id": "principios-activos",
-      "name": "Principios activos",
+      "name": "Principios activos farmacéuticos",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -69,8 +69,8 @@
     {
       "id": "id-biotecnologia",
       "name": "Investigación, desarrollo y biotecnología",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "id-biotecnologia",
       "direction": "direct",
       "relevance": "high",
@@ -91,8 +91,8 @@
     {
       "id": "servicios-globales-exportacion",
       "name": "Servicios globales de exportación",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-globales-exportacion",
       "direction": "direct",
       "relevance": "medium",
@@ -121,7 +121,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

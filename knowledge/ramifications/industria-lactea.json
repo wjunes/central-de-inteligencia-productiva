@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 31,
+  "ramification_count": 38,
   "ramifications": [
     {
       "id": "remision-leche",
@@ -44,7 +44,18 @@
       "direction": "direct",
       "relevance": "medium",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "estacionalidad-produccion-leche",
+          "name": "Estacionalidad de la producción de leche",
+          "category": "demand_factors",
+          "relation": "impact",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "energia",
@@ -89,8 +100,8 @@
     {
       "id": "lecheria",
       "name": "Lechería",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "lecheria",
       "direction": "direct",
       "relevance": "critical",
@@ -100,8 +111,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "high",
@@ -111,8 +122,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -132,7 +143,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -317,6 +328,287 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-lecheria",
+      "name": "Remisión de leche cruda",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "lecheria"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Secado, quesería y envasado",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de lácteos",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Brasil, Argelia, China, Rusia, Mercosur",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-lacteos",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "brasil",
+          "name": "Brasil",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "brasil-demanda",
+              "name": "Demanda — Brasil",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-precios",
+              "name": "Precios — Brasil",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Brasil",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-competencia",
+              "name": "Competencia de otros orígenes — Brasil",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "argelia",
+          "name": "Argelia",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "argelia-demanda",
+              "name": "Demanda — Argelia",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "argelia-precios",
+              "name": "Precios — Argelia",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "argelia-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Argelia",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "argelia-competencia",
+              "name": "Competencia de otros orígenes — Argelia",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "china",
+          "name": "China",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "china-demanda",
+              "name": "Demanda — China",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-precios",
+              "name": "Precios — China",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — China",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-competencia",
+              "name": "Competencia de otros orígenes — China",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "mercosur",
+          "name": "Mercosur",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "mercosur-demanda",
+              "name": "Demanda — Mercosur",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-precios",
+              "name": "Precios — Mercosur",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Mercosur",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-competencia",
+              "name": "Competencia de otros orígenes — Mercosur",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tendencia-precio-gdt",
+      "name": "Tendencia del precio en Global Dairy Trade",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "politica-lactea-de-brasil",
+      "name": "Cambios en la política láctea de Brasil",
+      "category": "strategic_signals",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

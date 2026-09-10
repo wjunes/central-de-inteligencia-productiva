@@ -28,7 +28,7 @@
     },
     {
       "id": "regimen-promocion",
-      "name": "Regimen promocion",
+      "name": "Régimen promoción",
       "category": "regulatory_factors",
       "relation": "regulation",
       "direction": "direct",
@@ -58,7 +58,7 @@
     },
     {
       "id": "plasticos",
-      "name": "Plasticos",
+      "name": "Plásticos",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -101,8 +101,8 @@
     {
       "id": "telecomunicaciones",
       "name": "Telecomunicaciones",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "telecomunicaciones",
       "direction": "direct",
       "relevance": "medium",
@@ -131,7 +131,7 @@
     },
     {
       "id": "tableros-electricos",
-      "name": "Tableros electricos",
+      "name": "Tableros eléctricos",
       "category": "products",
       "relation": "output",
       "direction": "direct",

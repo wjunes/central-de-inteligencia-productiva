@@ -4,7 +4,7 @@
   "sector_id": "logistica-transporte",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 26,
+  "ramification_count": 29,
   "ramifications": [
     {
       "id": "dragado",
@@ -28,7 +28,7 @@
     },
     {
       "id": "regimen-puerto-libre",
-      "name": "Regimen puerto libre",
+      "name": "Régimen de puerto libre",
       "category": "regulatory_factors",
       "relation": "regulation",
       "direction": "direct",
@@ -44,7 +44,28 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "ferrocarril-central",
+          "name": "Ferrocarril Central",
+          "category": "infrastructure",
+          "relation": "infrastructure",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "accesos-viales",
+          "name": "Accesos viales a las terminales",
+          "category": "infrastructure",
+          "relation": "infrastructure",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "muelles",
@@ -78,7 +99,7 @@
     },
     {
       "id": "sistemas-gestion",
-      "name": "Sistemas gestion",
+      "name": "Sistemas gestión",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -99,8 +120,8 @@
     {
       "id": "transporte-maritimo-fluvial",
       "name": "Transporte marítimo y fluvial",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-maritimo-fluvial",
       "direction": "direct",
       "relevance": "high",
@@ -110,8 +131,8 @@
     {
       "id": "transporte-carga-carretera",
       "name": "Transporte de carga por carretera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-carga-carretera",
       "direction": "direct",
       "relevance": "high",
@@ -154,17 +175,17 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
-      "relevance": "high",
+      "relevance": "critical",
       "depth": 1,
       "children": []
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -267,6 +288,36 @@
       "name": "Apertura de nuevos mercados",
       "category": "opportunities",
       "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "nueva-terminal-o-concesion",
+      "name": "Nueva terminal o cambio de concesión",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "movimiento-de-contenedores",
+      "name": "Movimiento mensual de contenedores y graneles",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "inversiones-portuarias-regionales",
+      "name": "Inversiones portuarias en la región",
+      "category": "strategic_signals",
+      "relation": "risk",
       "direction": "indirect",
       "relevance": "medium",
       "depth": 1,

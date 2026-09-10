@@ -8,7 +8,7 @@
   "ramifications": [
     {
       "id": "campana-agricola",
-      "name": "Campana agricola",
+      "name": "Campaña agrícola",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -58,7 +58,7 @@
     },
     {
       "id": "logistica",
-      "name": "Logistica",
+      "name": "Logística",
       "category": "logistics",
       "relation": "dependency",
       "direction": "direct",
@@ -68,7 +68,7 @@
     },
     {
       "id": "credito-comercial",
-      "name": "Credito comercial",
+      "name": "Crédito comercial",
       "category": "financial_factors",
       "relation": "cost",
       "direction": "direct",
@@ -101,8 +101,8 @@
     {
       "id": "industria-quimica",
       "name": "Industria química",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-quimica",
       "direction": "direct",
       "relevance": "high",
@@ -112,8 +112,8 @@
     {
       "id": "maquinaria-equipo",
       "name": "Fabricación de maquinaria y equipo",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "maquinaria-equipo",
       "direction": "direct",
       "relevance": "medium",
@@ -142,7 +142,7 @@
     },
     {
       "id": "asesoramiento-tecnico-comercial",
-      "name": "Asesoramiento tecnico comercial",
+      "name": "Asesoramiento técnico comercial",
       "category": "products",
       "relation": "output",
       "direction": "direct",

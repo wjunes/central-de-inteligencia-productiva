@@ -4,7 +4,7 @@
   "sector_id": "pesca-acuicultura",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 29,
+  "ramification_count": 35,
   "ramifications": [
     {
       "id": "cuotas-captura",
@@ -29,8 +29,8 @@
     {
       "id": "combustibles",
       "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "combustibles",
       "direction": "direct",
       "relevance": "medium",
@@ -39,7 +39,7 @@
     },
     {
       "id": "acuerdo-argentina",
-      "name": "Acuerdo argentina",
+      "name": "Acuerdo con Argentina (pesca)",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -91,8 +91,8 @@
     {
       "id": "industria-pesquera",
       "name": "Procesamiento de productos pesqueros",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-pesquera",
       "direction": "direct",
       "relevance": "critical",
@@ -102,8 +102,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -113,8 +113,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -123,7 +123,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -310,6 +310,227 @@
       "relevance": "critical",
       "depth": 1,
       "children": []
+    },
+    {
+      "id": "vc-insumos",
+      "name": "Cuotas de captura, combustible y flota",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Captura en el Atlántico Sur y Zona Común",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transformacion-industria-pesquera",
+      "name": "Procesamiento y congelado",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "industria-pesquera"
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de productos pesqueros",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Brasil, Unión Europea, África, China",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-pesca",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "brasil",
+          "name": "Brasil",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "brasil-demanda",
+              "name": "Demanda — Brasil",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-precios",
+              "name": "Precios — Brasil",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Brasil",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "brasil-competencia",
+              "name": "Competencia de otros orígenes — Brasil",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "union-europea",
+          "name": "Unión Europea",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "union-europea-demanda",
+              "name": "Demanda — Unión Europea",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-precios",
+              "name": "Precios — Unión Europea",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Unión Europea",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-competencia",
+              "name": "Competencia de otros orígenes — Unión Europea",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "africa-occidental",
+          "name": "África occidental",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "africa-occidental-demanda",
+              "name": "Demanda — África occidental",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "africa-occidental-precios",
+              "name": "Precios — África occidental",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "africa-occidental-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — África occidental",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "africa-occidental-competencia",
+              "name": "Competencia de otros orígenes — África occidental",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }

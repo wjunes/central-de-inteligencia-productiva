@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 26,
+  "ramification_count": 31,
   "ramifications": [
     {
       "id": "clima",
@@ -38,7 +38,7 @@
     },
     {
       "id": "logistica-refrigerada",
-      "name": "Logistica refrigerada",
+      "name": "Logística refrigerada",
       "category": "logistics",
       "relation": "dependency",
       "direction": "direct",
@@ -48,7 +48,7 @@
     },
     {
       "id": "plantas-citricas",
-      "name": "Plantas citricas",
+      "name": "Plantas cítricas",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -89,8 +89,8 @@
     {
       "id": "industria-frutihorticola",
       "name": "Procesamiento de frutas y hortalizas",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-frutihorticola",
       "direction": "direct",
       "relevance": "critical",
@@ -100,8 +100,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -111,8 +111,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -121,7 +121,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -268,6 +268,165 @@
       "relevance": "medium",
       "depth": 1,
       "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Producción de cítricos en el litoral norte",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transformacion-industria-frutihorticola",
+      "name": "Packing y jugos concentrados",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "industria-frutihorticola"
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de fruta fresca",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Unión Europea, Estados Unidos",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-citricos",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "union-europea",
+          "name": "Unión Europea",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "union-europea-demanda",
+              "name": "Demanda — Unión Europea",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-precios",
+              "name": "Precios — Unión Europea",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Unión Europea",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-competencia",
+              "name": "Competencia de otros orígenes — Unión Europea",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "estados-unidos",
+          "name": "Estados Unidos",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "estados-unidos-demanda",
+              "name": "Demanda — Estados Unidos",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-precios",
+              "name": "Precios — Estados Unidos",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Estados Unidos",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-competencia",
+              "name": "Competencia de otros orígenes — Estados Unidos",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }

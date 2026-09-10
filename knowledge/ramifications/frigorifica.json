@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 32,
+  "ramification_count": 42,
   "ramifications": [
     {
       "id": "oferta-ganado",
@@ -79,7 +79,7 @@
     },
     {
       "id": "energia-frio",
-      "name": "Energia frio",
+      "name": "Energía frío",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -120,8 +120,8 @@
     {
       "id": "ganaderia",
       "name": "Ganadería",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "ganaderia",
       "direction": "direct",
       "relevance": "critical",
@@ -131,8 +131,8 @@
     {
       "id": "curtiembre",
       "name": "Curtiembres y productos de cuero",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "curtiembre",
       "direction": "direct",
       "relevance": "high",
@@ -142,8 +142,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "critical",
@@ -153,8 +153,8 @@
     {
       "id": "transporte-carga-carretera",
       "name": "Transporte de carga por carretera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-carga-carretera",
       "direction": "direct",
       "relevance": "high",
@@ -164,8 +164,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "high",
@@ -174,34 +174,13 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": [
-        {
-          "id": "union-europea",
-          "name": "Unión Europea (cuotas)",
-          "category": "markets",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        },
-        {
-          "id": "estatus-sanitario-pais",
-          "name": "Estatus sanitario del país",
-          "category": "sanitary_factors",
-          "relation": "regulation",
-          "direction": "direct",
-          "relevance": "critical",
-          "depth": 2,
-          "children": []
-        }
-      ]
+      "children": []
     },
     {
       "id": "mercado-interno",
@@ -370,6 +349,321 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-ganaderia",
+      "name": "Abastecimiento de ganado",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "ganaderia"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Faena, desosado y envasado",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-subproductos-curtiembre",
+      "name": "Cueros y subproductos",
+      "category": "value_chain",
+      "stage": "subproductos",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "curtiembre"
+    },
+    {
+      "id": "vc-distribucion-puertos-terminales",
+      "name": "Logística de frío y puertos",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "puertos-terminales"
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de carne",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "China, Unión Europea, Estados Unidos, Mercosur, NAFTA",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-carne",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "china",
+          "name": "China",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "critical",
+          "depth": 2,
+          "children": [
+            {
+              "id": "china-demanda",
+              "name": "Demanda — China",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-precios",
+              "name": "Precios — China",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — China",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-competencia",
+              "name": "Competencia de otros orígenes — China",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "union-europea",
+          "name": "Unión Europea (cuotas Hilton y 481)",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "union-europea-demanda",
+              "name": "Demanda — Unión Europea (cuotas Hilton y 481)",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-precios",
+              "name": "Precios — Unión Europea (cuotas Hilton y 481)",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Unión Europea (cuotas Hilton y 481)",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-competencia",
+              "name": "Competencia de otros orígenes — Unión Europea (cuotas Hilton y 481)",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "estados-unidos",
+          "name": "Estados Unidos",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "estados-unidos-demanda",
+              "name": "Demanda — Estados Unidos",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-precios",
+              "name": "Precios — Estados Unidos",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Estados Unidos",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-competencia",
+              "name": "Competencia de otros orígenes — Estados Unidos",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "mercosur",
+          "name": "Mercosur",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "mercosur-demanda",
+              "name": "Demanda — Mercosur",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-precios",
+              "name": "Precios — Mercosur",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Mercosur",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-competencia",
+              "name": "Competencia de otros orígenes — Mercosur",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reapertura-o-cierre-de-china",
+      "name": "Cambios de acceso al mercado chino",
+      "category": "strategic_signals",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "brotes-sanitarios-regionales",
+      "name": "Brotes sanitarios en la región",
+      "category": "strategic_signals",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "acuerdo-mercosur-union-europea",
+      "name": "Avance del acuerdo Mercosur-Unión Europea",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

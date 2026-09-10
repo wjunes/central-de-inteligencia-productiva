@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "subactivity",
   "parent_activity_id": "bebidas",
-  "ramification_count": 15,
+  "ramification_count": 14,
   "ramifications": [
     {
       "id": "consumo-interno",
@@ -14,7 +14,28 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "cerveza-artesanal",
+          "name": "Crecimiento del segmento artesanal",
+          "category": "demand_factors",
+          "relation": "opportunity",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "habitos-de-consumo",
+          "name": "Cambios en hábitos de consumo de alcohol",
+          "category": "demand_factors",
+          "relation": "impact",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "estacionalidad",
@@ -34,11 +55,22 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "cebada-cervecera-local",
+          "name": "Contratos de cebada cervecera nacional",
+          "category": "suppliers",
+          "relation": "supplier",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "malta",
-      "name": "Malta",
+      "name": "Malta cervecera",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -48,7 +80,7 @@
     },
     {
       "id": "lupulo",
-      "name": "Lupulo",
+      "name": "Lúpulo",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -111,8 +143,8 @@
     {
       "id": "comercio-minorista",
       "name": "Comercio minorista",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-minorista",
       "direction": "direct",
       "relevance": "medium",
@@ -126,17 +158,6 @@
       "relation": "market",
       "direction": "direct",
       "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cerveza",
-      "name": "Elaboración de cerveza",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "cerveza",
-      "direction": "direct",
-      "relevance": "medium",
       "depth": 1,
       "children": []
     },
@@ -158,7 +179,18 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "cambios-imesi",
+          "name": "Cambios en el IMESI a bebidas alcohólicas",
+          "category": "regulatory_factors",
+          "relation": "regulation",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     }
   ]
 }

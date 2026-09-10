@@ -5,8 +5,8 @@
     "activity_files": 115,
     "activities": 81,
     "subactivities": 34,
-    "ramifications_total": 2572,
-    "cross_activity_edges": 451
+    "ramifications_total": 2679,
+    "cross_activity_edges": 459
   },
   "activities": [
     {
@@ -14,14 +14,17 @@
       "level": "activity",
       "sector_id": "agropecuario",
       "file": "ganaderia.json",
-      "ramification_count": 32,
+      "ramification_count": 42,
       "related_activities": [
         "agricultura-secano",
+        "comercio-exterior",
+        "comercio-mayorista-agroinsumos",
+        "curtiembre",
         "frigorifica",
         "industria-textil-vestimenta",
-        "curtiembre",
-        "transporte-carga-carretera",
-        "servicios-agropecuarios"
+        "servicios-agropecuarios",
+        "servicios-tecnicos-agroveterinarios",
+        "transporte-carga-carretera"
       ]
     },
     {
@@ -29,11 +32,11 @@
       "level": "subactivity",
       "sector_id": "agropecuario",
       "file": "ganaderia-bovina-carne.json",
-      "ramification_count": 27,
+      "ramification_count": 31,
       "related_activities": [
-        "frigorifica",
         "agricultura-secano",
         "curtiembre",
+        "frigorifica",
         "puertos-terminales"
       ]
     },
@@ -44,8 +47,8 @@
       "file": "ganaderia-ovina.json",
       "ramification_count": 20,
       "related_activities": [
-        "industria-textil-vestimenta",
-        "frigorifica"
+        "frigorifica",
+        "industria-textil-vestimenta"
       ]
     },
     {
@@ -68,8 +71,8 @@
       "ramification_count": 17,
       "related_activities": [
         "agricultura-secano",
-        "molineria",
-        "elaboracion-aceites"
+        "elaboracion-aceites",
+        "molineria"
       ]
     },
     {
@@ -89,10 +92,12 @@
       "level": "activity",
       "sector_id": "agropecuario",
       "file": "lecheria.json",
-      "ramification_count": 25,
+      "ramification_count": 31,
       "related_activities": [
-        "industria-lactea",
         "agricultura-secano",
+        "comercio-exterior",
+        "comercio-mayorista-agroinsumos",
+        "industria-lactea",
         "servicios-agropecuarios"
       ]
     },
@@ -101,15 +106,17 @@
       "level": "activity",
       "sector_id": "agropecuario",
       "file": "agricultura-secano.json",
-      "ramification_count": 34,
+      "ramification_count": 43,
       "related_activities": [
-        "combustibles",
         "acopio-granos",
+        "combustibles",
+        "comercio-exterior",
+        "comercio-mayorista-agroinsumos",
         "elaboracion-aceites",
-        "molineria",
         "ganaderia",
-        "servicios-agropecuarios",
-        "produccion-semillas"
+        "molineria",
+        "produccion-semillas",
+        "servicios-agropecuarios"
       ]
     },
     {
@@ -117,7 +124,7 @@
       "level": "subactivity",
       "sector_id": "agropecuario",
       "file": "cultivo-soja.json",
-      "ramification_count": 22,
+      "ramification_count": 23,
       "related_activities": [
         "acopio-granos",
         "elaboracion-aceites",
@@ -131,9 +138,9 @@
       "file": "cultivo-cereales-invierno.json",
       "ramification_count": 22,
       "related_activities": [
-        "molineria",
+        "acopio-granos",
         "bebidas",
-        "acopio-granos"
+        "molineria"
       ]
     },
     {
@@ -143,10 +150,10 @@
       "file": "cultivo-maiz-sorgo.json",
       "ramification_count": 21,
       "related_activities": [
-        "ganaderia",
+        "acopio-granos",
         "avicultura",
-        "lecheria",
-        "acopio-granos"
+        "ganaderia",
+        "lecheria"
       ]
     },
     {
@@ -154,11 +161,12 @@
       "level": "activity",
       "sector_id": "agropecuario",
       "file": "arroz.json",
-      "ramification_count": 24,
+      "ramification_count": 31,
       "related_activities": [
-        "molineria",
+        "comercio-exterior",
         "ganaderia",
         "generacion-electrica",
+        "molineria",
         "puertos-terminales"
       ]
     },
@@ -169,8 +177,8 @@
       "file": "horticultura.json",
       "ramification_count": 22,
       "related_activities": [
-        "industria-frutihorticola",
         "comercio-mayorista-general",
+        "industria-frutihorticola",
         "transporte-carga-carretera"
       ]
     },
@@ -181,10 +189,10 @@
       "file": "fruticultura.json",
       "ramification_count": 29,
       "related_activities": [
-        "industria-frutihorticola",
+        "apicultura",
         "bebidas",
         "comercio-exterior",
-        "apicultura"
+        "industria-frutihorticola"
       ]
     },
     {
@@ -192,10 +200,10 @@
       "level": "activity",
       "sector_id": "agropecuario",
       "file": "citricultura.json",
-      "ramification_count": 26,
+      "ramification_count": 31,
       "related_activities": [
-        "industria-frutihorticola",
         "comercio-exterior",
+        "industria-frutihorticola",
         "puertos-terminales"
       ]
     },
@@ -204,10 +212,11 @@
       "level": "activity",
       "sector_id": "agropecuario",
       "file": "viticultura.json",
-      "ramification_count": 20,
+      "ramification_count": 24,
       "related_activities": [
         "bebidas",
-        "turismo-rural-naturaleza"
+        "turismo-rural-naturaleza",
+        "vinos"
       ]
     },
     {
@@ -218,8 +227,8 @@
       "ramification_count": 22,
       "related_activities": [
         "agricultura-secano",
-        "id-biotecnologia",
-        "comercio-mayorista-agroinsumos"
+        "comercio-mayorista-agroinsumos",
+        "id-biotecnologia"
       ]
     },
     {
@@ -229,11 +238,11 @@
       "file": "servicios-agropecuarios.json",
       "ramification_count": 18,
       "related_activities": [
-        "combustibles",
         "agricultura-secano",
+        "arroz",
+        "combustibles",
         "ganaderia",
         "lecheria",
-        "arroz",
         "servicios-tecnicos-agroveterinarios"
       ]
     },
@@ -244,12 +253,12 @@
       "file": "servicios-tecnicos-agroveterinarios.json",
       "ramification_count": 27,
       "related_activities": [
-        "ganaderia",
-        "lecheria",
         "agricultura-secano",
-        "servicios-agropecuarios",
         "comercio-mayorista-agroinsumos",
-        "id-biotecnologia"
+        "ganaderia",
+        "id-biotecnologia",
+        "lecheria",
+        "servicios-agropecuarios"
       ]
     },
     {
@@ -257,10 +266,10 @@
       "level": "activity",
       "sector_id": "agropecuario",
       "file": "cultivo-cana-azucar.json",
-      "ramification_count": 19,
+      "ramification_count": 22,
       "related_activities": [
-        "industria-azucarera",
         "biocombustibles",
+        "industria-azucarera",
         "servicios-agropecuarios"
       ]
     },
@@ -271,9 +280,9 @@
       "file": "cannabis.json",
       "ramification_count": 25,
       "related_activities": [
-        "industria-quimica",
+        "comercio-exterior",
         "id-biotecnologia",
-        "comercio-exterior"
+        "industria-quimica"
       ]
     },
     {
@@ -281,13 +290,15 @@
       "level": "activity",
       "sector_id": "forestal-celulosa",
       "file": "silvicultura.json",
-      "ramification_count": 31,
+      "ramification_count": 36,
       "related_activities": [
+        "cosecha-forestal",
+        "generacion-electrica",
         "industria-celulosa",
         "industria-madera",
         "industria-papel",
         "transporte-carga-carretera",
-        "generacion-electrica"
+        "transporte-ferroviario"
       ]
     },
     {
@@ -319,13 +330,13 @@
       "level": "activity",
       "sector_id": "forestal-celulosa",
       "file": "industria-celulosa.json",
-      "ramification_count": 29,
+      "ramification_count": 37,
       "related_activities": [
-        "silvicultura",
         "generacion-electrica",
-        "transporte-ferroviario",
+        "industria-quimica",
         "puertos-terminales",
-        "industria-quimica"
+        "silvicultura",
+        "transporte-ferroviario"
       ]
     },
     {
@@ -335,10 +346,10 @@
       "file": "industria-madera.json",
       "ramification_count": 25,
       "related_activities": [
-        "silvicultura",
+        "comercio-exterior",
         "construccion-edificios",
         "muebles",
-        "comercio-exterior"
+        "silvicultura"
       ]
     },
     {
@@ -348,8 +359,8 @@
       "file": "aserraderos.json",
       "ramification_count": 17,
       "related_activities": [
-        "industria-madera",
-        "construccion-edificios"
+        "construccion-edificios",
+        "industria-madera"
       ]
     },
     {
@@ -359,9 +370,9 @@
       "file": "tableros-madera.json",
       "ramification_count": 22,
       "related_activities": [
+        "construccion-edificios",
         "industria-madera",
-        "muebles",
-        "construccion-edificios"
+        "muebles"
       ]
     },
     {
@@ -371,10 +382,10 @@
       "file": "industria-papel.json",
       "ramification_count": 22,
       "related_activities": [
-        "industria-celulosa",
+        "comercio-minorista",
         "gestion-residuos-reciclaje",
-        "otros-alimentos",
-        "comercio-minorista"
+        "industria-celulosa",
+        "otros-alimentos"
       ]
     },
     {
@@ -382,12 +393,12 @@
       "level": "activity",
       "sector_id": "pesca-acuicultura",
       "file": "pesca-industrial.json",
-      "ramification_count": 29,
+      "ramification_count": 35,
       "related_activities": [
         "combustibles",
+        "comercio-exterior",
         "industria-pesquera",
-        "puertos-terminales",
-        "comercio-exterior"
+        "puertos-terminales"
       ]
     },
     {
@@ -398,8 +409,8 @@
       "ramification_count": 15,
       "related_activities": [
         "combustibles",
-        "industria-pesquera",
         "comercio-minorista",
+        "industria-pesquera",
         "turismo-rural-naturaleza"
       ]
     },
@@ -410,9 +421,9 @@
       "file": "acuicultura.json",
       "ramification_count": 26,
       "related_activities": [
-        "industria-pesquera",
+        "comercio-exterior",
         "id-biotecnologia",
-        "comercio-exterior"
+        "industria-pesquera"
       ]
     },
     {
@@ -422,10 +433,10 @@
       "file": "industria-pesquera.json",
       "ramification_count": 24,
       "related_activities": [
-        "pesca-industrial",
         "acuicultura",
-        "puertos-terminales",
-        "comercio-exterior"
+        "comercio-exterior",
+        "pesca-industrial",
+        "puertos-terminales"
       ]
     },
     {
@@ -435,9 +446,9 @@
       "file": "extraccion-minerales-metaliferos.json",
       "ramification_count": 23,
       "related_activities": [
+        "comercio-exterior",
         "generacion-electrica",
-        "transporte-carga-carretera",
-        "comercio-exterior"
+        "transporte-carga-carretera"
       ]
     },
     {
@@ -447,10 +458,10 @@
       "file": "extraccion-minerales-no-metalicos.json",
       "ramification_count": 27,
       "related_activities": [
-        "productos-minerales-no-metalicos",
+        "comercio-exterior",
         "construccion-edificios",
         "industria-quimica",
-        "comercio-exterior"
+        "productos-minerales-no-metalicos"
       ]
     },
     {
@@ -471,12 +482,12 @@
       "level": "activity",
       "sector_id": "energia",
       "file": "generacion-electrica.json",
-      "ramification_count": 21,
+      "ramification_count": 23,
       "related_activities": [
-        "transmision-distribucion-electrica",
-        "silvicultura",
+        "hidrogeno-verde",
         "industria-celulosa",
-        "hidrogeno-verde"
+        "silvicultura",
+        "transmision-distribucion-electrica"
       ]
     },
     {
@@ -486,8 +497,8 @@
       "file": "hidroelectrica.json",
       "ramification_count": 10,
       "related_activities": [
-        "transmision-distribucion-electrica",
-        "arroz"
+        "arroz",
+        "transmision-distribucion-electrica"
       ]
     },
     {
@@ -497,9 +508,9 @@
       "file": "generacion-eolica.json",
       "ramification_count": 12,
       "related_activities": [
-        "transmision-distribucion-electrica",
         "hidrogeno-verde",
-        "servicios-profesionales"
+        "servicios-profesionales",
+        "transmision-distribucion-electrica"
       ]
     },
     {
@@ -509,9 +520,9 @@
       "file": "generacion-solar.json",
       "ramification_count": 14,
       "related_activities": [
-        "transmision-distribucion-electrica",
+        "construccion-edificios",
         "hidrogeno-verde",
-        "construccion-edificios"
+        "transmision-distribucion-electrica"
       ]
     },
     {
@@ -521,10 +532,10 @@
       "file": "generacion-biomasa.json",
       "ramification_count": 18,
       "related_activities": [
-        "industria-celulosa",
-        "silvicultura",
         "arroz",
-        "molineria"
+        "industria-celulosa",
+        "molineria",
+        "silvicultura"
       ]
     },
     {
@@ -545,10 +556,10 @@
       "file": "transmision-distribucion-electrica.json",
       "ramification_count": 18,
       "related_activities": [
+        "data-centers",
         "generacion-electrica",
-        "obras-infraestructura",
         "industria-metalica",
-        "data-centers"
+        "obras-infraestructura"
       ]
     },
     {
@@ -558,10 +569,10 @@
       "file": "combustibles.json",
       "ramification_count": 20,
       "related_activities": [
-        "transporte-carga-carretera",
         "generacion-termica",
+        "obras-infraestructura",
         "servicios-logisticos",
-        "obras-infraestructura"
+        "transporte-carga-carretera"
       ]
     },
     {
@@ -572,11 +583,11 @@
       "ramification_count": 24,
       "related_activities": [
         "agricultura-secano",
-        "cultivo-cana-azucar",
-        "industria-azucarera",
-        "elaboracion-aceites",
         "combustibles",
-        "ganaderia"
+        "cultivo-cana-azucar",
+        "elaboracion-aceites",
+        "ganaderia",
+        "industria-azucarera"
       ]
     },
     {
@@ -587,8 +598,8 @@
       "ramification_count": 16,
       "related_activities": [
         "combustibles",
-        "productos-minerales-no-metalicos",
-        "generacion-termica"
+        "generacion-termica",
+        "productos-minerales-no-metalicos"
       ]
     },
     {
@@ -596,14 +607,13 @@
       "level": "activity",
       "sector_id": "energia",
       "file": "hidrogeno-verde.json",
-      "ramification_count": 29,
+      "ramification_count": 31,
       "related_activities": [
         "generacion-eolica",
         "generacion-solar",
-        "puertos-terminales",
         "industria-quimica",
-        "servicios-profesionales",
-        "hidrogeno-verde"
+        "puertos-terminales",
+        "servicios-profesionales"
       ]
     },
     {
@@ -611,13 +621,13 @@
       "level": "activity",
       "sector_id": "industria-manufacturera",
       "file": "frigorifica.json",
-      "ramification_count": 32,
+      "ramification_count": 42,
       "related_activities": [
-        "ganaderia",
+        "comercio-exterior",
         "curtiembre",
+        "ganaderia",
         "puertos-terminales",
-        "transporte-carga-carretera",
-        "comercio-exterior"
+        "transporte-carga-carretera"
       ]
     },
     {
@@ -625,12 +635,12 @@
       "level": "activity",
       "sector_id": "industria-manufacturera",
       "file": "industria-lactea.json",
-      "ramification_count": 31,
+      "ramification_count": 38,
       "related_activities": [
-        "lecheria",
         "comercio-exterior",
-        "puertos-terminales",
-        "otros-alimentos"
+        "lecheria",
+        "otros-alimentos",
+        "puertos-terminales"
       ]
     },
     {
@@ -641,9 +651,9 @@
       "ramification_count": 27,
       "related_activities": [
         "agricultura-secano",
-        "ganaderia",
         "avicultura",
-        "biocombustibles"
+        "biocombustibles",
+        "ganaderia"
       ]
     },
     {
@@ -654,8 +664,8 @@
       "ramification_count": 26,
       "related_activities": [
         "arroz",
-        "cultivo-cereales-invierno",
         "avicultura",
+        "cultivo-cereales-invierno",
         "ganaderia-porcina",
         "panaderia-farinaceos"
       ]
@@ -667,8 +677,8 @@
       "file": "panaderia-farinaceos.json",
       "ramification_count": 19,
       "related_activities": [
-        "molineria",
         "comercio-minorista",
+        "molineria",
         "otros-alimentos"
       ]
     },
@@ -679,11 +689,11 @@
       "file": "industria-azucarera.json",
       "ramification_count": 26,
       "related_activities": [
-        "cultivo-cana-azucar",
         "biocombustibles",
+        "cultivo-cana-azucar",
+        "ganaderia",
         "generacion-biomasa",
-        "otros-alimentos",
-        "ganaderia"
+        "otros-alimentos"
       ]
     },
     {
@@ -693,11 +703,10 @@
       "file": "bebidas.json",
       "ramification_count": 28,
       "related_activities": [
-        "viticultura",
+        "comercio-minorista",
         "cultivo-cereales-invierno",
         "turismo-rural-naturaleza",
-        "comercio-minorista",
-        "cerveza"
+        "viticultura"
       ]
     },
     {
@@ -716,12 +725,11 @@
       "level": "subactivity",
       "sector_id": "industria-manufacturera",
       "file": "cerveza.json",
-      "ramification_count": 15,
+      "ramification_count": 14,
       "related_activities": [
-        "cultivo-cereales-invierno",
-        "turismo-rural-naturaleza",
         "comercio-minorista",
-        "cerveza"
+        "cultivo-cereales-invierno",
+        "turismo-rural-naturaleza"
       ]
     },
     {
@@ -731,9 +739,9 @@
       "file": "vinos.json",
       "ramification_count": 22,
       "related_activities": [
-        "viticultura",
+        "comercio-exterior",
         "turismo-rural-naturaleza",
-        "comercio-exterior"
+        "viticultura"
       ]
     },
     {
@@ -743,8 +751,8 @@
       "file": "bebidas-espirituosas.json",
       "ramification_count": 16,
       "related_activities": [
-        "viticultura",
-        "comercio-minorista"
+        "comercio-minorista",
+        "viticultura"
       ]
     },
     {
@@ -754,10 +762,10 @@
       "file": "industria-frutihorticola.json",
       "ramification_count": 26,
       "related_activities": [
-        "fruticultura",
-        "horticultura",
         "citricultura",
-        "comercio-exterior"
+        "comercio-exterior",
+        "fruticultura",
+        "horticultura"
       ]
     },
     {
@@ -779,9 +787,9 @@
       "file": "curtiembre.json",
       "ramification_count": 25,
       "related_activities": [
+        "comercio-exterior",
         "frigorifica",
         "ganaderia",
-        "comercio-exterior",
         "industria-quimica"
       ]
     },
@@ -790,10 +798,10 @@
       "level": "activity",
       "sector_id": "industria-manufacturera",
       "file": "industria-textil-vestimenta.json",
-      "ramification_count": 25,
+      "ramification_count": 26,
       "related_activities": [
-        "ganaderia-ovina",
         "comercio-exterior",
+        "ganaderia-ovina",
         "industrias-creativas"
       ]
     },
@@ -804,8 +812,8 @@
       "file": "lavaderos-tops-lana.json",
       "ramification_count": 22,
       "related_activities": [
-        "ganaderia-ovina",
-        "comercio-exterior"
+        "comercio-exterior",
+        "ganaderia-ovina"
       ]
     },
     {
@@ -815,8 +823,8 @@
       "file": "hilanderia-tejeduria.json",
       "ramification_count": 20,
       "related_activities": [
-        "lavaderos-tops-lana",
-        "confeccion-prendas"
+        "confeccion-prendas",
+        "lavaderos-tops-lana"
       ]
     },
     {
@@ -826,9 +834,9 @@
       "file": "confeccion-prendas.json",
       "ramification_count": 18,
       "related_activities": [
-        "industrias-creativas",
         "comercio-minorista",
-        "hilanderia-tejeduria"
+        "hilanderia-tejeduria",
+        "industrias-creativas"
       ]
     },
     {
@@ -839,9 +847,9 @@
       "ramification_count": 27,
       "related_activities": [
         "agricultura-secano",
+        "comercio-mayorista-agroinsumos",
         "ganaderia",
-        "id-biotecnologia",
-        "comercio-mayorista-agroinsumos"
+        "id-biotecnologia"
       ]
     },
     {
@@ -863,8 +871,8 @@
       "file": "farmaceutica.json",
       "ramification_count": 23,
       "related_activities": [
-        "id-biotecnologia",
         "ganaderia",
+        "id-biotecnologia",
         "servicios-globales-exportacion"
       ]
     },
@@ -875,8 +883,8 @@
       "file": "productos-quimicos-diversos.json",
       "ramification_count": 21,
       "related_activities": [
-        "construccion-edificios",
         "comercio-minorista",
+        "construccion-edificios",
         "plasticos-caucho"
       ]
     },
@@ -888,9 +896,9 @@
       "ramification_count": 22,
       "related_activities": [
         "bebidas",
-        "otros-alimentos",
         "construccion-edificios",
-        "gestion-residuos-reciclaje"
+        "gestion-residuos-reciclaje",
+        "otros-alimentos"
       ]
     },
     {
@@ -900,10 +908,10 @@
       "file": "industria-metalica.json",
       "ramification_count": 25,
       "related_activities": [
-        "construccion-edificios",
-        "maquinaria-equipo",
         "agricultura-secano",
-        "gestion-residuos-reciclaje"
+        "construccion-edificios",
+        "gestion-residuos-reciclaje",
+        "maquinaria-equipo"
       ]
     },
     {
@@ -913,10 +921,10 @@
       "file": "maquinaria-equipo.json",
       "ramification_count": 27,
       "related_activities": [
-        "industria-metalica",
         "agricultura-secano",
-        "servicios-agropecuarios",
-        "id-biotecnologia"
+        "id-biotecnologia",
+        "industria-metalica",
+        "servicios-agropecuarios"
       ]
     },
     {
@@ -926,10 +934,10 @@
       "file": "material-transporte.json",
       "ramification_count": 27,
       "related_activities": [
-        "industria-metalica",
-        "transporte-carga-carretera",
         "comercio-exterior",
-        "pesca-artesanal"
+        "industria-metalica",
+        "pesca-artesanal",
+        "transporte-carga-carretera"
       ]
     },
     {
@@ -939,9 +947,9 @@
       "file": "industria-electrica-electronica.json",
       "ramification_count": 23,
       "related_activities": [
-        "transmision-distribucion-electrica",
         "construccion-edificios",
-        "telecomunicaciones"
+        "telecomunicaciones",
+        "transmision-distribucion-electrica"
       ]
     },
     {
@@ -952,9 +960,9 @@
       "ramification_count": 22,
       "related_activities": [
         "combustibles",
+        "construccion-edificios",
         "extraccion-minerales-no-metalicos",
         "extraccion-piedra-arena-arcilla",
-        "construccion-edificios",
         "obras-infraestructura"
       ]
     },
@@ -965,10 +973,10 @@
       "file": "muebles.json",
       "ramification_count": 23,
       "related_activities": [
-        "industria-madera",
-        "tableros-madera",
         "construccion-edificios",
-        "industrias-creativas"
+        "industria-madera",
+        "industrias-creativas",
+        "tableros-madera"
       ]
     },
     {
@@ -978,13 +986,13 @@
       "file": "reparacion-mantenimiento-industrial-naval.json",
       "ramification_count": 27,
       "related_activities": [
-        "maquinaria-equipo",
-        "industria-metalica",
-        "material-transporte",
-        "transporte-maritimo-fluvial",
-        "puertos-terminales",
         "generacion-electrica",
-        "obras-infraestructura"
+        "industria-metalica",
+        "maquinaria-equipo",
+        "material-transporte",
+        "obras-infraestructura",
+        "puertos-terminales",
+        "transporte-maritimo-fluvial"
       ]
     },
     {
@@ -992,11 +1000,11 @@
       "level": "activity",
       "sector_id": "construccion",
       "file": "construccion-edificios.json",
-      "ramification_count": 23,
+      "ramification_count": 25,
       "related_activities": [
-        "productos-minerales-no-metalicos",
         "industria-metalica",
         "instalaciones-terminaciones",
+        "productos-minerales-no-metalicos",
         "promocion-inmobiliaria",
         "servicios-profesionales"
       ]
@@ -1008,11 +1016,11 @@
       "file": "obras-infraestructura.json",
       "ramification_count": 24,
       "related_activities": [
+        "combustibles",
         "extraccion-piedra-arena-arcilla",
         "productos-minerales-no-metalicos",
-        "combustibles",
-        "transporte-ferroviario",
-        "saneamiento-tratamiento"
+        "saneamiento-tratamiento",
+        "transporte-ferroviario"
       ]
     },
     {
@@ -1047,11 +1055,11 @@
       "file": "transporte-carga-carretera.json",
       "ramification_count": 20,
       "related_activities": [
-        "combustibles",
         "agricultura-secano",
+        "combustibles",
         "frigorifica",
-        "silvicultura",
-        "puertos-terminales"
+        "puertos-terminales",
+        "silvicultura"
       ]
     },
     {
@@ -1062,9 +1070,9 @@
       "ramification_count": 20,
       "related_activities": [
         "combustibles",
+        "gastronomia",
         "material-transporte",
-        "turismo",
-        "gastronomia"
+        "turismo"
       ]
     },
     {
@@ -1075,10 +1083,9 @@
       "ramification_count": 17,
       "related_activities": [
         "industria-celulosa",
-        "silvicultura",
         "obras-infraestructura",
         "puertos-terminales",
-        "combustibles"
+        "silvicultura"
       ]
     },
     {
@@ -1088,11 +1095,10 @@
       "file": "transporte-maritimo-fluvial.json",
       "ramification_count": 24,
       "related_activities": [
-        "puertos-terminales",
         "agricultura-secano",
         "industria-celulosa",
         "pesca-industrial",
-        "comercio-exterior"
+        "puertos-terminales"
       ]
     },
     {
@@ -1102,10 +1108,10 @@
       "file": "transporte-aereo.json",
       "ramification_count": 24,
       "related_activities": [
-        "turismo",
-        "servicios-globales-exportacion",
         "citricultura",
-        "industria-frutihorticola"
+        "industria-frutihorticola",
+        "servicios-globales-exportacion",
+        "turismo"
       ]
     },
     {
@@ -1113,14 +1119,14 @@
       "level": "activity",
       "sector_id": "logistica-transporte",
       "file": "puertos-terminales.json",
-      "ramification_count": 26,
+      "ramification_count": 29,
       "related_activities": [
-        "transporte-maritimo-fluvial",
-        "transporte-carga-carretera",
         "agricultura-secano",
-        "industria-celulosa",
+        "comercio-exterior",
         "frigorifica",
-        "comercio-exterior"
+        "industria-celulosa",
+        "transporte-carga-carretera",
+        "transporte-maritimo-fluvial"
       ]
     },
     {
@@ -1130,11 +1136,11 @@
       "file": "almacenamiento-deposito.json",
       "ramification_count": 21,
       "related_activities": [
-        "comercio-exterior",
         "acopio-granos",
+        "comercio-exterior",
         "frigorifica",
-        "servicios-logisticos",
-        "puertos-terminales"
+        "puertos-terminales",
+        "servicios-logisticos"
       ]
     },
     {
@@ -1144,9 +1150,9 @@
       "file": "servicios-logisticos.json",
       "ramification_count": 21,
       "related_activities": [
+        "almacenamiento-deposito",
         "comercio-exterior",
         "puertos-terminales",
-        "almacenamiento-deposito",
         "software-ti"
       ]
     },
@@ -1184,9 +1190,9 @@
       "file": "comercio-exterior.json",
       "ramification_count": 25,
       "related_activities": [
+        "acopio-granos",
         "frigorifica",
         "industria-lactea",
-        "acopio-granos",
         "puertos-terminales",
         "servicios-logisticos"
       ]
@@ -1198,10 +1204,10 @@
       "file": "comercio-mayorista-general.json",
       "ramification_count": 18,
       "related_activities": [
-        "comercio-minorista",
-        "otros-alimentos",
+        "almacenamiento-deposito",
         "bebidas",
-        "almacenamiento-deposito"
+        "comercio-minorista",
+        "otros-alimentos"
       ]
     },
     {
@@ -1222,13 +1228,15 @@
       "level": "activity",
       "sector_id": "turismo",
       "file": "turismo.json",
-      "ramification_count": 21,
+      "ramification_count": 27,
       "related_activities": [
-        "transporte-pasajeros",
-        "transporte-aereo",
+        "agencias-operadores",
+        "alojamiento",
         "comercio-minorista",
         "industrias-creativas",
-        "promocion-inmobiliaria"
+        "promocion-inmobiliaria",
+        "transporte-aereo",
+        "transporte-pasajeros"
       ]
     },
     {
@@ -1238,10 +1246,10 @@
       "file": "alojamiento.json",
       "ramification_count": 18,
       "related_activities": [
-        "gastronomia",
         "agencias-operadores",
-        "turismo-rural-naturaleza",
-        "promocion-inmobiliaria"
+        "gastronomia",
+        "promocion-inmobiliaria",
+        "turismo-rural-naturaleza"
       ]
     },
     {
@@ -1251,10 +1259,10 @@
       "file": "gastronomia.json",
       "ramification_count": 20,
       "related_activities": [
-        "bebidas",
         "alojamiento",
-        "turismo-mice-eventos",
-        "comercio-minorista"
+        "bebidas",
+        "comercio-minorista",
+        "turismo-mice-eventos"
       ]
     },
     {
@@ -1278,10 +1286,10 @@
       "ramification_count": 23,
       "related_activities": [
         "alojamiento",
-        "viticultura",
-        "vinos",
         "ganaderia",
-        "pesca-artesanal"
+        "pesca-artesanal",
+        "vinos",
+        "viticultura"
       ]
     },
     {
@@ -1293,8 +1301,8 @@
       "related_activities": [
         "alojamiento",
         "gastronomia",
-        "transporte-aereo",
-        "servicios-audiovisuales"
+        "servicios-audiovisuales",
+        "transporte-aereo"
       ]
     },
     {
@@ -1304,8 +1312,8 @@
       "file": "turismo-cultural.json",
       "ramification_count": 20,
       "related_activities": [
-        "alojamiento",
         "agencias-operadores",
+        "alojamiento",
         "industrias-creativas",
         "servicios-audiovisuales"
       ]
@@ -1317,10 +1325,10 @@
       "file": "transporte-turistico.json",
       "ramification_count": 18,
       "related_activities": [
-        "combustibles",
-        "transporte-pasajeros",
         "agencias-operadores",
         "alojamiento",
+        "combustibles",
+        "transporte-pasajeros",
         "turismo-rural-naturaleza"
       ]
     },
@@ -1329,12 +1337,12 @@
       "level": "activity",
       "sector_id": "servicios-productivos-tecnologicos",
       "file": "software-ti.json",
-      "ramification_count": 28,
+      "ramification_count": 34,
       "related_activities": [
-        "servicios-globales-exportacion",
         "data-centers",
-        "telecomunicaciones",
-        "id-biotecnologia"
+        "id-biotecnologia",
+        "servicios-globales-exportacion",
+        "telecomunicaciones"
       ]
     },
     {
@@ -1342,11 +1350,11 @@
       "level": "activity",
       "sector_id": "servicios-productivos-tecnologicos",
       "file": "servicios-globales-exportacion.json",
-      "ramification_count": 25,
+      "ramification_count": 26,
       "related_activities": [
-        "software-ti",
-        "servicios-profesionales",
         "servicios-financieros",
+        "servicios-profesionales",
+        "software-ti",
         "telecomunicaciones"
       ]
     },
@@ -1358,9 +1366,9 @@
       "ramification_count": 21,
       "related_activities": [
         "data-centers",
-        "software-ti",
+        "servicios-audiovisuales",
         "servicios-globales-exportacion",
-        "servicios-audiovisuales"
+        "software-ti"
       ]
     },
     {
@@ -1371,9 +1379,9 @@
       "ramification_count": 27,
       "related_activities": [
         "industrias-creativas",
-        "turismo-mice-eventos",
         "software-ti",
-        "telecomunicaciones"
+        "telecomunicaciones",
+        "turismo-mice-eventos"
       ]
     },
     {
@@ -1396,9 +1404,9 @@
       "file": "servicios-profesionales.json",
       "ramification_count": 24,
       "related_activities": [
-        "obras-infraestructura",
-        "hidrogeno-verde",
         "agricultura-secano",
+        "hidrogeno-verde",
+        "obras-infraestructura",
         "servicios-globales-exportacion"
       ]
     },
@@ -1410,8 +1418,8 @@
       "ramification_count": 23,
       "related_activities": [
         "agricultura-secano",
-        "construccion-edificios",
         "comercio-exterior",
+        "construccion-edificios",
         "software-ti"
       ]
     },
@@ -1422,11 +1430,11 @@
       "file": "id-biotecnologia.json",
       "ramification_count": 25,
       "related_activities": [
-        "farmaceutica",
-        "produccion-semillas",
         "acuicultura",
+        "agricultura-secano",
         "cannabis",
-        "agricultura-secano"
+        "farmaceutica",
+        "produccion-semillas"
       ]
     },
     {
@@ -1438,9 +1446,9 @@
       "related_activities": [
         "generacion-eolica",
         "generacion-solar",
-        "telecomunicaciones",
+        "servicios-globales-exportacion",
         "software-ti",
-        "servicios-globales-exportacion"
+        "telecomunicaciones"
       ]
     },
     {
@@ -1450,10 +1458,10 @@
       "file": "captacion-potabilizacion-agua.json",
       "ramification_count": 20,
       "related_activities": [
-        "obras-infraestructura",
+        "agricultura-secano",
         "generacion-electrica",
         "industria-lactea",
-        "agricultura-secano"
+        "obras-infraestructura"
       ]
     },
     {
@@ -1463,10 +1471,10 @@
       "file": "saneamiento-tratamiento.json",
       "ramification_count": 20,
       "related_activities": [
-        "obras-infraestructura",
         "captacion-potabilizacion-agua",
+        "curtiembre",
         "gestion-residuos-reciclaje",
-        "curtiembre"
+        "obras-infraestructura"
       ]
     },
     {
@@ -1476,9 +1484,9 @@
       "file": "gestion-residuos-reciclaje.json",
       "ramification_count": 26,
       "related_activities": [
+        "industria-metalica",
         "industria-papel",
         "plasticos-caucho",
-        "industria-metalica",
         "servicios-ambientales"
       ]
     },
@@ -1489,10 +1497,10 @@
       "file": "servicios-ambientales.json",
       "ramification_count": 29,
       "related_activities": [
-        "silvicultura",
-        "servicios-profesionales",
+        "gestion-residuos-reciclaje",
         "id-biotecnologia",
-        "gestion-residuos-reciclaje"
+        "servicios-profesionales",
+        "silvicultura"
       ]
     }
   ]

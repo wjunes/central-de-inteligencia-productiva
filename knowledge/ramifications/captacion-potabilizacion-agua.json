@@ -58,7 +58,7 @@
     },
     {
       "id": "plantas-potabilizacion",
-      "name": "Plantas potabilizacion",
+      "name": "Plantas potabilización",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -68,7 +68,7 @@
     },
     {
       "id": "redes-distribucion",
-      "name": "Redes distribucion",
+      "name": "Redes distribución",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -88,7 +88,7 @@
     },
     {
       "id": "quimicos",
-      "name": "Quimicos",
+      "name": "Químicos",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",

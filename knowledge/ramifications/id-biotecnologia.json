@@ -69,8 +69,8 @@
     {
       "id": "farmaceutica",
       "name": "Industria farmacéutica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "farmaceutica",
       "direction": "direct",
       "relevance": "high",
@@ -80,8 +80,8 @@
     {
       "id": "produccion-semillas",
       "name": "Producción de semillas",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "produccion-semillas",
       "direction": "direct",
       "relevance": "high",
@@ -133,7 +133,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -193,7 +193,7 @@
     },
     {
       "id": "genetica-aplicada",
-      "name": "Genetica aplicada",
+      "name": "Genética aplicada",
       "category": "products",
       "relation": "output",
       "direction": "direct",

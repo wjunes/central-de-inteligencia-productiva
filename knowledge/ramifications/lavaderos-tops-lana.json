@@ -8,7 +8,7 @@
   "ramifications": [
     {
       "id": "zafra-lana",
-      "name": "Zafra lana",
+      "name": "Zafra de lana",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -69,8 +69,8 @@
     {
       "id": "ganaderia-ovina",
       "name": "Ganadería ovina",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "ganaderia-ovina",
       "direction": "direct",
       "relevance": "critical",
@@ -80,8 +80,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -90,7 +90,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

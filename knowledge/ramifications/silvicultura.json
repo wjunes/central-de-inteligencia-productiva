@@ -4,7 +4,7 @@
   "sector_id": "forestal-celulosa",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 31,
+  "ramification_count": 36,
   "ramifications": [
     {
       "id": "clima",
@@ -89,8 +89,8 @@
     {
       "id": "industria-celulosa",
       "name": "Producción de celulosa",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-celulosa",
       "direction": "direct",
       "relevance": "critical",
@@ -100,8 +100,8 @@
     {
       "id": "industria-madera",
       "name": "Industria de la madera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-madera",
       "direction": "direct",
       "relevance": "high",
@@ -111,36 +111,24 @@
     {
       "id": "industria-papel",
       "name": "Fabricación de papel y cartón",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-papel",
       "direction": "direct",
-      "relevance": "medium",
+      "relevance": "high",
       "depth": 1,
       "children": []
     },
     {
       "id": "transporte-carga-carretera",
       "name": "Transporte de carga por carretera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-carga-carretera",
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": [
-        {
-          "id": "transporte-ferroviario",
-          "name": "Transporte ferroviario",
-          "category": "logistics",
-          "relation": "related_activity",
-          "target_activity_id": "transporte-ferroviario",
-          "direction": "indirect",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
+      "children": []
     },
     {
       "id": "generacion-electrica",
@@ -165,7 +153,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -175,7 +163,7 @@
     },
     {
       "id": "rolos-pulpa",
-      "name": "Rolos pulpa",
+      "name": "Rollos para pulpa",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -185,7 +173,7 @@
     },
     {
       "id": "rolos-aserrio",
-      "name": "Rolos aserrio",
+      "name": "Rollos para aserrío",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -330,6 +318,64 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Plantación y manejo forestal",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-cosecha-cosecha-forestal",
+      "name": "Cosecha y extracción de madera",
+      "category": "value_chain",
+      "stage": "cosecha",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "cosecha-forestal"
+    },
+    {
+      "id": "vc-distribucion-transporte-ferroviario",
+      "name": "Transporte ferroviario y carretero de madera",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "transporte-ferroviario"
+    },
+    {
+      "id": "vc-transformacion-industria-celulosa",
+      "name": "Industria de celulosa y madera",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "industria-celulosa"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercados internacionales de fibra y madera",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

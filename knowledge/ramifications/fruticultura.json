@@ -38,7 +38,7 @@
     },
     {
       "id": "logistica-refrigerada",
-      "name": "Logistica refrigerada",
+      "name": "Logística refrigerada",
       "category": "logistics",
       "relation": "dependency",
       "direction": "direct",
@@ -99,8 +99,8 @@
     {
       "id": "industria-frutihorticola",
       "name": "Procesamiento de frutas y hortalizas",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-frutihorticola",
       "direction": "direct",
       "relevance": "high",
@@ -121,8 +121,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -152,7 +152,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

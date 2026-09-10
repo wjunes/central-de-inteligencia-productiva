@@ -19,8 +19,8 @@
     {
       "id": "combustibles",
       "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "combustibles",
       "direction": "direct",
       "relevance": "medium",
@@ -60,8 +60,8 @@
     {
       "id": "industria-celulosa",
       "name": "Producción de celulosa",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "industria-celulosa",
       "direction": "direct",
       "relevance": "critical",
@@ -71,8 +71,8 @@
     {
       "id": "transporte-carga-carretera",
       "name": "Transporte de carga por carretera",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-carga-carretera",
       "direction": "direct",
       "relevance": "medium",
@@ -82,8 +82,8 @@
     {
       "id": "transporte-ferroviario",
       "name": "Transporte ferroviario de carga",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-ferroviario",
       "direction": "direct",
       "relevance": "medium",
@@ -102,7 +102,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -112,7 +112,7 @@
     },
     {
       "id": "rolos-pulpa",
-      "name": "Rolos pulpa",
+      "name": "Rollos para pulpa",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -122,7 +122,7 @@
     },
     {
       "id": "rolos-aserrio",
-      "name": "Rolos aserrio",
+      "name": "Rollos para aserrío",
       "category": "products",
       "relation": "output",
       "direction": "direct",

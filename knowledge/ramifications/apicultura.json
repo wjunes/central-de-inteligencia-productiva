@@ -14,7 +14,28 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "uso-de-suelo-agricola",
+          "name": "Avance de la agricultura sobre praderas melíferas",
+          "category": "environmental_factors",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        },
+        {
+          "id": "monte-nativo",
+          "name": "Disponibilidad de monte nativo y eucalipto",
+          "category": "resources",
+          "relation": "dependency",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "uso-agroquimicos",
@@ -101,7 +122,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -177,7 +198,18 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "mortandad-por-agroquimicos",
+          "name": "Mortandad de colmenas por agroquímicos",
+          "category": "sanitary_factors",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "normativa-sanitaria",

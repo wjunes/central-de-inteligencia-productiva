@@ -89,8 +89,8 @@
     {
       "id": "fruticultura",
       "name": "Fruticultura",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "fruticultura",
       "direction": "direct",
       "relevance": "high",
@@ -100,8 +100,8 @@
     {
       "id": "horticultura",
       "name": "Horticultura",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "horticultura",
       "direction": "direct",
       "relevance": "high",
@@ -111,8 +111,8 @@
     {
       "id": "citricultura",
       "name": "Citricultura",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "citricultura",
       "direction": "direct",
       "relevance": "high",
@@ -122,8 +122,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -142,7 +142,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

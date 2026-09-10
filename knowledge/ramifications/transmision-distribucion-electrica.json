@@ -38,7 +38,7 @@
     },
     {
       "id": "lineas-transmision",
-      "name": "Lineas transmision",
+      "name": "Lineas transmisión",
       "category": "infrastructure",
       "relation": "infrastructure",
       "direction": "direct",
@@ -69,8 +69,8 @@
     {
       "id": "generacion-electrica",
       "name": "Generación de energía eléctrica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "generacion-electrica",
       "direction": "direct",
       "relevance": "critical",
@@ -91,8 +91,8 @@
     {
       "id": "industria-metalica",
       "name": "Industria metalúrgica y productos de metal",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "industria-metalica",
       "direction": "direct",
       "relevance": "medium",
@@ -102,8 +102,8 @@
     {
       "id": "data-centers",
       "name": "Centros de datos e infraestructura digital",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "data-centers",
       "direction": "direct",
       "relevance": "medium",
@@ -142,7 +142,7 @@
     },
     {
       "id": "peaje-transmision",
-      "name": "Peaje transmision",
+      "name": "Peaje transmisión",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -152,7 +152,7 @@
     },
     {
       "id": "demanda-electrica",
-      "name": "Demanda electrica",
+      "name": "Demanda eléctrica",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "indirect",

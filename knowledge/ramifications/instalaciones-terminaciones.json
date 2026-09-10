@@ -8,7 +8,7 @@
   "ramifications": [
     {
       "id": "actividad-construccion",
-      "name": "Actividad construccion",
+      "name": "Actividad construcción",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -48,7 +48,7 @@
     },
     {
       "id": "caneria",
-      "name": "Caneria",
+      "name": "Cañería",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -131,7 +131,7 @@
     },
     {
       "id": "instalacion-electrica",
-      "name": "Instalacion electrica",
+      "name": "Instalacion eléctrica",
       "category": "products",
       "relation": "output",
       "direction": "direct",

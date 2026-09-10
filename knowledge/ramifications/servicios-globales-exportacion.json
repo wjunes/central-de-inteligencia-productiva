@@ -4,7 +4,7 @@
   "sector_id": "servicios-productivos-tecnologicos",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 25,
+  "ramification_count": 26,
   "ramifications": [
     {
       "id": "regimen-zonas-francas",
@@ -69,8 +69,8 @@
     {
       "id": "software-ti",
       "name": "Desarrollo de software y servicios informáticos",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "software-ti",
       "direction": "direct",
       "relevance": "high",
@@ -80,8 +80,8 @@
     {
       "id": "servicios-profesionales",
       "name": "Servicios profesionales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-profesionales",
       "direction": "direct",
       "relevance": "high",
@@ -91,8 +91,8 @@
     {
       "id": "servicios-financieros",
       "name": "Servicios financieros y seguros",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-financieros",
       "direction": "direct",
       "relevance": "medium",
@@ -102,8 +102,8 @@
     {
       "id": "telecomunicaciones",
       "name": "Telecomunicaciones",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "telecomunicaciones",
       "direction": "direct",
       "relevance": "high",
@@ -112,7 +112,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -259,6 +259,170 @@
       "relevance": "high",
       "depth": 1,
       "children": []
+    },
+    {
+      "id": "mercados-destino-servicios",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "estados-unidos",
+          "name": "Estados Unidos",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "critical",
+          "depth": 2,
+          "children": [
+            {
+              "id": "estados-unidos-demanda",
+              "name": "Demanda — Estados Unidos",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-precios",
+              "name": "Precios — Estados Unidos",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Estados Unidos",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-competencia",
+              "name": "Competencia de otros orígenes — Estados Unidos",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "america-latina",
+          "name": "América Latina",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "america-latina-demanda",
+              "name": "Demanda — América Latina",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "america-latina-precios",
+              "name": "Precios — América Latina",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "america-latina-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — América Latina",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "america-latina-competencia",
+              "name": "Competencia de otros orígenes — América Latina",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "europa",
+          "name": "Europa",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "europa-demanda",
+              "name": "Demanda — Europa",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "europa-precios",
+              "name": "Precios — Europa",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "europa-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Europa",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "europa-competencia",
+              "name": "Competencia de otros orígenes — Europa",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
     }
   ]
 }

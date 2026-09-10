@@ -14,7 +14,18 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "anos-secos",
+          "name": "Años secos que exigen respaldo térmico",
+          "category": "climate_factors",
+          "relation": "impact",
+          "direction": "direct",
+          "relevance": "critical",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "abastecimiento-combustibles",
@@ -59,8 +70,8 @@
     {
       "id": "combustibles",
       "name": "Refinación y distribución de combustibles",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "suppliers",
+      "relation": "supplier",
       "target_activity_id": "combustibles",
       "direction": "direct",
       "relevance": "high",
@@ -90,7 +101,7 @@
     },
     {
       "id": "energia-electrica",
-      "name": "Energia electrica",
+      "name": "Energía eléctrica",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -110,7 +121,7 @@
     },
     {
       "id": "demanda-electrica",
-      "name": "Demanda electrica",
+      "name": "Demanda eléctrica",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "indirect",

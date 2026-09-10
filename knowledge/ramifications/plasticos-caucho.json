@@ -38,7 +38,7 @@
     },
     {
       "id": "resinas-plasticas",
-      "name": "Resinas plasticas",
+      "name": "Resinas plásticas",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -142,7 +142,7 @@
     },
     {
       "id": "envases-plasticos",
-      "name": "Envases plasticos",
+      "name": "Envases plásticos",
       "category": "products",
       "relation": "output",
       "direction": "direct",

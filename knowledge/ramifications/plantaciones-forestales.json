@@ -14,7 +14,18 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "cambios-en-la-zonificacion",
+          "name": "Cambios en la zonificación de prioridad forestal",
+          "category": "regulatory_factors",
+          "relation": "regulation",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "clima",
@@ -34,7 +45,18 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "temporada-de-incendios",
+          "name": "Temporada e índice de riesgo de incendios",
+          "category": "climate_factors",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "plantines",
@@ -69,19 +91,19 @@
     {
       "id": "cosecha-forestal",
       "name": "Cosecha y extracción forestal",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "cosecha-forestal",
       "direction": "direct",
-      "relevance": "medium",
+      "relevance": "high",
       "depth": 1,
       "children": []
     },
     {
       "id": "id-biotecnologia",
       "name": "Investigación, desarrollo y biotecnología",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "id-biotecnologia",
       "direction": "direct",
       "relevance": "medium",

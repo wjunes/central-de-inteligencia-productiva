@@ -89,8 +89,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "high",
@@ -132,7 +132,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -212,11 +212,10 @@
     },
     {
       "id": "comercio-exterior",
-      "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "comercio-exterior",
-      "direction": "direct",
+      "name": "Comercio exterior",
+      "category": "economic_factors",
+      "relation": "impact",
+      "direction": "indirect",
       "relevance": "medium",
       "depth": 1,
       "children": []

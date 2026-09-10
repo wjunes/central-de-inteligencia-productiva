@@ -18,7 +18,7 @@
     },
     {
       "id": "obra-publica",
-      "name": "Obra publica",
+      "name": "Obra pública",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -48,7 +48,7 @@
     },
     {
       "id": "software-tecnico",
-      "name": "Software tecnico",
+      "name": "Software técnico",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -102,8 +102,8 @@
     {
       "id": "servicios-globales-exportacion",
       "name": "Servicios globales de exportación",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-globales-exportacion",
       "direction": "direct",
       "relevance": "high",
@@ -122,7 +122,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",

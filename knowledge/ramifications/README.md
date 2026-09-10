@@ -92,8 +92,9 @@ Un archivo por cada nodo de `activities.json` (actividades y subactividades). La
 - **`direction`**: `direct` (impacto inmediato o dependencia directa) o `indirect` (afecta a través de una o más cadenas intermedias, pero sigue siendo relevante).
 - **`relevance`**: `critical` | `high` | `medium` | `low` (ver semántica abajo). Es una clasificación inicial; no hay todavía fórmula de relevancia.
 - **`depth`**: nivel de la relación (1 a 3 máximo).
-- **`children`**: subramificaciones (`depth` 2 y 3). Vacío en la mayoría; se desarrolla solo donde aporta a comprender el universo productivo.
-- **`target_activity_id`**: presente cuando `relation` es `related_activity`; apunta a otra actividad de `activities.json` en lugar de duplicar información.
+- **`children`**: subramificaciones (`depth` 2 y 3). Vacío en la mayoría; se desarrolla solo donde aporta valor informativo, no por simetría entre archivos.
+- **`target_activity_id`**: presente cuando la ramificación es otra actividad de `activities.json`; se referencia por id en lugar de duplicarla. La `relation` precisa el rol: `supplier`, `customer`, `competitor`, `infrastructure`, `related_activity`, etc.
+- **`stage`**: presente solo en ramificaciones de `category: value_chain`; posición en la cadena (`proveedores`, `insumos`, `produccion`, `transformacion`, `distribucion`, `comercializacion`, `mercado`).
 
 ### Vocabulario de `category`
 
@@ -107,7 +108,12 @@ labor_factors         demand_factors        competitive_factors  risks
 opportunities         strategic_signals
 ```
 
-No es obligatorio usar todas. En esta primera versión no se utilizan `processes` (ya definidos en `activities.json`), ni `value_chain`, `suppliers`, `customers`, `services` ni `strategic_signals`, reservadas para la profundización posterior.
+No es obligatorio usar todas. `processes` no se utiliza (ya está en `activities.json`). `value_chain`, `suppliers`, `customers`, `services` y `strategic_signals` se incorporaron en la segunda pasada para las actividades donde representan relaciones productivas reales; el resto de las actividades las usará a medida que se enriquezcan.
+
+### Cadena de valor y mercados-destino
+
+- **`value_chain`**: en ~15 actividades núcleo se representa la cadena `proveedores → insumos → producción → transformación → distribución → comercialización → mercado` con los eslabones relevantes (campo `stage`), enlazando por `target_activity_id` a las actividades que ocupan cada eslabón. Permite detectar impactos indirectos (un cambio aguas abajo afecta al productor).
+- **Mercados-destino**: en las actividades exportadoras se abre `markets` en un nodo `mercados-destino-*` con hijos por destino estructural (China, UE, EE.UU., Brasil, Mercosur, etc.), y cada destino con hijos `demanda`, `precios`, `requisitos-y-barreras` y `competencia`. No es una base mundial de países: solo destinos con relación productiva relevante, para que el sistema pueda detectar *"algo cambió en este mercado y afecta a esta actividad"*.
 
 ### Semántica de `relevance`
 
@@ -125,8 +131,11 @@ Se identifican **situaciones a vigilar**, no recomendaciones. Una oportunidad ma
 ## Cómo se construyó
 
 1. Base derivada automáticamente de `knowledge/activities/activities.json`: cada identificador de relación se clasificó en `category` / `relation` / `direction` / `relevance` mediante un diccionario de factores transversales y reglas por tipo de campo.
-2. Enriquecimiento curado de las actividades de mayor peso (ganadería, agricultura de secano, lechería, arroz, forestal-celulosa, frigorífica, energía, turismo, software, caña de azúcar, pesca industrial): subramificaciones `depth` 2, ajustes de relevancia y riesgos/oportunidades específicos.
-3. `risks` y `opportunities` generales agregados por reglas conservadoras (clima, cierre de mercados, precios internacionales, concentración en China, exigencias ambientales, acuerdos comerciales, atracción de inversión, escasez de talento, shock de petróleo) solo cuando la actividad tiene el factor asociado.
+2. **Roles entre actividades**: las relaciones actividad↔actividad se clasificaron con una tabla de cadenas de procesamiento y sectores en `supplier`, `customer`, `competitor`, `infrastructure`, `logistics` o `related_activity`, en vez de una relación genérica única.
+3. Enriquecimiento curado (`_build/curated.json`) de ~30 actividades: subramificaciones `depth` 2‑3, cadena de valor, mercados-destino, señales estratégicas, ajustes de relevancia y riesgos/oportunidades específicos. Se priorizó la profundidad donde hay dependencia productiva, climática, energética, logística, sanitaria, regulatoria, de mercado o de costos fuerte; **no** para igualar el tamaño de los archivos.
+4. `risks` y `opportunities` generales por reglas conservadoras (clima, cierre de mercados, precios internacionales, concentración en China, exigencias ambientales, acuerdos comerciales, atracción de inversión, escasez de talento, shock de petróleo) solo cuando la actividad tiene el factor asociado.
+
+El mapa es **reproducible**: `python knowledge/ramifications/_build/generate.py` regenera todos los archivos a partir de `activities.json` + `curated.json`.
 
 Fuentes: la clasificación se apoya en las denominaciones y relaciones ya validadas en `activities/` con fuentes oficiales uruguayas (MGAP/DIEA, INIA, INAC, INALE, DINARA, MIEM, BCU, INE, Uruguay XXI, MTOP/ANP, UTE/URSEA). No se incorporó investigación estadística, de precios ni de mercados.
 

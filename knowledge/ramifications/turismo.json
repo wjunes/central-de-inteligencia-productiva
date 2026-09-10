@@ -4,7 +4,7 @@
   "sector_id": "turismo",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 21,
+  "ramification_count": 27,
   "ramifications": [
     {
       "id": "flujo-turistico",
@@ -28,7 +28,7 @@
     },
     {
       "id": "promocion-pais",
-      "name": "Promocion pais",
+      "name": "Promoción país",
       "category": "resources",
       "relation": "dependency",
       "direction": "direct",
@@ -79,8 +79,8 @@
     {
       "id": "transporte-pasajeros",
       "name": "Transporte de pasajeros",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-pasajeros",
       "direction": "direct",
       "relevance": "high",
@@ -90,8 +90,8 @@
     {
       "id": "transporte-aereo",
       "name": "Transporte aéreo",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "transporte-aereo",
       "direction": "direct",
       "relevance": "high",
@@ -101,8 +101,8 @@
     {
       "id": "comercio-minorista",
       "name": "Comercio minorista",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-minorista",
       "direction": "direct",
       "relevance": "medium",
@@ -239,6 +239,72 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-insumos",
+      "name": "Atractivos, infraestructura y promoción país",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-operacion-agencias-operadores",
+      "name": "Operadores y agencias",
+      "category": "value_chain",
+      "stage": "operacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "agencias-operadores"
+    },
+    {
+      "id": "vc-servicios-alojamiento",
+      "name": "Alojamiento y gastronomía",
+      "category": "value_chain",
+      "stage": "servicios",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "alojamiento"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Argentina, Brasil, resto del mundo",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "reservas-aereas-y-hoteleras-anticipadas",
+      "name": "Reservas aéreas y hoteleras anticipadas",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "brecha-cambiaria-regional",
+      "name": "Brecha cambiaria con Argentina y Brasil",
+      "category": "strategic_signals",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "critical",
       "depth": 1,
       "children": []
     }

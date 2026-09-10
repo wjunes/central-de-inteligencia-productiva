@@ -24,7 +24,18 @@
       "direction": "direct",
       "relevance": "critical",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "influenza-aviar",
+          "name": "Influenza aviar",
+          "category": "sanitary_factors",
+          "relation": "risk",
+          "direction": "direct",
+          "relevance": "critical",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "energia",
@@ -54,11 +65,22 @@
       "direction": "direct",
       "relevance": "medium",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "precio-maiz-soja",
+          "name": "Precio de maíz y harina de soja",
+          "category": "cost_factors",
+          "relation": "cost",
+          "direction": "direct",
+          "relevance": "high",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "genetica-aviar",
-      "name": "Genetica aviar",
+      "name": "Genética aviar",
       "category": "technologies",
       "relation": "complement",
       "direction": "direct",
@@ -167,7 +189,18 @@
       "direction": "direct",
       "relevance": "high",
       "depth": 1,
-      "children": []
+      "children": [
+        {
+          "id": "sustitucion-entre-carnes",
+          "name": "Sustitución entre carnes",
+          "category": "demand_factors",
+          "relation": "competitor",
+          "direction": "direct",
+          "relevance": "medium",
+          "depth": 2,
+          "children": []
+        }
+      ]
     },
     {
       "id": "costo-energia",

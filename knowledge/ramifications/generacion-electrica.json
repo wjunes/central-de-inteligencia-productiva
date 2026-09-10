@@ -4,7 +4,7 @@
   "sector_id": "energia",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 21,
+  "ramification_count": 23,
   "ramifications": [
     {
       "id": "hidrologia",
@@ -89,7 +89,7 @@
     },
     {
       "id": "combustibles-fosiles",
-      "name": "Combustibles fosiles",
+      "name": "Combustibles fósiles",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -110,8 +110,8 @@
     {
       "id": "transmision-distribucion-electrica",
       "name": "Transmisión y distribución eléctrica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "transmision-distribucion-electrica",
       "direction": "direct",
       "relevance": "critical",
@@ -173,7 +173,7 @@
     },
     {
       "id": "energia-electrica",
-      "name": "Energia electrica",
+      "name": "Energía eléctrica",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -193,7 +193,7 @@
     },
     {
       "id": "demanda-electrica",
-      "name": "Demanda electrica",
+      "name": "Demanda eléctrica",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "indirect",
@@ -228,6 +228,26 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "nueva-demanda-de-data-centers",
+      "name": "Nueva demanda de data centers e hidrógeno verde",
+      "category": "strategic_signals",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "pronostico-hidrologico",
+      "name": "Pronóstico hidrológico y de El Niño / La Niña",
+      "category": "strategic_signals",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "critical",
       "depth": 1,
       "children": []
     }

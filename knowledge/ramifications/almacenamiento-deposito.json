@@ -28,7 +28,7 @@
     },
     {
       "id": "demanda-logistica",
-      "name": "Demanda logistica",
+      "name": "Demanda logística",
       "category": "demand_factors",
       "relation": "impact",
       "direction": "direct",
@@ -48,7 +48,7 @@
     },
     {
       "id": "camaras-frio",
-      "name": "Camaras frio",
+      "name": "Camaras frío",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -79,8 +79,8 @@
     {
       "id": "comercio-exterior",
       "name": "Comercio exterior y trading",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "comercio-exterior",
       "direction": "direct",
       "relevance": "medium",
@@ -90,8 +90,8 @@
     {
       "id": "acopio-granos",
       "name": "Acopio y comercialización de granos",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "acopio-granos",
       "direction": "direct",
       "relevance": "medium",
@@ -112,8 +112,8 @@
     {
       "id": "servicios-logisticos",
       "name": "Servicios logísticos y agenciamiento",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "logistics",
+      "relation": "supplier",
       "target_activity_id": "servicios-logisticos",
       "direction": "direct",
       "relevance": "high",
@@ -123,8 +123,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -163,7 +163,7 @@
     },
     {
       "id": "almacenaje-frio",
-      "name": "Almacenaje frio",
+      "name": "Almacenaje frío",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -183,7 +183,7 @@
     },
     {
       "id": "centros-distribucion",
-      "name": "Centros distribucion",
+      "name": "Centros distribución",
       "category": "products",
       "relation": "output",
       "direction": "direct",

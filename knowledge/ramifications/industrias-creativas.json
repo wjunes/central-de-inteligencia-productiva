@@ -48,7 +48,7 @@
     },
     {
       "id": "software-diseno",
-      "name": "Software diseno",
+      "name": "Software diseño",
       "category": "inputs",
       "relation": "input",
       "direction": "direct",
@@ -122,7 +122,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -132,7 +132,7 @@
     },
     {
       "id": "diseno-producto",
-      "name": "Diseno producto",
+      "name": "Diseño producto",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -142,7 +142,7 @@
     },
     {
       "id": "diseno-grafico",
-      "name": "Diseno grafico",
+      "name": "Diseño grafico",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -172,7 +172,7 @@
     },
     {
       "id": "produccion-musical",
-      "name": "Produccion musical",
+      "name": "Producción musical",
       "category": "products",
       "relation": "output",
       "direction": "direct",

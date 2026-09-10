@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "subactivity",
   "parent_activity_id": "ganaderia",
-  "ramification_count": 27,
+  "ramification_count": 31,
   "ramifications": [
     {
       "id": "pasturas",
@@ -69,8 +69,8 @@
     {
       "id": "frigorifica",
       "name": "Industria frigorífica",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "customers",
+      "relation": "customer",
       "target_activity_id": "frigorifica",
       "direction": "direct",
       "relevance": "critical",
@@ -102,8 +102,8 @@
     {
       "id": "puertos-terminales",
       "name": "Operación portuaria y terminales",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "infrastructure",
+      "relation": "infrastructure",
       "target_activity_id": "puertos-terminales",
       "direction": "direct",
       "relevance": "medium",
@@ -112,7 +112,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -277,6 +277,52 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Producción de novillos y vacas para faena",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transformacion-frigorifica",
+      "name": "Faena e industrialización",
+      "category": "value_chain",
+      "stage": "transformacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "frigorifica"
+    },
+    {
+      "id": "vc-distribucion-puertos-terminales",
+      "name": "Logística portuaria de exportación",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "puertos-terminales"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "China, Unión Europea, Estados Unidos, Mercosur",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
       "depth": 1,
       "children": []
     }

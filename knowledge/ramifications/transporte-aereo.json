@@ -90,8 +90,8 @@
     {
       "id": "servicios-globales-exportacion",
       "name": "Servicios globales de exportación",
-      "category": "related_activities",
-      "relation": "related_activity",
+      "category": "services",
+      "relation": "supplier",
       "target_activity_id": "servicios-globales-exportacion",
       "direction": "direct",
       "relevance": "medium",
@@ -132,7 +132,7 @@
     },
     {
       "id": "exportacion",
-      "name": "Exportacion",
+      "name": "Exportación",
       "category": "markets",
       "relation": "market",
       "direction": "direct",
@@ -152,7 +152,7 @@
     },
     {
       "id": "servicio-pasajeros-aereo",
-      "name": "Servicio pasajeros aereo",
+      "name": "Servicio pasajeros aéreo",
       "category": "products",
       "relation": "output",
       "direction": "direct",
@@ -162,7 +162,7 @@
     },
     {
       "id": "carga-aerea",
-      "name": "Carga aerea",
+      "name": "Carga aérea",
       "category": "products",
       "relation": "output",
       "direction": "direct",
