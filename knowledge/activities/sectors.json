@@ -1,0 +1,74 @@
+[
+  {
+    "id": "agropecuario",
+    "name": "Agropecuario",
+    "description": "Agricultura, ganadería, lechería y producción primaria en tierra.",
+    "order": 1
+  },
+  {
+    "id": "pesca-acuicultura",
+    "name": "Pesca y acuicultura",
+    "description": "Pesca artesanal, industrial y producción acuícola.",
+    "order": 2
+  },
+  {
+    "id": "forestal",
+    "name": "Forestal",
+    "description": "Forestación, explotación de madera y producción de celulosa.",
+    "order": 3
+  },
+  {
+    "id": "mineria",
+    "name": "Minería",
+    "description": "Extracción de minerales metálicos y no metálicos.",
+    "order": 4
+  },
+  {
+    "id": "energia",
+    "name": "Energía",
+    "description": "Generación, distribución y comercialización de energía.",
+    "order": 5
+  },
+  {
+    "id": "industria-manufactura",
+    "name": "Industria y manufactura",
+    "description": "Transformación industrial de materias primas y productos elaborados.",
+    "order": 6
+  },
+  {
+    "id": "construccion",
+    "name": "Construcción",
+    "description": "Obra civil, edificación y obras de infraestructura.",
+    "order": 7
+  },
+  {
+    "id": "logistica-transporte",
+    "name": "Logística y transporte",
+    "description": "Transporte de carga y pasajeros, almacenamiento y logística.",
+    "order": 8
+  },
+  {
+    "id": "comercio-productivo",
+    "name": "Comercio vinculado a la producción",
+    "description": "Comercialización mayorista de productos agropecuarios, industriales y de insumos.",
+    "order": 9
+  },
+  {
+    "id": "servicios-productivos",
+    "name": "Servicios productivos",
+    "description": "Servicios técnicos, profesionales y financieros orientados a la producción.",
+    "order": 10
+  },
+  {
+    "id": "tecnologia",
+    "name": "Tecnología y servicios tecnológicos",
+    "description": "Desarrollo de software, servicios digitales y tecnologías aplicadas a la producción.",
+    "order": 11
+  },
+  {
+    "id": "turismo-productivo",
+    "name": "Turismo productivo",
+    "description": "Turismo rural, agroturismo y turismo de naturaleza con base productiva.",
+    "order": 12
+  }
+]
