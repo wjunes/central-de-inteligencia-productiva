@@ -1,0 +1,71 @@
+{
+  "generated": "2026-09-11",
+  "description": "8 tipos (de 10 candidatos), transversales a toda actividad - nunca un tipo por actividad (prompt §4: prohibido recommendation_ganaderia/recommendation_soja).",
+  "recommendation_types": [
+    {
+      "id": "evaluate",
+      "name": "Evaluar",
+      "description": "El tipo por defecto cuando hay evidencia suficiente para considerar una alternativa concreta, sin llegar a un mandato.",
+      "approved_phrasing": "se recomienda evaluar..."
+    },
+    {
+      "id": "prepare",
+      "name": "Prepararse",
+      "description": "Existe un riesgo u oportunidad estructuralmente identificado, con evidencia real pero no observacional (p. ej. un factor de riesgo curado en ramifications/ sin una señal que confirme un evento activo).",
+      "approved_phrasing": "conviene prepararse para..."
+    },
+    {
+      "id": "mitigate",
+      "name": "Mitigar",
+      "description": "Forma de recomendación de un decision_problem type=risk_response con evidencia suficiente para proponer medidas preventivas concretas a evaluar (no a ejecutar).",
+      "approved_phrasing": "se recomienda evaluar medidas preventivas específicas bajo determinadas condiciones..."
+    },
+    {
+      "id": "pursue_opportunity",
+      "name": "Evaluar aprovechamiento de oportunidad",
+      "description": "Forma de recomendación de un decision_problem type=opportunity_pursuit - la existencia de la oportunidad NUNCA implica por sí sola que deba aprovecharse (prompt §25): requiere capacidad/recursos/restricciones evaluados.",
+      "approved_phrasing": "resulta conveniente considerar..."
+    },
+    {
+      "id": "adjust",
+      "name": "Ajustar",
+      "description": "Recomendación sobre un parámetro operativo existente (decision_type=production), de menor magnitud que mitigate/pursue_opportunity.",
+      "approved_phrasing": "sería razonable analizar un ajuste de..."
+    },
+    {
+      "id": "defer",
+      "name": "Postergar",
+      "description": "Existen alternativas concretas ya evaluadas, pero la recomendación es postergar la elección hasta que se cumpla una condición explícita (distinto de monitor: aquí SÍ hay alternativas comparadas).",
+      "approved_phrasing": "conviene postergar la decisión hasta..."
+    },
+    {
+      "id": "monitor",
+      "name": "Monitorear",
+      "description": "La evidencia actual no permite evaluar alternativas concretas; se recomienda observar la evolución de un recurso YA monitoreado (monitoring/monitors.json) antes de reevaluar.",
+      "approved_phrasing": "se recomienda monitorear la evolución de..."
+    },
+    {
+      "id": "seek_information",
+      "name": "Buscar información",
+      "description": "Distinto de monitor: aquí NO existe un recurso de monitoring/ que cubra la información necesaria (ver decision/rules.json.information_value) - se señala el vacío informacional, no se crea un monitor nuevo.",
+      "approved_phrasing": "no existe evidencia suficiente; conviene indagar específicamente..."
+    }
+  ],
+  "excluded_types": [
+    {
+      "candidate": "prioritize",
+      "decision": "modelado_como_campo_no_tipo",
+      "reason": "Priorizar entre alternativas ya evaluadas es el resultado de priority.json (recommendation_priority), no una forma de recomendación distinta - todo recommendation_type ya lleva su propia prioridad."
+    },
+    {
+      "candidate": "review",
+      "decision": "modelado_como_estado_de_actualizacion",
+      "reason": "Revisar una recomendación existente por nueva evidencia es un evento del ciclo de vida (rules.json.update_policy: reassess), no un tipo de contenido nuevo."
+    }
+  ],
+  "distinction": {
+    "recommendation_type": "QUÉ clase de propuesta es (esta lista).",
+    "decision_type": "de decision/decision-types.json - el tipo de PROBLEMA que la origina (production/commercial/investment/risk_response/opportunity_pursuit).",
+    "activity": "SIEMPRE contexto (campo subject/activity de la recomendación), nunca parte del tipo."
+  }
+}

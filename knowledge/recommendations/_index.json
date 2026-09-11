@@ -1,0 +1,30 @@
+{
+  "generated": "2026-09-11",
+  "inputs": [
+    "knowledge/decision/decision-types.json",
+    "knowledge/decision/uncertainty.json",
+    "knowledge/decision/criteria.json",
+    "knowledge/intelligence/intelligence-types.json",
+    "knowledge/relevance/mappings.json (solo para verificación del Caso 14)"
+  ],
+  "counts": {
+    "recommendation_types_total": 8,
+    "excluded_types": 2,
+    "recommendation_strength_levels": 5,
+    "evidence_level_values": 5,
+    "no_recommendation_triggers": 6,
+    "lifecycle_status_values": 6,
+    "priority_concepts_in_system": 5,
+    "recommendation_instances": 0
+  },
+  "no_live_recommendation_instances": true,
+  "self_loop_check": "OK",
+  "known_upstream_gaps": {
+    "domain_names": "barreras-y-requisitos-de-acceso - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics sin fuente/dominio asociado - no corregido aquí",
+    "relevance_market_granularity": "exposición a mercado solo a nivel de fuente/dominio - no corregido aquí",
+    "intelligence_ambiguous_categories": "13/25 categorías sin sentido costo/ingreso genérico - no corregido aquí",
+    "decision_cost_reversibility_data": "relative_cost/reversibility mayormente unknown por falta de datos en sources/ - no corregido aquí"
+  },
+  "validation_errors": []
+}

@@ -1,0 +1,4 @@
+{
+  "_note": "Fixture de prueba - cuarta captura, continúa la suba iniciada en t2 (usada para Caso 4 de tendencia: 3 observaciones consecutivas en la misma dirección).",
+  "normalized": { "kind": "indicator", "indicator": "precio-soja-fao-amis", "value": 500, "unit": "USD/ton", "period": "2026-09-b" }
+}

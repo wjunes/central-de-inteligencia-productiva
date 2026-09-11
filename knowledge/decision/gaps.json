@@ -1,0 +1,41 @@
+{
+  "generated": "2026-09-11",
+  "principle": "No fabricar gaps para completar el archivo; no fabricar datos para evitar declarar un gap (prompt §28).",
+  "no_live_instances": {
+    "type": "structural",
+    "description": "No existen instancias reales de decision_problem en el repositorio, porque no existen instancias reales de intelligence/signals/monitoring en vivo (mismo gap estructural documentado en intelligence/gaps.json.no_live_instances). Todo lo entregado aquí es metodología y un caso trabajado con datos estructurales reales, no un resultado de evaluación real.",
+    "corregido_en_esta_tarea": false
+  },
+  "no_scoring_methodology": {
+    "type": "methodological",
+    "description": "No existe en el repositorio una metodología de ponderación validada entre economic_impact/feasibility/strategic_alignment/evidence_strength. No se fabricó una (ver criteria.json.no_scoring). best_option nunca se asigna automáticamente en esta capa.",
+    "corregido_en_esta_tarea": false
+  },
+  "no_causal_evidence_mechanism": {
+    "type": "methodological",
+    "description": "evidence.json.causal_chain reserva el valor 'causal_evidence' pero ningún mecanismo del repositorio lo produce hoy (todo lo disponible es structural_dependency o correlation, nunca evidencia causal validada estadísticamente).",
+    "corregido_en_esta_tarea": false
+  },
+  "cost_and_reversibility_data": {
+    "type": "data",
+    "description": "relative_cost y reversibility de una alternativa quedarán 'unknown' en la gran mayoría de los casos: ninguna fuente de sources/ registra costos de acciones productivas concretas ni su reversibilidad. No se estima un valor arbitrario (prompt §6).",
+    "corregido_en_esta_tarea": false
+  },
+  "self_loop_verification": {
+    "type": "validation",
+    "cases_checked": [
+      "agencias-operadores",
+      "alojamiento",
+      "cosecha-forestal"
+    ],
+    "self_loops_found": [],
+    "status": "sin_cambios_respecto_de_intelligence",
+    "note": "Verificación del Caso 15: los 3 casos siguen sin generar self-loops en relevance/mappings.json (corregido en la tarea de intelligence/, no se modifica ramifications/ ni relevance/ en esta tarea)."
+  },
+  "known_upstream_gaps_carried_forward": {
+    "domain_names": "barreras-y-requisitos-de-acceso - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics sin fuente/dominio asociado (signals/gaps.json) - no corregido aquí",
+    "relevance_market_granularity": "exposición a mercado solo a nivel de fuente/dominio (relevance/gaps.json) - no corregido aquí",
+    "intelligence_ambiguous_categories": "13/25 categorías de ramifications/ sin sentido costo/ingreso genérico (intelligence/gaps.json) - no corregido aquí"
+  }
+}

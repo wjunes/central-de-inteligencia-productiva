@@ -1,0 +1,13 @@
+{
+  "_note": "Configuracion OPERATIVA del motor, no conocimiento: sigue el esquema declarado en knowledge/signals/thresholds.json (overrides_schema), que quedo deliberadamente vacio en knowledge/ porque ese repositorio no fija valores sin evidencia (ver knowledge/signals/gaps.json). Este archivo NO modifica knowledge/signals/thresholds.json - es la capa de configuracion que ese archivo anticipo como 'a completar incrementalmente'. Valores ilustrativos para las pruebas de este motor, documentados con su fuente.",
+  "overrides": [
+    {
+      "activity_id": "cultivo-soja",
+      "indicator": "precio-soja-fao-amis",
+      "threshold_type": "percentage_threshold",
+      "value": 5,
+      "direction": "any",
+      "source_of_value": "Configuracion operativa de prueba para este motor - variacion >5% en el precio de referencia FAO GIEWS/AMIS se considera cambio_significativo. No proviene de una metodologia estadistica validada (ver knowledge/signals/gaps.json)."
+    }
+  ]
+}

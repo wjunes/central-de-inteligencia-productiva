@@ -1,0 +1,30 @@
+{
+  "generated": "2026-09-11",
+  "inputs": [
+    "knowledge/intelligence/intelligence-types.json",
+    "knowledge/intelligence/relationships.json",
+    "knowledge/relevance/mappings.json (solo para verificación del Caso 15)"
+  ],
+  "counts": {
+    "decision_types_total": 5,
+    "excluded_decision_types": 4,
+    "criteria_total": 4,
+    "excluded_criteria": 5,
+    "constraint_categories_total": 10,
+    "constraint_severity_levels": 3,
+    "uncertainty_status_values": 7,
+    "uncertainty_dimensions": 6,
+    "comparison_outcomes": 10,
+    "causal_chain_values": 6,
+    "decision_problem_instances": 0
+  },
+  "no_live_decision_instances": true,
+  "self_loop_check": "OK",
+  "known_upstream_gaps": {
+    "domain_names": "barreras-y-requisitos-de-acceso - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics sin fuente/dominio asociado (signals/gaps.json) - no corregido aquí",
+    "relevance_market_granularity": "exposición a mercado solo a nivel de fuente/dominio (relevance/gaps.json) - no corregido aquí",
+    "intelligence_ambiguous_categories": "13/25 categorías de ramifications/ sin sentido costo/ingreso genérico (intelligence/gaps.json) - no corregido aquí"
+  },
+  "validation_errors": []
+}

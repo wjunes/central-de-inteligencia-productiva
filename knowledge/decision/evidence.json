@@ -1,0 +1,35 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Toda evidencia de decision/ es una referencia a intelligence/ (que a su vez referencia a capas anteriores) - nunca se copia ni se fabrica (prompt §12).",
+  "traceability_chain": "DECISION -> ALTERNATIVE -> CRITERION/IMPACT/CONSTRAINT -> INTELLIGENCE -> RELEVANCE -> SIGNAL -> CHANGE -> CAPTURE -> RESOURCE -> SOURCE (via intelligence/evidence.json.traceability_chain, sin reescribirla aquí)",
+  "never": [
+    "fabricar evidencia inexistente",
+    "convertir ausencia de evidencia en evidencia de ausencia (prompt §12)",
+    "eliminar evidencia contradictoria para simplificar una alternativa"
+  ],
+  "causal_chain": {
+    "principle": "Correlación no es causalidad (prompt §13). Cada eslabón de una cadena de impacto declarada (p. ej. soja↑ -> costo alimentación↑ -> margen↓) se clasifica individualmente, no se asume causal solo porque el paso anterior lo era.",
+    "values": [
+      "observed_relation",
+      "correlation",
+      "structural_dependency",
+      "causal_evidence",
+      "inference",
+      "hypothesis"
+    ],
+    "mapping_to_intelligence_relationships": {
+      "structural_dependency": "depends_on / derived_from de intelligence/relationships.json",
+      "correlation": "related_to / reinforces / counteracts de intelligence/relationships.json",
+      "observed_relation": "un intelligence unit con epistemic_status=observed que vincula dos actividades",
+      "causal_evidence": "no existe hoy en el repositorio ningún mecanismo que produzca esta clasificación (ver gaps.json) - se reserva el valor, no se asigna nunca automáticamente",
+      "inference": "reusa evidence_level=inference de intelligence/",
+      "hypothesis": "un eslabón propuesto sin evidence[] que lo sustente todavía - debe marcar la alternativa que depende de él como uncertainty.status=unknown como mínimo"
+    },
+    "example": {
+      "step_1": "cultivo-soja: precio de soja ↑ (observed, category=products)",
+      "step_2": "ganaderia-bovina-carne: costo de alimentación ↑",
+      "step_2_classification": "structural_dependency SOLO si existe una arista real en relevance/mappings.json con relation=supplier/customer entre cultivo-soja y la actividad candidata; en el caso real de ganaderia-bovina-carne la única arista es related_activity (débil, heredada por jerarquía) -> la clasificación correcta es correlation, no structural_dependency (ver README.md, caso ganadería+soja).",
+      "step_3": "margen ↓: no se afirma sin evidencia adicional de que el precio de venta de la ganadería no se ajustó en la misma proporción - queda como hypothesis, nunca como hecho."
+    }
+  }
+}

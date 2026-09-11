@@ -1,0 +1,10 @@
+{
+  "_note": "Fixture de prueba - tercera captura: caida marcada respecto de t2 (-13.4%), usada para probar actualizacion/reemplazo de una recomendacion ya emitida (prompt seccion 40).",
+  "normalized": {
+    "kind": "indicator",
+    "indicator": "precio-soja-fao-amis",
+    "value": 400,
+    "unit": "USD/ton",
+    "period": "2026-10"
+  }
+}

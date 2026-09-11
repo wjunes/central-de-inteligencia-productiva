@@ -1,0 +1,63 @@
+{
+  "generated": "2026-09-11",
+  "principle": "criterion + value(direction) + evidence + confidence + reason - nunca un score numérico sin metodología (prompt §8).",
+  "criteria": [
+    {
+      "id": "economic_impact",
+      "name": "Impacto económico",
+      "description": "Sentido económico esperado de la alternativa (favorable/desfavorable/mixto), reusando intelligence/intelligence-types.json.dimensions.impact_direction - no se recalcula, se hereda de los intelligence units referenciados en expected_impacts.",
+      "subsumes": "cost, market_condition (candidatos descartados): el costo es un campo propio de la alternativa (relative_cost) y la condición de mercado ya es la evidencia subyacente de economic_impact, no un criterio aparte."
+    },
+    {
+      "id": "feasibility",
+      "name": "Factibilidad",
+      "description": "Capacidad técnica/operativa real de ejecutar la alternativa dado lo que se conoce de constraints.json - no es un juicio de conveniencia, es una evaluación de restricciones duras/blandas conocidas.",
+      "subsumes": "time (candidato descartado): el tiempo hasta poder ejecutar es parte de la evaluación de factibilidad, no un criterio separado."
+    },
+    {
+      "id": "strategic_alignment",
+      "name": "Alineación estratégica",
+      "description": "Coherencia de la alternativa con el scope=strategic (si aplica) del decision_problem que la origina - solo aplica cuando el problema tiene esa dimensión; en decisiones operational/tactical puede quedar 'not_applicable'."
+    },
+    {
+      "id": "evidence_strength",
+      "name": "Fuerza de la evidencia",
+      "description": "Cuán bien sustentada está la alternativa: reusa evidence_level y las 4 dimensiones de confianza de intelligence/ (nunca una confianza inventada aquí)."
+    }
+  ],
+  "excluded_criteria": [
+    {
+      "candidate": "risk / opportunity",
+      "reason": "Son el origen del decision_problem (intelligence type=risk/opportunity), no un criterio de comparación entre alternativas - evaluarlas como criterio sería circular."
+    },
+    {
+      "candidate": "cost",
+      "reason": "Campo propio de la alternativa (relative_cost), no un criterio de comparación transversal."
+    },
+    {
+      "candidate": "resource_requirement / regulatory_constraint / operational_constraint",
+      "reason": "Son constraints.json, no criteria.json - evaluarlas dos veces (como restricción Y como criterio) duplicaría la misma información."
+    },
+    {
+      "candidate": "uncertainty",
+      "reason": "Campo propio de la alternativa (uncertainty.json), transversal a los 4 criterios, no un criterio más."
+    },
+    {
+      "candidate": "dependency",
+      "reason": "Se representa como depends_on en el esquema de la alternativa y como constraint blando/desconocido, no como criterio de comparación."
+    }
+  ],
+  "value_representation": {
+    "direction": "favorable | unfavorable | mixed | neutral | uncertain | not_applicable (reusa intelligence/intelligence-types.json.dimensions.impact_direction, agrega not_applicable para criterios que no aplican al tipo de decisión)",
+    "evidence": "referencias a evidence.json, nunca texto libre sin referencia",
+    "confidence": "una de las 4 dimensiones de intelligence/rules.json.confidence_dimensions, la más pertinente al criterio",
+    "reason": "oración corta derivada de la relación estructural, no una narrativa generada"
+  },
+  "no_scoring": {
+    "decision": "No se implementa un score numérico agregado en esta capa.",
+    "rationale": "Un score requeriría una escala, normalización y ponderación explícitas (prompt §8) - no existe en el repositorio una metodología de ponderación validada entre economic_impact/feasibility/strategic_alignment/evidence_strength, y fabricarla sería inventar una metodología, no derivarla. Queda documentado como extensión futura en gaps.json, no como una funcionalidad silenciosamente faltante."
+  },
+  "best_option": {
+    "rule": "El campo best_option de una comparación NUNCA se asigna automáticamente en esta capa (ver rules.json.comparison_rules) - requeriría la metodología de scoring que §no_scoring declara inexistente. Es un campo de esquema reservado para una política explícita futura, no una función activa aquí."
+  }
+}

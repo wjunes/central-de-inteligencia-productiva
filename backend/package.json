@@ -1,0 +1,17 @@
+{
+  "name": "cip-backend",
+  "version": "0.1.0",
+  "description": "Motor operativo de la Central de Inteligencia Productiva - pipeline SOURCE -> CAPTURE -> CHANGE -> SIGNAL -> RELEVANCE -> INTELLIGENCE -> DECISION -> RECOMMENDATION",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "migrate": "node db/migrate.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}

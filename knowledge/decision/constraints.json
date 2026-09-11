@@ -1,0 +1,67 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Una alternativa no se evalúa solo por beneficios: toda restricción conocida (o explícitamente desconocida) debe declararse.",
+  "categories": [
+    {
+      "id": "regulatory",
+      "name": "Regulatoria",
+      "example": "habilitación sanitaria vigente, normativa ambiental (ver domain-names/regulacion-y-politicas)."
+    },
+    {
+      "id": "financial",
+      "name": "Financiera",
+      "example": "acceso a crédito, condiciones de financiamiento (ver domain-names/financiamiento-e-inversion)."
+    },
+    {
+      "id": "operational",
+      "name": "Operativa",
+      "example": "capacidad de manejo, disponibilidad de mano de obra en el momento requerido."
+    },
+    {
+      "id": "technological",
+      "name": "Tecnológica / de infraestructura",
+      "example": "capacidad instalada, equipamiento disponible.",
+      "subsumes": "infrastructure, capacity (candidatos fusionados aquí: ambos son, en la práctica, restricciones de capacidad física/tecnológica)."
+    },
+    {
+      "id": "resource",
+      "name": "De recursos",
+      "example": "disponibilidad de insumos, tierra, agua."
+    },
+    {
+      "id": "environmental",
+      "name": "Ambiental",
+      "example": "permisos, condiciones climáticas límite (ver domain-names/normativa-ambiental-y-territorial)."
+    },
+    {
+      "id": "sanitary",
+      "name": "Sanitaria",
+      "example": "estatus sanitario vigente, habilitaciones de exportación (ver domain-names/estatus-sanitario-y-habilitaciones)."
+    },
+    {
+      "id": "temporal",
+      "name": "Temporal",
+      "example": "ventana de zafra, plazo de una habilitación, estacionalidad."
+    },
+    {
+      "id": "contractual",
+      "name": "Contractual",
+      "example": "compromisos ya asumidos con proveedores o clientes."
+    },
+    {
+      "id": "data_availability",
+      "name": "Disponibilidad de datos",
+      "example": "la alternativa requiere un dato que no existe en monitoring/sources (ver gaps.json) - una restricción sobre la EVALUACIÓN, no sobre la actividad."
+    }
+  ],
+  "severity": {
+    "values": [
+      "hard_constraint",
+      "soft_constraint",
+      "unknown_constraint"
+    ],
+    "hard_constraint": "Vuelve la alternativa status=infeasible si se viola (prompt §9, Caso 9) - no se pondera, se excluye.",
+    "soft_constraint": "Reduce la fuerza de la alternativa (evidence_strength/feasibility) pero no la excluye.",
+    "unknown_constraint": "Se desconoce si aplica - NO se trata como inexistente (prompt §9): se declara explícitamente y contribuye a insufficient_evidence si es determinante."
+  }
+}

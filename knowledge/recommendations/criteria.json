@@ -1,0 +1,76 @@
+{
+  "generated": "2026-09-11",
+  "principle": "evidence ↓ => certainty ↓ => recommendation_strength ↓ (prompt §10) - la fuerza de una recomendación nunca se fija por conveniencia, se deriva de evidence_level.",
+  "recommendation_strength": {
+    "values": [
+      "strong",
+      "conditional",
+      "preventive",
+      "monitoring_only",
+      "none"
+    ],
+    "language_by_strength": {
+      "strong": "se recomienda evaluar...",
+      "conditional": "si X se confirma, resulta conveniente evaluar Y...",
+      "preventive": "conviene prepararse para...",
+      "monitoring_only": "se recomienda monitorear...",
+      "none": "no existe evidencia suficiente para recomendar una acción..."
+    }
+  },
+  "strength_ladder": [
+    {
+      "strength": "strong",
+      "requires": "evidence_level=strong AND status=candidate AND (reversible OR (irreversible AND evidence_level=strong sin excepción - ver reversibility_rule))",
+      "typical_types": [
+        "evaluate",
+        "adjust"
+      ]
+    },
+    {
+      "strength": "conditional",
+      "requires": "evidence_level=moderate, O evidence_level=strong pero is_contingent=true, O reversibility=irreversible con evidence_level por debajo de 'strong' (nunca strong sin evidencia máxima - ver reversibility_rule)",
+      "typical_types": [
+        "defer",
+        "pursue_opportunity",
+        "evaluate"
+      ]
+    },
+    {
+      "strength": "preventive",
+      "requires": "evidence_level=limited Y origen decision_type=risk_response (o category=risks en la ramificación de origen, ver intelligence/rules.json.risk_opportunity_criteria)",
+      "typical_types": [
+        "prepare",
+        "mitigate"
+      ]
+    },
+    {
+      "strength": "monitoring_only",
+      "requires": "evidence_level=insufficient PERO el decision_problem fue disparado válidamente (existe un intelligence unit de origen real) Y existe un recurso de monitoring/ ya relevante",
+      "typical_types": [
+        "monitor"
+      ]
+    },
+    {
+      "strength": "none",
+      "requires": "evidence_level=insufficient sin recurso de monitoring/ relevante (→ typical_type=seek_information), O evidence_level=conflicting sin resolución, O todas las alternativas del decision_problem tienen status=infeasible/not_comparable",
+      "typical_types": [
+        "seek_information",
+        "none (no_recommendation)"
+      ]
+    }
+  ],
+  "reversibility_rule": {
+    "rule": "Una alternativa reversibility=irreversible NUNCA alcanza recommendation_strength=strong salvo evidence_level=strong sin ninguna excepción (sin contingencias, sin constraints unknown, sin evidencia conflictiva) - mayor irreversibilidad exige mayor evidencia, nunca al revés (prompt §23)."
+  },
+  "no_recommendation_triggers": {
+    "values": [
+      "insufficient_evidence",
+      "unresolved_contradiction",
+      "unknown_determinant_constraint",
+      "uncertain_impact",
+      "non_comparable_alternatives",
+      "missing_critical_information"
+    ],
+    "principle": "no_recommendation es una característica de calidad, no un error (prompt §26) - se reporta con el mismo detalle que una recomendación positiva."
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "_note": "Fixture de prueba - NO es una captura real. Representa una linea de base para el indicador precio-soja-fao-amis (monitor real: fao-giews-amis::principal, ver knowledge/monitoring/monitors.json).",
+  "normalized": {
+    "kind": "indicator",
+    "indicator": "precio-soja-fao-amis",
+    "value": 420,
+    "unit": "USD/ton",
+    "period": "2026-08"
+  }
+}

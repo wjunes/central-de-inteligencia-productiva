@@ -1,0 +1,70 @@
+{
+  "generated": "2026-09-11",
+  "principle": "DECISION SUPPORT != AUTONOMOUS DECISION. Estructurar y evaluar alternativas nunca equivale a ordenar una acción (prompt §2).",
+  "decision_problem_schema": {
+    "id": "identificador estable",
+    "triggered_by": "intelligence unit id(s) que originan el problema (ver intelligence/rules.json.unit_schema) - obligatorio, nunca un decision_problem sin intelligence units de origen",
+    "type": "uno de decision-types.json (production/commercial/investment/risk_response/opportunity_pursuit)",
+    "scope": "reusa intelligence/intelligence-types.json.dimensions.scope (operational/tactical/strategic)",
+    "primary_activity_id": "actividad principal del perfil afectado (reusa activities/)",
+    "context": "referencia al context del/de los intelligence units de origen - no se reescribe",
+    "alternatives": "alternatives.json.schema[] - incluye siempre al menos una alternativa kind=no_action de la familia no_action_family",
+    "status": "open | resolved_externally | superseded | dismissed (una decisión no se 'resuelve' dentro de esta capa: resolved_externally significa que una capa/persona ajena a knowledge/ tomó la decisión, no que este sistema la ejecutó)"
+  },
+  "trigger_condition": "Un decision_problem se estructura cuando existe al menos un intelligence unit con type in {risk, opportunity} y evidence_level>=structural_relationship, o un type=trend/impact con intelligence_importance>=high. No se crea un decision_problem para cada impact de baja importancia (evita ruido, mismo principio que signals/ y relevance/).",
+  "comparison_rules": {
+    "outcomes": [
+      "better_supported",
+      "less_supported",
+      "higher_risk",
+      "lower_risk",
+      "higher_uncertainty",
+      "lower_uncertainty",
+      "more_reversible",
+      "less_reversible",
+      "not_comparable",
+      "insufficient_evidence"
+    ],
+    "rule": "Una comparación entre 2 alternativas se expresa por CRITERIO (uno de los 10 outcomes de arriba, por cada criterio de criteria.json), nunca como un único ganador salvo que se cumplan las condiciones de best_option (ver criteria.json.best_option - en esta capa, nunca).",
+    "hard_constraint_rule": "Una alternativa que viola un hard_constraint se marca status=infeasible de inmediato y se excluye de comparaciones de criterio - no recibe simplemente una evaluación desfavorable en feasibility (prompt §9, Caso 9).",
+    "not_comparable_rule": "Si dos alternativas tienen evidence_level incompatibles (una direct_evidence, otra solo hypothesis) sobre criterios distintos sin una base común, el resultado correcto es not_comparable, no una comparación forzada."
+  },
+  "information_value": {
+    "principle": "Estructurar la DEPENDENCIA informacional de una decisión, no ejecutar monitoreo nuevo (prompt §17) - nunca se crea un monitor aquí.",
+    "schema": {
+      "uncertainty_dimension": "una de uncertainty.json.dimensions",
+      "would_affect_alternatives": "ids de alternativas cuya evaluación cambiaría materialmente si se resolviera esta incertidumbre",
+      "existing_monitoring_reference": "si ya existe un monitor relevante en monitoring/monitors.json, se referencia por id; si no existe, se declara explícitamente ausente (ver gaps.json) - nunca se inventa ni se crea uno nuevo aquí"
+    }
+  },
+  "multiactividad": {
+    "rule": "La misma inteligencia (p. ej. un intelligence unit sobre precio de soja) puede originar decision_problems DISTINTOS en actividades distintas (cultivo-soja: comercial: vender ahora vs. esperar; elaboracion-aceites: production/investment: absorber costo vs. buscar proveedor alternativo) - nunca se asume que una estructura de decisión válida para una actividad es válida para otra (prompt §18)."
+  },
+  "value_chain_scope": {
+    "rule": "decision/ respeta el límite de 2do orden ya establecido en intelligence/rules.json.second_order_effects: no reconstruye el grafo completo de relevance/mappings.json ni propaga alternativas más allá de donde intelligence/ ya dejó de afirmar una dirección clara (uncertain a partir del 2do salto)."
+  },
+  "risk_response_vs_intelligence_risk": {
+    "rule": "intelligence/ identifica 'existe un riesgo' (type=risk). decision/ estructura 'estas son las alternativas disponibles para responder' (decision_type=risk_response) - nunca colapsa ambos pasos ni ejecuta una respuesta (prompt §20)."
+  },
+  "recommendation_basis": {
+    "definition": "recommendation = decision_support + criterios explícitos + restricciones de usuario/contexto + evidencia suficiente. Esta capa entrega decision_support; NO ensambla una recommendation (eso requeriría criterios/restricciones específicos de un usuario concreto, que no existen en knowledge/ - ver prompt §23).",
+    "prohibition": "Ninguna estructura de esta capa debe presentarse como 'la IA recomienda X'. La IA, si se usa en una capa posterior, no es autoridad por sí misma (prompt §21)."
+  },
+  "autonomy_prohibited": [
+    "automatic_execution",
+    "automatic_transaction",
+    "automatic_purchase",
+    "automatic_sale",
+    "automatic_contract",
+    "automatic_notification_to_third_party",
+    "automatic_regulatory_submission",
+    "automatic_financial_operation"
+  ],
+  "prohibited_language": {
+    "rule": "Hereda intelligence/rules.json.prohibited_language sin modificarlo: ningún campo de texto puede usar verbos de recomendación."
+  },
+  "ai_provider_independence": {
+    "principle": "Esta capa no depende de ningún proveedor de IA - es estructura determinística y referencias a evidencia (prompt §24). No se implementa aquí ninguna llamada a DeepSeek, OpenRouter, OpenAI ni Anthropic.",
+    "documented_future_stack": "DeepSeek API -> OpenRouter (fallback) -> evaluación futura de OpenAI/Anthropic. Documentado solo como contexto de arquitectura; no hay código ni configuración de proveedor en knowledge/."
+  }
+}

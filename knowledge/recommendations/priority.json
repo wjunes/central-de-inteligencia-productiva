@@ -1,0 +1,41 @@
+{
+  "generated": "2026-09-11",
+  "principle": "recommendation_priority es un campo propio, distinto de signal priority (sources/monitoring), relevance level (relevance/), intelligence_importance (intelligence/) - nunca copiado ni promediado automáticamente (prompt §21).",
+  "five_priority_concepts_in_the_system": {
+    "signal_priority": "prioridad de la FUENTE (sources.json[].priority, heredada por monitoring/monitors.json[].priority).",
+    "relevance_level": "qué tan conectada está la actividad (relevance/levels.json).",
+    "intelligence_importance": "intelligence/rules.json.intelligence_priority - función de tipo/confianza/evidencia.",
+    "decision_note": "decision/ no definió un campo de prioridad propio (usó status/comparison outcomes en su lugar) - no se modifica decision/ retroactivamente para agregarlo, no era bloqueante.",
+    "recommendation_priority": "este archivo - el quinto y último concepto de la cadena."
+  },
+  "scale": {
+    "values": [
+      "critical",
+      "high",
+      "medium",
+      "low",
+      "none"
+    ],
+    "note": "misma escala de 5 niveles que las capas anteriores, por consistencia - NO es la misma variable ni se calcula igual."
+  },
+  "factors": {
+    "note": "Sin fórmula universal arbitraria (prompt §21) - se documentan los factores que la determinan, sin una ponderación numérica fabricada (misma disciplina que decision/criteria.json.no_scoring).",
+    "list": [
+      "intelligence_importance del intelligence unit de origen",
+      "evidence_level (criteria.json)",
+      "reversibility de la alternativa (irreversible + evidencia fuerte → mayor prioridad de atención, no de acción automática)",
+      "inaction_cost",
+      "horizon (cuanto más próximo, mayor prioridad relativa)",
+      "uncertainty status (conflicting/unknown reducen la prioridad hasta resolverse, no la eliminan)"
+    ]
+  },
+  "inaction_cost": {
+    "values": [
+      "low",
+      "medium",
+      "high",
+      "unknown"
+    ],
+    "principle": "Cualitativo, nunca un número inventado (prompt §22). Puede justificar alta prioridad aunque la acción en sí no sea urgente, cuando cost_of_waiting > cost_of_review."
+  }
+}

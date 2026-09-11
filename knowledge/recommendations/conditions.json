@@ -1,0 +1,26 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Una condición referencia una señal, un indicador o información ya existente - nunca se inventa un valor (prompt §12).",
+  "schema": {
+    "id": "identificador estable",
+    "description": "enunciado neutral de la condición",
+    "operator": "AND | OR | threshold_comparison",
+    "references": "signal_id / monitor_id / threshold (de signals/thresholds.json) / intelligence_unit_id - al menos una referencia obligatoria",
+    "status": "met | not_met | unknown",
+    "status_source": "de dónde se obtendría el estado (nunca se evalúa aquí sin una instancia real)"
+  },
+  "worked_example": {
+    "recommendation": "prepare (caso ganadería + soja, ver README.md)",
+    "condition": {
+      "id": "confirmacion-foco-aftosa",
+      "description": "DGSG confirma un foco activo de fiebre aftosa (no solo el factor de riesgo estructural ya presente en ramifications/).",
+      "operator": "threshold_comparison",
+      "references": [
+        "monitoring/monitors.json#mgap-dgsg::principal"
+      ],
+      "status": "unknown",
+      "status_source": "captura manual de mgap-dgsg (ver monitoring/manual-capture-workflow.json) - no existe hoy una captura real que resuelva este estado."
+    }
+  },
+  "no_invented_thresholds": "Cuando una condición requeriría un umbral numérico que signals/thresholds.json marca pending_definition_per_indicator, la condición queda status=unknown explícitamente - nunca se sustituye por un número supuesto."
+}

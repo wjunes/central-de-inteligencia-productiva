@@ -1,0 +1,10 @@
+{
+  "_note": "Fixture de prueba - captura siguiente a soja-precio.t1.json, +10% sobre la linea de base (supera el umbral operativo de backend/config/thresholds.json: 5%).",
+  "normalized": {
+    "kind": "indicator",
+    "indicator": "precio-soja-fao-amis",
+    "value": 462,
+    "unit": "USD/ton",
+    "period": "2026-09"
+  }
+}

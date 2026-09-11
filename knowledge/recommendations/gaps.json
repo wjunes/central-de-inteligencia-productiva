@@ -1,0 +1,36 @@
+{
+  "generated": "2026-09-11",
+  "principle": "No fabricar recomendaciones para llenar archivos; declarar explícitamente cuando no hay datos vivos suficientes (prompt §31).",
+  "no_live_instances": {
+    "type": "structural",
+    "description": "No existen instancias reales de recomendación en el repositorio - mismo gap estructural que atraviesa toda la pirámide desde monitoring/ (ver intelligence/gaps.json.no_live_instances, decision/gaps.json.no_live_instances). Todo lo entregado aquí es metodología y un caso trabajado con datos estructurales reales.",
+    "corregido_en_esta_tarea": false
+  },
+  "no_scoring_inherited": {
+    "type": "methodological",
+    "description": "Hereda la misma limitación de decision/criteria.json.no_scoring: no existe una metodología de ponderación numérica validada - recommendation_priority y evidence_level son escalas cualitativas documentadas, no puntajes calculados.",
+    "corregido_en_esta_tarea": false
+  },
+  "monitoring_coverage_for_conditions": {
+    "type": "data",
+    "description": "Varias condiciones de recomendaciones tipo defer/prepare dependerán de recursos de monitoring/ que son manuales (ver monitoring/manual-capture-workflow.json) o que no existen todavía (ver decision/rules.json.information_value) - el status de esas condiciones queda unknown explícitamente, no se asume met.",
+    "corregido_en_esta_tarea": false
+  },
+  "self_loop_verification": {
+    "type": "validation",
+    "cases_checked": [
+      "agencias-operadores",
+      "alojamiento",
+      "cosecha-forestal"
+    ],
+    "self_loops_found": [],
+    "status": "sin_cambios_respecto_de_decision"
+  },
+  "known_upstream_gaps_carried_forward": {
+    "domain_names": "barreras-y-requisitos-de-acceso - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics sin fuente/dominio asociado - no corregido aquí",
+    "relevance_market_granularity": "exposición a mercado solo a nivel de fuente/dominio - no corregido aquí",
+    "intelligence_ambiguous_categories": "13/25 categorías sin sentido costo/ingreso genérico - no corregido aquí",
+    "decision_cost_reversibility_data": "relative_cost/reversibility mayormente unknown por falta de datos en sources/ - no corregido aquí"
+  }
+}

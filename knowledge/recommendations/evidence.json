@@ -1,0 +1,27 @@
+{
+  "generated": "2026-09-11",
+  "principle": "La cadena de evidencia permanece intacta hasta la fuente original; nunca se copian datos, se referencian (prompt §9).",
+  "traceability_chain": "RECOMMENDATION -> DECISION -> INTELLIGENCE -> RELEVANCE -> SIGNAL -> CHANGE -> CAPTURE -> RESOURCE -> SOURCE (extiende decision/evidence.json.traceability_chain con un salto más; no se reescribe esa cadena, se referencia)",
+  "evidence_level": {
+    "values": [
+      "strong",
+      "moderate",
+      "limited",
+      "insufficient",
+      "conflicting"
+    ],
+    "derivation": "Coarsening explícito de decision/criteria.json (criterion=evidence_strength, que a su vez reusa las 4 dimensiones de confianza de intelligence/) - NO se recalcula desde cero, se resume para el propósito de decidir el registro de lenguaje de la recomendación (ver criteria.json.strength_ladder).",
+    "mapping": {
+      "strong": "alternativa status=candidate, sin hard_constraint violado, evidence_strength alto en decision/, sin evidencia contradictoria.",
+      "moderate": "alternativa status=candidate pero is_contingent=true, o evidence_strength medio.",
+      "limited": "origen estructural (p. ej. ramifications/ category=risks/opportunities) sin una señal observada que lo confirme - existe evidencia, pero no observacional.",
+      "insufficient": "no hay evidence[] suficiente para poblar factors_for/factors_against de ninguna alternativa candidata.",
+      "conflicting": "reusa decision/uncertainty.json.status=conflicting - evidencia contradictoria no resuelta."
+    }
+  },
+  "never": [
+    "copiar datos originales de sources/monitoring/signals",
+    "duplicar señales o inteligencia dentro de recommendations/",
+    "convertir ausencia de evidencia en evidencia de ausencia (heredado de decision/evidence.json)"
+  ]
+}

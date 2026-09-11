@@ -1,0 +1,33 @@
+{
+  "generated": "2026-09-11",
+  "principle": "La incertidumbre es obligatoria en toda alternativa (prompt §10) - nunca se oculta con lenguaje categórico.",
+  "status": {
+    "values": [
+      "known",
+      "estimated",
+      "inferred",
+      "projected",
+      "scenario_dependent",
+      "unknown",
+      "conflicting"
+    ],
+    "mapping_to_intelligence": {
+      "known": "observed o derived en intelligence/intelligence-types.json.dimensions.epistemic_status (a nivel de decisión no se distingue el grado fino, ambos son 'suficientemente conocido')",
+      "estimated": "estimated",
+      "inferred": "inferred",
+      "projected": "projected",
+      "scenario_dependent": "scenario",
+      "unknown": "nuevo aquí: no existe evidence[] alguna (más débil que 'inferred', que al menos tiene una relación estructural)",
+      "conflicting": "reusa intelligence/evidence.json.conflicting_evidence, promovido a estado de primera clase porque decision/ debe poder evaluar alternativas incluso bajo evidencia contradictoria (prompt §12 y §5, Caso 5)"
+    }
+  },
+  "dimensions": {
+    "data_uncertainty": "calidad/completitud del dato subyacente (hereda source_quality de intelligence/).",
+    "model_uncertainty": "incertidumbre de la clasificación/regla usada para llegar a la conclusión (p. ej. direction_by_subject con categoría 'uncertain').",
+    "temporal_uncertainty": "incertidumbre sobre cuándo se materializaría el efecto.",
+    "market_uncertainty": "incertidumbre sobre condiciones de mercado/destino no observadas directamente.",
+    "causal_uncertainty": "incertidumbre sobre si la relación es causal o solo estructural/observacional (ver evidence.json.causal_chain).",
+    "external_uncertainty": "factores fuera del repositorio (no observados por ninguna fuente de sources/) que podrían alterar la evaluación."
+  },
+  "no_single_number": "No se colapsan estas dimensiones en un único número de incertidumbre (prompt §10) - se declaran las que apliquen, cada una con su propio status."
+}

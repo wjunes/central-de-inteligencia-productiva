@@ -1,0 +1,8 @@
+{
+  "_note": "Fixture de prueba - representa la aparicion de un boletin de DGSG (monitor real: mgap-dgsg::principal, manual_capture, new_document_detection). No confirma un foco activo; la ramificacion de origen (brote-aftosa) es un factor de riesgo estructural ya curado en knowledge/ramifications/ganaderia.json (category=risks, relevance=critical), no una confirmacion observada.",
+  "normalized": {
+    "kind": "document",
+    "document_id": "dgsg-boletin-2026-09-11",
+    "version": "1"
+  }
+}

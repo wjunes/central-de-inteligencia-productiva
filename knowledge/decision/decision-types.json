@@ -1,0 +1,56 @@
+{
+  "generated": "2026-09-11",
+  "description": "Taxonomía pequeña de PROPÓSITO de una decisión productiva (no de actividad - una decisión de production nunca se llama 'decision_ganaderia').",
+  "decision_types": [
+    {
+      "id": "production",
+      "name": "Producción",
+      "description": "Decisiones sobre el proceso, volumen, insumos o método productivo de una actividad (p. ej. ajustar manejo, insumos, dotación)."
+    },
+    {
+      "id": "commercial",
+      "name": "Comercial",
+      "description": "Decisiones sobre venta, compra, precio, destino, contraparte o momento de comercialización.",
+      "subsumes": "market (candidato descartado): una decisión de mercado siempre se resuelve en una decisión comercial concreta (a quién, cuándo, a qué precio) - no requiere un tipo aparte."
+    },
+    {
+      "id": "investment",
+      "name": "Inversión / asignación de recursos",
+      "description": "Decisiones sobre asignación de capital, financiamiento o recursos de mediano/largo plazo.",
+      "subsumes": "resource_allocation (candidato descartado): en el dominio productivo tratado aquí, asignar recursos es, en la práctica, siempre una decisión de inversión (capital, tiempo o capacidad) - se fusionó para no duplicar."
+    },
+    {
+      "id": "risk_response",
+      "name": "Respuesta a riesgo",
+      "description": "Decisiones que responden a un riesgo identificado por intelligence/ (type=risk). Puede ser condicional (contingente a un evento futuro) - ver campo is_contingent en alternatives.json, no un tipo aparte.",
+      "subsumes": "contingency (candidato descartado): una decisión de contingencia es un risk_response con un trigger_condition explícito, no una categoría distinta."
+    },
+    {
+      "id": "opportunity_pursuit",
+      "name": "Aprovechamiento de oportunidad",
+      "description": "Decisiones que responden a una oportunidad identificada por intelligence/ (type=opportunity). Simétrico a risk_response (prompt §20)."
+    }
+  ],
+  "excluded_types": [
+    {
+      "candidate": "operational / tactical / strategic",
+      "decision": "modelado_como_dimension_scope",
+      "reason": "Ya existe como dimensions.scope en intelligence/intelligence-types.json y se reusa aquí como scope de la decisión (ver rules.json.decision_problem_schema) - crear un tipo por horizonte de alcance lo duplicaría."
+    },
+    {
+      "candidate": "market",
+      "decision": "fusionado_en_commercial",
+      "reason": "Toda decisión de mercado se concreta como una decisión comercial (a quién vender/comprar, cuándo, a qué precio)."
+    },
+    {
+      "candidate": "resource_allocation",
+      "decision": "fusionado_en_investment",
+      "reason": "No hay una distinción operativa clara respecto de investment en este dominio."
+    },
+    {
+      "candidate": "contingency",
+      "decision": "modelado_como_atributo_de_risk_response",
+      "reason": "Es un risk_response con trigger_condition explícito (ver alternatives.json.schema.is_contingent), no un tipo taxonómico distinto."
+    }
+  ]
+}

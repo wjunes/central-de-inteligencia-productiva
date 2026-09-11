@@ -1,0 +1,38 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Una alternativa es una ESTRUCTURA de opción, nunca una orden. No incluye verbos de recomendación (ver decision/rules.json.prohibited_language, heredado de intelligence/).",
+  "schema": {
+    "id": "identificador estable dentro del decision_problem",
+    "kind": "action | no_action",
+    "description": "descripción neutral de la opción, sin lenguaje imperativo",
+    "is_contingent": "bool - si depende de un trigger_condition futuro (ver rules.json.information_value)",
+    "trigger_condition": "obligatorio si is_contingent=true",
+    "objective": "qué situación atendería esta alternativa (referencia al decision_problem, no una meta impuesta)",
+    "horizon": "reusa intelligence/intelligence-types.json.dimensions.horizon",
+    "conditions": "condiciones que deberían cumplirse para que la alternativa sea viable",
+    "factors_for": "evidence[] que la favorece",
+    "factors_against": "evidence[] que la perjudica",
+    "expected_impacts": "referencias a intelligence units (type=impact/risk/opportunity), no un impacto inventado",
+    "constraints": "ids de constraints.json aplicables, con su severidad (hard/soft/unknown)",
+    "uncertainty": "ver uncertainty.json - por dimensión, no un único valor",
+    "confidence": "igual disciplina que intelligence/: nunca un único número sin definir qué representa",
+    "reversibility": "reversible | partially_reversible | irreversible | unknown",
+    "relative_cost": "unknown salvo que exista evidencia explícita en sources/monitoring - nunca un valor inventado",
+    "depends_on": "otras alternativas o condiciones externas de las que depende (evita ciclos - ver validación)",
+    "status": "candidate | infeasible | insufficient_evidence | not_comparable"
+  },
+  "no_action_family": {
+    "values": [
+      "no_action",
+      "wait",
+      "defer",
+      "monitor"
+    ],
+    "principle": "Siempre deben evaluarse como alternativas de primera clase, con el mismo esquema que una alternativa de acción (prompt §7) - nunca un valor por defecto implícito ni el resultado automático de 'no hay suficiente evidencia'.",
+    "distinction": "insufficient_evidence es un status posible de CUALQUIER alternativa (incluida una de acción); 'monitor'/'wait'/'defer' son alternativas kind=no_action con su propio objective y evidencia, no un sinónimo de insufficient_evidence."
+  },
+  "status_rule": {
+    "infeasible": "obligatorio cuando la alternativa viola un hard_constraint (ver constraints.json) - nunca se expresa solo como una puntuación baja (prompt §9, Caso 9).",
+    "insufficient_evidence": "cuando no hay evidence[] suficiente para poblar factors_for/factors_against/expected_impacts - la alternativa se conserva en la estructura, no se elimina."
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "generated": "2026-09-11",
+  "principle": "DECISION SUPPORT ya construido en decision/ es la única entrada válida - nunca SIGNAL/INTELLIGENCE -> RECOMMENDATION directo sin una decision_problem con alternativas evaluadas (prompt §2, Caso 1).",
+  "precondition": {
+    "rule": "recommendation solo se genera a partir de un decision/rules.json.decision_problem con al menos una alternativa status != infeasible. Sin esa estructura: recommendation_status=not_supported.",
+    "never": "generar una recomendación solo porque existe una señal, tendencia, riesgo, oportunidad o inteligencia - todas deben pasar primero por decision/ (prompt §2)."
+  },
+  "recommendation_schema": {
+    "id": "identificador estable",
+    "type": "uno de recommendation-types.json",
+    "subject": "actividad(es) para las que se emite - nunca implícito",
+    "activity": "reusa activities/ - no se crea taxonomía paralela",
+    "decision_reference": "id del decision_problem/alternative de origen (obligatorio)",
+    "intelligence_reference": "id(s) del/de los intelligence unit(s) de origen (obligatorio, vía decision_reference.triggered_by)",
+    "statement": "texto en el registro de lenguaje correspondiente a recommendation_strength (ver criteria.json.language_by_strength) - nunca un verbo prohibido",
+    "rationale": "obligatorio, deriva de evidence[] - nunca vacío (prompt §8)",
+    "evidence": "referencias, ver evidence.json",
+    "conditions": "ver conditions.json - vacío si recommendation_strength=strong sin contingencia",
+    "constraints": "reusa decision/constraints.json por referencia",
+    "expected_effect": "referencia al expected_impacts de la alternativa de decision/, nunca un valor nuevo inventado aquí",
+    "risks": "referencia a intelligence units type=risk relacionados, si existen",
+    "uncertainties": "reusa decision/uncertainty.json (status + dimensiones) - no se redefine",
+    "confidence": "hereda las 4 dimensiones de intelligence/rules.json.confidence_dimensions vía decision/",
+    "priority": "ver priority.json",
+    "time_horizon": "reusa intelligence/intelligence-types.json.dimensions.horizon",
+    "validity": "ver lifecycle.validity",
+    "reversibility": "heredado de la alternativa de decision/ - nunca recalculado",
+    "monitoring_conditions": "referencias a monitoring/monitors.json o, si no existe cobertura, referencia a decision/rules.json.information_value",
+    "status": "ver lifecycle.status"
+  },
+  "language_rules": {
+    "forbidden_verbs": [
+      "debe hacer",
+      "haga inmediatamente",
+      "venda",
+      "compre",
+      "contrate",
+      "invierta",
+      "abandone",
+      "ejecute"
+    ],
+    "approved_patterns": [
+      "se recomienda evaluar",
+      "resulta conveniente considerar",
+      "podría ser pertinente",
+      "conviene monitorear",
+      "sería razonable analizar",
+      "conviene prepararse para",
+      "conviene postergar"
+    ],
+    "rule": "El lenguaje definitivo depende de recommendation_strength (criteria.json.language_by_strength), nunca se elige libremente. Hereda y extiende intelligence/rules.json.prohibited_language y decision/rules.json.prohibited_language sin contradecirlos."
+  },
+  "lifecycle": {
+    "status_values": [
+      "active",
+      "expired",
+      "superseded",
+      "withdrawn",
+      "unsupported",
+      "pending_validation"
+    ],
+    "validity": {
+      "fields": [
+        "valid_from",
+        "valid_until",
+        "validity_condition",
+        "expiration_reason"
+      ],
+      "rule": "Una recomendación basada en una condición o situación temporal no permanece indefinidamente activa - debe declarar valid_until o validity_condition explícitos (prompt §13)."
+    },
+    "update_policy": {
+      "values": [
+        "update",
+        "supersede",
+        "withdraw",
+        "reassess"
+      ],
+      "rule": "Nueva evidencia que contradice una recomendación NUNCA la oculta: se crea una nueva versión que referencia la anterior (previous_version_id, new_evidence[], reason, updated_at) - misma disciplina que intelligence/rules.json.update_policy (prompt §14, Caso 11)."
+    },
+    "contradictions": {
+      "rule": "Evidencia contradictoria no resuelta -> recommendation_strength en {conditional, none}, nunca 'strong'. No se elige automáticamente la fuente favorable ni se usa IA para 'resolver' la contradicción sin metodología (prompt §15, Caso 3)."
+    }
+  },
+  "multiactividad": {
+    "rule": "La misma inteligencia origina recomendaciones DISTINTAS por actividad (nunca se reutiliza automáticamente la misma recomendación) - hereda decision/rules.json.multiactividad, un salto más abajo en la cadena."
+  },
+  "principal_vs_secundaria": {
+    "rule": "actividad principal != mayor prioridad automática (prompt §20) - recommendation_priority se deriva de relevance/intelligence reales, no del rol de la actividad en el perfil (mismo principio ya demostrado con datos reales en relevance/README.md y decision/README.md)."
+  },
+  "risk_opportunity_separation": {
+    "risk": "intelligence identifica 'existe un riesgo' (type=risk). decision estructura alternativas de respuesta. recommendations/ propone EVALUAR medidas preventivas específicas bajo condiciones - nunca ejecuta ninguna (prompt §24).",
+    "opportunity": "la existencia de una oportunidad NUNCA implica que deba aprovecharse - se evalúan capacidad/recursos/restricciones/riesgo/horizonte/reversibilidad/evidencia antes de emitir pursue_opportunity (prompt §25)."
+  },
+  "autonomy_prohibited": [
+    "automatic_execution",
+    "automatic_purchase",
+    "automatic_sale",
+    "automatic_investment",
+    "automatic_contract",
+    "automatic_transfer",
+    "automatic_regulatory_submission",
+    "automatic_message_to_third_party"
+  ],
+  "no_profile_modification": {
+    "prohibited": [
+      "account",
+      "profile",
+      "financial_state",
+      "production_state",
+      "market_position"
+    ],
+    "rule": "recommendations/ no almacena perfiles individuales ni modifica ningún estado externo - el contexto de perfil (actividad principal/secundarias/escala/recursos/restricciones/mercados/ubicación/objetivos) se recibe como entrada, nunca se persiste aquí (prompt §19)."
+  },
+  "ai_provider_independence": {
+    "principle": "Estructura determinística y referencias a evidencia - cero dependencia de proveedor de IA en esta capa (prompt §27).",
+    "documented_future_stack": "DeepSeek API -> OpenRouter (fallback) -> evaluación futura de OpenAI/Anthropic - documentado solo como contexto, sin implementación aquí (igual que decision/rules.json.ai_provider_independence)."
+  },
+  "efficiency": {
+    "rule": "No se vuelve a consultar sources/monitoring si la evidencia ya está disponible en intelligence/decision. No se generan llamadas de IA redundantes. No se crean registros permanentes de recomendación por usuario: 'central intelligence + decision structure + profile context -> personalized recommendation' se resuelve dinámicamente a partir de referencias, no de copias por usuario (prompt §29)."
+  }
+}
