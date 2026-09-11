@@ -146,3 +146,52 @@ test('fuente real -> Reporte (extremo a extremo, con trazabilidad verificada)', 
   // acquire()). No se realizó ninguna llamada adicional por generar el reporte.
   console.log('[real-source->reporte] reporte personalizado real generado, trazabilidad verificada hasta INUMET. Llamadas HTTP de esta prueba: 1 (adquisición). generateReport() no realizó ninguna.');
 });
+
+// Prueba real completa hasta NARRATIVA + VALIDACIÓN (prompt de Narrativa,
+// seccion 29). Reusa el reporte real ya generado en la prueba anterior via
+// una nueva corrida (misma fuente, sin adquirir nada nuevo). Modo
+// determinístico: 0 llamadas externas adicionales.
+test('fuente real -> Reporte -> Narrativa -> Validación (extremo a extremo)', async (t) => {
+  const [{ resetDbForTests }, { runPipeline }, { createProfile }, { generateReport }, { generateNarrative }, { getTraceability }] = await Promise.all([
+    import('../db/connection.js'),
+    import('../pipeline/orchestrator.js'),
+    import('../core/profile/store.js'),
+    import('../reports/build.js'),
+    import('../narrative/build.js'),
+    import('../reports/store.js'),
+  ]);
+  const db = resetDbForTests(':memory:');
+
+  let result;
+  try {
+    result = await runPipeline(
+      db,
+      [{ monitorId: 'inumet::principal', force: true, context: { originActivityId: 'agricultura-secano', topicId: 'clima-agua', kind: 'dataset_list' } }],
+      { mode: 'live' }
+    );
+  } catch (err) {
+    t.skip(`sin conectividad de red en este entorno: ${err.message}`);
+    return;
+  }
+  const capture = result.outputs.captures[0];
+  if (!capture || capture.status !== 'ok') {
+    t.skip(`adquisición real no disponible ahora mismo (status=${capture?.status})`);
+    return;
+  }
+
+  const profile = createProfile(db, { name: 'Perfil agrícola real (narrativa)', main_activity_id: 'agricultura-secano' });
+  const report = generateReport(db, 'personalized', { profileId: profile.id });
+  const narrative = await generateNarrative(db, report.id); // modo determinístico, 0 llamadas externas
+
+  assert.equal(narrative.mode, 'deterministic');
+  assert.equal(narrative.status, 'validated');
+  assert.equal(narrative.validation.valid, true);
+
+  const trace = getTraceability(db, report.id);
+  const cited = narrative.claims_used
+    .map((cid) => trace.find((t2) => t2.claim_id === cid))
+    .find((t2) => t2?.source_id === 'inumet');
+  assert.ok(cited, 'la narrativa debe citar al menos un claim trazable hasta INUMET');
+
+  console.log('[real-source->narrativa] narrativa determinística real generada y validada (0 errores). Trazabilidad intacta hasta INUMET.');
+});

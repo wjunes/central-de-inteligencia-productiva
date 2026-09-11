@@ -10,9 +10,15 @@ import {
   ValidationError,
 } from '../core/profile/store.js';
 import { getChanges, getPersonalizedRelevance } from '../core/profile/personalize.js';
+import { getProfileCatalogs } from '../core/profile/catalogs.js';
 import { buildRadarView } from '../radar/build.js';
 import { generateReport } from '../reports/build.js';
 import { getReport, listReports, getVersions, getTraceability } from '../reports/store.js';
+import { generateNarrative } from '../narrative/build.js';
+import { getLatestNarrative } from '../narrative/store.js';
+import { validateNarrative } from '../narrative/validator.js';
+import { resolveProvider } from '../services/ai/openrouter-provider.js';
+import { DeepSeekProvider } from '../services/ai/deepseek-provider.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FIXTURES_DIR = join(__dirname, '..', 'fixtures');
@@ -71,6 +77,16 @@ export function createRouter(db) {
       if (req.method === 'GET' && pathname === '/intelligence') return json(res, 200, { intelligence: rows(db, 'intelligence') });
       if (req.method === 'GET' && pathname === '/decisions') return json(res, 200, { decisions: rows(db, 'decisions') });
       if (req.method === 'GET' && pathname === '/recommendations') return json(res, 200, { recommendations: rows(db, 'recommendations') });
+
+      // GET /profile/catalogs (singular, deliberado): catálogos de solo
+      // lectura para construir la edición del Perfil Productivo sin duplicar
+      // conocimiento en el frontend (GAP crítico documentado en
+      // docs/producto/arquitectura-funcional-ux.md). Se usa '/profile' en
+      // singular -y no '/profiles/catalogs'- para no colisionar con la
+      // resolución de ':id' de la ruta plural de abajo.
+      if (req.method === 'GET' && pathname === '/profile/catalogs') {
+        return json(res, 200, getProfileCatalogs());
+      }
 
       // --- /profiles (perfil productivo y personalización) ---
       const seg = pathname.split('/').filter(Boolean); // ['profiles', ':id', 'sub']
@@ -170,6 +186,34 @@ export function createRouter(db) {
         if (seg.length === 3 && seg[2] === 'versions' && req.method === 'GET') {
           if (!getReport(db, seg[1])) return json(res, 404, { error: 'report_not_found' });
           return json(res, 200, { report_id: seg[1], versions: getVersions(db, seg[1]) });
+        }
+        if (seg.length === 3 && seg[2] === 'narrative' && req.method === 'GET') {
+          if (!getReport(db, seg[1])) return json(res, 404, { error: 'report_not_found' });
+          const narrative = getLatestNarrative(db, seg[1]);
+          return narrative ? json(res, 200, narrative) : json(res, 404, { error: 'narrative_not_found' });
+        }
+        if (seg.length === 3 && seg[2] === 'narrative' && req.method === 'POST') {
+          if (!getReport(db, seg[1])) return json(res, 404, { error: 'report_not_found' });
+          const body = await readBody(req);
+          const mode = body.mode ?? 'deterministic';
+          let provider = null;
+          if (mode === 'ai') {
+            try {
+              provider = await resolveProvider(DeepSeekProvider);
+            } catch (err) {
+              return json(res, 503, { error: 'ai_unavailable', message: err.message, hint: "usar mode='deterministic' (no requiere IA)" });
+            }
+          }
+          const narrative = await generateNarrative(db, seg[1], { mode, provider });
+          return json(res, 201, narrative);
+        }
+        if (seg.length === 4 && seg[2] === 'narrative' && seg[3] === 'validate' && req.method === 'POST') {
+          const report = getReport(db, seg[1]);
+          if (!report) return json(res, 404, { error: 'report_not_found' });
+          const body = await readBody(req);
+          const narrativeToCheck = body.narrative ?? getLatestNarrative(db, seg[1])?.body;
+          if (!narrativeToCheck) return json(res, 404, { error: 'narrative_not_found', message: 'no hay narrativa para validar y no se envió una en el body' });
+          return json(res, 200, { report_id: seg[1], validation: validateNarrative(narrativeToCheck, report) });
         }
       }
 

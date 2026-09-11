@@ -45,6 +45,12 @@ export const knowledge = {
   // validan las entradas de profile_markets/profile_priorities/profile_constraints
   // - ninguno se duplica, solo se referencia.
   activities: () => readJson('activities/activities.json').activities,
+  // sectors(): usado por la API de catálogos (core/profile/catalogs.js) para
+  // completar la jerarquía SECTOR → ACTIVIDAD → SUBACTIVIDAD que ya existe en
+  // el conocimiento (activities/sectors.json) pero que ningún consumidor del
+  // backend leía todavía - no es conocimiento nuevo, solo un accessor que
+  // faltaba junto a activities().
+  sectors: () => readJson('activities/sectors.json').sectors,
   activityById(activityId) {
     return knowledge.activities().find((a) => a.id === activityId) ?? null;
   },
@@ -54,6 +60,13 @@ export const knowledge = {
     return dest?.market_dimensions ?? [];
   },
   decisionConstraintCategories: () => readJson('decision/constraints.json').categories.map((c) => c.id),
+  // decisionConstraintCategoriesDetailed(): mismo archivo que la línea de
+  // arriba (ya cacheado por readJson, sin I/O adicional), pero sin reducir a
+  // solo el id - la API de catálogos (core/profile/catalogs.js) necesita
+  // id+name+example para que el frontend pueda mostrar una etiqueta legible
+  // sin tener que mantener su propia traducción id→nombre (eso sería la
+  // duplicación de conocimiento que esta etapa existe para evitar).
+  decisionConstraintCategoriesDetailed: () => readJson('decision/constraints.json').categories,
   decisionConstraintSeverities: () => readJson('decision/constraints.json').severity.values,
 
   // Ramificaciones: resuelve herencia de subactividades (misma logica que los

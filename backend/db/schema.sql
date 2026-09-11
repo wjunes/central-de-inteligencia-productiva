@@ -296,3 +296,26 @@ CREATE TABLE IF NOT EXISTS report_sources (
 CREATE INDEX IF NOT EXISTS idx_reports_type_profile ON reports(type, profile_id);
 CREATE INDEX IF NOT EXISTS idx_report_claims_report ON report_claims(report_id, section);
 CREATE INDEX IF NOT EXISTS idx_report_sources_report ON report_sources(report_id);
+
+-- ---------------------------------------------------------------------------
+-- Motor de Presentacion y Narrativa. Convierte un reporte YA generado en
+-- lenguaje humano - nunca modifica reports/report_claims. No se duplica el
+-- contenido del reporte aqui: 'body' guarda solo texto + los claim_ids que
+-- cada parrafo utiliza (referencias, seccion 6/7 del prompt).
+-- ---------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS report_narratives (
+  id                   TEXT PRIMARY KEY,
+  report_id            TEXT NOT NULL REFERENCES reports(id) ON DELETE CASCADE,
+  mode                 TEXT NOT NULL,   -- deterministic | ai
+  provider             TEXT,             -- null | deepseek | openrouter | fake (solo en tests)
+  model                TEXT,
+  status               TEXT NOT NULL,     -- generated | validated | rejected
+  created_at           TEXT NOT NULL,
+  version              INTEGER NOT NULL DEFAULT 1,
+  previous_version_id  TEXT REFERENCES report_narratives(id),
+  claims_used          TEXT NOT NULL,      -- JSON array de claim ids realmente citados
+  validation            TEXT NOT NULL,      -- JSON: {valid, errors[], warnings[]}
+  body                  TEXT NOT NULL       -- JSON: {title, executive_summary, sections[], paragraphs[], warnings[]}
+);
+
+CREATE INDEX IF NOT EXISTS idx_report_narratives_report ON report_narratives(report_id, status);

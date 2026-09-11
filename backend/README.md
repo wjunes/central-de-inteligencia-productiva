@@ -76,6 +76,16 @@ Endpoints: `GET /reports`, `POST /reports/generate`, `GET /reports/:id`, `GET /r
 
 **Reproducibilidad**: `GET /reports/:id` nunca recalcula — devuelve el `body` ya persistido en la generación (verificado por test). Una comparación de período (`type=periodic`) nunca usa la palabra "tendencia" para afirmar algo — solo `radar/trend.js` puede producir un claim `type=trend`, con su propia regla de evidencia.
 
+## Motor de Presentación y Narrativa (`narrative/`)
+
+Convierte un reporte ya generado (`reports/`) en lenguaje humano — nunca modifica `reports`/`report_claims`. Dos modos: `deterministic` (`narrative/deterministic.js`, plantillas + registro de evidencia proporcional — sección 9 del prompt —, 0 llamadas externas, es el modo por defecto y suficiente para API/tests/fallback) y `ai` (`narrative/ai.js` + `narrative/prompt.js`, una única llamada al `AIProvider` ya resuelto — DeepSeek primario, OpenRouter fallback, misma abstracción sin modificar — con un prompt compacto que **solo** recibe metadata/alcance/claims/fuentes del reporte, nunca acceso a la base de datos).
+
+**Toda salida (determinística o IA) pasa por `narrative/validator.js`** antes de aceptarse — nunca se acepta contenido de IA como verdad. 10 checks deterministas (sin NLP): `claim_ids` inexistentes, párrafos sin respaldo, fuentes no citadas en el reporte (incluidas fuentes inventadas de cero vía patrones "según X"), tendencia sin claim `type=trend`, lenguaje causal prohibido, recomendación convertida en acción/orden, certeza sobre evidencia débil, cifras no presentes en los claims referenciados, actividades fuera de alcance, y advertencias críticas de incertidumbre no reflejadas. Verificado con una prueba de alucinación controlada (`FakeProvider` adversarial que produce las 7 categorías de la sección 30 del prompt — las 7 se detectan) y con una narrativa fiel (valida sin errores).
+
+**Solo 1 tabla nueva** (`report_narratives`): no se guarda de nuevo el contenido del reporte, solo texto + `claim_ids` citados + resultado de validación. Versionado por `(report_id, mode, provider)`, mismo patrón `supersede` que `reports`/`recommendations`.
+
+Endpoints: `GET /reports/:id/narrative`, `POST /reports/:id/narrative` (`{"mode":"deterministic"}` o `{"mode":"ai"}` — este último resuelve el proveedor real y responde `503` con mensaje claro si no hay `DEEPSEEK_API_KEY`/`OPENROUTER_API_KEY` configuradas, sin afectar el modo determinístico), `POST /reports/:id/narrative/validate` (revalida la narrativa vigente, o una enviada en el body — útil para el caso de alucinación controlada).
+
 ## Umbrales operativos (`config/thresholds.json`)
 
 `knowledge/signals/thresholds.json` dejó `overrides: []` **a propósito** (no hay metodología estadística validada en el repositorio). Este archivo es la configuración **operativa** que ese esquema anticipó como "a completar incrementalmente" — sigue el mismo `overrides_schema`, vive en `backend/` (no en `knowledge/`, que no se modificó), y cada valor declara su `source_of_value` explícitamente. Sin una entrada aquí, cualquier `valor_modificado` queda `pending_threshold` — nunca se inventa un umbral por defecto.
