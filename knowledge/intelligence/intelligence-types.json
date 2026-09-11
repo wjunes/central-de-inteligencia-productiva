@@ -1,0 +1,116 @@
+{
+  "generated": "2026-09-11",
+  "description": "Taxonomía pequeña de FORMAS DE CONOCIMIENTO (no de dominios productivos - esos ya están cubiertos por topic_id, reusado de ramifications/_signal_types.json).",
+  "intelligence_types": [
+    {
+      "id": "trend",
+      "name": "Tendencia",
+      "description": "Interpretación de una persistencia de cambios significativos ya confirmada por signals/ (no se redetecta aquí).",
+      "precondition": "Requiere una señal signals/ de signal_type=tendencia (>=3 observaciones consecutivas, ver signals/rules.json:tendencia-por-persistencia). Sin esa precondición, el resultado es insufficient_evidence, nunca una tendencia inventada.",
+      "output_adds": "horizonte, actividades afectadas (vía relevance/), nivel de confianza propio (no hereda directamente el de la señal)."
+    },
+    {
+      "id": "impact",
+      "name": "Impacto potencial",
+      "description": "Interpretación del efecto estructural potencial de una o más señales sobre una actividad, con dirección (favorable/desfavorable/mixto/neutral/incierto) y sujeto explícito (el impacto depende de QUIÉN es el sujeto analizado).",
+      "precondition": "Al menos una señal con relevancia != none sobre la actividad (relevance/mappings.json o direct_dependency).",
+      "output_adds": "impact_direction por sujeto, nivel de evidencia, distinción observed_impact/expected_impact/potential_impact."
+    },
+    {
+      "id": "risk",
+      "name": "Riesgo potencial",
+      "description": "Interpretación de que una señal o conjunto de señales podría representar una amenaza para una actividad, con fundamento objetivo explícito (no una afirmación genérica de 'riesgo').",
+      "precondition": "Debe declarar evidence[] con al menos una relación estructural (relevance/) que sustente por qué se clasifica como riesgo, no solo como impacto neutral.",
+      "output_adds": "naturaleza del riesgo (referencia a topic_id), horizonte, nivel de evidencia. NUNCA una acción sugerida."
+    },
+    {
+      "id": "opportunity",
+      "name": "Oportunidad potencial",
+      "description": "Interpretación simétrica a risk: una señal o conjunto de señales podría representar una condición favorable para una actividad, con fundamento objetivo explícito.",
+      "precondition": "Igual que risk.",
+      "output_adds": "igual que risk. NUNCA una acción sugerida (ver rules.json.prohibited_language)."
+    }
+  ],
+  "excluded_types": [
+    {
+      "candidate": "context",
+      "decision": "no_es_tipo_es_campo_obligatorio",
+      "reason": "Todo unit de inteligencia (sea trend/impact/risk/opportunity) debe declarar su contexto (actividad, ramificación, período, señales base) como CAMPO estructural, no como un tipo aparte (ver rules.json.unit_schema.context)."
+    },
+    {
+      "candidate": "market / cost / supply / demand / competitive / regulatory / climate / sanitary / financial / logistics / technological",
+      "decision": "no_incluidos_como_tipos",
+      "reason": "Son el TEMA (topic_id) de un impact/risk/opportunity, no una forma de conocimiento distinta. El tema ya existe como catálogo en ramifications/_signal_types.json (reusado por signals/ y relevance/); crear un tipo por tema duplicaría esa taxonomía por tercera vez."
+    },
+    {
+      "candidate": "strategic",
+      "decision": "modelado_como_dimension_scope",
+      "reason": "No es una forma de conocimiento distinta de impact/risk/opportunity: es un horizonte de alcance (operational/tactical/strategic). Se modela como dimensions.scope, no como tipo."
+    }
+  ],
+  "dimensions": {
+    "epistemic_status": {
+      "values": [
+        "observed",
+        "derived",
+        "estimated",
+        "projected",
+        "inferred",
+        "scenario"
+      ],
+      "note": "Extiende signals/signal-types.json.dimensions.provenance (observed/derived/estimated/projected/inferred) agregando 'scenario' para conclusiones condicionadas a supuestos explícitos (ver scenarios.json). No se redefine el vocabulario base, se reusa."
+    },
+    "impact_direction": {
+      "values": [
+        "positive",
+        "negative",
+        "mixed",
+        "neutral",
+        "uncertain"
+      ],
+      "note": "Siempre relativo a un SUJETO explícito (ver rules.json.direction_by_subject): una señal favorable para el productor de un bien puede ser 'negative' para su comprador industrial (prompt §16)."
+    },
+    "horizon": {
+      "values": [
+        "past",
+        "current",
+        "near_term",
+        "medium_term",
+        "long_term",
+        "unknown"
+      ],
+      "note": "Horizonte temporal del fenómeno interpretado. No se infiere un horizonte sin base (p. ej. monitor_frequency del signal de origen, o el propio topic)."
+    },
+    "scope": {
+      "values": [
+        "operational",
+        "tactical",
+        "strategic"
+      ],
+      "note": "Alcance de la interpretación (reemplaza al candidato 'strategic' como tipo). operational = variación dentro de la operación normal; tactical = afecta decisiones de mediano plazo; strategic = afecta posicionamiento estructural de la actividad."
+    },
+    "unit_status": {
+      "values": [
+        "draft",
+        "insufficient_evidence",
+        "context_only",
+        "validated",
+        "superseded",
+        "expired",
+        "dismissed"
+      ],
+      "note": "Estado del unit de inteligencia en sí (no confundir con notificación al usuario, que pertenece a una capa posterior). 'insufficient_evidence' es un resultado válido y explícito (Caso 5), no la ausencia de resultado."
+    },
+    "evidence_level": {
+      "values": [
+        "direct_evidence",
+        "multiple_sources",
+        "historical_pattern",
+        "structural_relationship",
+        "inference",
+        "scenario"
+      ],
+      "note": "Qué tan directa es la base de una conclusión (prompt §13). No se colapsa en 'certeza'."
+    }
+  }
+}

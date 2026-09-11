@@ -1,0 +1,50 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Toda evidencia es una REFERENCIA a datos ya existentes en capas anteriores, nunca una copia (prompt §29-30).",
+  "evidence_types": [
+    {
+      "id": "source",
+      "points_to": "sources/sources.json[id]",
+      "example": "inac"
+    },
+    {
+      "id": "signal",
+      "points_to": "signals/ (change_class + monitor_id, via signals/mappings.json.join_path)",
+      "example": "monitor_id=inac::faena-y-precios, change_class=valor_modificado"
+    },
+    {
+      "id": "historical_pattern",
+      "points_to": "una secuencia de señales previas que sustenta un trend (>=3, ver signals/rules.json:tendencia-por-persistencia)",
+      "example": "3 señales consecutivas de cambio-significativo sobre el mismo indicador"
+    },
+    {
+      "id": "structural_relationship",
+      "points_to": "relevance/mappings.json.activity_relevance_graph[origin][] (incluye evidence[] con ramification_id/relation)",
+      "example": "ganaderia-bovina-carne -> frigorifica (customer, critical)"
+    },
+    {
+      "id": "calculation",
+      "points_to": "una operación determinística sobre datos existentes (p. ej. decaimiento de relevance/, combinación de sentido de rules.json.direction_by_subject) - se referencia la fórmula, no se recalcula texto libre",
+      "example": "direction_by_subject.step_3_combine_with_direction"
+    },
+    {
+      "id": "inference",
+      "points_to": "una conclusión no observada directamente, derivada de relaciones estructurales sin confirmación puntual - debe declarar explícitamente el razonamiento y su evidence_level=inference",
+      "example": "'la soja podría estar bajo presión de costos de combustible' sin una señal directa de combustible"
+    },
+    {
+      "id": "scenario_assumption",
+      "points_to": "scenarios.json - un supuesto explícito usado para construir un escenario, no una observación",
+      "example": "'si el precio internacional se mantiene sobre el umbral X durante el próximo trimestre'"
+    }
+  ],
+  "traceability_chain": {
+    "to_source": "intelligence_unit.evidence[] -> signal (monitor_id) -> monitoring/monitors.json -> source_id -> sources/sources.json -> institución",
+    "to_productive_structure": "intelligence_unit.context.primary_activity_id -> relevance/mappings.json (evidence) -> ramification_id -> domain vía sources.json[source_id].domains",
+    "no_copy_rule": "Ningún archivo de intelligence/ contiene el valor observado, el nombre de la institución ni el texto de la ramificación: solo ids y referencias a los archivos anteriores."
+  },
+  "conflicting_evidence": {
+    "rule": "Si dos evidencias sobre el mismo hecho (mismo indicador, mismo período) reportan valores o direcciones incompatibles, el estado válido es conflicting_evidence - NO se elige automáticamente una (prompt §31). Debe registrarse: ambas evidencias, fecha, fuente y metodología de cada una si se conoce.",
+    "resulting_unit_status": "unit_status=insufficient_evidence hasta que se resuelva o hasta que una capa posterior decida cómo ponderarlas."
+  }
+}

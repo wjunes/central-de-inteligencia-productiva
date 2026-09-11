@@ -186,6 +186,8 @@ existing_pairs = {(e["origin"], e["target"]) for e in base_edges}
 for e in base_edges:
     # el target tiene subactividades: propagar a cada una si no tienen edge propio mas especifico
     for child in children_of.get(e["target"], []):
+        if child == e["origin"]:
+            continue  # evita sintetizar un self-loop cuando el child coincide con el otro extremo
         if (e["origin"], child) not in existing_pairs:
             pe = dict(e)
             pe["target"] = child
@@ -193,6 +195,8 @@ for e in base_edges:
             propagated_edges.append(pe)
     # el origin tiene subactividades: propagar desde cada una si no tienen edge propio mas especifico
     for child in children_of.get(e["origin"], []):
+        if child == e["target"]:
+            continue  # evita sintetizar un self-loop cuando el child coincide con el otro extremo
         if (child, e["target"]) not in existing_pairs:
             pe = dict(e)
             pe["origin"] = child
@@ -384,6 +388,22 @@ gaps_doc = {
         "impacto": "Ninguno sobre relevance/: estos 3 casos se excluyen explícitamente del grafo (un origin==target no aporta relevancia hacia una OTRA actividad).",
         "correccion_propuesta": "Quitar target_activity_id de esos 3 nodos en una futura revisión de ramifications/ (no se modifica aquí).",
         "corregido_en_esta_tarea": False,
+    },
+    "propagation_self_loop_bug": {
+        "gap": "GAP DETECTADO Y CORREGIDO",
+        "capa": "relevance/ (esta capa, detectado durante la construcción de intelligence/)",
+        "elemento": "Propagación jerárquica en _build/generate.py (paso 4).",
+        "motivo": (
+            "Los 3 self-loops de ramifications/ (ver self_loop_anomaly) quedaban excluidos de base_edges tal como "
+            "los declara la propia subactividad, pero la MISMA relación existe, sin ser un self-loop, un nivel más "
+            "arriba (p. ej. turismo -> alojamiento, category=value_chain, no es un self-loop). La propagación "
+            "jerárquica ('si origin tiene subactividades, propagar a cada hijo') no comprobaba que el hijo propagado "
+            "coincidiera con el otro extremo de la arista, y sintetizaba turismo->alojamiento como alojamiento->alojamiento "
+            "(un self-loop nuevo, no presente en ramifications/)."
+        ),
+        "impacto": "3 pares espurios (alojamiento, agencias-operadores, cosecha-forestal, cada uno apuntando a sí mismo) en activity_relevance_graph, detectados por la validación de intelligence/_build/generate.py al construir esa capa sobre este grafo.",
+        "correccion_aplicada": "Se agregó un guard en la propagación (child == el otro extremo de la arista -> se omite) en _build/generate.py. Corrección mínima e indispensable: sin ella, intelligence/ no podía excluir correctamente estos casos de sus relaciones transitivas (prompt de intelligence/, §54).",
+        "corregido_en_esta_tarea": True,
     },
     "market_exposure_granularity": {
         "gap": "GAP DETECTADO",

@@ -1,0 +1,31 @@
+{
+  "generated": "2026-09-11",
+  "inputs": [
+    "knowledge/relevance/mappings.json",
+    "knowledge/relevance/levels.json",
+    "knowledge/signals/signal-types.json",
+    "knowledge/ramifications/_signal_types.json"
+  ],
+  "counts": {
+    "intelligence_types_total": 4,
+    "excluded_types": 3,
+    "relationship_types_total": 7,
+    "evidence_types_total": 7,
+    "confidence_dimensions_total": 4,
+    "cost_side_categories": 8,
+    "revenue_side_categories": 4,
+    "uncertain_categories": 13,
+    "first_order_relevance_pairs_reused": 939,
+    "second_order_hub_activities": 115,
+    "second_order_raw_pairs_if_materialized": 9037,
+    "scenario_instances": 0
+  },
+  "no_live_signal_instances": true,
+  "known_upstream_gaps": {
+    "domain_names": "barreras-y-requisitos-de-acceso - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics sin fuente/dominio asociado (signals/gaps.json) - no corregido aquí",
+    "relevance_market_granularity": "exposición a mercado solo a nivel de fuente/dominio, no por actividad (relevance/gaps.json) - no corregido aquí",
+    "relevance_self_loops": "3 self-loops de ramifications/ (agencias-operadores, alojamiento, cosecha-forestal) - ya excluidos en relevance/mappings.json, confirmado sin impacto en intelligence/ (ver README.md §Self-loops)"
+  },
+  "validation_errors": []
+}

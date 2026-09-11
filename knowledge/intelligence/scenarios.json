@@ -1,0 +1,36 @@
+{
+  "generated": "2026-09-11",
+  "principle": "No se genera un escenario por defecto para cada señal (prompt §23). Solo se construye cuando hay variables y relaciones suficientes.",
+  "trigger_condition": "Un escenario solo se construye cuando existen >=2 señales relacionadas (reinforces o counteracts, ver relationships.json) sobre la misma actividad, con evidence_level>=structural_relationship en ambas, y ninguna con status=insufficient_evidence.",
+  "structure": {
+    "id": "identificador estable",
+    "based_on_units": "ids de intelligence units involucrados (derived_from)",
+    "scenarios": [
+      {
+        "id": "escenario_base",
+        "description": "Continuación de las condiciones observadas sin cambios adicionales."
+      },
+      {
+        "id": "escenario_favorable",
+        "description": "Los supuestos se mueven en el sentido favorable para la actividad (ver direction_by_subject)."
+      },
+      {
+        "id": "escenario_adverso",
+        "description": "Los supuestos se mueven en el sentido desfavorable."
+      }
+    ],
+    "required_fields_per_scenario": [
+      "assumptions[]",
+      "variables_involved[]",
+      "horizon",
+      "uncertainty_statement",
+      "evidence[]"
+    ]
+  },
+  "prohibitions": {
+    "no_probability_without_basis": "No se asigna una probabilidad numérica a un escenario salvo que exista una base estadística real (no existe en el repositorio actual - ver gaps.json).",
+    "no_default_generation": "No generar escenarios automáticamente para toda señal o unit; requiere trigger_condition."
+  },
+  "instances_in_this_layer": 0,
+  "why_zero": "No existen señales en vivo en el repositorio (monitoring/signals/relevance son configuración, no runtime) - no hay pares de señales relacionadas reales sobre los que construir un escenario todavía. Se define la metodología, lista para aplicarse cuando existan instancias reales."
+}

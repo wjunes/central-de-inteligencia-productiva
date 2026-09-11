@@ -174,21 +174,6 @@
     ],
     "agencias-operadores": [
       {
-        "target_activity_id": "agencias-operadores",
-        "relevance_level": "low",
-        "reason": "agencias-operadores es related_activity de agencias-operadores (heredado por jerarquia: turismo es actividad padre de agencias-operadores)",
-        "evidence": [
-          {
-            "ramification_id": "vc-operacion-agencias-operadores",
-            "category": "value_chain",
-            "relation": "related_activity",
-            "direction": "direct",
-            "edge_relevance": "high",
-            "propagated_via": "jerarquia: turismo es actividad padre de agencias-operadores"
-          }
-        ]
-      },
-      {
         "target_activity_id": "alojamiento",
         "relevance_level": "low",
         "reason": "alojamiento es related_activity de agencias-operadores",
@@ -863,21 +848,6 @@
             "direction": "direct",
             "edge_relevance": "high",
             "propagated_via": null
-          }
-        ]
-      },
-      {
-        "target_activity_id": "alojamiento",
-        "relevance_level": "low",
-        "reason": "alojamiento es related_activity de alojamiento (heredado por jerarquia: turismo es actividad padre de alojamiento)",
-        "evidence": [
-          {
-            "ramification_id": "vc-servicios-alojamiento",
-            "category": "value_chain",
-            "relation": "related_activity",
-            "direction": "direct",
-            "edge_relevance": "high",
-            "propagated_via": "jerarquia: turismo es actividad padre de alojamiento"
           }
         ]
       },
@@ -1577,21 +1547,6 @@
             "direction": "direct",
             "edge_relevance": "critical",
             "propagated_via": null
-          }
-        ]
-      },
-      {
-        "target_activity_id": "aserraderos",
-        "relevance_level": "low",
-        "reason": "aserraderos es related_activity de aserraderos (heredado por jerarquia: industria-madera es actividad padre de aserraderos)",
-        "evidence": [
-          {
-            "ramification_id": "industria-madera",
-            "category": "related_activities",
-            "relation": "related_activity",
-            "direction": "direct",
-            "edge_relevance": "medium",
-            "propagated_via": "jerarquia: industria-madera es actividad padre de aserraderos"
           }
         ]
       },
@@ -3660,21 +3615,6 @@
             "direction": "direct",
             "edge_relevance": "medium",
             "propagated_via": null
-          }
-        ]
-      },
-      {
-        "target_activity_id": "cosecha-forestal",
-        "relevance_level": "low",
-        "reason": "cosecha-forestal es related_activity de cosecha-forestal (heredado por jerarquia: silvicultura es actividad padre de cosecha-forestal)",
-        "evidence": [
-          {
-            "ramification_id": "vc-cosecha-cosecha-forestal",
-            "category": "value_chain",
-            "relation": "related_activity",
-            "direction": "direct",
-            "edge_relevance": "high",
-            "propagated_via": "jerarquia: silvicultura es actividad padre de cosecha-forestal"
           }
         ]
       },
@@ -13543,21 +13483,6 @@
             "direction": "direct",
             "edge_relevance": "medium",
             "propagated_via": null
-          }
-        ]
-      },
-      {
-        "target_activity_id": "tableros-madera",
-        "relevance_level": "low",
-        "reason": "tableros-madera es related_activity de tableros-madera (heredado por jerarquia: industria-madera es actividad padre de tableros-madera)",
-        "evidence": [
-          {
-            "ramification_id": "industria-madera",
-            "category": "related_activities",
-            "relation": "related_activity",
-            "direction": "direct",
-            "edge_relevance": "medium",
-            "propagated_via": "jerarquia: industria-madera es actividad padre de tableros-madera"
           }
         ]
       }

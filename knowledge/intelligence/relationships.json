@@ -1,0 +1,53 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Correlación no es causalidad (prompt §8): ninguna de estas relaciones afirma que una señal causó otra, salvo depends_on, que es una dependencia LÓGICA/estructural (esta interpretación necesita esa evidencia para existir), no económica.",
+  "relationship_types": [
+    {
+      "id": "derived_from",
+      "meaning": "Un unit de inteligencia tiene esta señal/relación estructural como base directa.",
+      "used_for": "evidence -> unit (obligatorio en todo unit)."
+    },
+    {
+      "id": "depends_on",
+      "meaning": "Un unit o conclusión requiere que otro elemento (señal, unit, precondición) sea válido para sostenerse (p. ej. trend depends_on la señal signals/tendencia subyacente).",
+      "used_for": "unit -> unit o unit -> signal."
+    },
+    {
+      "id": "related_to",
+      "meaning": "Vínculo débil por coocurrencia (misma actividad, mismo período) sin relación de sentido determinada.",
+      "used_for": "signal <-> signal cuando no aplica reinforces/counteracts (sentido 'uncertain')."
+    },
+    {
+      "id": "reinforces",
+      "meaning": "Dos señales/units empujan en el MISMO sentido (favorable+favorable o desfavorable+desfavorable) sobre la misma actividad - ver rules.json.direction_by_subject.",
+      "used_for": "signal <-> signal, unit <-> unit."
+    },
+    {
+      "id": "counteracts",
+      "meaning": "Dos señales/units empujan en sentido OPUESTO sobre la misma actividad. No se resuelve cuál domina (prompt §21).",
+      "used_for": "signal <-> signal, unit <-> unit."
+    },
+    {
+      "id": "supports",
+      "meaning": "Evidencia adicional (otra fuente, otro monitor) confirma la misma observación de base.",
+      "used_for": "evidence <-> evidence, sobre el mismo change_class/período."
+    },
+    {
+      "id": "contradicts",
+      "meaning": "Dos evidencias sobre el mismo hecho reportan valores/direcciones incompatibles.",
+      "used_for": "evidence <-> evidence - ver evidence.json.conflicting_evidence."
+    }
+  ],
+  "classification_procedure": {
+    "step_1": "Calcular el sentido (favorable/desfavorable/uncertain) de cada señal sobre la actividad candidata, según rules.json.direction_by_subject.",
+    "step_2": "Si alguno de los dos sentidos es 'uncertain' -> related_to (o uncertain explícito, nunca reinforces/counteracts forzado).",
+    "step_3": "Si ambos sentidos coinciden -> reinforces. Si son opuestos -> counteracts.",
+    "never": "Nunca se calcula ni se expone cuál de las dos señales 'domina' o el efecto neto (eso es interpretación económica adicional fuera del alcance de esta capa)."
+  },
+  "worked_example_prompt_21": {
+    "setup": "señal A: costos ↑ (categoría cost_factors en la actividad de origen). señal B: precios de venta ↑ (categoría products/markets en la misma actividad de origen).",
+    "sense_A": "cost_side + increase = desfavorable",
+    "sense_B": "revenue_side + increase = favorable",
+    "result": "counteracts (sentidos opuestos sobre la misma actividad) - el sistema NO concluye si el neto es positivo o negativo."
+  }
+}

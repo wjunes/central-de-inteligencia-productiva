@@ -34,6 +34,15 @@
     "correccion_propuesta": "Quitar target_activity_id de esos 3 nodos en una futura revisión de ramifications/ (no se modifica aquí).",
     "corregido_en_esta_tarea": false
   },
+  "propagation_self_loop_bug": {
+    "gap": "GAP DETECTADO Y CORREGIDO",
+    "capa": "relevance/ (esta capa, detectado durante la construcción de intelligence/)",
+    "elemento": "Propagación jerárquica en _build/generate.py (paso 4).",
+    "motivo": "Los 3 self-loops de ramifications/ (ver self_loop_anomaly) quedaban excluidos de base_edges tal como los declara la propia subactividad, pero la MISMA relación existe, sin ser un self-loop, un nivel más arriba (p. ej. turismo -> alojamiento, category=value_chain, no es un self-loop). La propagación jerárquica ('si origin tiene subactividades, propagar a cada hijo') no comprobaba que el hijo propagado coincidiera con el otro extremo de la arista, y sintetizaba turismo->alojamiento como alojamiento->alojamiento (un self-loop nuevo, no presente en ramifications/).",
+    "impacto": "3 pares espurios (alojamiento, agencias-operadores, cosecha-forestal, cada uno apuntando a sí mismo) en activity_relevance_graph, detectados por la validación de intelligence/_build/generate.py al construir esa capa sobre este grafo.",
+    "correccion_aplicada": "Se agregó un guard en la propagación (child == el otro extremo de la arista -> se omite) en _build/generate.py. Corrección mínima e indispensable: sin ella, intelligence/ no podía excluir correctamente estos casos de sus relaciones transitivas (prompt de intelligence/, §54).",
+    "corregido_en_esta_tarea": true
+  },
   "market_exposure_granularity": {
     "gap": "GAP DETECTADO",
     "capa": "sources/ y domain-names/ (heredado)",

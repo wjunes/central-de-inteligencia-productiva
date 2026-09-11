@@ -1,0 +1,45 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Nunca ocultar un gap para producir una conclusión aparentemente completa (prompt §47).",
+  "no_live_instances": {
+    "gap": "GAP ESTRUCTURAL (no es un error, es el estado real del proyecto)",
+    "description": "No existe ninguna instancia real de señal, cambio o captura en el repositorio: monitoring/, signals/, relevance/ e intelligence/ son las cuatro capas de CONFIGURACIÓN/METODOLOGÍA construidas hasta ahora, no datos en vivo. Por lo tanto, ningún intelligence_unit de esta entrega es una conclusión real: son la metodología y ejemplos trabajados contra ids reales del repositorio (ver README.md), no resultados de un análisis de datos vivos.",
+    "impact": "Los casos de prueba del prompt (§48-52) se verifican CONCEPTUALMENTE con datos estructurales reales (relevance/mappings.json, categorías de ramifications/) pero no con una señal observada real, porque no existe ninguna.",
+    "corregido_en_esta_tarea": false,
+    "note": "Esto no es exclusivo de intelligence/: es una propiedad de la arquitectura completa tal como fue solicitada capa por capa."
+  },
+  "ambiguous_direction_categories": {
+    "gap": "GAP DE PRECISIÓN",
+    "count": 13,
+    "categories": [
+      "climate_factors",
+      "competitive_factors",
+      "economic_factors",
+      "environmental_factors",
+      "infrastructure",
+      "opportunities",
+      "regulatory_factors",
+      "related_activities",
+      "risks",
+      "sanitary_factors",
+      "strategic_signals",
+      "technologies",
+      "value_chain"
+    ],
+    "motivo": "13 de 25 categorías de ramifications/ no tienen un sentido costo/ingreso determinable de forma genérica (p. ej. 'regulatory_factors' puede ser costo de cumplimiento o habilitar una nueva oportunidad según el caso).",
+    "impacto": "Toda señal cuya ramificación de origen tenga una de estas categorías produce impact_direction=uncertain, nunca risk/opportunity (ver rules.json.risk_opportunity_criteria) - no se fabrica una dirección para forzar una clasificación.",
+    "corregido_en_esta_tarea": false
+  },
+  "second_order_not_materialized": {
+    "gap": "LIMITACIÓN DE DISEÑO DELIBERADA (no un gap de datos)",
+    "raw_pairs_if_materialized": 9037,
+    "first_order_pairs": 939,
+    "decision": "No se precalculan efectos de 2do orden (ver rules.json.second_order_effects) por eficiencia; se calculan bajo demanda a partir de la señal real."
+  },
+  "known_upstream_gaps_carried_forward": {
+    "domain_names": "barreras-y-requisitos-de-acceso - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics sin fuente/dominio asociado (signals/gaps.json) - no corregido aquí",
+    "relevance_market_granularity": "exposición a mercado solo a nivel de fuente/dominio, no por actividad (relevance/gaps.json) - no corregido aquí",
+    "relevance_self_loops": "3 self-loops de ramifications/ (agencias-operadores, alojamiento, cosecha-forestal) - ya excluidos en relevance/mappings.json, confirmado sin impacto en intelligence/ (ver README.md §Self-loops)"
+  }
+}

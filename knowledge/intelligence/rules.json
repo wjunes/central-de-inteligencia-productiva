@@ -1,0 +1,165 @@
+{
+  "generated": "2026-09-11",
+  "principle": "No se evalúa cada señal contra todos los datos disponibles. Se parte de la(s) actividad(es) de origen de la señal (vía signals/mappings.json) y de relevance/mappings.json (ya acotado), nunca de una búsqueda exhaustiva (prompt §39).",
+  "unit_schema": {
+    "id": "identificador estable, ver deduplication_key",
+    "type": "trend | impact | risk | opportunity (ver intelligence-types.json)",
+    "topic_id": "reusa ramifications/_signal_types.json - NO se redefine aquí",
+    "context": {
+      "description": "campo obligatorio en todo unit (reemplaza al candidato 'context' como tipo)",
+      "fields": [
+        "primary_activity_id",
+        "ramification_id (si aplica, solo para direct_dependency)",
+        "period",
+        "based_on_signal_ids"
+      ]
+    },
+    "epistemic_status": "ver intelligence-types.json.dimensions.epistemic_status",
+    "impact_direction": "ver dimensions.impact_direction - siempre junto a subject_activity_id (ver direction_by_subject)",
+    "horizon": "ver dimensions.horizon",
+    "scope": "ver dimensions.scope",
+    "status": "ver dimensions.unit_status",
+    "evidence_level": "ver dimensions.evidence_level",
+    "confidence": "ver confidence_dimensions (4 campos distintos, nunca un único número)",
+    "evidence": "ver evidence.json - referencias, no datos copiados",
+    "related_units": "ver relationships.json",
+    "intelligence_importance": "ver intelligence_priority (distinto de signal priority y de relevance level)"
+  },
+  "confidence_dimensions": {
+    "note": "4 campos separados (prompt §14), cada uno con fuente y vocabulario ya existentes - ninguno se inventa.",
+    "source_quality": {
+      "derived_from": "sources.json[source_id].quality.reliability (very_high/high/medium/low)",
+      "meaning": "Qué tan confiable es la institución/fuente de la que proviene la evidencia."
+    },
+    "change_detection_confidence": {
+      "derived_from": "monitoring/change-detection.json - método usado para detectar el cambio",
+      "table": {
+        "value_comparison": "high",
+        "record_diff": "high",
+        "structural_diff": "high",
+        "new_item_detection": "medium",
+        "new_document_detection": "medium",
+        "hash_comparison": "low"
+      },
+      "meaning": "hash_comparison no distingue cambio sustantivo de cosmético (ver signals/rules.json: cambio-de-contenido-hash = pending_validation); su confianza de detección es baja por diseño, no por defecto arbitrario."
+    },
+    "relevance_confidence": {
+      "derived_from": "relevance/mappings.json - tipo de arista usada",
+      "table": {
+        "direct_dependency": "high",
+        "value_chain_relation_direct": "high",
+        "value_chain_relation_propagated_via_jerarquia": "medium",
+        "domain_coexposure": "low"
+      },
+      "meaning": "Una relación heredada por jerarquía (ver relevance/rules.json.hierarchy_propagation) es menos específica que una declarada explícitamente para esa actividad puntual."
+    },
+    "analysis_confidence": {
+      "derived_from": "propio de esta capa",
+      "rule": "high si hay >=2 señales independientes con evidence_level>=structural_relationship y clasificación costo/ingreso no ambigua; medium si hay 1 señal directa o la clasificación es parcialmente ambigua; low si depende de una única señal inferida/estimada o de una relación 'uncertain'."
+    }
+  },
+  "direction_by_subject": {
+    "principle": "La dirección de un impacto depende de QUIÉN es el sujeto (prompt §16): no existe una dirección única por señal.",
+    "step_1_base_sense": {
+      "rule": "La categoría de la ramificación de origen (ramifications/<activity>.json, campo category) determina el sentido base sobre la actividad de origen.",
+      "cost_side_categories": [
+        "cost_factors",
+        "inputs",
+        "labor_factors",
+        "financial_factors",
+        "resources",
+        "suppliers",
+        "services",
+        "logistics"
+      ],
+      "revenue_side_categories": [
+        "products",
+        "markets",
+        "demand_factors",
+        "customers"
+      ],
+      "uncertain_categories": [
+        "climate_factors",
+        "competitive_factors",
+        "economic_factors",
+        "environmental_factors",
+        "infrastructure",
+        "opportunities",
+        "regulatory_factors",
+        "related_activities",
+        "risks",
+        "sanitary_factors",
+        "strategic_signals",
+        "technologies",
+        "value_chain"
+      ]
+    },
+    "step_2_propagation": {
+      "rule": "Al propagar el sentido desde la actividad de origen hacia una actividad candidata a UN salto (depth=1) de relevance/mappings.json, atravesar una relación de tipo supplier o customer INVIERTE el sentido (lo que es costo para un lado del intercambio comercial es ingreso para el otro, sobre la MISMA transacción); atravesar infrastructure/competitor/related_activity/complement deja el sentido en 'uncertain' (no hay una regla de inversión/preservación confiable para esas relaciones).",
+      "flip_relations": [
+        "supplier",
+        "customer"
+      ],
+      "uncertain_relations": [
+        "infrastructure",
+        "competitor",
+        "related_activity",
+        "complement"
+      ],
+      "limit": "Esta regla de inversión es válida solo a un salto. A dos saltos, el segundo tramo es una transacción DISTINTA (p. ej. elaboración de aceite vendiendo a biocombustibles no es la misma operación que comprar soja): invertir de nuevo asumiría que el eslabón intermedio traslada el precio 1:1, lo cual no es un hecho estructural. Ver second_order_effects.direction_penalty."
+    },
+    "step_3_combine_with_direction": {
+      "rule": "impact_direction final (vocabulario de dimensions.impact_direction) = combinar sentido propagado (cost_side/revenue_side/uncertain) con la dirección observada de la señal (increase/decrease, de signals/signal-types.json.dimensions.direction): revenue_side+increase=positive; revenue_side+decrease=negative; cost_side+increase=negative; cost_side+decrease=positive; cualquier combinación con 'uncertain' = uncertain. 'mixed' se reserva para cuando >=2 señales independientes ya combinadas (ver relationships.json) dan positive y negative simultáneos sobre el mismo sujeto."
+    },
+    "worked_example": "ver README.md - caso ganadería + soja resuelto con ids reales."
+  },
+  "second_order_effects": {
+    "rule": "Un efecto de 2do orden es válido solo cuando existe una arista de relevance/mappings.json desde la actividad de origen a un HUB, y otra desde ese HUB a una tercera actividad DISTINTA de la actividad de origen (guard obligatorio: target_2 != origin, para excluir trivialmente A→B→A).",
+    "max_depth": 2,
+    "confidence_penalty": "Un efecto de 2do orden nunca hereda evidence_level mayor que 'structural_relationship', y su analysis_confidence nunca es 'high' aunque los dos tramos individuales lo sean.",
+    "direction_penalty": "impact_direction en un efecto de 2do orden es 'uncertain' por defecto, incluso si el tramo 1 tiene una dirección clara (ver direction_by_subject). Propagar el SENTIDO (no solo la existencia de la relación) más allá de un salto requiere asumir que el eslabón intermedio traslada la presión de costo/ingreso a su propia contraparte comercial - eso es un supuesto de pass-through, no un hecho estructural (si se necesita, se declara como scenario_assumption en scenarios.json, nunca como una conclusión directa de rules.json).",
+    "why_not_materialized": "Una expansión completa de 2do orden sobre relevance/mappings.json generaría del orden de 9037 pares candidatos (vs. 939 pares de 1er orden) - se calcula bajo demanda, a partir de la actividad de origen real de cada señal, nunca se precalcula para las 115 actividades (prompt §39-40).",
+    "second_order_hub_activities": 115
+  },
+  "signal_combination": {
+    "multiple_related_signals": "Cuando >=2 señales comparten grouping_id (ver signals/rules.json.grouping) o afectan la misma actividad con evidence_level>=structural_relationship, pueden combinarse en un único unit de tipo impact/risk/opportunity con evidence[] múltiple - nunca se crea un unit por señal individual cuando están agrupadas.",
+    "independent_signals": "Señales sin grouping_id ni relación estructural conocida entre sí que afectan la misma actividad se mantienen como units separados relacionados por 'related_to' (ver relationships.json), no se fusionan."
+  },
+  "trend_precondition": "No se redetecta tendencia aquí: se reusa signals/rules.json:tendencia-por-persistencia (>=3 observaciones, sin reversión). intelligence/trend solo empaqueta esa señal ya validada con contexto y confianza propios.",
+  "risk_opportunity_criteria": {
+    "rule": "type=risk cuando (a) la ramificación de origen ya tiene category=risks en ramifications/ (factor de riesgo pre-identificado estructuralmente, p. ej. 'riesgo de sequía' - no se re-deriva, se reusa esa clasificación existente), O (b) impact_direction=negative con evidence_level>=structural_relationship (un impacto económico desfavorable claro es en sí mismo un riesgo de negocio). type=opportunity de forma simétrica: category=opportunities en la ramificación de origen, O impact_direction=positive con evidence_level>=structural_relationship. En cualquier otro caso (impact_direction=uncertain/mixed y la categoría de origen no es risks/opportunities), el resultado correcto es type=impact con impact_direction=uncertain, NUNCA forzar risk/opportunity con fundamento débil (prompt §25-26).",
+    "rationale": "Separa dos vías de evidencia legítimas: la clasificación estructural que ramifications/ ya hizo por actividad (categorías risks/opportunities, via rules_risk_opp() de ramifications/_build/generate.py) y la clasificación económica costo/ingreso de esta capa (direction_by_subject). No se inventa una tercera vía."
+  },
+  "prohibited_language": {
+    "rule": "Ningún campo de texto generado a partir de un unit puede usar verbos de recomendación (deber/convenir/recomendar/hay que/es mejor) ni afirmar una decisión. Ver README.md §Lenguaje.",
+    "forbidden_terms_example": [
+      "debería",
+      "conviene",
+      "se recomienda",
+      "hay que",
+      "es mejor",
+      "debe invertir",
+      "debe vender",
+      "debe comprar"
+    ]
+  },
+  "deduplication": {
+    "key": [
+      "type",
+      "primary_activity_id",
+      "topic_id",
+      "sorted(based_on_signal_ids)"
+    ],
+    "rule": "Una nueva evaluación con la misma clave y sin evidencia nueva no crea un unit nuevo: es unit_status=persistent (mismo id, se actualiza last_confirmed_at). Si hay evidencia nueva que cambia la interpretación, se crea un intelligence_update (ver update_policy)."
+  },
+  "update_policy": {
+    "rule": "Un intelligence_update conserva: previous_version_id, new_evidence[], reason, updated_at. Nunca se sobrescribe silenciosamente un unit con status=validated (prompt §34)."
+  },
+  "intelligence_priority": {
+    "distinct_from": [
+      "signal priority (monitoring/sources: prioridad de la FUENTE)",
+      "relevance level (relevance/: qué tan conectada está la actividad)"
+    ],
+    "rule": "intelligence_importance usa la misma escala de 5 niveles (critical/high/medium/low/none) por consistencia con relevance/, pero es un campo propio calculado como función de (type: risk/opportunity pesan más que impact/trend; analysis_confidence; evidence_level; cantidad de señales independientes que lo sustentan). No se copia ni promedia automáticamente desde relevance_level."
+  }
+}

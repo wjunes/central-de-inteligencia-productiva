@@ -6,12 +6,12 @@
   "counts": {
     "activities_total": 115,
     "base_edges": 713,
-    "propagated_edges": 366,
+    "propagated_edges": 361,
     "self_loops_excluded": 3,
-    "activity_pairs_with_relevance": 944,
+    "activity_pairs_with_relevance": 939,
     "activity_pairs_by_level": {
       "high": 57,
-      "low": 705,
+      "low": 700,
       "medium": 182
     },
     "origin_activities_with_outbound_relevance": 115,
