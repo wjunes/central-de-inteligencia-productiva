@@ -1,0 +1,2687 @@
+{
+  "generated": "2026-09-11",
+  "note": "Configuracion de monitoreo. No contiene credenciales ni datos capturados.",
+  "monitors": [
+    {
+      "id": "mgap-diea::anuario",
+      "source_id": "mgap-diea",
+      "resource_id": "anuario",
+      "resource_name": "Anuario Estadístico Agropecuario",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "quarterly",
+      "priority": "critical",
+      "volatility": "low",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "complejo-agricola-granos-y-oleaginosos": [
+            "mgap-opypa",
+            "inase",
+            "camara-mercantil"
+          ],
+          "complejo-arrocero": [
+            "acaa-molinos-arroz"
+          ],
+          "complejo-avicola-y-porcino": [
+            "mgap-snig"
+          ],
+          "complejo-hortifruticola": [
+            "mercado-modelo-uam"
+          ],
+          "complejo-ovino-lana": [
+            "mgap-snig",
+            "sul"
+          ],
+          "suelo-y-uso-del-suelo": [
+            "mgap-dgf",
+            "mgap-renare"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "mgap-diea::encuestas-de-campana",
+      "source_id": "mgap-diea",
+      "resource_id": "encuestas-de-campana",
+      "resource_name": "Encuestas de campaña (intra-anuales)",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "critical",
+      "volatility": "medium",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "complejo-agricola-granos-y-oleaginosos": [
+            "mgap-opypa",
+            "inase",
+            "camara-mercantil"
+          ],
+          "complejo-arrocero": [
+            "acaa-molinos-arroz"
+          ],
+          "complejo-avicola-y-porcino": [
+            "mgap-snig"
+          ],
+          "complejo-hortifruticola": [
+            "mercado-modelo-uam"
+          ],
+          "complejo-ovino-lana": [
+            "mgap-snig",
+            "sul"
+          ],
+          "suelo-y-uso-del-suelo": [
+            "mgap-dgf",
+            "mgap-renare"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "mgap-opypa::principal",
+      "source_id": "mgap-opypa",
+      "resource_id": "principal",
+      "resource_name": "OPYPA — Anuario y análisis de política agropecuaria",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Fuente analítica, no dataset. Buena para contexto y expectativas sectoriales."
+    },
+    {
+      "id": "mgap-snig::principal",
+      "source_id": "mgap-snig",
+      "resource_id": "principal",
+      "resource_name": "SNIG — Sistema Nacional de Información Ganadera",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Base del inventario ganadero nacional y de la trazabilidad exigida por mercados."
+    },
+    {
+      "id": "mgap-dgsg::principal",
+      "source_id": "mgap-dgsg",
+      "resource_id": "principal",
+      "resource_name": "DGSG — Servicios Ganaderos (sanidad y estatus)",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "event_driven",
+      "priority": "critical",
+      "volatility": "event",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "estatus-sanitario-y-habilitaciones": [
+            "woah-wahis",
+            "mgap-snig"
+          ],
+          "sanidad-acuicola": [
+            "dinara"
+          ],
+          "sanidad-animal": [
+            "woah-wahis",
+            "mgap-snig"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Complementar con WOAH-WAHIS para eventos sanitarios regionales e internacionales."
+    },
+    {
+      "id": "mgap-dgssaa::principal",
+      "source_id": "mgap-dgssaa",
+      "resource_id": "principal",
+      "resource_name": "DGSSAA — Servicios Agrícolas (sanidad vegetal e insumos)",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "event_driven",
+      "priority": "high",
+      "volatility": "event",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "precios-de-fertilizantes-y-agroquimicos": [
+            "world-bank",
+            "precios-industriales-especializados"
+          ],
+          "sanidad-vegetal": [
+            "inia",
+            "ippc"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Registro de fitosanitarios: útil para disponibilidad de principios activos, no para precios."
+    },
+    {
+      "id": "mgap-dgf::principal",
+      "source_id": "mgap-dgf",
+      "resource_id": "principal",
+      "resource_name": "Dirección General Forestal",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "monthly",
+      "priority": "high",
+      "volatility": "low",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "complejo-forestal-celulosa": [
+            "spf-forestal"
+          ],
+          "recursos-forestales": [
+            "copernicus-nasa-eo",
+            "spf-forestal"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Datos geoespaciales disponibles en IDE Uruguay."
+    },
+    {
+      "id": "mgap-renare::principal",
+      "source_id": "mgap-renare",
+      "resource_id": "principal",
+      "resource_name": "RENARE — Recursos Naturales (suelos y riego)",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "inia::principal",
+      "source_id": "inia",
+      "resource_id": "principal",
+      "resource_name": "INIA — Investigación agropecuaria",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "inia-gras::principal",
+      "source_id": "inia-gras",
+      "resource_id": "principal",
+      "resource_name": "INIA GRAS — Agroclima y Sistemas de Información",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "pronostico-agroclimatico": [
+            "noaa-iri-enso",
+            "inumet",
+            "fao-giews-amis"
+          ],
+          "sequia-y-deficit-hidrico": [
+            "inumet",
+            "dinagua",
+            "fao-giews-amis",
+            "noaa-iri-enso",
+            "copernicus-nasa-eo"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Fuente operativa clave para riesgo climático agropecuario; base técnica de la declaración de emergencia agropecuaria."
+    },
+    {
+      "id": "inac::faena-y-precios",
+      "source_id": "inac",
+      "resource_id": "faena-y-precios",
+      "resource_name": "Faena semanal y precios de hacienda",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "china",
+          "union-europea",
+          "estados-unidos",
+          "mercosur"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "complejo-carne-bovina": [
+            "mgap-diea",
+            "mgap-opypa",
+            "mgap-snig"
+          ],
+          "mercados-destino": [
+            "uruguay-xxi",
+            "itc-trademap",
+            "inale",
+            "un-comtrade"
+          ],
+          "precios-internacionales-de-commodities": [
+            "usda-fas",
+            "world-bank",
+            "inale",
+            "fao-faostat",
+            "fao-giews-amis",
+            "imf",
+            "oecd-fao-outlook",
+            "sul",
+            "precios-industriales-especializados"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "inac::exportaciones",
+      "source_id": "inac",
+      "resource_id": "exportaciones",
+      "resource_name": "Exportaciones por corte y destino",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "critical",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "china",
+          "union-europea",
+          "estados-unidos",
+          "mercosur"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "complejo-carne-bovina": [
+            "mgap-diea",
+            "mgap-opypa",
+            "mgap-snig"
+          ],
+          "mercados-destino": [
+            "uruguay-xxi",
+            "itc-trademap",
+            "inale",
+            "un-comtrade"
+          ],
+          "precios-internacionales-de-commodities": [
+            "usda-fas",
+            "world-bank",
+            "inale",
+            "fao-faostat",
+            "fao-giews-amis",
+            "imf",
+            "oecd-fao-outlook",
+            "sul",
+            "precios-industriales-especializados"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "inale::remision-y-precio",
+      "source_id": "inale",
+      "resource_id": "remision-y-precio",
+      "resource_name": "Remisión y precio al productor",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "critical",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "brasil",
+          "argelia",
+          "china",
+          "mercosur"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "complejo-lacteo": [
+            "mgap-diea"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "inale::precios-internacionales-referencia",
+      "source_id": "inale",
+      "resource_id": "precios-internacionales-referencia",
+      "resource_name": "Precios internacionales de referencia (GDT)",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "brasil",
+          "argelia",
+          "china",
+          "mercosur"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "complejo-lacteo": [
+            "mgap-diea"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "dinara::principal",
+      "source_id": "dinara",
+      "resource_id": "principal",
+      "resource_name": "DINARA — Recursos Acuáticos",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "critical",
+      "volatility": "medium",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Evaluaciones de stock a veces con rezago; complementar con informes de la Comisión Técnica Mixta del Frente Marítimo."
+    },
+    {
+      "id": "inavi::principal",
+      "source_id": "inavi",
+      "resource_id": "principal",
+      "resource_name": "INAVI — Vitivinicultura",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "partially_automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "brasil",
+          "estados-unidos",
+          "reino-unido"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "sul::principal",
+      "source_id": "sul",
+      "resource_id": "principal",
+      "resource_name": "SUL — Secretariado Uruguayo de la Lana",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Para precio de referencia internacional complementar con AWEX (Australia)."
+    },
+    {
+      "id": "ircca::principal",
+      "source_id": "ircca",
+      "resource_id": "principal",
+      "resource_name": "IRCCA — Regulación y Control del Cannabis",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Mercado exportador de cannabis medicinal: complementar con Uruguay XXI e IMPO."
+    },
+    {
+      "id": "inase::principal",
+      "source_id": "inase",
+      "resource_id": "principal",
+      "resource_name": "INASE — Semillas",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "genetica-y-biotecnologia": [
+            "inia"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "inumet::principal",
+      "source_id": "inumet",
+      "resource_id": "principal",
+      "resource_name": "INUMET — Instituto Uruguayo de Meteorología",
+      "enabled": true,
+      "method": "ckan_api",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "new_item_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "clima-y-agua": [
+            "catalogodatos-agesic",
+            "inia-gras"
+          ],
+          "eventos-climaticos-extremos": [
+            "noaa-iri-enso",
+            "copernicus-nasa-eo"
+          ],
+          "precipitaciones-y-temperatura": [
+            "inia-gras",
+            "copernicus-nasa-eo"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Datos abiertos vía catálogo AGESIC. Para ENSO y perspectivas estacionales de largo plazo complementar con NOAA/IRI."
+    },
+    {
+      "id": "ine::ipc",
+      "source_id": "ine",
+      "resource_id": "ipc",
+      "resource_name": "Índice de Precios del Consumo",
+      "enabled": true,
+      "method": "ckan_api",
+      "frequency": "weekly",
+      "priority": "critical",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "new_item_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "costos-de-materiales-de-construccion": [
+            "camara-construccion"
+          ],
+          "empleo-y-mercado-de-trabajo": [
+            "bps",
+            "mtss",
+            "catalogodatos-agesic",
+            "inefop",
+            "camara-construccion",
+            "udelar-iecon"
+          ],
+          "industria-de-alimentos-y-bebidas": [
+            "miem-observatorio",
+            "ciu"
+          ],
+          "industria-quimica-y-farmaceutica": [
+            "miem-observatorio",
+            "ciu"
+          ],
+          "inflacion-y-precios-internos": [
+            "bcu",
+            "catalogodatos-agesic"
+          ],
+          "mercado-interno-y-consumo-nacional": [
+            "inavi",
+            "mintur",
+            "mercado-modelo-uam",
+            "cncs"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ine::empleo",
+      "source_id": "ine",
+      "resource_id": "empleo",
+      "resource_name": "Encuesta Continua de Hogares (empleo)",
+      "enabled": true,
+      "method": "ckan_api",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "new_item_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "costos-de-materiales-de-construccion": [
+            "camara-construccion"
+          ],
+          "empleo-y-mercado-de-trabajo": [
+            "bps",
+            "mtss",
+            "catalogodatos-agesic",
+            "inefop",
+            "camara-construccion",
+            "udelar-iecon"
+          ],
+          "industria-de-alimentos-y-bebidas": [
+            "miem-observatorio",
+            "ciu"
+          ],
+          "industria-quimica-y-farmaceutica": [
+            "miem-observatorio",
+            "ciu"
+          ],
+          "inflacion-y-precios-internos": [
+            "bcu",
+            "catalogodatos-agesic"
+          ],
+          "mercado-interno-y-consumo-nacional": [
+            "inavi",
+            "mintur",
+            "mercado-modelo-uam",
+            "cncs"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ine::ivf-industria",
+      "source_id": "ine",
+      "resource_id": "ivf-industria",
+      "resource_name": "Índice de volumen físico industrial",
+      "enabled": true,
+      "method": "ckan_api",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "new_item_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "costos-de-materiales-de-construccion": [
+            "camara-construccion"
+          ],
+          "empleo-y-mercado-de-trabajo": [
+            "bps",
+            "mtss",
+            "catalogodatos-agesic",
+            "inefop",
+            "camara-construccion",
+            "udelar-iecon"
+          ],
+          "industria-de-alimentos-y-bebidas": [
+            "miem-observatorio",
+            "ciu"
+          ],
+          "industria-quimica-y-farmaceutica": [
+            "miem-observatorio",
+            "ciu"
+          ],
+          "inflacion-y-precios-internos": [
+            "bcu",
+            "catalogodatos-agesic"
+          ],
+          "mercado-interno-y-consumo-nacional": [
+            "inavi",
+            "mintur",
+            "mercado-modelo-uam",
+            "cncs"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "bcu::cotizaciones",
+      "source_id": "bcu",
+      "resource_id": "cotizaciones",
+      "resource_name": "Cotizaciones diarias",
+      "enabled": true,
+      "method": "api_soap",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "flujos-de-comercio-exterior": [
+            "dna",
+            "uruguay-xxi",
+            "inac",
+            "inale",
+            "inavi",
+            "anp",
+            "catalogodatos-agesic",
+            "dinara",
+            "un-comtrade"
+          ],
+          "inversion-privada-e-ied": [
+            "uruguay-xxi"
+          ],
+          "nivel-de-actividad-y-ciclo": [
+            "mgap-opypa",
+            "ine",
+            "mef",
+            "dgi",
+            "ciu",
+            "udelar-iecon",
+            "cncs",
+            "consultoras-economicas-uy"
+          ],
+          "servicios-profesionales-y-financieros": [
+            "cncs"
+          ],
+          "tasas-de-interes": [
+            "imf"
+          ],
+          "tipo-de-cambio": [
+            "consultoras-economicas-uy"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "bcu::cuentas-nacionales",
+      "source_id": "bcu",
+      "resource_id": "cuentas-nacionales",
+      "resource_name": "Cuentas nacionales (PIB)",
+      "enabled": true,
+      "method": "api_soap",
+      "frequency": "monthly",
+      "priority": "high",
+      "volatility": "low",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "flujos-de-comercio-exterior": [
+            "dna",
+            "uruguay-xxi",
+            "inac",
+            "inale",
+            "inavi",
+            "anp",
+            "catalogodatos-agesic",
+            "dinara",
+            "un-comtrade"
+          ],
+          "inversion-privada-e-ied": [
+            "uruguay-xxi"
+          ],
+          "nivel-de-actividad-y-ciclo": [
+            "mgap-opypa",
+            "ine",
+            "mef",
+            "dgi",
+            "ciu",
+            "udelar-iecon",
+            "cncs",
+            "consultoras-economicas-uy"
+          ],
+          "servicios-profesionales-y-financieros": [
+            "cncs"
+          ],
+          "tasas-de-interes": [
+            "imf"
+          ],
+          "tipo-de-cambio": [
+            "consultoras-economicas-uy"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "bcu::tasas-y-expectativas",
+      "source_id": "bcu",
+      "resource_id": "tasas-y-expectativas",
+      "resource_name": "Tasas de interés y expectativas",
+      "enabled": true,
+      "method": "api_soap",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "flujos-de-comercio-exterior": [
+            "dna",
+            "uruguay-xxi",
+            "inac",
+            "inale",
+            "inavi",
+            "anp",
+            "catalogodatos-agesic",
+            "dinara",
+            "un-comtrade"
+          ],
+          "inversion-privada-e-ied": [
+            "uruguay-xxi"
+          ],
+          "nivel-de-actividad-y-ciclo": [
+            "mgap-opypa",
+            "ine",
+            "mef",
+            "dgi",
+            "ciu",
+            "udelar-iecon",
+            "cncs",
+            "consultoras-economicas-uy"
+          ],
+          "servicios-profesionales-y-financieros": [
+            "cncs"
+          ],
+          "tasas-de-interes": [
+            "imf"
+          ],
+          "tipo-de-cambio": [
+            "consultoras-economicas-uy"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "mef::principal",
+      "source_id": "mef",
+      "resource_id": "principal",
+      "resource_name": "MEF — Ministerio de Economía y Finanzas",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "inversion-publica": [
+            "opp",
+            "mtop"
+          ],
+          "regimenes-de-promocion-de-inversiones": [
+            "mvot",
+            "impo"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "opp::principal",
+      "source_id": "opp",
+      "resource_id": "principal",
+      "resource_name": "OPP — Planeamiento y Presupuesto",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "monthly",
+      "priority": "medium",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "dgi::principal",
+      "source_id": "dgi",
+      "resource_id": "principal",
+      "resource_name": "DGI — Dirección General Impositiva",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "monthly",
+      "priority": "medium",
+      "volatility": "medium",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Recaudación como proxy de actividad económica sectorial."
+    },
+    {
+      "id": "bps::principal",
+      "source_id": "bps",
+      "resource_id": "principal",
+      "resource_name": "BPS — Banco de Previsión Social",
+      "enabled": true,
+      "method": "ckan_api",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "new_item_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Buen proxy de empleo formal por sector con desagregación fina."
+    },
+    {
+      "id": "mtss::principal",
+      "source_id": "mtss",
+      "resource_id": "principal",
+      "resource_name": "MTSS — Trabajo y Seguridad Social",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "event_driven",
+      "priority": "high",
+      "volatility": "event",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "costos-laborales-y-negociacion-colectiva": [
+            "bps",
+            "impo"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Laudos por grupo permiten anticipar costos laborales sectoriales."
+    },
+    {
+      "id": "inefop::principal",
+      "source_id": "inefop",
+      "resource_id": "principal",
+      "resource_name": "INEFOP — Empleo y Formación Profesional",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "disponibilidad-de-talento-especializado": [
+            "cuti"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "dna::principal",
+      "source_id": "dna",
+      "resource_id": "principal",
+      "resource_name": "DNA — Dirección Nacional de Aduanas",
+      "enabled": true,
+      "method": "ckan_api",
+      "frequency": "weekly",
+      "priority": "critical",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "union-europea",
+          "estados-unidos",
+          "brasil",
+          "china",
+          "mercosur"
+        ]
+      },
+      "change_detection": {
+        "method": "new_item_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "regimenes-aduaneros-y-zonas-francas": [
+            "impo"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "En la práctica el acceso analítico se realiza vía Uruguay XXI (SIE), que procesa el dato de la DNA."
+    },
+    {
+      "id": "uruguay-xxi::sie-comercio-exterior",
+      "source_id": "uruguay-xxi",
+      "resource_id": "sie-comercio-exterior",
+      "resource_name": "Sistema de Información Estadística (48 h)",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "partially_automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "china",
+          "union-europea",
+          "estados-unidos",
+          "brasil",
+          "mercosur",
+          "medio-oriente"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "competencia-internacional": [
+            "inac",
+            "fao-faostat",
+            "usda-fas",
+            "un-comtrade",
+            "itc-trademap",
+            "woah-wahis",
+            "ciu",
+            "conab-bcr-bcba"
+          ],
+          "demanda-mundial-y-tendencias-de-consumo": [
+            "inac",
+            "fao-faostat",
+            "fao-giews-amis",
+            "usda-fas",
+            "un-comtrade",
+            "itc-trademap",
+            "oecd-fao-outlook",
+            "conab-bcr-bcba"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "uruguay-xxi::informes-sectoriales",
+      "source_id": "uruguay-xxi",
+      "resource_id": "informes-sectoriales",
+      "resource_name": "Informes sectoriales y de mercado",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "monthly",
+      "priority": "high",
+      "volatility": "low",
+      "automation": "partially_automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "china",
+          "union-europea",
+          "estados-unidos",
+          "brasil",
+          "mercosur",
+          "medio-oriente"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "competencia-internacional": [
+            "inac",
+            "fao-faostat",
+            "usda-fas",
+            "un-comtrade",
+            "itc-trademap",
+            "woah-wahis",
+            "ciu",
+            "conab-bcr-bcba"
+          ],
+          "demanda-mundial-y-tendencias-de-consumo": [
+            "inac",
+            "fao-faostat",
+            "fao-giews-amis",
+            "usda-fas",
+            "un-comtrade",
+            "itc-trademap",
+            "oecd-fao-outlook",
+            "conab-bcr-bcba"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "miem-dne::precios-combustibles",
+      "source_id": "miem-dne",
+      "resource_id": "precios-combustibles",
+      "resource_name": "Precios de combustibles",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "combustibles-liquidos": [
+            "ursea",
+            "eia-iea",
+            "ancap",
+            "miem-observatorio"
+          ],
+          "energia": [
+            "eia-iea"
+          ],
+          "tarifas-y-politica-energetica": [
+            "ursea",
+            "impo",
+            "ute"
+          ],
+          "transicion-energetica": [
+            "adme",
+            "eia-iea"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "miem-dne::balance-energetico",
+      "source_id": "miem-dne",
+      "resource_id": "balance-energetico",
+      "resource_name": "Balance Energético Nacional",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "monthly",
+      "priority": "high",
+      "volatility": "low",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "combustibles-liquidos": [
+            "ursea",
+            "eia-iea",
+            "ancap",
+            "miem-observatorio"
+          ],
+          "energia": [
+            "eia-iea"
+          ],
+          "tarifas-y-politica-energetica": [
+            "ursea",
+            "impo",
+            "ute"
+          ],
+          "transicion-energetica": [
+            "adme",
+            "eia-iea"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "adme::despacho-horario",
+      "source_id": "adme",
+      "resource_id": "despacho-horario",
+      "resource_name": "Despacho y generación por fuente",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "every_6_hours",
+      "priority": "critical",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "energia-electrica": [
+            "miem-dne",
+            "catalogodatos-agesic",
+            "ute",
+            "miem-observatorio",
+            "ursea"
+          ],
+          "generacion-y-transmision-electrica": [
+            "miem-dne",
+            "ute"
+          ],
+          "hidrologia-energetica": [
+            "dinagua"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "adme::datos-abiertos-historicos",
+      "source_id": "adme",
+      "resource_id": "datos-abiertos-historicos",
+      "resource_name": "Series históricas de datos abiertos",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "energia-electrica": [
+            "miem-dne",
+            "catalogodatos-agesic",
+            "ute",
+            "miem-observatorio",
+            "ursea"
+          ],
+          "generacion-y-transmision-electrica": [
+            "miem-dne",
+            "ute"
+          ],
+          "hidrologia-energetica": [
+            "dinagua"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ute::principal",
+      "source_id": "ute",
+      "resource_id": "principal",
+      "resource_name": "UTE — Usinas y Transmisiones Eléctricas",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ursea::precios-paridad-combustibles",
+      "source_id": "ursea",
+      "resource_id": "precios-paridad-combustibles",
+      "resource_name": "Informe mensual de precios de paridad",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "agua-potable-y-saneamiento": [
+            "ose"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ancap::principal",
+      "source_id": "ancap",
+      "resource_id": "principal",
+      "resource_name": "ANCAP — Combustibles, Alcohol y Portland",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "industria-de-materiales-de-construccion": [
+            "miem-observatorio",
+            "miem-dni"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "ALUR es la única fuente directa del complejo sucroalcoholero de Bella Unión."
+    },
+    {
+      "id": "mtop::principal",
+      "source_id": "mtop",
+      "resource_id": "principal",
+      "resource_name": "MTOP — Transporte y Obras Públicas",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "almacenaje-y-cadena-de-frio": [
+            "anp"
+          ],
+          "infraestructura-vial-y-camineria": [
+            "opp"
+          ],
+          "transporte-y-logistica": [
+            "anp",
+            "dinacia"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Incluye la Dirección Nacional de Transporte y el seguimiento del Ferrocarril Central."
+    },
+    {
+      "id": "anp::principal",
+      "source_id": "anp",
+      "resource_id": "principal",
+      "resource_name": "ANP — Administración Nacional de Puertos",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "dinacia::principal",
+      "source_id": "dinacia",
+      "resource_id": "principal",
+      "resource_name": "DINACIA — Aviación Civil",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "medium",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Conectividad aérea: complementar con datos del Ministerio de Turismo y de los concesionarios aeroportuarios."
+    },
+    {
+      "id": "mintur::principal",
+      "source_id": "mintur",
+      "resource_id": "principal",
+      "resource_name": "Ministerio de Turismo",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "quarterly",
+      "priority": "critical",
+      "volatility": "low",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "turismo-receptivo-regional": [
+            "dinacia"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ministerio-ambiente::principal",
+      "source_id": "ministerio-ambiente",
+      "resource_id": "principal",
+      "resource_name": "Ministerio de Ambiente",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "mercado-de-carbono-y-sostenibilidad": [
+            "world-bank",
+            "carbon-registries"
+          ],
+          "normativa-ambiental-y-territorial": [
+            "impo",
+            "mgap-renare",
+            "mvot"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "DINAGUA: red hidrométrica y alertas hidrológicas (inundaciones y déficit)."
+    },
+    {
+      "id": "dinagua::principal",
+      "source_id": "dinagua",
+      "resource_id": "principal",
+      "resource_name": "DINAGUA — Dirección Nacional de Aguas",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "disponibilidad-de-agua": [
+            "mgap-renare",
+            "ministerio-ambiente",
+            "ose",
+            "inia-gras"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ose::principal",
+      "source_id": "ose",
+      "resource_id": "principal",
+      "resource_name": "OSE — Obras Sanitarias del Estado",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "medium",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "mvot::principal",
+      "source_id": "mvot",
+      "resource_id": "principal",
+      "resource_name": "MVOT — Vivienda y Ordenamiento Territorial",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "construccion-e-inmobiliario": [
+            "camara-construccion",
+            "camara-inmobiliaria"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "miem-dinamige::principal",
+      "source_id": "miem-dinamige",
+      "resource_id": "principal",
+      "resource_name": "DINAMIGE — Minería y Geología",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "miem-observatorio::principal",
+      "source_id": "miem-observatorio",
+      "resource_id": "principal",
+      "resource_name": "MIEM — Observatorio de Energía e Industria",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "industria-de-plasticos-y-caucho": [
+            "miem-dni",
+            "ciu"
+          ],
+          "industria-textil-y-vestimenta": [
+            "ciu"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Consolida indicadores de otras fuentes; útil como acceso unificado a la industria."
+    },
+    {
+      "id": "miem-dni::principal",
+      "source_id": "miem-dni",
+      "resource_id": "principal",
+      "resource_name": "MIEM — Dirección Nacional de Industrias",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "quarterly",
+      "priority": "low",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Fuente de contexto de política, no de datos."
+    },
+    {
+      "id": "ursec::principal",
+      "source_id": "ursec",
+      "resource_id": "principal",
+      "resource_name": "URSEC — Servicios de Comunicaciones",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "monthly",
+      "priority": "medium",
+      "volatility": "medium",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "anii::principal",
+      "source_id": "anii",
+      "resource_id": "principal",
+      "resource_name": "ANII — Investigación e Innovación",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "adopcion-tecnologica-y-digitalizacion": [
+            "inia"
+          ],
+          "investigacion-y-desarrollo": [
+            "inia"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "impo::diario-oficial",
+      "source_id": "impo",
+      "resource_id": "diario-oficial",
+      "resource_name": "Diario Oficial (normativa nueva)",
+      "enabled": true,
+      "method": "feed",
+      "frequency": "event_driven",
+      "priority": "critical",
+      "volatility": "event",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "new_item_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "normativa-sectorial-productiva": [
+            "mgap-opypa",
+            "mgap-dgf",
+            "ircca",
+            "inase",
+            "miem-dni"
+          ],
+          "politica-comercial-y-de-acceso-a-mercados": [
+            "wto"
+          ],
+          "politica-tributaria": [
+            "mef",
+            "dgi"
+          ],
+          "regulacion-y-politicas": [
+            "mgap-opypa"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "catalogodatos-agesic::principal",
+      "source_id": "catalogodatos-agesic",
+      "resource_id": "principal",
+      "resource_name": "Catálogo Nacional de Datos Abiertos (AGESIC)",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Canal de acceso automatizable (API CKAN) a datasets de varias fuentes primarias. No es una fuente de contenido en sí."
+    },
+    {
+      "id": "camara-mercantil::principal",
+      "source_id": "camara-mercantil",
+      "resource_id": "principal",
+      "resource_name": "Cámara Mercantil de Productos del País",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "precios-de-granos-y-raciones": [
+            "mgap-opypa",
+            "inale",
+            "acaa-molinos-arroz",
+            "bolsa-cereales-mvd",
+            "conab-bcr-bcba"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Referencia local de precios de granos y forrajes; complementa CBOT para el mercado interno."
+    },
+    {
+      "id": "bolsa-cereales-mvd::principal",
+      "source_id": "bolsa-cereales-mvd",
+      "resource_id": "principal",
+      "resource_name": "Bolsa de Cereales y Productos de Montevideo",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "low",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "hash_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Respaldo de Cámara Mercantil."
+    },
+    {
+      "id": "acaa-molinos-arroz::principal",
+      "source_id": "acaa-molinos-arroz",
+      "resource_id": "principal",
+      "resource_name": "Gremial de Molinos Arroceros y ACA",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Complementa a DIEA y ACG para la fijación del precio del convenio."
+    },
+    {
+      "id": "spf-forestal::principal",
+      "source_id": "spf-forestal",
+      "resource_id": "principal",
+      "resource_name": "Sociedad de Productores Forestales",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "medium",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "china",
+          "europa-occidental"
+        ]
+      },
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "ciu::principal",
+      "source_id": "ciu",
+      "resource_id": "principal",
+      "resource_name": "Cámara de Industrias del Uruguay",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "industria-metalmecanica": [
+            "ine",
+            "miem-observatorio",
+            "miem-dni"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Encuesta de expectativas: buena señal temprana de actividad industrial (complementa el IVF del INE, que llega con rezago)."
+    },
+    {
+      "id": "camara-construccion::principal",
+      "source_id": "camara-construccion",
+      "resource_id": "principal",
+      "resource_name": "Cámara de la Construcción del Uruguay",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "medium",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "cuti::principal",
+      "source_id": "cuti",
+      "resource_id": "principal",
+      "resource_name": "CUTI — Cámara Uruguaya de Tecnologías de la Información",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "high",
+      "volatility": "low",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "economia-del-conocimiento": [
+            "uruguay-xxi"
+          ],
+          "servicios-globales-de-exportacion": [
+            "uruguay-xxi"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Principal fuente cuantitativa del sector software y servicios globales."
+    },
+    {
+      "id": "mercado-modelo-uam::principal",
+      "source_id": "mercado-modelo-uam",
+      "resource_id": "principal",
+      "resource_name": "Mercado Modelo / UAM — Sistema de Información de Precios",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Única fuente diaria de precios de la granja."
+    },
+    {
+      "id": "camara-inmobiliaria::principal",
+      "source_id": "camara-inmobiliaria",
+      "resource_id": "principal",
+      "resource_name": "Cámara Inmobiliaria Uruguaya",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "low",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Complementa a MVOT y a portales inmobiliarios para el mercado de inmuebles."
+    },
+    {
+      "id": "consultoras-economicas-uy::principal",
+      "source_id": "consultoras-economicas-uy",
+      "resource_id": "principal",
+      "resource_name": "Consultoras económicas (informes de coyuntura)",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "low",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Fuente interpretativa de respaldo; parte del contenido es de pago. La encuesta de expectativas del BCU es la referencia primaria."
+    },
+    {
+      "id": "udelar-iecon::principal",
+      "source_id": "udelar-iecon",
+      "resource_id": "principal",
+      "resource_name": "Instituto de Economía (FCEA, UdelaR)",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "annual",
+      "priority": "low",
+      "volatility": "low",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "fao-faostat::principal",
+      "source_id": "fao-faostat",
+      "resource_id": "principal",
+      "resource_name": "FAO — FAOSTAT",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "monthly",
+      "priority": "high",
+      "volatility": "low",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "fao-giews-amis::principal",
+      "source_id": "fao-giews-amis",
+      "resource_id": "principal",
+      "resource_name": "FAO — GIEWS / FPMA / AMIS / ASIS",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "event_driven",
+      "priority": "high",
+      "volatility": "event",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "usda-fas::principal",
+      "source_id": "usda-fas",
+      "resource_id": "principal",
+      "resource_name": "USDA — Foreign Agricultural Service (PSD, WASDE, GATS)",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "API requiere clave gratuita. WASDE mueve mercados: señal de precios muy relevante para granos y carne."
+    },
+    {
+      "id": "un-comtrade::principal",
+      "source_id": "un-comtrade",
+      "resource_id": "principal",
+      "resource_name": "UN Comtrade",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "global"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Clave gratuita con límites de consulta. Para Uruguay usar Uruguay XXI; Comtrade sirve para demanda y competidores en terceros mercados."
+    },
+    {
+      "id": "itc-trademap::principal",
+      "source_id": "itc-trademap",
+      "resource_id": "principal",
+      "resource_name": "ITC — Trade Map / Market Access Map / Export Potential Map",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "manual",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "global"
+        ]
+      },
+      "change_detection": {
+        "method": "hash_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "barreras-y-requisitos-de-acceso": [
+            "uruguay-xxi",
+            "wto",
+            "ippc",
+            "mgap-dgssaa"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Registro gratuito. Poco automatizable (interfaz web); útil para análisis de oportunidad de exportación."
+    },
+    {
+      "id": "wto::principal",
+      "source_id": "wto",
+      "resource_id": "principal",
+      "resource_name": "OMC — Organización Mundial del Comercio",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "event_driven",
+      "priority": "high",
+      "volatility": "event",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "global"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "acuerdos-comerciales-y-aranceles": [
+            "impo"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "ePing permite anticipar nuevas medidas SPS/TBT en los mercados de destino."
+    },
+    {
+      "id": "woah-wahis::principal",
+      "source_id": "woah-wahis",
+      "resource_id": "principal",
+      "resource_name": "WOAH — WAHIS (sanidad animal mundial)",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "event_driven",
+      "priority": "high",
+      "volatility": "event",
+      "automation": "automatable",
+      "scope": {
+        "parametrized_by": "market",
+        "parameters": [
+          "global"
+        ]
+      },
+      "change_detection": {
+        "method": "record_diff"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Señal temprana de brotes regionales (aftosa, PPA, influenza aviar) que afectan acceso a mercados."
+    },
+    {
+      "id": "ippc::principal",
+      "source_id": "ippc",
+      "resource_id": "principal",
+      "resource_name": "CIPF — Convención Internacional de Protección Fitosanitaria",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "event_driven",
+      "priority": "medium",
+      "volatility": "event",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "imf::principal",
+      "source_id": "imf",
+      "resource_id": "principal",
+      "resource_name": "FMI — Fondo Monetario Internacional",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "situacion-regional": [
+            "consultoras-economicas-uy"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": ""
+    },
+    {
+      "id": "world-bank::principal",
+      "source_id": "world-bank",
+      "resource_id": "principal",
+      "resource_name": "Banco Mundial — Datos, Pink Sheet y LPI",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "fletes-y-logistica-internacional": [
+            "freightos-drewry",
+            "anp"
+          ],
+          "precios-de-metales-y-siderurgia": [
+            "precios-industriales-especializados"
+          ],
+          "precios-de-plasticos-y-quimicos": [
+            "precios-industriales-especializados"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Pink Sheet: serie mensual homogénea de precios de commodities relevantes para Uruguay (soja, carne, madera, lácteos, petróleo, fertilizantes, metales)."
+    },
+    {
+      "id": "oecd-fao-outlook::principal",
+      "source_id": "oecd-fao-outlook",
+      "resource_id": "principal",
+      "resource_name": "OECD-FAO Agricultural Outlook",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "quarterly",
+      "priority": "medium",
+      "volatility": "low",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Contexto estructural, no coyuntura."
+    },
+    {
+      "id": "eia-iea::principal",
+      "source_id": "eia-iea",
+      "resource_id": "principal",
+      "resource_name": "EIA (EE.UU.) e IEA",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "daily",
+      "priority": "high",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "gas-natural": [
+            "miem-dne",
+            "ursea"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "API de EIA gratuita con clave; IEA es mayormente de pago (usar informes libres)."
+    },
+    {
+      "id": "noaa-iri-enso::principal",
+      "source_id": "noaa-iri-enso",
+      "resource_id": "principal",
+      "resource_name": "NOAA CPC / IRI — ENSO y clima estacional",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "weekly",
+      "priority": "high",
+      "volatility": "medium",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "ENSO es el principal predictor de anomalías de lluvia en Uruguay; complementa a INUMET e INIA GRAS en el horizonte estacional."
+    },
+    {
+      "id": "copernicus-nasa-eo::principal",
+      "source_id": "copernicus-nasa-eo",
+      "resource_id": "principal",
+      "resource_name": "Copernicus y NASA — observación de la Tierra",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "event_driven",
+      "priority": "medium",
+      "volatility": "event",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Requiere registro. Alta complejidad de procesamiento; para uso operativo preferir productos ya elaborados de INIA GRAS / INUMET / FAO ASIS."
+    },
+    {
+      "id": "freightos-drewry::principal",
+      "source_id": "freightos-drewry",
+      "resource_id": "principal",
+      "resource_name": "Índices de flete marítimo (Freightos, Drewry, Baltic Exchange)",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "hash_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "El índice FBX es de consulta libre; series históricas y detalle de rutas son de pago. Gap parcial en fletes."
+    },
+    {
+      "id": "precios-industriales-especializados::principal",
+      "source_id": "precios-industriales-especializados",
+      "resource_id": "principal",
+      "resource_name": "Servicios especializados de precios industriales (Fastmarkets/FOEX, ICIS, Argus, LME)",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "monthly",
+      "priority": "low",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "GAP: no hay fuente libre y automatizable para celulosa, resinas y fertilizantes a nivel de precio de referencia. Proxy libre: Pink Sheet del Banco Mundial (menor granularidad) y reportes de las empresas (UPM, Montes del Plata)."
+    },
+    {
+      "id": "carbon-registries::principal",
+      "source_id": "carbon-registries",
+      "resource_id": "principal",
+      "resource_name": "Registros y mercados de carbono (Verra, Gold Standard, UNFCCC, WB Carbon Dashboard)",
+      "enabled": true,
+      "method": "api_rest_json",
+      "frequency": "monthly",
+      "priority": "low",
+      "volatility": "high",
+      "automation": "automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Precios de mercado voluntario poco transparentes; combinar con el panel de precios del carbono del Banco Mundial."
+    },
+    {
+      "id": "conab-bcr-bcba::principal",
+      "source_id": "conab-bcr-bcba",
+      "resource_id": "principal",
+      "resource_name": "Fuentes agrícolas regionales (CONAB, BCR, BCBA)",
+      "enabled": true,
+      "method": "file_download",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "partially_automatable",
+      "scope": {},
+      "change_detection": {
+        "method": "value_comparison"
+      },
+      "fallback": null,
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Clave para leer la oferta de la competencia directa del complejo agrícola y ganadero."
+    },
+    {
+      "id": "cncs::principal",
+      "source_id": "cncs",
+      "resource_id": "principal",
+      "resource_name": "Cámara Nacional de Comercio y Servicios del Uruguay",
+      "enabled": true,
+      "method": "manual_capture",
+      "frequency": "weekly",
+      "priority": "medium",
+      "volatility": "high",
+      "automation": "manual",
+      "scope": {},
+      "change_detection": {
+        "method": "new_document_detection"
+      },
+      "fallback": {
+        "activation": "on_failure_or_unavailable",
+        "by_domain": {
+          "comercio-y-distribucion": [
+            "uruguay-xxi",
+            "camara-mercantil"
+          ]
+        }
+      },
+      "last_run": null,
+      "last_success": null,
+      "last_change": null,
+      "notes": "Principal fuente institucional del comercio y los servicios; complementa al INE en actividad minorista."
+    }
+  ]
+}

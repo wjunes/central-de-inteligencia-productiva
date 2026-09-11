@@ -1,0 +1,90 @@
+{
+  "generated": "2026-09-11",
+  "principle": "La relevancia se determina combinando un pequeño conjunto de factores estructurales, nunca evaluando la señal contra todas las actividades (signal -> dominio -> actividades relacionadas, no signal -> todas las actividades).",
+  "factors": [
+    {
+      "id": "direct_dependency",
+      "description": "La actividad candidata ES la actividad de origen de la señal (la ramificación que generó la señal pertenece a esa actividad).",
+      "level_source": "El campo relevance de la ramificación de origen, sin decaimiento (critical/high/medium tal cual está en ramifications/).",
+      "materialized_in": "No materializado en mappings.json (depende de la ramificación concreta de cada señal, no de un par de actividades fijo). Se evalúa en el momento contra ramifications/<activity_id>.json."
+    },
+    {
+      "id": "value_chain_relation",
+      "description": "La actividad candidata está conectada a la actividad de origen mediante una arista estructural directa de ramifications/ (target_activity_id): proveedor, cliente, infraestructura, competidor, o actividad relacionada/complementaria dentro de la cadena de valor.",
+      "level_source": "decay_table, aplicada por relation y por edge_relevance de origen; un escalón adicional de decaimiento si direction=indirect.",
+      "materialized_in": "mappings.json.activity_relevance_graph (incluye propagación jerárquica actividad-padre/subactividad).",
+      "subsumes": "input_dependency, output_dependency, indirect_dependency, technology_dependency (cuando la tecnología es en sí una actividad relacionada) — se descartaron como factores separados para no proliferar: todos son subtipos de este mismo vínculo estructural, ya distinguibles por el campo relation."
+    },
+    {
+      "id": "domain_coexposure",
+      "description": "La actividad candidata no tiene arista estructural directa (ni propagada) con la actividad de origen, pero ambas aparecen en related_activities de un mismo dominio de domain-names/.",
+      "level_source": "Nivel fijo 'low' (relación existente pero sin evidencia de mecanismo estructural concreto).",
+      "materialized_in": "No materializado (el producto actividad x actividad x dominio es combinatoriamente grande - algunos dominios transversales superan 90 actividades relacionadas). Se evalúa en el momento: ¿origin_activity y target_activity aparecen ambas en domain-names/*.json[domain_id].related_activities para algún domain_id de la señal?"
+    },
+    {
+      "id": "market_exposure",
+      "description": "La señal está asociada a un mercado/destino concreto (vía scope.parameters del monitor de origen, ver signals/mappings.json) y la actividad candidata tiene exposición documentada a ese mismo mercado.",
+      "level_source": "Modificador condicional: si el topic_id de la señal está en {comercio-exterior, acceso-a-mercados, precios, demanda} y origin/target comparten mercado, se sube un escalón el nivel ya calculado por los otros factores (tope 'high'); si no hay ningún otro factor aplicable, nivel base 'medium'.",
+      "materialized_in": "No materializado. La exposición a mercado hoy solo existe a nivel de fuente (sources.json[].markets, ~10 fuentes) y de dominio (domain-names/mercados.json#mercados-destino.market_dimensions), no a nivel actividad-mercado individual — ver gaps.json.",
+      "condition": "Aplica solo cuando la actividad candidata figura en sources.json[].activities de alguna fuente que también declara ese market en sources.json[].markets, o comparte el dominio mercados-destino."
+    }
+  ],
+  "excluded_as_separate_factors": [
+    {
+      "candidate": "cost_exposure",
+      "reason": "Es value_chain_relation (relation=supplier/input) condicionado al topic_id=costos de la señal; el topic ya viene de signals/, no se duplica aquí como factor propio."
+    },
+    {
+      "candidate": "risk_exposure / opportunity_exposure",
+      "reason": "Calificar algo como riesgo u oportunidad para una actividad requiere evaluación de contexto — corresponde a intelligence/, no a relevance/ (ver README §21-22)."
+    },
+    {
+      "candidate": "regulatory_exposure / climate_exposure / sanitary_exposure / logistics_exposure / financial_exposure",
+      "reason": "Son value_chain_relation o domain_coexposure condicionados a un topic_id específico (regulacion, clima-agua, sanidad, infraestructura-logistica, financiamiento respectivamente, ya catalogados en ramifications/_signal_types.json). No requieren mecánica de cálculo propia."
+    },
+    {
+      "candidate": "demand_exposure",
+      "reason": "Subtipo de value_chain_relation (relation=customer) o de domain_coexposure; el topic_id=demanda/consumo ya lo distingue."
+    }
+  ],
+  "decay_table": {
+    "note": "tier(relation) x edge_relevance -> nivel propagado. Un escalón adicional de decaimiento si la arista es direction=indirect. Ninguna arista existente decae hasta 'none' (una arista es siempre evidencia de al menos 'low').",
+    "strong_relations": [
+      "competitor",
+      "customer",
+      "infrastructure",
+      "supplier"
+    ],
+    "weak_relations": [
+      "complement",
+      "related_activity"
+    ],
+    "table": {
+      "strong/critical": "high",
+      "strong/high": "medium",
+      "strong/medium": "low",
+      "strong/low": "low",
+      "weak/critical": "medium",
+      "weak/high": "low",
+      "weak/medium": "low",
+      "weak/low": "low"
+    }
+  },
+  "hierarchy_propagation": {
+    "rule": "Si una arista estructural tiene como origen o como destino una actividad que posee subactividades (ramifications/<id>.json con level=subactivity y parent_activity_id=esa actividad), la misma arista se propaga a cada subactividad sin decaimiento adicional, salvo que la subactividad ya tenga su propia arista específica hacia/desde ese mismo destino/origen (en cuyo caso prevalece la arista específica, más precisa).",
+    "rationale": "La actividad general (p. ej. 'ganadería') es un agregado de sus subactividades; una relación estructural declarada a ese nivel es, por defecto, heredable — igual que ramifications/ hereda ramificaciones de padre a subactividad (inherits_from). No es un factor nuevo, es la misma semántica de herencia ya definida, aplicada a aristas entrantes/salientes.",
+    "example": "cultivo-soja -> ganaderia (related_activity, high) se propaga a cultivo-soja -> ganaderia-bovina-carne, cultivo-soja -> ganaderia-ovina, cultivo-soja -> ganaderia-porcina (ver README §Caso ganadería+soja)."
+  },
+  "center_of_gravity": {
+    "rule": "La actividad principal de un perfil productivo NO recibe automáticamente relevancia máxima. relevance/ calcula el nivel estructural igual para actividad principal y secundarias; el único efecto de 'centro de gravedad' es una etiqueta is_primary_activity=true en el resultado por perfil, que las capas posteriores (relevance no) pueden usar para ponderar al agregar múltiples señales simultáneas.",
+    "prohibited": "Elevar artificialmente el nivel de una actividad solo por ser la principal del perfil (ver prompt §14)."
+  },
+  "deduplication": {
+    "rule": "Una única entrada por par (origin_activity, target_activity): si existen varias aristas/razones, se conserva el nivel MÁXIMO entre ellas y se listan todas como evidence[], en vez de crear una relación por cada arista.",
+    "applies_to": "mappings.json.activity_relevance_graph"
+  },
+  "profile_relevance": {
+    "definition": "productive_profile = {main_activity_id, secondary_activity_ids: []}. profile_relevance(signal, profile) = { activity_id: structural_relevance(signal, activity_id), is_primary_activity: activity_id == profile.main_activity_id } para cada actividad en {main_activity_id} unión secondary_activity_ids.",
+    "note": "No se instancian perfiles reales en esta capa (no existen perfiles productivos en el repositorio todavía). Se define el mecanismo; knowledge/relevance/README.md incluye un ejemplo resuelto contra datos reales (ganadería bovina + soja)."
+  }
+}

@@ -4,343 +4,194 @@
   "sector_id": "agropecuario",
   "level": "subactivity",
   "parent_activity_id": "agricultura-secano",
-  "ramification_count": 23,
-  "ramifications": [
-    {
-      "id": "clima",
-      "name": "Clima",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precios-chicago",
-      "name": "Precios de referencia (Chicago)",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "logistica-granos",
-      "name": "Logística de granos",
-      "category": "logistics",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "semillas",
-      "name": "Semillas",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "fertilizantes",
-      "name": "Fertilizantes",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "agroquimicos",
-      "name": "Agroquímicos",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "inoculantes",
-      "name": "Inoculantes",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "acopio-granos",
-      "name": "Acopio y comercialización de granos",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "acopio-granos",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "elaboracion-aceites",
-      "name": "Molienda de oleaginosos y aceites",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "elaboracion-aceites",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "puertos-terminales",
-      "name": "Operación portuaria y terminales",
-      "category": "infrastructure",
-      "relation": "infrastructure",
-      "target_activity_id": "puertos-terminales",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "exportacion",
-      "name": "Exportación",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "soja",
-      "name": "Soja",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "sequia",
-      "name": "Sequía",
-      "category": "climate_factors",
-      "relation": "risk",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precios-internacionales",
-      "name": "Precios internacionales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "demanda-china",
-      "name": "Demanda de China",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tipo-de-cambio",
-      "name": "Tipo de cambio",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "evento-climatico-adverso",
-      "name": "Evento climático adverso",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cierre-o-restriccion-de-mercados",
-      "name": "Cierre o restricción de mercados de exportación",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "apertura-de-nuevos-mercados",
-      "name": "Apertura de nuevos mercados",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "caida-de-precios-internacionales",
-      "name": "Caída sostenida de precios internacionales",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "suba-sostenida-de-precios",
-      "name": "Suba sostenida de precios internacionales",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "concentracion-de-la-demanda-en-china",
-      "name": "Concentración de la demanda en China",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercados-destino-soja",
-      "name": "Mercados-destino",
-      "category": "markets",
-      "relation": "market",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "china",
-          "name": "China",
-          "category": "markets",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "critical",
-          "depth": 2,
-          "children": [
-            {
-              "id": "china-demanda",
-              "name": "Demanda — China",
-              "category": "demand_factors",
-              "relation": "impact",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            },
-            {
-              "id": "china-precios",
-              "name": "Precios — China",
-              "category": "cost_factors",
-              "relation": "impact",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            },
-            {
-              "id": "china-requisitos-y-barreras",
-              "name": "Requisitos y barreras de acceso — China",
-              "category": "regulatory_factors",
-              "relation": "regulation",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            },
-            {
-              "id": "china-competencia",
-              "name": "Competencia de otros orígenes — China",
-              "category": "competitive_factors",
-              "relation": "competitor",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            }
-          ]
-        },
-        {
-          "id": "union-europea",
-          "name": "Unión Europea",
-          "category": "markets",
-          "relation": "market",
-          "direction": "indirect",
-          "relevance": "medium",
-          "depth": 2,
-          "children": [
-            {
-              "id": "union-europea-demanda",
-              "name": "Demanda — Unión Europea",
-              "category": "demand_factors",
-              "relation": "impact",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            },
-            {
-              "id": "union-europea-precios",
-              "name": "Precios — Unión Europea",
-              "category": "cost_factors",
-              "relation": "impact",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            },
-            {
-              "id": "union-europea-requisitos-y-barreras",
-              "name": "Requisitos y barreras de acceso — Unión Europea",
-              "category": "regulatory_factors",
-              "relation": "regulation",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            },
-            {
-              "id": "union-europea-competencia",
-              "name": "Competencia de otros orígenes — Unión Europea",
-              "category": "competitive_factors",
-              "relation": "competitor",
-              "direction": "indirect",
-              "relevance": "medium",
-              "depth": 3,
-              "children": []
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "inherits_from": "agricultura-secano",
+  "inherited_ramifications": 15,
+  "own_ramifications": 6,
+  "effective_ramification_count": 49,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "precios-chicago",
+        "name": "Precios de referencia (Chicago)",
+        "category": "cost_factors",
+        "relation": "cost",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "inoculantes",
+        "name": "Inoculantes",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "puertos-terminales",
+        "name": "Operación portuaria y terminales",
+        "category": "infrastructure",
+        "relation": "infrastructure",
+        "target_activity_id": "puertos-terminales",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "demanda-china",
+        "name": "Demanda de China",
+        "category": "demand_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "concentracion-de-la-demanda-en-china",
+        "name": "Concentración de la demanda en China",
+        "category": "risks",
+        "relation": "risk",
+        "direction": "indirect",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "mercados-destino-soja",
+        "name": "Mercados-destino",
+        "category": "markets",
+        "relation": "market",
+        "direction": "indirect",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "china",
+            "name": "China",
+            "category": "markets",
+            "relation": "market",
+            "direction": "indirect",
+            "relevance": "critical",
+            "depth": 2,
+            "children": [
+              {
+                "id": "china-demanda",
+                "name": "Demanda — China",
+                "category": "demand_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "china-precios",
+                "name": "Precios — China",
+                "category": "cost_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "china-requisitos-y-barreras",
+                "name": "Requisitos y barreras de acceso — China",
+                "category": "regulatory_factors",
+                "relation": "regulation",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "china-competencia",
+                "name": "Competencia de otros orígenes — China",
+                "category": "competitive_factors",
+                "relation": "competitor",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "union-europea",
+            "name": "Unión Europea",
+            "category": "markets",
+            "relation": "market",
+            "direction": "indirect",
+            "relevance": "medium",
+            "depth": 2,
+            "children": [
+              {
+                "id": "union-europea-demanda",
+                "name": "Demanda — Unión Europea",
+                "category": "demand_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "union-europea-precios",
+                "name": "Precios — Unión Europea",
+                "category": "cost_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "union-europea-requisitos-y-barreras",
+                "name": "Requisitos y barreras de acceso — Unión Europea",
+                "category": "regulatory_factors",
+                "relation": "regulation",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "union-europea-competencia",
+                "name": "Competencia de otros orígenes — Unión Europea",
+                "category": "competitive_factors",
+                "relation": "competitor",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "remove": [],
+    "modify": [
+      {
+        "id": "acopio-granos",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium"
+      },
+      {
+        "id": "elaboracion-aceites",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "critical"
+      },
+      {
+        "id": "clima",
+        "relevance": "critical",
+        "reason": "el rendimiento de soja es muy sensible al déficit hídrico estival"
+      }
+    ]
+  }
 }

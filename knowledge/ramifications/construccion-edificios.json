@@ -4,7 +4,7 @@
   "sector_id": "construccion",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 25,
+  "ramification_count": 30,
   "ramifications": [
     {
       "id": "credito-hipotecario",
@@ -253,9 +253,68 @@
       "children": []
     },
     {
+      "id": "vc-proveedores-productos-minerales-no-metalicos",
+      "name": "Cemento, hierro, áridos y aberturas",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "productos-minerales-no-metalicos"
+    },
+    {
+      "id": "vc-servicios-servicios-profesionales",
+      "name": "Proyecto, dirección de obra e ingeniería",
+      "category": "value_chain",
+      "stage": "servicios",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "servicios-profesionales"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Obra: estructura, albañilería y terminaciones",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-comercializacion-promocion-inmobiliaria",
+      "name": "Desarrollo y comercialización inmobiliaria",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "promocion-inmobiliaria"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Demanda de vivienda e inversión privada",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
       "id": "permisos-de-construccion",
       "name": "Evolución de permisos de construcción",
       "category": "strategic_signals",
+      "signal_type": "oferta",
       "relation": "impact",
       "direction": "indirect",
       "relevance": "high",
@@ -266,6 +325,7 @@
       "id": "anuncios-de-grandes-obras",
       "name": "Anuncios de grandes proyectos de inversión",
       "category": "strategic_signals",
+      "signal_type": "inversion",
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "high",

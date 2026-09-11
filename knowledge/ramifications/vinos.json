@@ -4,230 +4,371 @@
   "sector_id": "industria-manufacturera",
   "level": "subactivity",
   "parent_activity_id": "bebidas",
-  "ramification_count": 22,
-  "ramifications": [
-    {
-      "id": "cosecha-uva",
-      "name": "Cosecha uva",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "clima",
-      "name": "Clima",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "posicionamiento-marca-pais",
-      "name": "Posicionamiento de marca país",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "uva-vinifera",
-      "name": "Uva vinifera",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "barricas",
-      "name": "Barricas",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "botellas",
-      "name": "Botellas",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "insumos-enologicos",
-      "name": "Insumos enologicos",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "viticultura",
-      "name": "Viticultura",
-      "category": "suppliers",
-      "relation": "supplier",
-      "target_activity_id": "viticultura",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "turismo-rural-naturaleza",
-      "name": "Turismo rural y de naturaleza",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "turismo-rural-naturaleza",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "comercio-exterior",
-      "name": "Comercio exterior y trading",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "comercio-exterior",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "exportacion",
-      "name": "Exportación",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "vino-tinto",
-      "name": "Vino tinto",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "vino-blanco",
-      "name": "Vino blanco",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "espumantes",
-      "name": "Espumantes",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "consumo-interno",
-      "name": "Consumo interno",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tipo-de-cambio",
-      "name": "Tipo de cambio",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precios-internacionales",
-      "name": "Precios internacionales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cierre-o-restriccion-de-mercados",
-      "name": "Cierre o restricción de mercados de exportación",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "apertura-de-nuevos-mercados",
-      "name": "Apertura de nuevos mercados",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "caida-de-precios-internacionales",
-      "name": "Caída sostenida de precios internacionales",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "suba-sostenida-de-precios",
-      "name": "Suba sostenida de precios internacionales",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "bebidas",
+  "inherited_ramifications": 7,
+  "own_ramifications": 18,
+  "effective_ramification_count": 50,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "cosecha-uva",
+        "name": "Cosecha uva",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "clima",
+        "name": "Clima",
+        "category": "climate_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "critical",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "posicionamiento-marca-pais",
+        "name": "Posicionamiento de marca país",
+        "category": "economic_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "uva-vinifera",
+        "name": "Uva vinifera",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "barricas",
+        "name": "Barricas",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "botellas",
+        "name": "Botellas",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "insumos-enologicos",
+        "name": "Insumos enologicos",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "comercio-exterior",
+        "name": "Comercio exterior y trading",
+        "category": "customers",
+        "relation": "customer",
+        "target_activity_id": "comercio-exterior",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "vino-tinto",
+        "name": "Vino tinto",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "vino-blanco",
+        "name": "Vino blanco",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "espumantes",
+        "name": "Espumantes",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "precios-internacionales",
+        "name": "Precios internacionales",
+        "category": "cost_factors",
+        "relation": "cost",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "caida-de-precios-internacionales",
+        "name": "Caída sostenida de precios internacionales",
+        "category": "risks",
+        "relation": "risk",
+        "direction": "indirect",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "suba-sostenida-de-precios",
+        "name": "Suba sostenida de precios internacionales",
+        "category": "opportunities",
+        "relation": "opportunity",
+        "direction": "indirect",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "vc-proveedores-viticultura",
+        "name": "Abastecimiento de uva vinífera",
+        "category": "value_chain",
+        "stage": "proveedores",
+        "relation": "related_activity",
+        "direction": "direct",
+        "relevance": "critical",
+        "depth": 1,
+        "children": [],
+        "target_activity_id": "viticultura"
+      },
+      {
+        "id": "vc-comercializacion-turismo-rural-naturaleza",
+        "name": "Enoturismo y exportación",
+        "category": "value_chain",
+        "stage": "comercializacion",
+        "relation": "related_activity",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": [],
+        "target_activity_id": "turismo-rural-naturaleza"
+      },
+      {
+        "id": "mercados-destino-vinos",
+        "name": "Mercados-destino",
+        "category": "markets",
+        "relation": "market",
+        "direction": "indirect",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "brasil",
+            "name": "Brasil",
+            "category": "markets",
+            "relation": "market",
+            "direction": "indirect",
+            "relevance": "high",
+            "depth": 2,
+            "children": [
+              {
+                "id": "brasil-demanda",
+                "name": "Demanda — Brasil",
+                "category": "demand_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "brasil-precios",
+                "name": "Precios — Brasil",
+                "category": "cost_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "brasil-requisitos-y-barreras",
+                "name": "Requisitos y barreras de acceso — Brasil",
+                "category": "regulatory_factors",
+                "relation": "regulation",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "brasil-competencia",
+                "name": "Competencia de otros orígenes — Brasil",
+                "category": "competitive_factors",
+                "relation": "competitor",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "estados-unidos",
+            "name": "Estados Unidos",
+            "category": "markets",
+            "relation": "market",
+            "direction": "indirect",
+            "relevance": "medium",
+            "depth": 2,
+            "children": [
+              {
+                "id": "estados-unidos-demanda",
+                "name": "Demanda — Estados Unidos",
+                "category": "demand_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "estados-unidos-precios",
+                "name": "Precios — Estados Unidos",
+                "category": "cost_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "estados-unidos-requisitos-y-barreras",
+                "name": "Requisitos y barreras de acceso — Estados Unidos",
+                "category": "regulatory_factors",
+                "relation": "regulation",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "estados-unidos-competencia",
+                "name": "Competencia de otros orígenes — Estados Unidos",
+                "category": "competitive_factors",
+                "relation": "competitor",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "reino-unido",
+            "name": "Reino Unido",
+            "category": "markets",
+            "relation": "market",
+            "direction": "indirect",
+            "relevance": "medium",
+            "depth": 2,
+            "children": [
+              {
+                "id": "reino-unido-demanda",
+                "name": "Demanda — Reino Unido",
+                "category": "demand_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "reino-unido-precios",
+                "name": "Precios — Reino Unido",
+                "category": "cost_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "reino-unido-requisitos-y-barreras",
+                "name": "Requisitos y barreras de acceso — Reino Unido",
+                "category": "regulatory_factors",
+                "relation": "regulation",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "reino-unido-competencia",
+                "name": "Competencia de otros orígenes — Reino Unido",
+                "category": "competitive_factors",
+                "relation": "competitor",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "consumo-mundial-de-vino",
+        "name": "Tendencia del consumo mundial de vino",
+        "category": "strategic_signals",
+        "signal_type": "consumo",
+        "relation": "impact",
+        "direction": "indirect",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [],
+    "modify": [
+      {
+        "id": "viticultura",
+        "reason": "ajuste específico de la subactividad",
+        "relation": "supplier",
+        "category": "suppliers"
+      },
+      {
+        "id": "turismo-rural-naturaleza",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "high"
+      },
+      {
+        "id": "vc-mercado",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium"
+      }
+    ]
+  }
 }

@@ -4,183 +4,176 @@
   "sector_id": "agropecuario",
   "level": "subactivity",
   "parent_activity_id": "ganaderia",
-  "ramification_count": 13,
-  "ramifications": [
-    {
-      "id": "precio-granos",
-      "name": "Precio de los granos",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "relacion-maiz-cerdo",
-          "name": "Relación de precios maíz/cerdo",
-          "category": "economic_factors",
-          "relation": "cost",
-          "direction": "direct",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "sanidad-animal",
-      "name": "Sanidad animal",
-      "category": "sanitary_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": [
-        {
-          "id": "peste-porcina-africana",
-          "name": "Riesgo de peste porcina africana en la región",
-          "category": "sanitary_factors",
-          "relation": "risk",
-          "direction": "direct",
-          "relevance": "critical",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "granos-forrajeros",
-      "name": "Granos forrajeros",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "raciones-balanceadas",
-      "name": "Raciones balanceadas",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "agricultura-secano",
-      "name": "Agricultura de secano",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "agricultura-secano",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "molineria",
-      "name": "Molinería",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "molineria",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "otros-alimentos",
-      "name": "Otros productos alimenticios",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "otros-alimentos",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "carne-porcina",
-      "name": "Carne porcina",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "lechones",
-      "name": "Lechones",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "costo-insumos",
-      "name": "Costo de los insumos",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "consumo-interno",
-      "name": "Consumo interno",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "sustitucion-entre-carnes",
-          "name": "Sustitución entre carne porcina, aviar y bovina",
-          "category": "demand_factors",
-          "relation": "competitor",
-          "direction": "direct",
-          "relevance": "medium",
-          "depth": 2,
-          "children": []
-        },
-        {
-          "id": "competencia-importacion-brasil",
-          "name": "Competencia de la importación desde Brasil",
-          "category": "competitive_factors",
-          "relation": "competitor",
-          "direction": "direct",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "normativa-sanitaria",
-      "name": "Normativa sanitaria",
-      "category": "regulatory_factors",
-      "relation": "regulation",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "ganaderia",
+  "inherited_ramifications": 3,
+  "own_ramifications": 8,
+  "effective_ramification_count": 45,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "precio-granos",
+        "name": "Precio de los granos",
+        "category": "cost_factors",
+        "relation": "cost",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "relacion-maiz-cerdo",
+            "name": "Relación de precios maíz/cerdo",
+            "category": "economic_factors",
+            "relation": "cost",
+            "direction": "direct",
+            "relevance": "high",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "raciones-balanceadas",
+        "name": "Raciones balanceadas",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "molineria",
+        "name": "Molinería",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "molineria",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "otros-alimentos",
+        "name": "Otros productos alimenticios",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "otros-alimentos",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "carne-porcina",
+        "name": "Carne porcina",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "lechones",
+        "name": "Lechones",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "costo-insumos",
+        "name": "Costo de los insumos",
+        "category": "cost_factors",
+        "relation": "cost",
+        "direction": "indirect",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "consumo-interno",
+        "name": "Consumo interno",
+        "category": "demand_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "sustitucion-entre-carnes",
+            "name": "Sustitución entre carne porcina, aviar y bovina",
+            "category": "demand_factors",
+            "relation": "competitor",
+            "direction": "direct",
+            "relevance": "medium",
+            "depth": 2,
+            "children": []
+          },
+          {
+            "id": "competencia-importacion-brasil",
+            "name": "Competencia de la importación desde Brasil",
+            "category": "competitive_factors",
+            "relation": "competitor",
+            "direction": "direct",
+            "relevance": "high",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      }
+    ],
+    "remove": [
+      {
+        "id": "exportacion",
+        "reason": "actividad orientada al mercado interno"
+      },
+      {
+        "id": "demanda-china",
+        "reason": "sin exposición relevante a la demanda china"
+      },
+      {
+        "id": "cierre-o-restriccion-de-mercados",
+        "reason": "no exporta"
+      },
+      {
+        "id": "apertura-de-nuevos-mercados",
+        "reason": "no exporta"
+      },
+      {
+        "id": "concentracion-de-la-demanda-en-china",
+        "reason": "no exporta"
+      }
+    ],
+    "modify": [
+      {
+        "id": "sanidad-animal",
+        "reason": "ajuste específico de la subactividad",
+        "children": [
+          {
+            "id": "peste-porcina-africana",
+            "name": "Riesgo de peste porcina africana en la región",
+            "category": "sanitary_factors",
+            "relation": "risk",
+            "direction": "direct",
+            "relevance": "critical",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "agricultura-secano",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium"
+      },
+      {
+        "id": "frigorifica",
+        "relevance": "high",
+        "reason": "la faena porcina es un canal, no el principal complejo exportador"
+      }
+    ]
+  }
 }

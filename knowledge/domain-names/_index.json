@@ -1,0 +1,1038 @@
+{
+  "generated": "2026-09-10",
+  "sources": [
+    "knowledge/activities/activities.json",
+    "knowledge/ramifications/"
+  ],
+  "counts": {
+    "domains_total": 112,
+    "by_type": {
+      "transversal": 16,
+      "ambiental": 5,
+      "economico": 17,
+      "tecnologico": 6,
+      "regulatorio": 10,
+      "logistico": 7,
+      "sanitario": 6,
+      "mercado": 10,
+      "sectorial": 35
+    },
+    "transversal": 67,
+    "sectorial": 35,
+    "market": 10,
+    "with_activities": 112,
+    "rel_activities_total": 2251,
+    "rel_ramifications_total": 1663,
+    "rel_signals_total": 42
+  },
+  "domains": [
+    {
+      "id": "clima-y-agua",
+      "name": "Clima y agua",
+      "type": "transversal",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 54,
+      "related_ramifications": 19
+    },
+    {
+      "id": "precipitaciones-y-temperatura",
+      "name": "Precipitaciones y temperatura",
+      "type": "transversal",
+      "parent_domain_id": "clima-y-agua",
+      "file": "transversal.json",
+      "related_activities": 2,
+      "related_ramifications": 2
+    },
+    {
+      "id": "sequia-y-deficit-hidrico",
+      "name": "Sequía y déficit hídrico",
+      "type": "transversal",
+      "parent_domain_id": "clima-y-agua",
+      "file": "transversal.json",
+      "related_activities": 13,
+      "related_ramifications": 2
+    },
+    {
+      "id": "exceso-hidrico-e-inundaciones",
+      "name": "Exceso hídrico e inundaciones",
+      "type": "transversal",
+      "parent_domain_id": "clima-y-agua",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "eventos-climaticos-extremos",
+      "name": "Eventos climáticos extremos",
+      "type": "transversal",
+      "parent_domain_id": "clima-y-agua",
+      "file": "transversal.json",
+      "related_activities": 27,
+      "related_ramifications": 1
+    },
+    {
+      "id": "pronostico-agroclimatico",
+      "name": "Pronóstico agroclimático",
+      "type": "transversal",
+      "parent_domain_id": "clima-y-agua",
+      "file": "transversal.json",
+      "related_activities": 10,
+      "related_ramifications": 4
+    },
+    {
+      "id": "disponibilidad-de-agua",
+      "name": "Disponibilidad de agua",
+      "type": "transversal",
+      "parent_domain_id": "clima-y-agua",
+      "file": "transversal.json",
+      "related_activities": 22,
+      "related_ramifications": 7
+    },
+    {
+      "id": "recursos-naturales",
+      "name": "Recursos naturales",
+      "type": "ambiental",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 49,
+      "related_ramifications": 44
+    },
+    {
+      "id": "estado-de-recursos-pesqueros",
+      "name": "Estado de los recursos pesqueros",
+      "type": "ambiental",
+      "parent_domain_id": "recursos-naturales",
+      "file": "transversal.json",
+      "related_activities": 2,
+      "related_ramifications": 5
+    },
+    {
+      "id": "recursos-forestales",
+      "name": "Recursos forestales",
+      "type": "ambiental",
+      "parent_domain_id": "recursos-naturales",
+      "file": "transversal.json",
+      "related_activities": 4,
+      "related_ramifications": 3
+    },
+    {
+      "id": "suelo-y-uso-del-suelo",
+      "name": "Suelo y uso del suelo",
+      "type": "ambiental",
+      "parent_domain_id": "recursos-naturales",
+      "file": "transversal.json",
+      "related_activities": 2,
+      "related_ramifications": 2
+    },
+    {
+      "id": "recursos-mineros",
+      "name": "Recursos mineros",
+      "type": "ambiental",
+      "parent_domain_id": "recursos-naturales",
+      "file": "transversal.json",
+      "related_activities": 2,
+      "related_ramifications": 2
+    },
+    {
+      "id": "economia-macro",
+      "name": "Economía macro",
+      "type": "economico",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 96,
+      "related_ramifications": 16
+    },
+    {
+      "id": "tipo-de-cambio",
+      "name": "Tipo de cambio",
+      "type": "economico",
+      "parent_domain_id": "economia-macro",
+      "file": "transversal.json",
+      "related_activities": 89,
+      "related_ramifications": 2
+    },
+    {
+      "id": "inflacion-y-precios-internos",
+      "name": "Inflación y precios internos",
+      "type": "economico",
+      "parent_domain_id": "economia-macro",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "tasas-de-interes",
+      "name": "Tasas de interés",
+      "type": "economico",
+      "parent_domain_id": "economia-macro",
+      "file": "transversal.json",
+      "related_activities": 12,
+      "related_ramifications": 1
+    },
+    {
+      "id": "nivel-de-actividad-y-ciclo",
+      "name": "Nivel de actividad y ciclo económico",
+      "type": "economico",
+      "parent_domain_id": "economia-macro",
+      "file": "transversal.json",
+      "related_activities": 7,
+      "related_ramifications": 5
+    },
+    {
+      "id": "situacion-regional",
+      "name": "Situación económica regional",
+      "type": "economico",
+      "parent_domain_id": "economia-macro",
+      "file": "transversal.json",
+      "related_activities": 13,
+      "related_ramifications": 4
+    },
+    {
+      "id": "energia",
+      "name": "Energía",
+      "type": "transversal",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 71,
+      "related_ramifications": 39
+    },
+    {
+      "id": "energia-electrica",
+      "name": "Energía eléctrica",
+      "type": "transversal",
+      "parent_domain_id": "energia",
+      "file": "transversal.json",
+      "related_activities": 50,
+      "related_ramifications": 7
+    },
+    {
+      "id": "hidrologia-energetica",
+      "name": "Hidrología energética",
+      "type": "transversal",
+      "parent_domain_id": "energia",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "combustibles-liquidos",
+      "name": "Combustibles líquidos",
+      "type": "transversal",
+      "parent_domain_id": "energia",
+      "file": "transversal.json",
+      "related_activities": 30,
+      "related_ramifications": 8
+    },
+    {
+      "id": "gas-natural",
+      "name": "Gas natural",
+      "type": "transversal",
+      "parent_domain_id": "energia",
+      "file": "transversal.json",
+      "related_activities": 2,
+      "related_ramifications": 6
+    },
+    {
+      "id": "transicion-energetica",
+      "name": "Transición energética",
+      "type": "tecnologico",
+      "parent_domain_id": "energia",
+      "file": "transversal.json",
+      "related_activities": 8,
+      "related_ramifications": 11
+    },
+    {
+      "id": "tarifas-y-politica-energetica",
+      "name": "Tarifas y política energética",
+      "type": "regulatorio",
+      "parent_domain_id": "energia",
+      "file": "transversal.json",
+      "related_activities": 4,
+      "related_ramifications": 6
+    },
+    {
+      "id": "comercio-exterior",
+      "name": "Comercio exterior",
+      "type": "transversal",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 68,
+      "related_ramifications": 14
+    },
+    {
+      "id": "flujos-de-comercio-exterior",
+      "name": "Flujos de comercio exterior",
+      "type": "economico",
+      "parent_domain_id": "comercio-exterior",
+      "file": "transversal.json",
+      "related_activities": 68,
+      "related_ramifications": 3
+    },
+    {
+      "id": "fletes-y-logistica-internacional",
+      "name": "Fletes y logística internacional",
+      "type": "logistico",
+      "parent_domain_id": "comercio-exterior",
+      "file": "transversal.json",
+      "related_activities": 7,
+      "related_ramifications": 2
+    },
+    {
+      "id": "acuerdos-comerciales-y-aranceles",
+      "name": "Acuerdos comerciales y aranceles",
+      "type": "regulatorio",
+      "parent_domain_id": "comercio-exterior",
+      "file": "transversal.json",
+      "related_activities": 11,
+      "related_ramifications": 6
+    },
+    {
+      "id": "regimenes-aduaneros-y-zonas-francas",
+      "name": "Regímenes aduaneros y zonas francas",
+      "type": "regulatorio",
+      "parent_domain_id": "comercio-exterior",
+      "file": "transversal.json",
+      "related_activities": 4,
+      "related_ramifications": 3
+    },
+    {
+      "id": "logistica-e-infraestructura",
+      "name": "Logística e infraestructura",
+      "type": "logistico",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 41,
+      "related_ramifications": 38
+    },
+    {
+      "id": "transporte-carretero",
+      "name": "Transporte carretero",
+      "type": "logistico",
+      "parent_domain_id": "logistica-e-infraestructura",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "transporte-ferroviario",
+      "name": "Transporte ferroviario",
+      "type": "logistico",
+      "parent_domain_id": "logistica-e-infraestructura",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "puertos-y-terminales",
+      "name": "Puertos y terminales",
+      "type": "logistico",
+      "parent_domain_id": "logistica-e-infraestructura",
+      "file": "transversal.json",
+      "related_activities": 6,
+      "related_ramifications": 6
+    },
+    {
+      "id": "infraestructura-vial-y-camineria",
+      "name": "Infraestructura vial y caminería",
+      "type": "logistico",
+      "parent_domain_id": "logistica-e-infraestructura",
+      "file": "transversal.json",
+      "related_activities": 7,
+      "related_ramifications": 4
+    },
+    {
+      "id": "almacenaje-y-cadena-de-frio",
+      "name": "Almacenaje y cadena de frío",
+      "type": "logistico",
+      "parent_domain_id": "logistica-e-infraestructura",
+      "file": "transversal.json",
+      "related_activities": 8,
+      "related_ramifications": 5
+    },
+    {
+      "id": "insumos-y-costos-de-produccion",
+      "name": "Insumos y costos de producción",
+      "type": "transversal",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 53,
+      "related_ramifications": 36
+    },
+    {
+      "id": "precios-de-fertilizantes-y-agroquimicos",
+      "name": "Precios de fertilizantes y agroquímicos",
+      "type": "economico",
+      "parent_domain_id": "insumos-y-costos-de-produccion",
+      "file": "transversal.json",
+      "related_activities": 13,
+      "related_ramifications": 4
+    },
+    {
+      "id": "precios-de-granos-y-raciones",
+      "name": "Precios de granos y raciones",
+      "type": "economico",
+      "parent_domain_id": "insumos-y-costos-de-produccion",
+      "file": "transversal.json",
+      "related_activities": 10,
+      "related_ramifications": 9
+    },
+    {
+      "id": "precios-de-metales-y-siderurgia",
+      "name": "Precios de metales y siderurgia",
+      "type": "economico",
+      "parent_domain_id": "insumos-y-costos-de-produccion",
+      "file": "transversal.json",
+      "related_activities": 5,
+      "related_ramifications": 4
+    },
+    {
+      "id": "precios-de-plasticos-y-quimicos",
+      "name": "Precios de plásticos y químicos",
+      "type": "economico",
+      "parent_domain_id": "insumos-y-costos-de-produccion",
+      "file": "transversal.json",
+      "related_activities": 6,
+      "related_ramifications": 4
+    },
+    {
+      "id": "costos-de-materiales-de-construccion",
+      "name": "Costos de materiales de construcción",
+      "type": "economico",
+      "parent_domain_id": "insumos-y-costos-de-produccion",
+      "file": "transversal.json",
+      "related_activities": 3,
+      "related_ramifications": 2
+    },
+    {
+      "id": "laboral",
+      "name": "Mercado laboral y talento",
+      "type": "transversal",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 29,
+      "related_ramifications": 16
+    },
+    {
+      "id": "empleo-y-mercado-de-trabajo",
+      "name": "Empleo y mercado de trabajo",
+      "type": "economico",
+      "parent_domain_id": "laboral",
+      "file": "transversal.json",
+      "related_activities": 21,
+      "related_ramifications": 5
+    },
+    {
+      "id": "disponibilidad-de-talento-especializado",
+      "name": "Disponibilidad de talento especializado",
+      "type": "transversal",
+      "parent_domain_id": "laboral",
+      "file": "transversal.json",
+      "related_activities": 4,
+      "related_ramifications": 6
+    },
+    {
+      "id": "costos-laborales-y-negociacion-colectiva",
+      "name": "Costos laborales y negociación colectiva",
+      "type": "regulatorio",
+      "parent_domain_id": "laboral",
+      "file": "transversal.json",
+      "related_activities": 6,
+      "related_ramifications": 1
+    },
+    {
+      "id": "financiamiento-e-inversion",
+      "name": "Financiamiento e inversión",
+      "type": "economico",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 40,
+      "related_ramifications": 29
+    },
+    {
+      "id": "credito-y-condiciones-financieras",
+      "name": "Crédito y condiciones financieras",
+      "type": "economico",
+      "parent_domain_id": "financiamiento-e-inversion",
+      "file": "transversal.json",
+      "related_activities": 6,
+      "related_ramifications": 5
+    },
+    {
+      "id": "inversion-publica",
+      "name": "Inversión pública",
+      "type": "economico",
+      "parent_domain_id": "financiamiento-e-inversion",
+      "file": "transversal.json",
+      "related_activities": 24,
+      "related_ramifications": 5
+    },
+    {
+      "id": "inversion-privada-e-ied",
+      "name": "Inversión privada e IED",
+      "type": "economico",
+      "parent_domain_id": "financiamiento-e-inversion",
+      "file": "transversal.json",
+      "related_activities": 12,
+      "related_ramifications": 8
+    },
+    {
+      "id": "regimenes-de-promocion-de-inversiones",
+      "name": "Regímenes de promoción de inversiones",
+      "type": "regulatorio",
+      "parent_domain_id": "financiamiento-e-inversion",
+      "file": "transversal.json",
+      "related_activities": 7,
+      "related_ramifications": 8
+    },
+    {
+      "id": "regulacion-y-politicas",
+      "name": "Regulación y políticas públicas",
+      "type": "regulatorio",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 91,
+      "related_ramifications": 35
+    },
+    {
+      "id": "normativa-sectorial-productiva",
+      "name": "Normativa sectorial productiva",
+      "type": "regulatorio",
+      "parent_domain_id": "regulacion-y-politicas",
+      "file": "transversal.json",
+      "related_activities": 44,
+      "related_ramifications": 9
+    },
+    {
+      "id": "normativa-ambiental-y-territorial",
+      "name": "Normativa ambiental y territorial",
+      "type": "regulatorio",
+      "parent_domain_id": "regulacion-y-politicas",
+      "file": "transversal.json",
+      "related_activities": 15,
+      "related_ramifications": 10
+    },
+    {
+      "id": "politica-tributaria",
+      "name": "Política tributaria",
+      "type": "regulatorio",
+      "parent_domain_id": "regulacion-y-politicas",
+      "file": "transversal.json",
+      "related_activities": 5,
+      "related_ramifications": 1
+    },
+    {
+      "id": "politica-comercial-y-de-acceso-a-mercados",
+      "name": "Política comercial y de acceso a mercados",
+      "type": "regulatorio",
+      "parent_domain_id": "regulacion-y-politicas",
+      "file": "transversal.json",
+      "related_activities": 66,
+      "related_ramifications": 9
+    },
+    {
+      "id": "sanidad",
+      "name": "Sanidad e inocuidad",
+      "type": "sanitario",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 18,
+      "related_ramifications": 14
+    },
+    {
+      "id": "sanidad-animal",
+      "name": "Sanidad animal",
+      "type": "sanitario",
+      "parent_domain_id": "sanidad",
+      "file": "transversal.json",
+      "related_activities": 9,
+      "related_ramifications": 4
+    },
+    {
+      "id": "sanidad-vegetal",
+      "name": "Sanidad vegetal",
+      "type": "sanitario",
+      "parent_domain_id": "sanidad",
+      "file": "transversal.json",
+      "related_activities": 4,
+      "related_ramifications": 3
+    },
+    {
+      "id": "sanidad-acuicola",
+      "name": "Sanidad acuícola",
+      "type": "sanitario",
+      "parent_domain_id": "sanidad",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "estatus-sanitario-y-habilitaciones",
+      "name": "Estatus sanitario y habilitaciones",
+      "type": "sanitario",
+      "parent_domain_id": "sanidad",
+      "file": "transversal.json",
+      "related_activities": 6,
+      "related_ramifications": 3
+    },
+    {
+      "id": "inocuidad-alimentaria-y-residuos",
+      "name": "Inocuidad alimentaria y residuos",
+      "type": "sanitario",
+      "parent_domain_id": "sanidad",
+      "file": "transversal.json",
+      "related_activities": 2,
+      "related_ramifications": 2
+    },
+    {
+      "id": "tecnologia-e-innovacion",
+      "name": "Tecnología e innovación",
+      "type": "tecnologico",
+      "parent_domain_id": null,
+      "file": "transversal.json",
+      "related_activities": 15,
+      "related_ramifications": 16
+    },
+    {
+      "id": "adopcion-tecnologica-y-digitalizacion",
+      "name": "Adopción tecnológica y digitalización",
+      "type": "tecnologico",
+      "parent_domain_id": "tecnologia-e-innovacion",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "genetica-y-biotecnologia",
+      "name": "Genética y biotecnología",
+      "type": "tecnologico",
+      "parent_domain_id": "tecnologia-e-innovacion",
+      "file": "transversal.json",
+      "related_activities": 10,
+      "related_ramifications": 8
+    },
+    {
+      "id": "investigacion-y-desarrollo",
+      "name": "Investigación y desarrollo",
+      "type": "tecnologico",
+      "parent_domain_id": "tecnologia-e-innovacion",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 3
+    },
+    {
+      "id": "inteligencia-artificial-y-automatizacion",
+      "name": "Inteligencia artificial y automatización",
+      "type": "tecnologico",
+      "parent_domain_id": "tecnologia-e-innovacion",
+      "file": "transversal.json",
+      "related_activities": 1,
+      "related_ramifications": 1
+    },
+    {
+      "id": "mercados",
+      "name": "Mercados",
+      "type": "mercado",
+      "parent_domain_id": null,
+      "file": "mercados.json",
+      "related_activities": 115,
+      "related_ramifications": 145
+    },
+    {
+      "id": "precios-internacionales-de-commodities",
+      "name": "Precios internacionales de commodities",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 62,
+      "related_ramifications": 26
+    },
+    {
+      "id": "demanda-mundial-y-tendencias-de-consumo",
+      "name": "Demanda mundial y tendencias de consumo",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 65,
+      "related_ramifications": 29
+    },
+    {
+      "id": "mercados-destino",
+      "name": "Mercados-destino",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 25,
+      "related_ramifications": 16
+    },
+    {
+      "id": "barreras-y-requisitos-de-acceso",
+      "name": "Barreras y requisitos de acceso",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 16,
+      "related_ramifications": 15
+    },
+    {
+      "id": "competencia-internacional",
+      "name": "Competencia internacional",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 17,
+      "related_ramifications": 18
+    },
+    {
+      "id": "mercado-interno-y-consumo-nacional",
+      "name": "Mercado interno y consumo nacional",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 106,
+      "related_ramifications": 10
+    },
+    {
+      "id": "comercializacion-y-canales",
+      "name": "Comercialización y canales",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 7,
+      "related_ramifications": 3
+    },
+    {
+      "id": "mercado-de-carbono-y-sostenibilidad",
+      "name": "Mercado de carbono y sostenibilidad",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 10,
+      "related_ramifications": 6
+    },
+    {
+      "id": "turismo-receptivo-regional",
+      "name": "Turismo receptivo regional",
+      "type": "mercado",
+      "parent_domain_id": "mercados",
+      "file": "mercados.json",
+      "related_activities": 16,
+      "related_ramifications": 7
+    },
+    {
+      "id": "complejo-carne-bovina",
+      "name": "Complejo de la carne bovina",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 29,
+      "related_ramifications": 34
+    },
+    {
+      "id": "complejo-ovino-lana",
+      "name": "Complejo ovino y lanero",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 5,
+      "related_ramifications": 9
+    },
+    {
+      "id": "complejo-lacteo",
+      "name": "Complejo lácteo",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 7,
+      "related_ramifications": 18
+    },
+    {
+      "id": "complejo-avicola-y-porcino",
+      "name": "Complejo avícola y porcino",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 5,
+      "related_ramifications": 7
+    },
+    {
+      "id": "apicultura",
+      "name": "Apicultura",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 2,
+      "related_ramifications": 7
+    },
+    {
+      "id": "complejo-agricola-granos-y-oleaginosos",
+      "name": "Complejo agrícola de granos y oleaginosos",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 39,
+      "related_ramifications": 52
+    },
+    {
+      "id": "complejo-arrocero",
+      "name": "Complejo arrocero",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 13,
+      "related_ramifications": 16
+    },
+    {
+      "id": "complejo-hortifruticola",
+      "name": "Complejo hortifrutícola",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 6,
+      "related_ramifications": 28
+    },
+    {
+      "id": "complejo-citricola",
+      "name": "Complejo citrícola",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 3,
+      "related_ramifications": 10
+    },
+    {
+      "id": "complejo-vitivinicola",
+      "name": "Complejo vitivinícola",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 7,
+      "related_ramifications": 17
+    },
+    {
+      "id": "complejo-sucroalcoholero",
+      "name": "Complejo sucroalcoholero",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 4,
+      "related_ramifications": 28
+    },
+    {
+      "id": "cannabis",
+      "name": "Cannabis",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 2,
+      "related_ramifications": 8
+    },
+    {
+      "id": "complejo-forestal-celulosa",
+      "name": "Complejo forestal-celulosa",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 21,
+      "related_ramifications": 34
+    },
+    {
+      "id": "complejo-maderero",
+      "name": "Complejo maderero",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 8,
+      "related_ramifications": 26
+    },
+    {
+      "id": "complejo-pesquero",
+      "name": "Complejo pesquero",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 8,
+      "related_ramifications": 35
+    },
+    {
+      "id": "mineria-y-extractivas",
+      "name": "Minería y actividades extractivas",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 5,
+      "related_ramifications": 20
+    },
+    {
+      "id": "generacion-y-transmision-electrica",
+      "name": "Generación y transmisión eléctrica",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 21,
+      "related_ramifications": 25
+    },
+    {
+      "id": "combustibles-y-gas",
+      "name": "Combustibles y gas",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 3,
+      "related_ramifications": 11
+    },
+    {
+      "id": "hidrogeno-verde-y-derivados",
+      "name": "Hidrógeno verde y derivados",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 8,
+      "related_ramifications": 8
+    },
+    {
+      "id": "industria-de-alimentos-y-bebidas",
+      "name": "Industria de alimentos y bebidas",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 19,
+      "related_ramifications": 43
+    },
+    {
+      "id": "industria-textil-y-vestimenta",
+      "name": "Industria textil y de la vestimenta",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 11,
+      "related_ramifications": 19
+    },
+    {
+      "id": "industria-quimica-y-farmaceutica",
+      "name": "Industria química y farmacéutica",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 12,
+      "related_ramifications": 21
+    },
+    {
+      "id": "industria-de-plasticos-y-caucho",
+      "name": "Industria de plásticos y caucho",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 5,
+      "related_ramifications": 8
+    },
+    {
+      "id": "industria-metalmecanica",
+      "name": "Industria metalmecánica",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 11,
+      "related_ramifications": 42
+    },
+    {
+      "id": "industria-de-materiales-de-construccion",
+      "name": "Industria de materiales de construcción",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 6,
+      "related_ramifications": 12
+    },
+    {
+      "id": "construccion-e-inmobiliario",
+      "name": "Construcción e inmobiliario",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 32,
+      "related_ramifications": 38
+    },
+    {
+      "id": "transporte-y-logistica",
+      "name": "Transporte y logística",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 48,
+      "related_ramifications": 70
+    },
+    {
+      "id": "comercio-y-distribucion",
+      "name": "Comercio y distribución",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 55,
+      "related_ramifications": 34
+    },
+    {
+      "id": "turismo",
+      "name": "Turismo",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 20,
+      "related_ramifications": 56
+    },
+    {
+      "id": "economia-del-conocimiento",
+      "name": "Economía del conocimiento",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 35,
+      "related_ramifications": 42
+    },
+    {
+      "id": "servicios-globales-de-exportacion",
+      "name": "Servicios globales de exportación",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 7,
+      "related_ramifications": 10
+    },
+    {
+      "id": "telecomunicaciones-e-infraestructura-digital",
+      "name": "Telecomunicaciones e infraestructura digital",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 16,
+      "related_ramifications": 11
+    },
+    {
+      "id": "servicios-profesionales-y-financieros",
+      "name": "Servicios profesionales y financieros",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 8,
+      "related_ramifications": 18
+    },
+    {
+      "id": "agua-potable-y-saneamiento",
+      "name": "Agua potable y saneamiento",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 3,
+      "related_ramifications": 12
+    },
+    {
+      "id": "gestion-de-residuos-y-economia-circular",
+      "name": "Gestión de residuos y economía circular",
+      "type": "sectorial",
+      "parent_domain_id": null,
+      "file": "sectoriales.json",
+      "related_activities": 6,
+      "related_ramifications": 15
+    }
+  ]
+}

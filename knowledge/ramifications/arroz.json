@@ -526,6 +526,7 @@
       "id": "acuerdo-de-precio-convenio",
       "name": "Acuerdo de precio del convenio arrocero",
       "category": "strategic_signals",
+      "signal_type": "precios",
       "relation": "impact",
       "direction": "indirect",
       "relevance": "critical",

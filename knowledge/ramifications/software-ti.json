@@ -4,7 +4,7 @@
   "sector_id": "servicios-productivos-tecnologicos",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 34,
+  "ramification_count": 35,
   "ramifications": [
     {
       "id": "disponibilidad-talento",
@@ -357,9 +357,174 @@
       "children": []
     },
     {
+      "id": "mercados-destino-software",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "estados-unidos",
+          "name": "Estados Unidos",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "critical",
+          "depth": 2,
+          "children": [
+            {
+              "id": "estados-unidos-demanda",
+              "name": "Demanda — Estados Unidos",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-precios",
+              "name": "Precios — Estados Unidos",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Estados Unidos",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-competencia",
+              "name": "Competencia de otros orígenes — Estados Unidos",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "america-latina",
+          "name": "América Latina",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "america-latina-demanda",
+              "name": "Demanda — América Latina",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "america-latina-precios",
+              "name": "Precios — América Latina",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "america-latina-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — América Latina",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "america-latina-competencia",
+              "name": "Competencia de otros orígenes — América Latina",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "union-europea",
+          "name": "Unión Europea",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "union-europea-demanda",
+              "name": "Demanda — Unión Europea",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-precios",
+              "name": "Precios — Unión Europea",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Unión Europea",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "union-europea-competencia",
+              "name": "Competencia de otros orígenes — Unión Europea",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
       "id": "ciclo-de-inversion-tecnologica-global",
       "name": "Ciclo de inversión tecnológica global",
       "category": "strategic_signals",
+      "signal_type": "demanda",
       "relation": "impact",
       "direction": "indirect",
       "relevance": "high",
@@ -370,6 +535,7 @@
       "id": "nuevos-regimenes-de-talento",
       "name": "Cambios en regímenes de promoción y talento",
       "category": "strategic_signals",
+      "signal_type": "regulacion",
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",

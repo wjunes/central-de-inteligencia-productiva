@@ -108,6 +108,109 @@
       ["operacion", "agencias-operadores", "Operadores y agencias", "high"],
       ["servicios", "alojamiento", "Alojamiento y gastronomía", "high"],
       ["mercado", "", "Argentina, Brasil, resto del mundo", "critical"]
+    ],
+
+    "industria-madera": [
+      ["proveedores", "silvicultura", "Abastecimiento de rollos de aserrío", "critical"],
+      ["produccion", "", "Aserrado, secado y tableros", "high"],
+      ["distribucion", "puertos-terminales", "Logística de exportación", "medium"],
+      ["comercializacion", "comercio-exterior", "Exportación de madera y tableros", "high"],
+      ["mercado", "", "Estados Unidos, China, Mercosur", "high"]
+    ],
+    "molineria": [
+      ["proveedores", "arroz", "Abastecimiento de arroz cáscara y trigo", "critical"],
+      ["produccion", "", "Secado, descascarado, pulido y molienda", "critical"],
+      ["comercializacion", "comercio-exterior", "Exportación de arroz elaborado", "high"],
+      ["mercado", "", "Brasil, Medio Oriente, Unión Europea", "high"]
+    ],
+    "elaboracion-aceites": [
+      ["proveedores", "agricultura-secano", "Abastecimiento de soja, girasol y colza", "critical"],
+      ["produccion", "", "Prensado, extracción y refinación", "high"],
+      ["subproductos", "ganaderia", "Harinas y expellers para alimentación animal", "medium"],
+      ["mercado", "", "Mercado interno y regional de aceites y harinas", "medium"]
+    ],
+    "industria-azucarera": [
+      ["proveedores", "cultivo-cana-azucar", "Abastecimiento de caña", "critical"],
+      ["produccion", "", "Molienda, cristalización y destilación", "critical"],
+      ["subproductos", "biocombustibles", "Etanol y energía de bagazo", "high"],
+      ["mercado", "", "Mercado interno protegido de azúcar", "high"]
+    ],
+    "curtiembre": [
+      ["proveedores", "frigorifica", "Abastecimiento de cueros crudos", "critical"],
+      ["produccion", "", "Ribera, curtido y terminación", "high"],
+      ["comercializacion", "comercio-exterior", "Exportación de wet blue y cuero terminado", "high"],
+      ["mercado", "", "Industria automotriz y del calzado (Asia, Europa)", "high"]
+    ],
+    "industria-pesquera": [
+      ["proveedores", "pesca-industrial", "Abastecimiento de pescado fresco", "critical"],
+      ["produccion", "", "Fileteado, congelado y conservas", "high"],
+      ["comercializacion", "comercio-exterior", "Exportación de productos pesqueros", "high"],
+      ["mercado", "", "Brasil, Unión Europea, África, China", "high"]
+    ],
+    "industria-frutihorticola": [
+      ["proveedores", "citricultura", "Abastecimiento de fruta y hortalizas", "high"],
+      ["produccion", "", "Selección, concentración, congelado y envasado", "high"],
+      ["mercado", "", "Mercado interno y exportación de jugos y congelados", "medium"]
+    ],
+    "otros-alimentos": [
+      ["proveedores", "elaboracion-aceites", "Insumos: azúcar, cacao, aceites y aditivos", "medium"],
+      ["produccion", "", "Mezclado, cocción y envasado", "high"],
+      ["distribucion", "comercio-mayorista-general", "Distribución mayorista", "high"],
+      ["mercado", "", "Mercado interno y Mercosur", "medium"]
+    ],
+    "bebidas": [
+      ["proveedores", "cultivo-cereales-invierno", "Insumos: malta, uva, concentrados y envases", "high"],
+      ["produccion", "", "Fermentación, carbonatación y embotellado", "high"],
+      ["distribucion", "comercio-minorista", "Distribución y venta minorista", "high"],
+      ["mercado", "", "Mercado interno", "high"]
+    ],
+    "vinos": [
+      ["proveedores", "viticultura", "Abastecimiento de uva vinífera", "critical"],
+      ["produccion", "", "Molienda, fermentación, crianza y embotellado", "high"],
+      ["comercializacion", "turismo-rural-naturaleza", "Enoturismo y exportación", "medium"],
+      ["mercado", "", "Mercado interno y exportación de vinos finos (Tannat)", "medium"]
+    ],
+    "construccion-edificios": [
+      ["proveedores", "productos-minerales-no-metalicos", "Cemento, hierro, áridos y aberturas", "high"],
+      ["servicios", "servicios-profesionales", "Proyecto, dirección de obra e ingeniería", "high"],
+      ["produccion", "", "Obra: estructura, albañilería y terminaciones", "critical"],
+      ["comercializacion", "promocion-inmobiliaria", "Desarrollo y comercialización inmobiliaria", "high"],
+      ["mercado", "", "Demanda de vivienda e inversión privada", "high"]
+    ],
+    "transporte-carga-carretera": [
+      ["proveedores", "combustibles", "Combustible, neumáticos y unidades", "critical"],
+      ["produccion", "", "Operación de flota y viajes", "critical"],
+      ["clientes", "agricultura-secano", "Cargas del agro, forestal e industria", "high"],
+      ["mercado", "", "Comercio interno y regional (Mercosur)", "high"]
+    ],
+    "servicios-logisticos": [
+      ["proveedores", "transporte-carga-carretera", "Red de transporte y depósitos", "high"],
+      ["produccion", "", "Coordinación, despacho y distribución", "high"],
+      ["infraestructura", "puertos-terminales", "Terminales portuarias y zonas francas", "critical"],
+      ["mercado", "", "Comercio exterior y distribución regional", "high"]
+    ],
+    "servicios-globales-exportacion": [
+      ["insumos", "", "Talento calificado, oficinas y conectividad", "critical"],
+      ["produccion", "", "Operación de servicios compartidos y BPO/KPO", "critical"],
+      ["mercado", "", "Casas matrices y clientes de EE.UU., Europa y América Latina", "critical"]
+    ],
+    "generacion-electrica": [
+      ["insumos", "", "Recurso hídrico, eólico, solar, biomasa y combustibles", "critical"],
+      ["produccion", "", "Generación y despacho", "critical"],
+      ["transporte", "transmision-distribucion-electrica", "Transmisión y distribución", "critical"],
+      ["mercado", "", "Demanda interna y exportación a la región", "high"]
+    ],
+    "hidrogeno-verde": [
+      ["insumos", "generacion-eolica", "Energía renovable y agua desmineralizada", "critical"],
+      ["produccion", "", "Electrólisis y síntesis de derivados", "critical"],
+      ["distribucion", "puertos-terminales", "Logística portuaria de exportación", "critical"],
+      ["mercado", "", "Unión Europea y mercados globales de e-combustibles", "critical"]
+    ],
+    "industria-textil-vestimenta": [
+      ["proveedores", "ganaderia-ovina", "Abastecimiento de lana sucia", "critical"],
+      ["produccion", "", "Lavado, peinado, hilado, tejido y confección", "high"],
+      ["comercializacion", "comercio-exterior", "Exportación de tops y tejidos", "high"],
+      ["mercado", "", "China, Unión Europea", "high"]
     ]
   },
 
@@ -179,61 +282,235 @@
         ["america-latina", "América Latina", "high"],
         ["europa", "Europa", "medium"]
       ]
+    },
+    "vinos": {
+      "mercados-destino-vinos": [
+        ["brasil", "Brasil", "high"],
+        ["estados-unidos", "Estados Unidos", "medium"],
+        ["reino-unido", "Reino Unido", "medium"]
+      ]
+    },
+    "curtiembre": {
+      "mercados-destino-cuero": [
+        ["china", "China", "high"],
+        ["union-europea", "Unión Europea", "high"],
+        ["estados-unidos", "Estados Unidos", "medium"]
+      ]
+    },
+    "industria-madera": {
+      "mercados-destino-madera": [
+        ["estados-unidos", "Estados Unidos", "high"],
+        ["china", "China", "high"],
+        ["mercosur", "Mercosur", "medium"]
+      ]
+    },
+    "apicultura": {
+      "mercados-destino-miel": [
+        ["alemania", "Alemania", "high"],
+        ["estados-unidos", "Estados Unidos", "medium"]
+      ]
+    },
+    "software-ti": {
+      "mercados-destino-software": [
+        ["estados-unidos", "Estados Unidos", "critical"],
+        ["america-latina", "América Latina", "high"],
+        ["union-europea", "Unión Europea", "medium"]
+      ]
+    },
+    "molineria": {
+      "mercados-destino-arroz-elaborado": [
+        ["brasil", "Brasil", "high"],
+        ["medio-oriente", "Irak y Medio Oriente", "high"],
+        ["union-europea", "Unión Europea", "medium"]
+      ]
     }
   },
 
   "signals": {
     "ganaderia": [
-      ["intencion-de-retencion-o-liquidacion", "Señal de retención o liquidación de vientres", "impact", "high"],
-      ["habilitacion-de-nuevos-mercados", "Habilitación sanitaria de nuevos mercados", "opportunity", "high"]
+      ["intencion-de-retencion-o-liquidacion", "Señal de retención o liquidación de vientres", "impact", "high", "oferta"],
+      ["habilitacion-de-nuevos-mercados", "Habilitación sanitaria de nuevos mercados", "opportunity", "high", "acceso-a-mercados"]
+    ],
+    "ganaderia-bovina-carne": [
+      ["ciclo-ganadero-regional", "Fase del ciclo ganadero en la región", "impact", "high", "oferta"]
     ],
     "frigorifica": [
-      ["reapertura-o-cierre-de-china", "Cambios de acceso al mercado chino", "risk", "critical"],
-      ["brotes-sanitarios-regionales", "Brotes sanitarios en la región", "risk", "high"],
-      ["acuerdo-mercosur-union-europea", "Avance del acuerdo Mercosur-Unión Europea", "opportunity", "high"]
+      ["reapertura-o-cierre-de-china", "Cambios de acceso al mercado chino", "risk", "critical", "acceso-a-mercados"],
+      ["brotes-sanitarios-regionales", "Brotes sanitarios en la región", "risk", "high", "sanidad"],
+      ["acuerdo-mercosur-union-europea", "Avance del acuerdo Mercosur-Unión Europea", "opportunity", "high", "acceso-a-mercados"]
     ],
     "lecheria": [
-      ["tendencia-precio-gdt", "Tendencia del precio en Global Dairy Trade", "impact", "high"]
+      ["tendencia-precio-gdt", "Tendencia del precio en Global Dairy Trade", "impact", "high", "precios"]
     ],
     "industria-lactea": [
-      ["tendencia-precio-gdt", "Tendencia del precio en Global Dairy Trade", "impact", "high"],
-      ["politica-lactea-de-brasil", "Cambios en la política láctea de Brasil", "risk", "high"]
+      ["tendencia-precio-gdt", "Tendencia del precio en Global Dairy Trade", "impact", "high", "precios"],
+      ["politica-lactea-de-brasil", "Cambios en la política láctea de Brasil", "risk", "high", "acceso-a-mercados"]
     ],
     "industria-celulosa": [
-      ["decision-de-nueva-capacidad", "Anuncio de nueva planta o ampliación de capacidad", "opportunity", "high"],
-      ["precio-fibra-corta-china", "Precio de fibra corta en China", "impact", "critical"]
+      ["decision-de-nueva-capacidad", "Anuncio de nueva planta o ampliación de capacidad", "opportunity", "high", "capacidad-productiva"],
+      ["precio-fibra-corta-china", "Precio de fibra corta en China", "impact", "critical", "precios"]
+    ],
+    "silvicultura": [
+      ["expansion-de-area-forestada", "Expansión o retracción del área forestada", "impact", "medium", "oferta"]
     ],
     "hidrogeno-verde": [
-      ["decisiones-finales-de-inversion", "Decisiones finales de inversión de proyectos", "opportunity", "critical"],
-      ["politica-europea-de-hidrogeno", "Política e incentivos de hidrógeno de la Unión Europea", "opportunity", "high"]
+      ["decisiones-finales-de-inversion", "Decisiones finales de inversión de proyectos", "opportunity", "critical", "inversion"],
+      ["politica-europea-de-hidrogeno", "Política e incentivos de hidrógeno de la Unión Europea", "opportunity", "high", "acceso-a-mercados"]
     ],
     "generacion-electrica": [
-      ["nueva-demanda-de-data-centers", "Nueva demanda de data centers e hidrógeno verde", "opportunity", "high"],
-      ["pronostico-hidrologico", "Pronóstico hidrológico y de El Niño / La Niña", "impact", "critical"]
+      ["nueva-demanda-de-data-centers", "Nueva demanda de data centers e hidrógeno verde", "opportunity", "high", "demanda"],
+      ["pronostico-hidrologico", "Pronóstico hidrológico y de El Niño / La Niña", "impact", "critical", "clima-agua"]
+    ],
+    "generacion-eolica": [
+      ["subastas-y-contratos-ppa", "Nuevas subastas y contratos de compraventa de energía", "opportunity", "medium", "inversion"]
     ],
     "software-ti": [
-      ["ciclo-de-inversion-tecnologica-global", "Ciclo de inversión tecnológica global", "impact", "high"],
-      ["nuevos-regimenes-de-talento", "Cambios en regímenes de promoción y talento", "opportunity", "medium"]
+      ["ciclo-de-inversion-tecnologica-global", "Ciclo de inversión tecnológica global", "impact", "high", "demanda"],
+      ["nuevos-regimenes-de-talento", "Cambios en regímenes de promoción y talento", "opportunity", "medium", "regulacion"]
+    ],
+    "servicios-globales-exportacion": [
+      ["relocalizacion-de-servicios", "Relocalización de servicios (nearshoring) hacia la región", "opportunity", "high", "demanda"]
     ],
     "turismo": [
-      ["reservas-aereas-y-hoteleras-anticipadas", "Reservas aéreas y hoteleras anticipadas", "impact", "high"],
-      ["brecha-cambiaria-regional", "Brecha cambiaria con Argentina y Brasil", "risk", "critical"]
+      ["reservas-aereas-y-hoteleras-anticipadas", "Reservas aéreas y hoteleras anticipadas", "impact", "high", "demanda"],
+      ["brecha-cambiaria-regional", "Brecha cambiaria con Argentina y Brasil", "risk", "critical", "comercio-exterior"]
     ],
     "construccion-edificios": [
-      ["permisos-de-construccion", "Evolución de permisos de construcción", "impact", "high"],
-      ["anuncios-de-grandes-obras", "Anuncios de grandes proyectos de inversión", "opportunity", "high"]
+      ["permisos-de-construccion", "Evolución de permisos de construcción", "impact", "high", "oferta"],
+      ["anuncios-de-grandes-obras", "Anuncios de grandes proyectos de inversión", "opportunity", "high", "inversion"]
     ],
     "puertos-terminales": [
-      ["movimiento-de-contenedores", "Movimiento mensual de contenedores y graneles", "impact", "high"],
-      ["inversiones-portuarias-regionales", "Inversiones portuarias en la región", "risk", "medium"]
+      ["movimiento-de-contenedores", "Movimiento mensual de contenedores y graneles", "impact", "high", "comercio-exterior"],
+      ["inversiones-portuarias-regionales", "Inversiones portuarias en la región", "risk", "medium", "competencia"]
     ],
     "agricultura-secano": [
-      ["intencion-de-siembra", "Intención de siembra de la campaña", "impact", "high"],
-      ["stocks-mundiales-de-granos", "Stocks mundiales de granos (USDA)", "impact", "high"]
+      ["intencion-de-siembra", "Intención de siembra de la campaña", "impact", "high", "oferta"],
+      ["stocks-mundiales-de-granos", "Stocks mundiales de granos (USDA)", "impact", "high", "oferta"]
     ],
     "arroz": [
-      ["acuerdo-de-precio-convenio", "Acuerdo de precio del convenio arrocero", "impact", "critical"]
+      ["acuerdo-de-precio-convenio", "Acuerdo de precio del convenio arrocero", "impact", "critical", "precios"]
+    ],
+    "vinos": [
+      ["consumo-mundial-de-vino", "Tendencia del consumo mundial de vino", "impact", "medium", "consumo"]
+    ],
+    "industria-madera": [
+      ["ciclo-de-la-construccion-en-estados-unidos", "Ciclo de la construcción de viviendas en EE.UU.", "impact", "high", "demanda"]
+    ],
+    "apicultura": [
+      ["residuos-y-rechazos-en-destino", "Detección de residuos y rechazos en mercados de destino", "risk", "high", "acceso-a-mercados"]
+    ],
+    "comercio-exterior": [
+      ["politica-comercial-de-socios", "Cambios de política comercial de los principales socios", "impact", "high", "acceso-a-mercados"]
+    ],
+    "citricultura": [
+      ["apertura-o-cierre-fitosanitario", "Aperturas o cierres fitosanitarios de mercados", "risk", "high", "acceso-a-mercados"]
+    ],
+    "industria-textil-vestimenta": [
+      ["precio-lana-en-australia", "Precio de referencia de la lana (Australia)", "impact", "high", "precios"]
     ]
+  },
+
+  "subactivity_deltas": {
+    "ganaderia-porcina": {
+      "remove": [
+        ["exportacion", "actividad orientada al mercado interno"],
+        ["demanda-china", "sin exposición relevante a la demanda china"],
+        ["cierre-o-restriccion-de-mercados", "no exporta"],
+        ["apertura-de-nuevos-mercados", "no exporta"],
+        ["concentracion-de-la-demanda-en-china", "no exporta"]
+      ],
+      "modify": [
+        ["frigorifica", "high", "la faena porcina es un canal, no el principal complejo exportador"]
+      ]
+    },
+    "avicultura": {
+      "remove": [
+        ["demanda-china", "sin exposición relevante a la demanda china"],
+        ["concentracion-de-la-demanda-en-china", "no exporta a China"]
+      ],
+      "modify": [
+        ["exportacion", "medium", "exportación acotada a la región"]
+      ]
+    },
+    "apicultura": {
+      "remove": [
+        ["pasturas", "no depende de pasturas"],
+        ["reservas-forrajeras", "no aplica"],
+        ["granos-forrajeros", "no aplica"],
+        ["raciones-balanceadas", "no aplica"],
+        ["frigorifica", "no vende a frigoríficos"],
+        ["ganado-en-pie", "no aplica"],
+        ["genetica-animal", "no aplica"],
+        ["demanda-china", "principal destino es Alemania y Estados Unidos"],
+        ["concentracion-de-la-demanda-en-china", "no aplica"]
+      ],
+      "modify": [
+        ["sanidad-animal", "high", "sanidad apícola (varroa, loque), no sanidad de rodeo"]
+      ]
+    },
+    "hidroelectrica": {
+      "remove": [
+        ["recurso-eolico", "no aplica a generación hidráulica"],
+        ["recurso-solar", "no aplica"],
+        ["combustibles-fosiles", "no aplica"]
+      ]
+    },
+    "generacion-eolica": {
+      "remove": [
+        ["hidrologia", "no aplica a generación eólica"],
+        ["gestion-embalses", "no aplica"],
+        ["recurso-hidrico", "no aplica"],
+        ["combustibles-fosiles", "no aplica"],
+        ["recurso-solar", "no aplica"]
+      ]
+    },
+    "generacion-solar": {
+      "remove": [
+        ["hidrologia", "no aplica a generación solar"],
+        ["gestion-embalses", "no aplica"],
+        ["recurso-hidrico", "no aplica"],
+        ["combustibles-fosiles", "no aplica"],
+        ["recurso-eolico", "no aplica"]
+      ]
+    },
+    "generacion-termica": {
+      "remove": [
+        ["recurso-eolico", "no aplica a generación térmica"],
+        ["recurso-solar", "no aplica"],
+        ["recurso-hidrico", "no aplica directamente"],
+        ["gestion-embalses", "no aplica"]
+      ],
+      "modify": [
+        ["hidrologia", "critical", "los años secos determinan el nivel de despacho térmico"]
+      ]
+    },
+    "generacion-biomasa": {
+      "remove": [
+        ["recurso-eolico", "no aplica"],
+        ["recurso-solar", "no aplica"],
+        ["hidrologia", "no aplica"],
+        ["gestion-embalses", "no aplica"],
+        ["recurso-hidrico", "no aplica"]
+      ]
+    },
+    "pesca-artesanal": {
+      "remove": [
+        ["cuotas-captura", "régimen de permisos costeros, no de cuotas industriales"],
+        ["acuerdo-argentina", "opera en aguas jurisdiccionales y costeras"],
+        ["puertos-terminales", "usa puertos y rampas artesanales"]
+      ]
+    },
+    "cultivo-soja": {
+      "modify": [
+        ["clima", "critical", "el rendimiento de soja es muy sensible al déficit hídrico estival"]
+      ]
+    },
+    "confeccion-prendas": {
+      "remove": [
+        ["oferta-lana", "usa tejidos, no lana sucia"],
+        ["ganaderia-ovina", "sin relación directa con la producción ovina"]
+      ]
+    }
   },
 
   "depth2": {
@@ -269,9 +546,6 @@
       "combustibles-fosiles": [
         ["precio-petroleo", "Precio del petróleo y del fueloil", "economic_factors", "cost", "high", "direct"],
         ["abastecimiento-combustibles", "Disponibilidad y logística de combustibles", "logistics", "dependency", "high", "direct"]
-      ],
-      "hidrologia": [
-        ["anos-secos", "Años secos que exigen respaldo térmico", "climate_factors", "impact", "critical", "direct"]
       ]
     },
     "generacion-biomasa": {
@@ -591,9 +865,7 @@
           {"id": "accesos-viales", "name": "Accesos viales a las terminales", "category": "infrastructure", "relation": "infrastructure", "direction": "direct", "relevance": "medium", "depth": 2, "children": []}
         ]
       },
-      "add": [
-        {"id": "nueva-terminal-o-concesion", "name": "Nueva terminal o cambio de concesión", "category": "strategic_signals", "relation": "impact", "direction": "direct", "relevance": "high", "depth": 1, "children": []}
-      ]
+      "add": []
     },
 
     "construccion-edificios": {

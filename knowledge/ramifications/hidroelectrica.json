@@ -4,131 +4,93 @@
   "sector_id": "energia",
   "level": "subactivity",
   "parent_activity_id": "generacion-electrica",
-  "ramification_count": 10,
-  "ramifications": [
-    {
-      "id": "hidrologia",
-      "name": "Hidrología",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": [
-        {
-          "id": "sequia",
-          "name": "Sequía plurianual",
-          "category": "climate_factors",
-          "relation": "risk",
-          "direction": "direct",
-          "relevance": "critical",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "gestion-embalses",
-      "name": "Gestión de embalses",
-      "category": "resources",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "recurso-hidrico",
-      "name": "Recurso hídrico",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "transmision-distribucion-electrica",
-      "name": "Transmisión y distribución eléctrica",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "transmision-distribucion-electrica",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "arroz",
-      "name": "Arroz",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "arroz",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "regional-mercosur",
-      "name": "Regional mercosur",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "energia-electrica",
-      "name": "Energía eléctrica",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "clima",
-      "name": "Clima",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "fenomeno-enso",
-          "name": "Fenómeno El Niño / La Niña",
-          "category": "climate_factors",
-          "relation": "impact",
-          "direction": "direct",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "demanda-electrica",
-      "name": "Demanda eléctrica",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "generacion-electrica",
+  "inherited_ramifications": 5,
+  "own_ramifications": 3,
+  "effective_ramification_count": 27,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "gestion-embalses",
+        "name": "Gestión de embalses",
+        "category": "resources",
+        "relation": "dependency",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "arroz",
+        "name": "Arroz",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "arroz",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "clima",
+        "name": "Clima",
+        "category": "climate_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "fenomeno-enso",
+            "name": "Fenómeno El Niño / La Niña",
+            "category": "climate_factors",
+            "relation": "impact",
+            "direction": "direct",
+            "relevance": "high",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      }
+    ],
+    "remove": [
+      {
+        "id": "recurso-eolico",
+        "reason": "no aplica a generación hidráulica"
+      },
+      {
+        "id": "recurso-solar",
+        "reason": "no aplica"
+      },
+      {
+        "id": "combustibles-fosiles",
+        "reason": "no aplica"
+      }
+    ],
+    "modify": [
+      {
+        "id": "hidrologia",
+        "reason": "ajuste específico de la subactividad",
+        "children": [
+          {
+            "id": "sequia",
+            "name": "Sequía plurianual",
+            "category": "climate_factors",
+            "relation": "risk",
+            "direction": "direct",
+            "relevance": "critical",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "transmision-distribucion-electrica",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium",
+        "relation": "related_activity",
+        "category": "related_activities"
+      }
+    ]
+  }
 }

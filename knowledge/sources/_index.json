@@ -1,0 +1,1056 @@
+{
+  "generated": "2026-09-10",
+  "sources_input": [
+    "knowledge/domain-names/",
+    "knowledge/ramifications/",
+    "knowledge/activities/"
+  ],
+  "counts": {
+    "sources_total": 77,
+    "by_type": {
+      "primary_official": 43,
+      "primary_institutional": 29,
+      "secondary_trusted": 4,
+      "tertiary_exceptional": 1
+    },
+    "by_priority": {
+      "critical": 16,
+      "high": 31,
+      "medium": 23,
+      "low": 7
+    },
+    "domains_total": 112,
+    "domain_coverage": {
+      "complete": 96,
+      "partial": 10,
+      "complete_via_children": 6
+    },
+    "domains_full_coverage": 102,
+    "domains_with_gap": 10,
+    "critical_sources": [
+      "adme",
+      "bcu",
+      "dinara",
+      "dna",
+      "impo",
+      "inac",
+      "inale",
+      "ine",
+      "inia-gras",
+      "inumet",
+      "mgap-dgsg",
+      "mgap-diea",
+      "mgap-snig",
+      "miem-dne",
+      "mintur",
+      "uruguay-xxi"
+    ],
+    "by_automation": {
+      "partially_automatable": 15,
+      "manual": 30,
+      "automatable": 32
+    },
+    "non_automatable_high_priority": [
+      "camara-mercantil",
+      "ciu",
+      "cuti",
+      "inia",
+      "ircca",
+      "itc-trademap",
+      "mgap-dgsg",
+      "mgap-dgssaa",
+      "mgap-opypa",
+      "ministerio-ambiente",
+      "mtss",
+      "sul"
+    ],
+    "known_upstream_gap": {
+      "layer": "domain-names",
+      "domain": "barreras-y-requisitos-de-acceso",
+      "note": "Enlazado sobre todo a actividades con árbol mercados-destino curado en ramifications/. Impacto bajo: las exportadoras restantes quedan cubiertas por politica-comercial-y-de-acceso-a-mercados y su dominio sectorial. No corregido aquí; se resolverá al ampliar mercados-destino en ramifications/."
+    }
+  },
+  "sources": [
+    {
+      "id": "mgap-diea",
+      "name": "DIEA — Estadísticas Agropecuarias",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "complejo-agricola-granos-y-oleaginosos",
+        "complejo-arrocero",
+        "complejo-hortifruticola",
+        "complejo-citricola",
+        "complejo-carne-bovina",
+        "complejo-ovino-lana",
+        "complejo-lacteo",
+        "complejo-avicola-y-porcino",
+        "apicultura",
+        "suelo-y-uso-del-suelo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mgap-opypa",
+      "name": "OPYPA — Anuario y análisis de política agropecuaria",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "nivel-de-actividad-y-ciclo",
+        "regulacion-y-politicas",
+        "normativa-sectorial-productiva",
+        "precios-de-granos-y-raciones",
+        "complejo-agricola-granos-y-oleaginosos",
+        "complejo-carne-bovina"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mgap-snig",
+      "name": "SNIG — Sistema Nacional de Información Ganadera",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "complejo-carne-bovina",
+        "complejo-ovino-lana",
+        "complejo-avicola-y-porcino"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mgap-dgsg",
+      "name": "DGSG — Servicios Ganaderos (sanidad y estatus)",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "sanidad-animal",
+        "estatus-sanitario-y-habilitaciones",
+        "inocuidad-alimentaria-y-residuos",
+        "sanidad-acuicola"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mgap-dgssaa",
+      "name": "DGSSAA — Servicios Agrícolas (sanidad vegetal e insumos)",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "sanidad-vegetal",
+        "precios-de-fertilizantes-y-agroquimicos"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mgap-dgf",
+      "name": "Dirección General Forestal",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "recursos-forestales",
+        "complejo-forestal-celulosa",
+        "suelo-y-uso-del-suelo",
+        "normativa-sectorial-productiva"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mgap-renare",
+      "name": "RENARE — Recursos Naturales (suelos y riego)",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "suelo-y-uso-del-suelo",
+        "disponibilidad-de-agua",
+        "normativa-ambiental-y-territorial"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inia",
+      "name": "INIA — Investigación agropecuaria",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "genetica-y-biotecnologia",
+        "investigacion-y-desarrollo",
+        "adopcion-tecnologica-y-digitalizacion",
+        "sanidad-vegetal"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inia-gras",
+      "name": "INIA GRAS — Agroclima y Sistemas de Información",
+      "type": "primary_institutional",
+      "priority": "critical",
+      "domains": [
+        "pronostico-agroclimatico",
+        "sequia-y-deficit-hidrico",
+        "precipitaciones-y-temperatura",
+        "disponibilidad-de-agua",
+        "clima-y-agua"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inac",
+      "name": "INAC — Instituto Nacional de Carnes",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "complejo-carne-bovina",
+        "precios-internacionales-de-commodities",
+        "flujos-de-comercio-exterior",
+        "mercados-destino",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "competencia-internacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inale",
+      "name": "INALE — Instituto Nacional de la Leche",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "complejo-lacteo",
+        "precios-internacionales-de-commodities",
+        "flujos-de-comercio-exterior",
+        "precios-de-granos-y-raciones",
+        "mercados-destino"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "dinara",
+      "name": "DINARA — Recursos Acuáticos",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "complejo-pesquero",
+        "estado-de-recursos-pesqueros",
+        "sanidad-acuicola"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inavi",
+      "name": "INAVI — Vitivinicultura",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "complejo-vitivinicola",
+        "flujos-de-comercio-exterior",
+        "mercado-interno-y-consumo-nacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "sul",
+      "name": "SUL — Secretariado Uruguayo de la Lana",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "complejo-ovino-lana",
+        "precios-internacionales-de-commodities"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ircca",
+      "name": "IRCCA — Regulación y Control del Cannabis",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "cannabis",
+        "normativa-sectorial-productiva"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inase",
+      "name": "INASE — Semillas",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "complejo-agricola-granos-y-oleaginosos",
+        "genetica-y-biotecnologia",
+        "normativa-sectorial-productiva"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inumet",
+      "name": "INUMET — Instituto Uruguayo de Meteorología",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "clima-y-agua",
+        "precipitaciones-y-temperatura",
+        "eventos-climaticos-extremos",
+        "pronostico-agroclimatico",
+        "sequia-y-deficit-hidrico"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ine",
+      "name": "INE — Instituto Nacional de Estadística",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "inflacion-y-precios-internos",
+        "mercado-interno-y-consumo-nacional",
+        "empleo-y-mercado-de-trabajo",
+        "nivel-de-actividad-y-ciclo",
+        "costos-de-materiales-de-construccion",
+        "industria-de-alimentos-y-bebidas",
+        "industria-metalmecanica",
+        "industria-quimica-y-farmaceutica"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "bcu",
+      "name": "BCU — Banco Central del Uruguay",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "tipo-de-cambio",
+        "tasas-de-interes",
+        "nivel-de-actividad-y-ciclo",
+        "inflacion-y-precios-internos",
+        "flujos-de-comercio-exterior",
+        "credito-y-condiciones-financieras",
+        "inversion-privada-e-ied",
+        "servicios-profesionales-y-financieros"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mef",
+      "name": "MEF — Ministerio de Economía y Finanzas",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "politica-tributaria",
+        "inversion-publica",
+        "regimenes-de-promocion-de-inversiones",
+        "nivel-de-actividad-y-ciclo",
+        "financiamiento-e-inversion"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "opp",
+      "name": "OPP — Planeamiento y Presupuesto",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "inversion-publica",
+        "infraestructura-vial-y-camineria"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "dgi",
+      "name": "DGI — Dirección General Impositiva",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "politica-tributaria",
+        "nivel-de-actividad-y-ciclo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "bps",
+      "name": "BPS — Banco de Previsión Social",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "empleo-y-mercado-de-trabajo",
+        "costos-laborales-y-negociacion-colectiva"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mtss",
+      "name": "MTSS — Trabajo y Seguridad Social",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "costos-laborales-y-negociacion-colectiva",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "inefop",
+      "name": "INEFOP — Empleo y Formación Profesional",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "disponibilidad-de-talento-especializado",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "dna",
+      "name": "DNA — Dirección Nacional de Aduanas",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "flujos-de-comercio-exterior",
+        "regimenes-aduaneros-y-zonas-francas"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "uruguay-xxi",
+      "name": "Uruguay XXI — Inteligencia comercial y de inversiones",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "flujos-de-comercio-exterior",
+        "mercados-destino",
+        "barreras-y-requisitos-de-acceso",
+        "competencia-internacional",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "inversion-privada-e-ied",
+        "economia-del-conocimiento",
+        "servicios-globales-de-exportacion",
+        "comercio-exterior",
+        "comercio-y-distribucion"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "miem-dne",
+      "name": "MIEM — Dirección Nacional de Energía",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "energia",
+        "energia-electrica",
+        "combustibles-liquidos",
+        "gas-natural",
+        "transicion-energetica",
+        "tarifas-y-politica-energetica",
+        "hidrogeno-verde-y-derivados",
+        "generacion-y-transmision-electrica"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "adme",
+      "name": "ADME — Administración del Mercado Eléctrico",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "energia-electrica",
+        "hidrologia-energetica",
+        "transicion-energetica",
+        "generacion-y-transmision-electrica"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ute",
+      "name": "UTE — Usinas y Transmisiones Eléctricas",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "energia-electrica",
+        "tarifas-y-politica-energetica",
+        "generacion-y-transmision-electrica"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ursea",
+      "name": "URSEA — Regulación de Energía y Agua",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "tarifas-y-politica-energetica",
+        "combustibles-liquidos",
+        "gas-natural",
+        "agua-potable-y-saneamiento"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ancap",
+      "name": "ANCAP — Combustibles, Alcohol y Portland",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "combustibles-liquidos",
+        "combustibles-y-gas",
+        "complejo-sucroalcoholero",
+        "industria-de-materiales-de-construccion"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mtop",
+      "name": "MTOP — Transporte y Obras Públicas",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "infraestructura-vial-y-camineria",
+        "transporte-carretero",
+        "transporte-ferroviario",
+        "logistica-e-infraestructura",
+        "transporte-y-logistica",
+        "almacenaje-y-cadena-de-frio"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "anp",
+      "name": "ANP — Administración Nacional de Puertos",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "puertos-y-terminales",
+        "flujos-de-comercio-exterior",
+        "transporte-y-logistica",
+        "almacenaje-y-cadena-de-frio"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "dinacia",
+      "name": "DINACIA — Aviación Civil",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "transporte-y-logistica",
+        "turismo-receptivo-regional"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "mintur",
+      "name": "Ministerio de Turismo",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "turismo",
+        "turismo-receptivo-regional",
+        "mercado-interno-y-consumo-nacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ministerio-ambiente",
+      "name": "Ministerio de Ambiente",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "normativa-ambiental-y-territorial",
+        "mercado-de-carbono-y-sostenibilidad",
+        "gestion-de-residuos-y-economia-circular",
+        "disponibilidad-de-agua",
+        "recursos-naturales"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "dinagua",
+      "name": "DINAGUA — Dirección Nacional de Aguas",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "disponibilidad-de-agua",
+        "exceso-hidrico-e-inundaciones",
+        "sequia-y-deficit-hidrico",
+        "hidrologia-energetica"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ose",
+      "name": "OSE — Obras Sanitarias del Estado",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "agua-potable-y-saneamiento",
+        "disponibilidad-de-agua"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mvot",
+      "name": "MVOT — Vivienda y Ordenamiento Territorial",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "construccion-e-inmobiliario",
+        "regimenes-de-promocion-de-inversiones",
+        "normativa-ambiental-y-territorial"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "miem-dinamige",
+      "name": "DINAMIGE — Minería y Geología",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "mineria-y-extractivas",
+        "recursos-mineros"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "miem-observatorio",
+      "name": "MIEM — Observatorio de Energía e Industria",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "energia-electrica",
+        "combustibles-liquidos",
+        "industria-de-alimentos-y-bebidas",
+        "industria-metalmecanica",
+        "industria-quimica-y-farmaceutica",
+        "industria-textil-y-vestimenta",
+        "industria-de-plasticos-y-caucho",
+        "industria-de-materiales-de-construccion"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "miem-dni",
+      "name": "MIEM — Dirección Nacional de Industrias",
+      "type": "primary_official",
+      "priority": "low",
+      "domains": [
+        "normativa-sectorial-productiva",
+        "industria-metalmecanica",
+        "industria-de-plasticos-y-caucho",
+        "industria-de-materiales-de-construccion"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ursec",
+      "name": "URSEC — Servicios de Comunicaciones",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "telecomunicaciones-e-infraestructura-digital"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "anii",
+      "name": "ANII — Investigación e Innovación",
+      "type": "primary_official",
+      "priority": "medium",
+      "domains": [
+        "investigacion-y-desarrollo",
+        "adopcion-tecnologica-y-digitalizacion",
+        "inteligencia-artificial-y-automatizacion"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "impo",
+      "name": "IMPO — Normativa oficial",
+      "type": "primary_official",
+      "priority": "critical",
+      "domains": [
+        "regulacion-y-politicas",
+        "normativa-sectorial-productiva",
+        "normativa-ambiental-y-territorial",
+        "politica-tributaria",
+        "acuerdos-comerciales-y-aranceles",
+        "politica-comercial-y-de-acceso-a-mercados",
+        "tarifas-y-politica-energetica",
+        "costos-laborales-y-negociacion-colectiva",
+        "regimenes-de-promocion-de-inversiones",
+        "regimenes-aduaneros-y-zonas-francas"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "catalogodatos-agesic",
+      "name": "Catálogo Nacional de Datos Abiertos (AGESIC)",
+      "type": "primary_official",
+      "priority": "high",
+      "domains": [
+        "clima-y-agua",
+        "energia-electrica",
+        "flujos-de-comercio-exterior",
+        "empleo-y-mercado-de-trabajo",
+        "inflacion-y-precios-internos"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "camara-mercantil",
+      "name": "Cámara Mercantil de Productos del País",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "precios-de-granos-y-raciones",
+        "complejo-agricola-granos-y-oleaginosos",
+        "comercializacion-y-canales",
+        "comercio-y-distribucion"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "bolsa-cereales-mvd",
+      "name": "Bolsa de Cereales y Productos de Montevideo",
+      "type": "primary_institutional",
+      "priority": "low",
+      "domains": [
+        "precios-de-granos-y-raciones"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "acaa-molinos-arroz",
+      "name": "Gremial de Molinos Arroceros y ACA",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "complejo-arrocero",
+        "precios-de-granos-y-raciones"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "spf-forestal",
+      "name": "Sociedad de Productores Forestales",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "complejo-forestal-celulosa",
+        "complejo-maderero",
+        "recursos-forestales"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ciu",
+      "name": "Cámara de Industrias del Uruguay",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "industria-de-alimentos-y-bebidas",
+        "industria-metalmecanica",
+        "industria-quimica-y-farmaceutica",
+        "industria-textil-y-vestimenta",
+        "industria-de-plasticos-y-caucho",
+        "nivel-de-actividad-y-ciclo",
+        "competencia-internacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "camara-construccion",
+      "name": "Cámara de la Construcción del Uruguay",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "construccion-e-inmobiliario",
+        "costos-de-materiales-de-construccion",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "cuti",
+      "name": "CUTI — Cámara Uruguaya de Tecnologías de la Información",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "economia-del-conocimiento",
+        "servicios-globales-de-exportacion",
+        "disponibilidad-de-talento-especializado"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "mercado-modelo-uam",
+      "name": "Mercado Modelo / UAM — Sistema de Información de Precios",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "complejo-hortifruticola",
+        "mercado-interno-y-consumo-nacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "camara-inmobiliaria",
+      "name": "Cámara Inmobiliaria Uruguaya",
+      "type": "secondary_trusted",
+      "priority": "low",
+      "domains": [
+        "construccion-e-inmobiliario"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "consultoras-economicas-uy",
+      "name": "Consultoras económicas (informes de coyuntura)",
+      "type": "secondary_trusted",
+      "priority": "low",
+      "domains": [
+        "nivel-de-actividad-y-ciclo",
+        "tipo-de-cambio",
+        "situacion-regional"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "udelar-iecon",
+      "name": "Instituto de Economía (FCEA, UdelaR)",
+      "type": "primary_institutional",
+      "priority": "low",
+      "domains": [
+        "nivel-de-actividad-y-ciclo",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "fao-faostat",
+      "name": "FAO — FAOSTAT",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "competencia-internacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "fao-giews-amis",
+      "name": "FAO — GIEWS / FPMA / AMIS / ASIS",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "sequia-y-deficit-hidrico",
+        "pronostico-agroclimatico"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "usda-fas",
+      "name": "USDA — Foreign Agricultural Service (PSD, WASDE, GATS)",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "competencia-internacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "un-comtrade",
+      "name": "UN Comtrade",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "mercados-destino",
+        "competencia-internacional",
+        "demanda-mundial-y-tendencias-de-consumo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "itc-trademap",
+      "name": "ITC — Trade Map / Market Access Map / Export Potential Map",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "mercados-destino",
+        "barreras-y-requisitos-de-acceso",
+        "competencia-internacional",
+        "demanda-mundial-y-tendencias-de-consumo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "wto",
+      "name": "OMC — Organización Mundial del Comercio",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "acuerdos-comerciales-y-aranceles",
+        "barreras-y-requisitos-de-acceso",
+        "politica-comercial-y-de-acceso-a-mercados"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "woah-wahis",
+      "name": "WOAH — WAHIS (sanidad animal mundial)",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "sanidad-animal",
+        "estatus-sanitario-y-habilitaciones",
+        "competencia-internacional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "ippc",
+      "name": "CIPF — Convención Internacional de Protección Fitosanitaria",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "sanidad-vegetal",
+        "barreras-y-requisitos-de-acceso"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "imf",
+      "name": "FMI — Fondo Monetario Internacional",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "situacion-regional"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "world-bank",
+      "name": "Banco Mundial — Datos, Pink Sheet y LPI",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "fletes-y-logistica-internacional",
+        "mercado-de-carbono-y-sostenibilidad",
+        "precios-de-metales-y-siderurgia",
+        "precios-de-plasticos-y-quimicos",
+        "precios-de-fertilizantes-y-agroquimicos"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "oecd-fao-outlook",
+      "name": "OECD-FAO Agricultural Outlook",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "demanda-mundial-y-tendencias-de-consumo",
+        "precios-internacionales-de-commodities"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "eia-iea",
+      "name": "EIA (EE.UU.) e IEA",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "combustibles-liquidos",
+        "gas-natural",
+        "energia",
+        "transicion-energetica"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "noaa-iri-enso",
+      "name": "NOAA CPC / IRI — ENSO y clima estacional",
+      "type": "primary_institutional",
+      "priority": "high",
+      "domains": [
+        "pronostico-agroclimatico",
+        "eventos-climaticos-extremos",
+        "sequia-y-deficit-hidrico"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "copernicus-nasa-eo",
+      "name": "Copernicus y NASA — observación de la Tierra",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "precipitaciones-y-temperatura",
+        "sequia-y-deficit-hidrico",
+        "eventos-climaticos-extremos",
+        "recursos-forestales"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "freightos-drewry",
+      "name": "Índices de flete marítimo (Freightos, Drewry, Baltic Exchange)",
+      "type": "secondary_trusted",
+      "priority": "medium",
+      "domains": [
+        "fletes-y-logistica-internacional"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "precios-industriales-especializados",
+      "name": "Servicios especializados de precios industriales (Fastmarkets/FOEX, ICIS, Argus, LME)",
+      "type": "tertiary_exceptional",
+      "priority": "low",
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "precios-de-plasticos-y-quimicos",
+        "precios-de-fertilizantes-y-agroquimicos",
+        "precios-de-metales-y-siderurgia"
+      ],
+      "status": "gap"
+    },
+    {
+      "id": "carbon-registries",
+      "name": "Registros y mercados de carbono (Verra, Gold Standard, UNFCCC, WB Carbon Dashboard)",
+      "type": "primary_institutional",
+      "priority": "low",
+      "domains": [
+        "mercado-de-carbono-y-sostenibilidad"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "conab-bcr-bcba",
+      "name": "Fuentes agrícolas regionales (CONAB, BCR, BCBA)",
+      "type": "secondary_trusted",
+      "priority": "medium",
+      "domains": [
+        "competencia-internacional",
+        "precios-de-granos-y-raciones",
+        "demanda-mundial-y-tendencias-de-consumo"
+      ],
+      "status": "validated"
+    },
+    {
+      "id": "cncs",
+      "name": "Cámara Nacional de Comercio y Servicios del Uruguay",
+      "type": "primary_institutional",
+      "priority": "medium",
+      "domains": [
+        "comercio-y-distribucion",
+        "servicios-profesionales-y-financieros",
+        "mercado-interno-y-consumo-nacional",
+        "nivel-de-actividad-y-ciclo"
+      ],
+      "status": "validated"
+    }
+  ]
+}

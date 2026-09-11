@@ -1,0 +1,169 @@
+{
+  "generated": "2026-09-11",
+  "source": "knowledge/monitoring/gaps.json",
+  "principle": "Un signal_type no debe prometerse como soporte de una senal 'critical' sobre un dominio cuya cobertura es parcial o proxy. Este archivo traduce los 10 gaps heredados a su soporte real de senales (seccion 29-30 del prompt de construccion).",
+  "signal_support_values": [
+    "signal_supported",
+    "signal_partially_supported",
+    "signal_unsupported"
+  ],
+  "signals_without_full_support": [
+    {
+      "domain": "adopcion-tecnologica-y-digitalizacion",
+      "topics_affected": [
+        "tecnologia"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "anii::principal",
+        "inia::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "Sin fuente cuantitativa periódica específica; se infiere de ANII (bienal) y CUTI. Cobertura parcial."
+    },
+    {
+      "domain": "almacenaje-y-cadena-de-frio",
+      "topics_affected": [
+        "infraestructura-logistica",
+        "oferta"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "anp::principal",
+        "mtop::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "No hay fuente pública de capacidad instalada de frío y depósitos; se infiere de ANP (portuario) y del régimen de zonas francas."
+    },
+    {
+      "domain": "costos-de-materiales-de-construccion",
+      "topics_affected": [
+        "costos"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "camara-construccion::principal",
+        "ine::empleo",
+        "ine::ipc",
+        "ine::ivf-industria"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "ICC del INE cubre el índice agregado; falta desglose de precios por material. Cámara de la Construcción complementa parcialmente."
+    },
+    {
+      "domain": "disponibilidad-de-talento-especializado",
+      "topics_affected": [
+        "empleo-talento"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "cuti::principal",
+        "inefop::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "CUTI e INEFOP dan señales; falta un observatorio de brechas de talento con frecuencia alta."
+    },
+    {
+      "domain": "fletes-y-logistica-internacional",
+      "topics_affected": [
+        "costos",
+        "infraestructura-logistica"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "anp::principal",
+        "freightos-drewry::principal",
+        "world-bank::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "Índice FBX de consulta libre; series históricas y detalle por ruta son de pago. Sin fuente automatizable completa."
+    },
+    {
+      "domain": "inteligencia-artificial-y-automatizacion",
+      "topics_affected": [
+        "tecnologia"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "anii::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "Sin fuente nacional específica; contexto internacional disperso. Gap estructural, prioridad baja en esta etapa."
+    },
+    {
+      "domain": "mercado-de-carbono-y-sostenibilidad",
+      "topics_affected": [
+        "precios",
+        "regulacion"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "carbon-registries::principal",
+        "ministerio-ambiente::principal",
+        "world-bank::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "Precios del mercado voluntario poco transparentes; registros (Verra, Gold Standard) dan volúmenes pero no precio homogéneo."
+    },
+    {
+      "domain": "precios-de-metales-y-siderurgia",
+      "topics_affected": [
+        "precios",
+        "costos"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "precios-industriales-especializados::principal",
+        "world-bank::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "Precio de acero y metales: LME y worldsteel son de pago o poco granulares en abierto. Proxy: Pink Sheet del Banco Mundial."
+    },
+    {
+      "domain": "precios-de-plasticos-y-quimicos",
+      "topics_affected": [
+        "precios",
+        "costos"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "precios-industriales-especializados::principal",
+        "world-bank::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "Sin fuente libre de precio de referencia de resinas y petroquímicos. Proxy: Pink Sheet del Banco Mundial (parcial) + reportes de empresas."
+    },
+    {
+      "domain": "transporte-carretero",
+      "topics_affected": [
+        "costos",
+        "infraestructura-logistica"
+      ],
+      "signal_support": "signal_partially_supported",
+      "covering_monitors": [
+        "mtop::principal"
+      ],
+      "restriction": "No estructurar una senal de estos topics con implicancia 'critical' sin documentar que la fuente que la origina es un proxy parcial.",
+      "note": "MTOP cubre infraestructura y tránsito; los costos operativos del transporte de carga se estiman por gremiales privadas, sin serie pública estable."
+    }
+  ],
+  "none_fully_unsupported": true,
+  "additional_gap_detected": {
+    "gap": "topics_without_monitors",
+    "capa": "sources/ y domain-names/ (heredado; no corregido aqui)",
+    "elemento": "campo 'signals' por fuente en sources.json, y 'related_signals' por dominio en domain-names/",
+    "motivo": "La derivacion de sources/ es deliberadamente conservadora (solo dominios sectoriales o de baja fan-out, para no atribuir todas las actividades a una fuente transversal - ver sources/_build/README.md) y domain-names/related_signals solo cubre las ~23 actividades curadas manualmente en ramifications/ (42 asociaciones sobre 112 dominios). 7 de los 19 topics del catalogo (tecnologia, costos, infraestructura-logistica, recursos-naturales, financiamiento, sustitucion, empleo-talento) no aparecen en NINGUNA fuente ni dominio.",
+    "impacto": "mappings.json.by_topic queda vacio para esos 7 topics aunque existan monitores relacionados en la practica (p. ej. BCU para financiamiento, INEFOP/CUTI para empleo-talento). monitoring/gaps.json ya resuelve esto puntualmente para los 10 dominios con gap via un mapa curado a mano (SIGNAL_IMPACT); fuera de esos 10 dominios, el indice por topic sigue siendo incompleto para esos 7 ids.",
+    "correccion_propuesta": "Completar sources.json[].signals y/o domain-names/*.related_signals para los 7 topics no utilizados, en una futura revision de sources/ o domain-names/ (no de signals/). Mientras tanto, quien consuma mappings.json debe tratar by_topic como un indice PARCIAL, no exhaustivo, para esos 7 ids.",
+    "corregido_en_esta_tarea": false
+  },
+  "topics_without_monitors": [
+    "costos",
+    "empleo-talento",
+    "financiamiento",
+    "infraestructura-logistica",
+    "recursos-naturales",
+    "sustitucion",
+    "tecnologia"
+  ]
+}

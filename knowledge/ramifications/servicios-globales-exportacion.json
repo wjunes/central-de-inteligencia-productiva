@@ -4,7 +4,7 @@
   "sector_id": "servicios-productivos-tecnologicos",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 26,
+  "ramification_count": 30,
   "ramifications": [
     {
       "id": "regimen-zonas-francas",
@@ -261,6 +261,39 @@
       "children": []
     },
     {
+      "id": "vc-insumos",
+      "name": "Talento calificado, oficinas y conectividad",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Operación de servicios compartidos y BPO/KPO",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Casas matrices y clientes de EE.UU., Europa y América Latina",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
       "id": "mercados-destino-servicios",
       "name": "Mercados-destino",
       "category": "markets",
@@ -423,6 +456,17 @@
           ]
         }
       ]
+    },
+    {
+      "id": "relocalizacion-de-servicios",
+      "name": "Relocalización de servicios (nearshoring) hacia la región",
+      "category": "strategic_signals",
+      "signal_type": "demanda",
+      "relation": "opportunity",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
     }
   ]
 }

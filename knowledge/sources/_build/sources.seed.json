@@ -1,0 +1,3819 @@
+{
+  "_comment": "Catalogo curado de fuentes. generate.py deriva activities/signals desde domain-names, e infiere mappings.json y gaps.json. Editar aqui, no en los archivos generados.",
+  "sources": [
+    {
+      "id": "mgap-diea",
+      "name": "DIEA — Estadísticas Agropecuarias",
+      "institution": "MGAP — Oficina de Estadísticas Agropecuarias (DIEA)",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Estadística agropecuaria oficial: Anuario Estadístico Agropecuario, encuestas agrícolas, ganaderas, lecheras, hortícolas, citrícolas y forestales, superficie, existencias y producción.",
+      "coverage": [
+        "produccion-agropecuaria",
+        "superficie",
+        "existencias-ganaderas",
+        "rendimientos"
+      ],
+      "domains": [
+        "complejo-agricola-granos-y-oleaginosos",
+        "complejo-arrocero",
+        "complejo-hortifruticola",
+        "complejo-citricola",
+        "complejo-carne-bovina",
+        "complejo-ovino-lana",
+        "complejo-lacteo",
+        "complejo-avicola-y-porcino",
+        "apicultura",
+        "suelo-y-uso-del-suelo"
+      ],
+      "publication_frequency": "anual (con encuestas de campaña y estimaciones intermedias)",
+      "access": {
+        "method": [
+          "web",
+          "pdf",
+          "excel"
+        ],
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/diea",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Serie histórica larga. Publicación anual: para señales tempranas complementar con OPYPA, INAC e INALE.",
+      "lead_domains": [
+        "complejo-agricola-granos-y-oleaginosos",
+        "complejo-arrocero",
+        "complejo-hortifruticola"
+      ]
+    },
+    {
+      "id": "mgap-opypa",
+      "name": "OPYPA — Anuario y análisis de política agropecuaria",
+      "institution": "MGAP — Oficina de Programación y Política Agropecuaria",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Análisis de coyuntura y perspectivas por rubro, políticas agropecuarias, márgenes, precios y contexto internacional del agro.",
+      "coverage": [
+        "coyuntura-agropecuaria",
+        "margenes",
+        "politica-agropecuaria"
+      ],
+      "domains": [
+        "nivel-de-actividad-y-ciclo",
+        "regulacion-y-politicas",
+        "normativa-sectorial-productiva",
+        "precios-de-granos-y-raciones",
+        "complejo-agricola-granos-y-oleaginosos",
+        "complejo-carne-bovina"
+      ],
+      "publication_frequency": "anual (Anuario OPYPA) + notas de coyuntura",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/opypa",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Fuente analítica, no dataset. Buena para contexto y expectativas sectoriales."
+    },
+    {
+      "id": "mgap-snig",
+      "name": "SNIG — Sistema Nacional de Información Ganadera",
+      "institution": "MGAP — SNIG",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Existencias y movimientos de ganado, declaración jurada de existencias (ex-DICOSE), trazabilidad individual bovina y guías de tránsito.",
+      "coverage": [
+        "existencias-ganaderas",
+        "movimientos-de-ganado",
+        "trazabilidad"
+      ],
+      "domains": [
+        "complejo-carne-bovina",
+        "complejo-ovino-lana",
+        "complejo-avicola-y-porcino"
+      ],
+      "domains_secondary": [
+        "sanidad-animal",
+        "estatus-sanitario-y-habilitaciones"
+      ],
+      "publication_frequency": "anual (declaración jurada) + registros continuos",
+      "access": {
+        "method": [
+          "web",
+          "dataset"
+        ],
+        "url": "https://www.snig.gub.uy/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "csv"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Base del inventario ganadero nacional y de la trazabilidad exigida por mercados."
+    },
+    {
+      "id": "mgap-dgsg",
+      "name": "DGSG — Servicios Ganaderos (sanidad y estatus)",
+      "institution": "MGAP — Dirección General de Servicios Ganaderos",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Estatus sanitario del país, campañas sanitarias, focos y notificaciones de enfermedades, habilitación de establecimientos y plantas, residuos e inocuidad de origen animal.",
+      "coverage": [
+        "estatus-sanitario",
+        "focos-sanitarios",
+        "habilitaciones",
+        "residuos"
+      ],
+      "domains": [
+        "sanidad-animal",
+        "estatus-sanitario-y-habilitaciones",
+        "inocuidad-alimentaria-y-residuos",
+        "sanidad-acuicola"
+      ],
+      "publication_frequency": "continua (notificaciones) + informes periódicos",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/dgsg",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Complementar con WOAH-WAHIS para eventos sanitarios regionales e internacionales.",
+      "lead_domains": [
+        "sanidad-animal",
+        "estatus-sanitario-y-habilitaciones"
+      ]
+    },
+    {
+      "id": "mgap-dgssaa",
+      "name": "DGSSAA — Servicios Agrícolas (sanidad vegetal e insumos)",
+      "institution": "MGAP — Dirección General de Servicios Agrícolas",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Sanidad vegetal, plagas cuarentenarias, registro y control de fitosanitarios y fertilizantes, certificación fitosanitaria de exportación.",
+      "coverage": [
+        "sanidad-vegetal",
+        "registro-fitosanitarios",
+        "certificacion-fitosanitaria"
+      ],
+      "domains": [
+        "sanidad-vegetal",
+        "precios-de-fertilizantes-y-agroquimicos"
+      ],
+      "publication_frequency": "continua + informes",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/dgsa",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Registro de fitosanitarios: útil para disponibilidad de principios activos, no para precios.",
+      "lead_domains": [
+        "sanidad-vegetal"
+      ],
+      "domains_secondary": [
+        "barreras-y-requisitos-de-acceso"
+      ]
+    },
+    {
+      "id": "mgap-dgf",
+      "name": "Dirección General Forestal",
+      "institution": "MGAP — Dirección General Forestal",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Cartografía y superficie de bosques plantados y nativos, suelos de prioridad forestal, planes de manejo, permisos y estadística forestal.",
+      "coverage": [
+        "superficie-forestal",
+        "prioridad-forestal",
+        "planes-de-manejo"
+      ],
+      "domains": [
+        "recursos-forestales",
+        "complejo-forestal-celulosa",
+        "suelo-y-uso-del-suelo",
+        "normativa-sectorial-productiva"
+      ],
+      "publication_frequency": "anual + cartografía actualizada",
+      "access": {
+        "method": [
+          "web",
+          "dataset",
+          "download"
+        ],
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/dgf",
+        "endpoint": null,
+        "format": [
+          "shp",
+          "pdf",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Datos geoespaciales disponibles en IDE Uruguay.",
+      "lead_domains": [
+        "recursos-forestales",
+        "complejo-forestal-celulosa"
+      ]
+    },
+    {
+      "id": "mgap-renare",
+      "name": "RENARE — Recursos Naturales (suelos y riego)",
+      "institution": "MGAP — Dirección de Recursos Naturales",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Planes de uso y manejo responsable del suelo, erosión, padrón de sistemas de riego y registro de represas y usos agropecuarios del agua.",
+      "coverage": [
+        "planes-de-uso-de-suelo",
+        "erosion",
+        "riego"
+      ],
+      "domains": [
+        "suelo-y-uso-del-suelo",
+        "disponibilidad-de-agua",
+        "normativa-ambiental-y-territorial"
+      ],
+      "publication_frequency": "continua (registros) + informes",
+      "access": {
+        "method": [
+          "web",
+          "dataset"
+        ],
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/renare",
+        "endpoint": null,
+        "format": [
+          "shp",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "inia",
+      "name": "INIA — Investigación agropecuaria",
+      "institution": "Instituto Nacional de Investigación Agropecuaria",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Investigación y transferencia tecnológica agropecuaria: genética y cultivares, manejo, sanidad, publicaciones técnicas y revistas.",
+      "coverage": [
+        "investigacion-agropecuaria",
+        "cultivares",
+        "tecnologia-de-produccion"
+      ],
+      "domains": [
+        "genetica-y-biotecnologia",
+        "investigacion-y-desarrollo",
+        "adopcion-tecnologica-y-digitalizacion",
+        "sanidad-vegetal"
+      ],
+      "publication_frequency": "continua (publicaciones)",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.inia.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "inia-gras",
+      "name": "INIA GRAS — Agroclima y Sistemas de Información",
+      "institution": "INIA — Unidad GRAS",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Monitoreo agroclimático operativo: índice de estrés hídrico e índice de sequía, balance hídrico de suelos, NDVI y productividad forrajera, pronósticos agroclimáticos y perspectivas de campaña.",
+      "coverage": [
+        "estres-hidrico",
+        "balance-hidrico",
+        "ndvi-forrajero",
+        "pronostico-agroclimatico"
+      ],
+      "domains": [
+        "pronostico-agroclimatico",
+        "sequia-y-deficit-hidrico",
+        "precipitaciones-y-temperatura",
+        "disponibilidad-de-agua",
+        "clima-y-agua"
+      ],
+      "publication_frequency": "semanal / decadal",
+      "access": {
+        "method": [
+          "web",
+          "dataset",
+          "download"
+        ],
+        "url": "http://www.inia.uy/gras",
+        "endpoint": null,
+        "format": [
+          "geotiff",
+          "csv",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Fuente operativa clave para riesgo climático agropecuario; base técnica de la declaración de emergencia agropecuaria.",
+      "lead_domains": [
+        "pronostico-agroclimatico",
+        "sequia-y-deficit-hidrico"
+      ]
+    },
+    {
+      "id": "inac",
+      "name": "INAC — Instituto Nacional de Carnes",
+      "institution": "Instituto Nacional de Carnes",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional + internacional (carne)",
+      "description": "Faena semanal, precios de hacienda y de exportación, volúmenes y precios por corte y por destino, cuota y estado de mercados, informes de coyuntura cárnica.",
+      "coverage": [
+        "faena",
+        "precios-hacienda",
+        "precios-exportacion-carne",
+        "exportaciones-carne",
+        "mercados-carne"
+      ],
+      "domains": [
+        "complejo-carne-bovina",
+        "precios-internacionales-de-commodities",
+        "flujos-de-comercio-exterior",
+        "mercados-destino",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "competencia-internacional"
+      ],
+      "lead_domains": [
+        "complejo-carne-bovina",
+        "precios-internacionales-de-commodities",
+        "mercados-destino"
+      ],
+      "publication_frequency": "semanal (faena y precios) + mensual (exportaciones) + anual",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "dataset"
+        ],
+        "url": "https://www.inac.uy/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "very_high",
+        "granularity": "very_high",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Fuente primaria completa del complejo cárnico, incluida su dimensión de mercados-destino.",
+      "markets": [
+        "china",
+        "union-europea",
+        "estados-unidos",
+        "mercosur"
+      ]
+    },
+    {
+      "id": "inale",
+      "name": "INALE — Instituto Nacional de la Leche",
+      "institution": "Instituto Nacional de la Leche",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional + internacional (lácteos)",
+      "description": "Remisión de leche, precio al productor, costos del tambo, industrialización, exportaciones de lácteos por producto y destino, series de precios internacionales de referencia y tipo de cambio.",
+      "coverage": [
+        "remision-leche",
+        "precio-productor",
+        "costos-tambo",
+        "exportaciones-lacteos",
+        "precios-internacionales-lacteos"
+      ],
+      "domains": [
+        "complejo-lacteo",
+        "precios-internacionales-de-commodities",
+        "flujos-de-comercio-exterior",
+        "precios-de-granos-y-raciones",
+        "mercados-destino"
+      ],
+      "publication_frequency": "mensual",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "dataset"
+        ],
+        "url": "https://www.inale.org/estadisticas/",
+        "endpoint": null,
+        "format": [
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Republica precios de Global Dairy Trade y tipo de cambio: útil como acceso consolidado.",
+      "lead_domains": [
+        "complejo-lacteo"
+      ],
+      "markets": [
+        "brasil",
+        "argelia",
+        "china",
+        "mercosur"
+      ]
+    },
+    {
+      "id": "dinara",
+      "name": "DINARA — Recursos Acuáticos",
+      "institution": "MGAP — Dirección Nacional de Recursos Acuáticos",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Desembarques por especie y flota, estado de los principales stocks, cuotas y permisos de pesca, acuicultura y sanidad acuícola.",
+      "coverage": [
+        "desembarques",
+        "estado-de-stocks",
+        "cuotas-de-pesca",
+        "acuicultura"
+      ],
+      "domains": [
+        "complejo-pesquero",
+        "estado-de-recursos-pesqueros",
+        "sanidad-acuicola"
+      ],
+      "domains_secondary": [
+        "flujos-de-comercio-exterior"
+      ],
+      "publication_frequency": "mensual (desembarques) + anual (estado de recursos)",
+      "access": {
+        "method": [
+          "web",
+          "pdf",
+          "excel"
+        ],
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/dinara",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Evaluaciones de stock a veces con rezago; complementar con informes de la Comisión Técnica Mixta del Frente Marítimo.",
+      "lead_domains": [
+        "complejo-pesquero",
+        "estado-de-recursos-pesqueros"
+      ]
+    },
+    {
+      "id": "inavi",
+      "name": "INAVI — Vitivinicultura",
+      "institution": "Instituto Nacional de Vitivinicultura",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Registro de viñedos y variedades, declaración de cosecha y existencias, elaboración, ventas en el mercado interno y exportación de vinos.",
+      "coverage": [
+        "vinedos",
+        "cosecha",
+        "existencias-vino",
+        "ventas-vino",
+        "exportacion-vino"
+      ],
+      "domains": [
+        "complejo-vitivinicola",
+        "flujos-de-comercio-exterior",
+        "mercado-interno-y-consumo-nacional"
+      ],
+      "publication_frequency": "anual + estadística mensual de ventas",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "pdf"
+        ],
+        "url": "https://www.inavi.com.uy/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "complejo-vitivinicola"
+      ],
+      "markets": [
+        "brasil",
+        "estados-unidos",
+        "reino-unido"
+      ]
+    },
+    {
+      "id": "sul",
+      "name": "SUL — Secretariado Uruguayo de la Lana",
+      "institution": "Secretariado Uruguayo de la Lana",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional + internacional (lana)",
+      "description": "Precios de lana por micronaje, información de zafra y remates, existencias y calidad, y seguimiento del mercado internacional de lana.",
+      "coverage": [
+        "precios-lana",
+        "zafra-lana",
+        "calidad-lana"
+      ],
+      "domains": [
+        "complejo-ovino-lana",
+        "precios-internacionales-de-commodities"
+      ],
+      "publication_frequency": "semanal (zafra) + informes",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.sul.org.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Para precio de referencia internacional complementar con AWEX (Australia)."
+    },
+    {
+      "id": "ircca",
+      "name": "IRCCA — Regulación y Control del Cannabis",
+      "institution": "Instituto de Regulación y Control del Cannabis",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Marco regulatorio del cannabis, licencias de cultivo, producción e industrialización, registro de usuarios y datos del mercado regulado.",
+      "coverage": [
+        "licencias-cannabis",
+        "produccion-cannabis",
+        "regulacion-cannabis"
+      ],
+      "domains": [
+        "cannabis",
+        "normativa-sectorial-productiva"
+      ],
+      "publication_frequency": "anual + informes",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.ircca.gub.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Mercado exportador de cannabis medicinal: complementar con Uruguay XXI e IMPO."
+    },
+    {
+      "id": "inase",
+      "name": "INASE — Semillas",
+      "institution": "Instituto Nacional de Semillas",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Registro nacional de cultivares, propiedad de cultivares, certificación de semillas, control de comercio y evaluación nacional de cultivares (INIA-INASE).",
+      "coverage": [
+        "cultivares",
+        "certificacion-semillas",
+        "propiedad-vegetal"
+      ],
+      "domains": [
+        "complejo-agricola-granos-y-oleaginosos",
+        "genetica-y-biotecnologia",
+        "normativa-sectorial-productiva"
+      ],
+      "publication_frequency": "continua (registros)",
+      "access": {
+        "method": [
+          "web"
+        ],
+        "url": "https://www.inase.uy/",
+        "endpoint": null,
+        "format": [
+          "html",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "inumet",
+      "name": "INUMET — Instituto Uruguayo de Meteorología",
+      "institution": "Instituto Uruguayo de Meteorología",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Observación meteorológica (estaciones automáticas y convencionales), pronóstico del tiempo, avisos y alertas, boletines agrometeorológicos y marinos, climatología y datos abiertos.",
+      "coverage": [
+        "observacion-meteorologica",
+        "pronostico",
+        "alertas",
+        "climatologia"
+      ],
+      "domains": [
+        "clima-y-agua",
+        "precipitaciones-y-temperatura",
+        "eventos-climaticos-extremos",
+        "pronostico-agroclimatico",
+        "sequia-y-deficit-hidrico"
+      ],
+      "publication_frequency": "horaria / diaria",
+      "access": {
+        "method": [
+          "web",
+          "open-data",
+          "download"
+        ],
+        "url": "https://www.inumet.gub.uy/",
+        "resource_url": "https://catalogodatos.gub.uy/organization/inumet",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "json"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Datos abiertos vía catálogo AGESIC. Para ENSO y perspectivas estacionales de largo plazo complementar con NOAA/IRI.",
+      "lead_domains": [
+        "clima-y-agua",
+        "precipitaciones-y-temperatura",
+        "eventos-climaticos-extremos"
+      ]
+    },
+    {
+      "id": "ine",
+      "name": "INE — Instituto Nacional de Estadística",
+      "institution": "Instituto Nacional de Estadística",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "IPC e IPPN, índice de costo de la construcción, encuesta continua de hogares (empleo e ingresos), índice de volumen físico de la industria manufacturera, y estadísticas demográficas y de precios.",
+      "coverage": [
+        "ipc",
+        "ippn",
+        "icc",
+        "empleo",
+        "ingresos",
+        "ivf-industria"
+      ],
+      "domains": [
+        "inflacion-y-precios-internos",
+        "mercado-interno-y-consumo-nacional",
+        "empleo-y-mercado-de-trabajo",
+        "nivel-de-actividad-y-ciclo",
+        "costos-de-materiales-de-construccion",
+        "industria-de-alimentos-y-bebidas",
+        "industria-metalmecanica",
+        "industria-quimica-y-farmaceutica"
+      ],
+      "publication_frequency": "mensual (IPC, empleo) + trimestral",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "dataset",
+          "open-data"
+        ],
+        "url": "https://www.ine.gub.uy/",
+        "resource_url": "https://catalogodatos.gub.uy/organization/ine",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "csv"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "No expone API oficial estable; descarga de planillas y datasets. Existen APIs comunitarias no oficiales (fallback).",
+      "lead_domains": [
+        "inflacion-y-precios-internos",
+        "empleo-y-mercado-de-trabajo",
+        "mercado-interno-y-consumo-nacional",
+        "costos-de-materiales-de-construccion"
+      ]
+    },
+    {
+      "id": "bcu",
+      "name": "BCU — Banco Central del Uruguay",
+      "institution": "Banco Central del Uruguay",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Cuentas nacionales y PIB, balanza de pagos y comercio exterior de bienes y servicios, inversión extranjera directa, cotizaciones oficiales, tasas de interés, sistema financiero y expectativas de inflación y de tipo de cambio.",
+      "coverage": [
+        "pib",
+        "balanza-de-pagos",
+        "ied",
+        "cotizaciones",
+        "tasas",
+        "expectativas"
+      ],
+      "domains": [
+        "tipo-de-cambio",
+        "tasas-de-interes",
+        "nivel-de-actividad-y-ciclo",
+        "inflacion-y-precios-internos",
+        "flujos-de-comercio-exterior",
+        "credito-y-condiciones-financieras",
+        "inversion-privada-e-ied",
+        "servicios-profesionales-y-financieros"
+      ],
+      "publication_frequency": "diaria (cotizaciones) / mensual / trimestral (cuentas nacionales)",
+      "access": {
+        "method": [
+          "web",
+          "api",
+          "excel"
+        ],
+        "url": "https://www.bcu.gub.uy/",
+        "resource_url": "https://www.bcu.gub.uy/Estadisticas-e-Indicadores",
+        "endpoint": "https://cotizaciones.bcu.gub.uy/wscotizaciones/servlet/awsbcucotizaciones?wsdl",
+        "format": [
+          "xlsx",
+          "xml",
+          "soap"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Web service SOAP para cotizaciones; el resto de las series se descargan como planillas.",
+      "lead_domains": [
+        "tipo-de-cambio",
+        "tasas-de-interes",
+        "nivel-de-actividad-y-ciclo",
+        "flujos-de-comercio-exterior",
+        "credito-y-condiciones-financieras",
+        "inversion-privada-e-ied"
+      ]
+    },
+    {
+      "id": "mef",
+      "name": "MEF — Ministerio de Economía y Finanzas",
+      "institution": "Ministerio de Economía y Finanzas",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Política fiscal y tributaria, deuda pública, informes de coyuntura y proyecciones macro, y proyectos de inversión promovidos (COMAP).",
+      "coverage": [
+        "politica-fiscal",
+        "deuda",
+        "proyecciones-macro",
+        "comap"
+      ],
+      "domains": [
+        "politica-tributaria",
+        "inversion-publica",
+        "regimenes-de-promocion-de-inversiones",
+        "nivel-de-actividad-y-ciclo",
+        "financiamiento-e-inversion"
+      ],
+      "publication_frequency": "mensual / trimestral",
+      "access": {
+        "method": [
+          "web",
+          "pdf",
+          "excel"
+        ],
+        "url": "https://www.gub.uy/ministerio-economia-finanzas/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "opp",
+      "name": "OPP — Planeamiento y Presupuesto",
+      "institution": "Oficina de Planeamiento y Presupuesto (Presidencia)",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Transparencia presupuestaria, inversión pública por organismo y proyecto, participación público-privada e indicadores de gestión de gobierno.",
+      "coverage": [
+        "presupuesto",
+        "inversion-publica",
+        "ppp"
+      ],
+      "domains": [
+        "inversion-publica",
+        "infraestructura-vial-y-camineria"
+      ],
+      "publication_frequency": "anual + tableros continuos",
+      "access": {
+        "method": [
+          "web",
+          "dataset"
+        ],
+        "url": "https://transparenciapresupuestaria.opp.gub.uy/",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "medium"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "dgi",
+      "name": "DGI — Dirección General Impositiva",
+      "institution": "Dirección General Impositiva",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Recaudación por impuesto, normativa e interpretaciones tributarias, IMESI y regímenes especiales, y series de IPC e indexación.",
+      "coverage": [
+        "recaudacion",
+        "normativa-tributaria",
+        "imesi"
+      ],
+      "domains": [
+        "politica-tributaria",
+        "nivel-de-actividad-y-ciclo"
+      ],
+      "publication_frequency": "mensual",
+      "access": {
+        "method": [
+          "web",
+          "excel"
+        ],
+        "url": "https://www.gub.uy/direccion-general-impositiva/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "Recaudación como proxy de actividad económica sectorial."
+    },
+    {
+      "id": "bps",
+      "name": "BPS — Banco de Previsión Social",
+      "institution": "Banco de Previsión Social",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Puestos cotizantes y masa salarial por rama de actividad y departamento, altas y bajas laborales.",
+      "coverage": [
+        "cotizantes",
+        "masa-salarial",
+        "empleo-formal"
+      ],
+      "domains": [
+        "empleo-y-mercado-de-trabajo",
+        "costos-laborales-y-negociacion-colectiva"
+      ],
+      "publication_frequency": "mensual / trimestral",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "open-data"
+        ],
+        "url": "https://www.bps.gub.uy/",
+        "resource_url": "https://catalogodatos.gub.uy/organization/bps",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "csv"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Buen proxy de empleo formal por sector con desagregación fina.",
+      "lead_domains": [
+        "empleo-y-mercado-de-trabajo"
+      ]
+    },
+    {
+      "id": "mtss",
+      "name": "MTSS — Trabajo y Seguridad Social",
+      "institution": "Ministerio de Trabajo y Seguridad Social",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Consejos de salarios: convocatorias, actas, laudos y ajustes salariales por grupo y subgrupo; conflictividad laboral y negociación colectiva.",
+      "coverage": [
+        "consejos-de-salarios",
+        "laudos",
+        "conflictividad"
+      ],
+      "domains": [
+        "costos-laborales-y-negociacion-colectiva",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "publication_frequency": "por ronda de consejos de salarios",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-trabajo-seguridad-social/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Laudos por grupo permiten anticipar costos laborales sectoriales.",
+      "lead_domains": [
+        "costos-laborales-y-negociacion-colectiva"
+      ]
+    },
+    {
+      "id": "inefop",
+      "name": "INEFOP — Empleo y Formación Profesional",
+      "institution": "Instituto Nacional de Empleo y Formación Profesional",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Demanda de calificaciones, brechas de competencias, programas de formación y observatorio de empleo por sector.",
+      "coverage": [
+        "brechas-de-competencias",
+        "formacion",
+        "demanda-de-calificaciones"
+      ],
+      "domains": [
+        "disponibilidad-de-talento-especializado",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "publication_frequency": "anual + estudios sectoriales",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.inefop.org.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "low",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "dna",
+      "name": "DNA — Dirección Nacional de Aduanas",
+      "institution": "Dirección Nacional de Aduanas",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Registro oficial de operaciones de importación y exportación (institución de origen del dato de comercio exterior), regímenes aduaneros y estadística de comercio.",
+      "coverage": [
+        "importaciones",
+        "exportaciones",
+        "regimenes-aduaneros"
+      ],
+      "domains": [
+        "flujos-de-comercio-exterior",
+        "regimenes-aduaneros-y-zonas-francas"
+      ],
+      "publication_frequency": "continua (registros)",
+      "access": {
+        "method": [
+          "web",
+          "dataset",
+          "open-data"
+        ],
+        "url": "https://www.gub.uy/direccion-nacional-aduanas/",
+        "resource_url": "https://catalogodatos.gub.uy/organization/dna",
+        "endpoint": null,
+        "format": [
+          "csv"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "very_high",
+        "granularity": "very_high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "En la práctica el acceso analítico se realiza vía Uruguay XXI (SIE), que procesa el dato de la DNA.",
+      "lead_domains": [
+        "flujos-de-comercio-exterior"
+      ],
+      "markets": [
+        "union-europea",
+        "estados-unidos",
+        "brasil",
+        "china",
+        "mercosur"
+      ]
+    },
+    {
+      "id": "uruguay-xxi",
+      "name": "Uruguay XXI — Inteligencia comercial y de inversiones",
+      "institution": "Uruguay XXI (Instituto de Promoción de Inversiones, Exportaciones e Imagen País)",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional + internacional (mercados)",
+      "description": "Sistema de Información Estadística de comercio exterior (exportaciones e importaciones por producto, destino y empresa, actualización cada 48 h a partir de datos de la DNA), informes sectoriales y de coyuntura, guías e inteligencia de mercados y de inversión.",
+      "coverage": [
+        "exportaciones",
+        "importaciones",
+        "mercados-destino",
+        "inteligencia-de-mercados",
+        "inversion"
+      ],
+      "domains": [
+        "flujos-de-comercio-exterior",
+        "mercados-destino",
+        "barreras-y-requisitos-de-acceso",
+        "competencia-internacional",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "inversion-privada-e-ied",
+        "economia-del-conocimiento",
+        "servicios-globales-de-exportacion",
+        "comercio-exterior",
+        "comercio-y-distribucion"
+      ],
+      "publication_frequency": "cada 48 h (SIE) + informes mensuales y anuales",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "pdf"
+        ],
+        "url": "https://www.uruguayxxi.gub.uy/",
+        "resource_url": "https://www.uruguayxxi.gub.uy/es/centro-informacion/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "very_high",
+        "granularity": "very_high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Puerta de entrada práctica al comercio exterior uruguayo con dimensión de destino. Para comercio mundial de terceros países usar Comtrade / Trade Map.",
+      "lead_domains": [
+        "flujos-de-comercio-exterior",
+        "mercados-destino",
+        "comercio-exterior",
+        "competencia-internacional",
+        "demanda-mundial-y-tendencias-de-consumo"
+      ],
+      "markets": [
+        "china",
+        "union-europea",
+        "estados-unidos",
+        "brasil",
+        "mercosur",
+        "medio-oriente"
+      ]
+    },
+    {
+      "id": "miem-dne",
+      "name": "MIEM — Dirección Nacional de Energía",
+      "institution": "MIEM — Dirección Nacional de Energía",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Balance Energético Nacional, matriz de generación, precios de combustibles y estructura de costos, política y planificación energética, y hoja de ruta de hidrógeno verde.",
+      "coverage": [
+        "balance-energetico",
+        "matriz-de-generacion",
+        "precios-combustibles",
+        "politica-energetica"
+      ],
+      "domains": [
+        "energia",
+        "energia-electrica",
+        "combustibles-liquidos",
+        "gas-natural",
+        "transicion-energetica",
+        "tarifas-y-politica-energetica",
+        "hidrogeno-verde-y-derivados",
+        "generacion-y-transmision-electrica"
+      ],
+      "publication_frequency": "anual (BEN) + mensual (combustibles)",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-industria-energia-mineria/energia",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "BEN con rezago anual; para operación eléctrica en tiempo casi real usar ADME.",
+      "lead_domains": [
+        "energia",
+        "combustibles-liquidos",
+        "transicion-energetica",
+        "tarifas-y-politica-energetica",
+        "hidrogeno-verde-y-derivados"
+      ]
+    },
+    {
+      "id": "adme",
+      "name": "ADME — Administración del Mercado Eléctrico",
+      "institution": "Administración del Mercado Eléctrico",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Operación del sistema eléctrico: despacho horario, generación por fuente, demanda, intercambios internacionales, aportes hídricos y precio spot; datos abiertos históricos.",
+      "coverage": [
+        "despacho",
+        "generacion-por-fuente",
+        "demanda-electrica",
+        "intercambios",
+        "precio-spot"
+      ],
+      "domains": [
+        "energia-electrica",
+        "hidrologia-energetica",
+        "transicion-energetica",
+        "generacion-y-transmision-electrica"
+      ],
+      "publication_frequency": "horaria",
+      "access": {
+        "method": [
+          "web",
+          "open-data",
+          "csv"
+        ],
+        "url": "https://adme.com.uy/",
+        "resource_url": "https://adme.com.uy/datosabiertos.html",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "high",
+        "granularity": "very_high",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Mejor fuente para generación renovable y respaldo térmico en tiempo casi real.",
+      "lead_domains": [
+        "energia-electrica",
+        "hidrologia-energetica",
+        "generacion-y-transmision-electrica"
+      ]
+    },
+    {
+      "id": "ute",
+      "name": "UTE — Usinas y Transmisiones Eléctricas",
+      "institution": "Administración Nacional de Usinas y Trasmisiones Eléctricas",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Tarifas eléctricas, demanda por categoría, plan de obras de transmisión y distribución e inversiones de red.",
+      "coverage": [
+        "tarifas-electricas",
+        "demanda-por-categoria",
+        "obras-de-red"
+      ],
+      "domains": [
+        "energia-electrica",
+        "tarifas-y-politica-energetica",
+        "generacion-y-transmision-electrica"
+      ],
+      "publication_frequency": "anual (tarifas) + memorias",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://portal.ute.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "ursea",
+      "name": "URSEA — Regulación de Energía y Agua",
+      "institution": "Unidad Reguladora de Servicios de Energía y Agua",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Precios de paridad de importación de combustibles, informes de tarifas de energía eléctrica, gas y agua, y calidad del servicio.",
+      "coverage": [
+        "precios-paridad-combustibles",
+        "tarifas",
+        "calidad-de-servicio"
+      ],
+      "domains": [
+        "tarifas-y-politica-energetica",
+        "combustibles-liquidos",
+        "gas-natural",
+        "agua-potable-y-saneamiento"
+      ],
+      "domains_secondary": [
+        "energia-electrica"
+      ],
+      "publication_frequency": "mensual (paridad de combustibles)",
+      "access": {
+        "method": [
+          "web",
+          "pdf",
+          "excel"
+        ],
+        "url": "https://www.gub.uy/unidad-reguladora-servicios-energia-agua/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Informe mensual de precios de paridad: clave para anticipar ajustes de combustibles.",
+      "lead_domains": [
+        "tarifas-y-politica-energetica",
+        "combustibles-liquidos"
+      ]
+    },
+    {
+      "id": "ancap",
+      "name": "ANCAP — Combustibles, Alcohol y Portland",
+      "institution": "Administración Nacional de Combustibles, Alcohol y Portland",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Precios de venta de combustibles y supergás, ventas por producto, información de la refinería, portland y del complejo sucroalcoholero (ALUR).",
+      "coverage": [
+        "precios-combustibles",
+        "ventas-combustibles",
+        "portland",
+        "alur"
+      ],
+      "domains": [
+        "combustibles-liquidos",
+        "combustibles-y-gas",
+        "complejo-sucroalcoholero",
+        "industria-de-materiales-de-construccion"
+      ],
+      "publication_frequency": "continua (precios) + anual (memoria)",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.ancap.com.uy/",
+        "endpoint": null,
+        "format": [
+          "html",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "ALUR es la única fuente directa del complejo sucroalcoholero de Bella Unión."
+    },
+    {
+      "id": "mtop",
+      "name": "MTOP — Transporte y Obras Públicas",
+      "institution": "Ministerio de Transporte y Obras Públicas",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Red vial nacional y su estado, conteos de tránsito, plan de obras viales y ferroviarias, transporte de carga y pasajeros y estadística de infraestructura.",
+      "coverage": [
+        "red-vial",
+        "transito",
+        "obras-viales",
+        "ferrocarril"
+      ],
+      "domains": [
+        "infraestructura-vial-y-camineria",
+        "transporte-carretero",
+        "transporte-ferroviario",
+        "logistica-e-infraestructura",
+        "transporte-y-logistica",
+        "almacenaje-y-cadena-de-frio"
+      ],
+      "domains_secondary": [
+        "inversion-publica"
+      ],
+      "publication_frequency": "anual + planes plurianuales",
+      "access": {
+        "method": [
+          "web",
+          "dataset",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-transporte-obras-publicas/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "xlsx",
+          "shp"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Incluye la Dirección Nacional de Transporte y el seguimiento del Ferrocarril Central.",
+      "lead_domains": [
+        "logistica-e-infraestructura",
+        "transporte-y-logistica",
+        "infraestructura-vial-y-camineria"
+      ]
+    },
+    {
+      "id": "anp",
+      "name": "ANP — Administración Nacional de Puertos",
+      "institution": "Administración Nacional de Puertos",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Movimiento portuario por terminal y tipo de carga (contenedores, graneles, forestal), buques, dragado y obras portuarias.",
+      "coverage": [
+        "movimiento-portuario",
+        "contenedores",
+        "graneles",
+        "dragado"
+      ],
+      "domains": [
+        "puertos-y-terminales",
+        "flujos-de-comercio-exterior",
+        "transporte-y-logistica",
+        "almacenaje-y-cadena-de-frio"
+      ],
+      "domains_secondary": [
+        "fletes-y-logistica-internacional"
+      ],
+      "publication_frequency": "mensual",
+      "access": {
+        "method": [
+          "web",
+          "excel"
+        ],
+        "url": "https://www.anp.com.uy/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "puertos-y-terminales"
+      ]
+    },
+    {
+      "id": "dinacia",
+      "name": "DINACIA — Aviación Civil",
+      "institution": "Dirección Nacional de Aviación Civil e Infraestructura Aeronáutica",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Estadística de movimiento aeroportuario, pasajeros y carga aérea por aeropuerto.",
+      "coverage": [
+        "movimiento-aeroportuario",
+        "pasajeros-aereos",
+        "carga-aerea"
+      ],
+      "domains": [
+        "transporte-y-logistica",
+        "turismo-receptivo-regional"
+      ],
+      "publication_frequency": "mensual",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.dinacia.gub.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "partial",
+      "notes": "Conectividad aérea: complementar con datos del Ministerio de Turismo y de los concesionarios aeroportuarios."
+    },
+    {
+      "id": "mintur",
+      "name": "Ministerio de Turismo",
+      "institution": "Ministerio de Turismo",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Anuario de Turismo, encuesta de turismo receptivo (visitantes, gasto, origen, motivo), turismo interno y emisivo, ocupación hotelera y cuenta satélite de turismo.",
+      "coverage": [
+        "turismo-receptivo",
+        "gasto-turistico",
+        "ocupacion-hotelera",
+        "turismo-interno"
+      ],
+      "domains": [
+        "turismo",
+        "turismo-receptivo-regional",
+        "mercado-interno-y-consumo-nacional"
+      ],
+      "publication_frequency": "mensual (receptivo) + anual (anuario)",
+      "access": {
+        "method": [
+          "web",
+          "excel",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-turismo/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "turismo",
+        "turismo-receptivo-regional"
+      ]
+    },
+    {
+      "id": "ministerio-ambiente",
+      "name": "Ministerio de Ambiente",
+      "institution": "Ministerio de Ambiente (DINACEA, DINACC, DINAGUA, DINABISE)",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Autorizaciones ambientales previas y de operación, calidad de agua y monitoreo de cuencas, inventario nacional de gases de efecto invernadero y NDC, plan nacional de gestión de residuos y áreas protegidas.",
+      "coverage": [
+        "autorizaciones-ambientales",
+        "calidad-de-agua",
+        "inventario-gei",
+        "residuos"
+      ],
+      "domains": [
+        "normativa-ambiental-y-territorial",
+        "mercado-de-carbono-y-sostenibilidad",
+        "gestion-de-residuos-y-economia-circular",
+        "disponibilidad-de-agua",
+        "recursos-naturales"
+      ],
+      "publication_frequency": "continua (autorizaciones) + informes",
+      "access": {
+        "method": [
+          "web",
+          "gis",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-ambiente/",
+        "endpoint": null,
+        "format": [
+          "shp",
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "DINAGUA: red hidrométrica y alertas hidrológicas (inundaciones y déficit).",
+      "lead_domains": [
+        "normativa-ambiental-y-territorial",
+        "gestion-de-residuos-y-economia-circular"
+      ]
+    },
+    {
+      "id": "dinagua",
+      "name": "DINAGUA — Dirección Nacional de Aguas",
+      "institution": "Ministerio de Ambiente — DINAGUA",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Red hidrométrica nacional, niveles y caudales de ríos, permisos de uso del agua, alertas hidrológicas y gestión de inundaciones y sequías.",
+      "coverage": [
+        "niveles-de-rios",
+        "caudales",
+        "permisos-de-agua",
+        "alertas-hidrologicas"
+      ],
+      "domains": [
+        "disponibilidad-de-agua",
+        "exceso-hidrico-e-inundaciones",
+        "sequia-y-deficit-hidrico",
+        "hidrologia-energetica"
+      ],
+      "publication_frequency": "continua (telemetría) + alertas",
+      "access": {
+        "method": [
+          "web",
+          "dataset"
+        ],
+        "url": "https://www.gub.uy/ministerio-ambiente/dinagua",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "high",
+        "stability": "medium",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "disponibilidad-de-agua",
+        "exceso-hidrico-e-inundaciones"
+      ]
+    },
+    {
+      "id": "ose",
+      "name": "OSE — Obras Sanitarias del Estado",
+      "institution": "Administración de las Obras Sanitarias del Estado",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Producción y distribución de agua potable, cobertura de saneamiento, calidad del agua suministrada y estado de las fuentes de abastecimiento.",
+      "coverage": [
+        "agua-potable",
+        "saneamiento",
+        "fuentes-de-abastecimiento"
+      ],
+      "domains": [
+        "agua-potable-y-saneamiento",
+        "disponibilidad-de-agua"
+      ],
+      "publication_frequency": "anual (memoria) + informes de calidad",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.ose.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "low",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "mvot",
+      "name": "MVOT — Vivienda y Ordenamiento Territorial",
+      "institution": "Ministerio de Vivienda y Ordenamiento Territorial",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Régimen de vivienda promovida (proyectos, unidades, topes y beneficios), política habitacional, ordenamiento territorial e instrumentos de suelo.",
+      "coverage": [
+        "vivienda-promovida",
+        "politica-habitacional",
+        "ordenamiento-territorial"
+      ],
+      "domains": [
+        "construccion-e-inmobiliario",
+        "regimenes-de-promocion-de-inversiones",
+        "normativa-ambiental-y-territorial"
+      ],
+      "publication_frequency": "trimestral / anual",
+      "access": {
+        "method": [
+          "web",
+          "pdf",
+          "excel"
+        ],
+        "url": "https://www.gub.uy/ministerio-vivienda-ordenamiento-territorial/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "construccion-e-inmobiliario"
+      ]
+    },
+    {
+      "id": "miem-dinamige",
+      "name": "DINAMIGE — Minería y Geología",
+      "institution": "MIEM — Dirección Nacional de Minería y Geología",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Padrón minero, títulos y áreas de explotación, producción minera por sustancia y cartografía geológica.",
+      "coverage": [
+        "padron-minero",
+        "produccion-minera",
+        "cartografia-geologica"
+      ],
+      "domains": [
+        "mineria-y-extractivas",
+        "recursos-mineros"
+      ],
+      "publication_frequency": "anual",
+      "access": {
+        "method": [
+          "web",
+          "gis",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-industria-energia-mineria/dinamige",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "shp"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "low",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "mineria-y-extractivas",
+        "recursos-mineros"
+      ]
+    },
+    {
+      "id": "miem-observatorio",
+      "name": "MIEM — Observatorio de Energía e Industria",
+      "institution": "MIEM — Observatorio",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Tableros e indicadores de energía (precios, matriz, consumo) e industria (actividad, empleo, comercio exterior industrial) y estudios sectoriales.",
+      "coverage": [
+        "indicadores-energia",
+        "indicadores-industria"
+      ],
+      "domains": [
+        "energia-electrica",
+        "combustibles-liquidos",
+        "industria-de-alimentos-y-bebidas",
+        "industria-metalmecanica",
+        "industria-quimica-y-farmaceutica",
+        "industria-textil-y-vestimenta",
+        "industria-de-plasticos-y-caucho",
+        "industria-de-materiales-de-construccion"
+      ],
+      "publication_frequency": "mensual / trimestral (tableros)",
+      "access": {
+        "method": [
+          "web",
+          "dataset"
+        ],
+        "url": "https://observatorio.miem.gub.uy/",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "medium"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "Consolida indicadores de otras fuentes; útil como acceso unificado a la industria."
+    },
+    {
+      "id": "miem-dni",
+      "name": "MIEM — Dirección Nacional de Industrias",
+      "institution": "MIEM — Dirección Nacional de Industrias",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Políticas industriales, cadenas de valor priorizadas, programas sectoriales y normativa industrial.",
+      "coverage": [
+        "politica-industrial",
+        "cadenas-de-valor"
+      ],
+      "domains": [
+        "normativa-sectorial-productiva",
+        "industria-metalmecanica",
+        "industria-de-plasticos-y-caucho",
+        "industria-de-materiales-de-construccion"
+      ],
+      "publication_frequency": "irregular (documentos de política)",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.gub.uy/ministerio-industria-energia-mineria/dni",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "low",
+        "coverage": "low",
+        "granularity": "low",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "low",
+      "status": "validated",
+      "notes": "Fuente de contexto de política, no de datos."
+    },
+    {
+      "id": "ursec",
+      "name": "URSEC — Servicios de Comunicaciones",
+      "institution": "Unidad Reguladora de Servicios de Comunicaciones",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Estadísticas del mercado de telecomunicaciones (accesos fijos y móviles, banda ancha, tráfico) y del mercado postal.",
+      "coverage": [
+        "telecomunicaciones",
+        "banda-ancha",
+        "mercado-postal"
+      ],
+      "domains": [
+        "telecomunicaciones-e-infraestructura-digital"
+      ],
+      "publication_frequency": "trimestral",
+      "access": {
+        "method": [
+          "web",
+          "excel"
+        ],
+        "url": "https://www.gub.uy/unidad-reguladora-servicios-comunicaciones/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "telecomunicaciones-e-infraestructura-digital"
+      ]
+    },
+    {
+      "id": "anii",
+      "name": "ANII — Investigación e Innovación",
+      "institution": "Agencia Nacional de Investigación e Innovación",
+      "type": "primary_official",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Indicadores de I+D e innovación, encuesta de actividades de innovación en la industria y los servicios, e instrumentos de financiamiento a la innovación.",
+      "coverage": [
+        "indicadores-id",
+        "encuesta-de-innovacion"
+      ],
+      "domains": [
+        "investigacion-y-desarrollo",
+        "adopcion-tecnologica-y-digitalizacion",
+        "inteligencia-artificial-y-automatizacion"
+      ],
+      "publication_frequency": "anual / bienal (encuestas)",
+      "access": {
+        "method": [
+          "web",
+          "pdf",
+          "dataset"
+        ],
+        "url": "https://www.anii.org.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "low",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "impo",
+      "name": "IMPO — Normativa oficial",
+      "institution": "Dirección Nacional de Impresiones y Publicaciones Oficiales",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Diario Oficial, texto de leyes, decretos y resoluciones, normativa consolidada y buscador de normas vigentes.",
+      "coverage": [
+        "normativa",
+        "diario-oficial",
+        "leyes-y-decretos"
+      ],
+      "domains": [
+        "regulacion-y-politicas",
+        "normativa-sectorial-productiva",
+        "normativa-ambiental-y-territorial",
+        "politica-tributaria",
+        "acuerdos-comerciales-y-aranceles",
+        "politica-comercial-y-de-acceso-a-mercados",
+        "tarifas-y-politica-energetica",
+        "costos-laborales-y-negociacion-colectiva",
+        "regimenes-de-promocion-de-inversiones",
+        "regimenes-aduaneros-y-zonas-francas"
+      ],
+      "publication_frequency": "diaria",
+      "access": {
+        "method": [
+          "web",
+          "rss",
+          "download"
+        ],
+        "url": "https://www.impo.com.uy/",
+        "resource_url": "https://www.impo.com.uy/diariooficial/",
+        "endpoint": null,
+        "format": [
+          "html",
+          "pdf",
+          "rss"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "critical",
+      "status": "validated",
+      "notes": "Fuente transversal de todo cambio normativo; requiere clasificación temática posterior.",
+      "lead_domains": [
+        "regulacion-y-politicas",
+        "normativa-sectorial-productiva",
+        "normativa-ambiental-y-territorial",
+        "politica-tributaria"
+      ]
+    },
+    {
+      "id": "catalogodatos-agesic",
+      "name": "Catálogo Nacional de Datos Abiertos (AGESIC)",
+      "institution": "AGESIC — Gobierno Abierto",
+      "type": "primary_official",
+      "authority": "very_high",
+      "scope": "nacional",
+      "description": "Portal CKAN que agrega datasets abiertos de organismos públicos (INE, INUMET, ADME, DNA, BPS, intendencias y otros) con API estándar de descubrimiento y descarga.",
+      "coverage": [
+        "datasets-abiertos",
+        "metadatos"
+      ],
+      "domains": [
+        "clima-y-agua",
+        "energia-electrica",
+        "flujos-de-comercio-exterior",
+        "empleo-y-mercado-de-trabajo",
+        "inflacion-y-precios-internos"
+      ],
+      "publication_frequency": "continua (según cada organismo)",
+      "access": {
+        "method": [
+          "api",
+          "open-data",
+          "download"
+        ],
+        "url": "https://catalogodatos.gub.uy/",
+        "endpoint": "https://catalogodatos.gub.uy/api/3/action/",
+        "format": [
+          "json",
+          "csv"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Canal de acceso automatizable (API CKAN) a datasets de varias fuentes primarias. No es una fuente de contenido en sí."
+    },
+    {
+      "id": "camara-mercantil",
+      "name": "Cámara Mercantil de Productos del País",
+      "institution": "Cámara Mercantil de Productos del País",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Precios de pizarra de granos, oleaginosos, forrajes y subproductos; información de mercado de insumos y de comercialización de la producción.",
+      "coverage": [
+        "precios-granos",
+        "precios-forrajes",
+        "comercializacion"
+      ],
+      "domains": [
+        "precios-de-granos-y-raciones",
+        "complejo-agricola-granos-y-oleaginosos",
+        "comercializacion-y-canales",
+        "comercio-y-distribucion"
+      ],
+      "publication_frequency": "semanal (pizarra)",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.camaramercantil.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "high",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Referencia local de precios de granos y forrajes; complementa CBOT para el mercado interno.",
+      "lead_domains": [
+        "precios-de-granos-y-raciones"
+      ]
+    },
+    {
+      "id": "bolsa-cereales-mvd",
+      "name": "Bolsa de Cereales y Productos de Montevideo",
+      "institution": "Bolsa de Cereales y Productos de Montevideo",
+      "type": "primary_institutional",
+      "authority": "medium",
+      "scope": "nacional",
+      "description": "Cotizaciones y operaciones de granos y productos agrícolas en plaza.",
+      "coverage": [
+        "cotizaciones-granos"
+      ],
+      "domains": [
+        "precios-de-granos-y-raciones"
+      ],
+      "publication_frequency": "semanal",
+      "access": {
+        "method": [
+          "web"
+        ],
+        "url": "https://bolsadecereales.com.uy/",
+        "endpoint": null,
+        "format": [
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "medium",
+        "freshness": "high",
+        "coverage": "low",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "low",
+      "status": "partial",
+      "notes": "Respaldo de Cámara Mercantil."
+    },
+    {
+      "id": "acaa-molinos-arroz",
+      "name": "Gremial de Molinos Arroceros y ACA",
+      "institution": "Gremial de Molinos Arroceros / Asociación Cultivadores de Arroz",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Convenio de precio del arroz (fórmula y liquidación), área sembrada, industrialización y exportación del complejo arrocero.",
+      "coverage": [
+        "precio-convenio-arroz",
+        "area-arroz",
+        "exportacion-arroz"
+      ],
+      "domains": [
+        "complejo-arrocero",
+        "precios-de-granos-y-raciones"
+      ],
+      "publication_frequency": "por zafra",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.aca.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "medium",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "Complementa a DIEA y ACG para la fijación del precio del convenio."
+    },
+    {
+      "id": "spf-forestal",
+      "name": "Sociedad de Productores Forestales",
+      "institution": "Sociedad de Productores Forestales",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Estadística e informes del sector forestal, inversión, exportaciones de productos forestales, empleo y sostenibilidad.",
+      "coverage": [
+        "sector-forestal",
+        "exportaciones-forestales",
+        "empleo-forestal"
+      ],
+      "domains": [
+        "complejo-forestal-celulosa",
+        "complejo-maderero",
+        "recursos-forestales"
+      ],
+      "publication_frequency": "anual",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://spf.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "low",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "",
+      "lead_domains": [
+        "complejo-maderero"
+      ],
+      "markets": [
+        "china",
+        "europa-occidental"
+      ]
+    },
+    {
+      "id": "ciu",
+      "name": "Cámara de Industrias del Uruguay",
+      "institution": "Cámara de Industrias del Uruguay",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Encuesta de actividad y expectativas industriales, informes de comercio exterior industrial y de coyuntura por rama.",
+      "coverage": [
+        "actividad-industrial",
+        "expectativas-industriales",
+        "comercio-exterior-industrial"
+      ],
+      "domains": [
+        "industria-de-alimentos-y-bebidas",
+        "industria-metalmecanica",
+        "industria-quimica-y-farmaceutica",
+        "industria-textil-y-vestimenta",
+        "industria-de-plasticos-y-caucho",
+        "nivel-de-actividad-y-ciclo",
+        "competencia-internacional"
+      ],
+      "publication_frequency": "trimestral",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.ciu.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Encuesta de expectativas: buena señal temprana de actividad industrial (complementa el IVF del INE, que llega con rezago).",
+      "lead_domains": [
+        "industria-metalmecanica"
+      ]
+    },
+    {
+      "id": "camara-construccion",
+      "name": "Cámara de la Construcción del Uruguay",
+      "institution": "Cámara de la Construcción del Uruguay",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Costo de la construcción, actividad y empleo del sector, expectativas y seguimiento de obra pública y privada.",
+      "coverage": [
+        "costo-construccion",
+        "actividad-construccion",
+        "empleo-construccion"
+      ],
+      "domains": [
+        "construccion-e-inmobiliario",
+        "costos-de-materiales-de-construccion",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "publication_frequency": "mensual / trimestral",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.ccu.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "cuti",
+      "name": "CUTI — Cámara Uruguaya de Tecnologías de la Información",
+      "institution": "Cámara Uruguaya de Tecnologías de la Información",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Encuesta anual del sector TI (ventas, exportaciones, empleo, salarios y demanda de talento) y monitor de la economía del conocimiento.",
+      "coverage": [
+        "sector-ti",
+        "exportaciones-ti",
+        "empleo-ti",
+        "salarios-ti"
+      ],
+      "domains": [
+        "economia-del-conocimiento",
+        "servicios-globales-de-exportacion",
+        "disponibilidad-de-talento-especializado"
+      ],
+      "publication_frequency": "anual",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.cuti.org.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "low",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Principal fuente cuantitativa del sector software y servicios globales.",
+      "lead_domains": [
+        "economia-del-conocimiento",
+        "servicios-globales-de-exportacion"
+      ]
+    },
+    {
+      "id": "mercado-modelo-uam",
+      "name": "Mercado Modelo / UAM — Sistema de Información de Precios",
+      "institution": "Unidad Agroalimentaria Metropolitana (ex Mercado Modelo)",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Precios mayoristas diarios de frutas y hortalizas, volúmenes ingresados y origen de la mercadería.",
+      "coverage": [
+        "precios-mayoristas-frutihorticolas",
+        "volumenes-frutihorticolas"
+      ],
+      "domains": [
+        "complejo-hortifruticola",
+        "mercado-interno-y-consumo-nacional"
+      ],
+      "publication_frequency": "diaria",
+      "access": {
+        "method": [
+          "web",
+          "dataset"
+        ],
+        "url": "https://www.mercadomodelo.net/",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "very_high",
+        "coverage": "medium",
+        "granularity": "high",
+        "stability": "medium",
+        "machine_readability": "medium"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Única fuente diaria de precios de la granja.",
+      "lead_domains": [
+        "complejo-hortifruticola"
+      ]
+    },
+    {
+      "id": "camara-inmobiliaria",
+      "name": "Cámara Inmobiliaria Uruguaya",
+      "institution": "Cámara Inmobiliaria Uruguaya",
+      "type": "secondary_trusted",
+      "authority": "medium",
+      "scope": "nacional",
+      "description": "Índices de precios de venta y alquiler de inmuebles y clima de negocios inmobiliario.",
+      "coverage": [
+        "precios-inmuebles",
+        "alquileres"
+      ],
+      "domains": [
+        "construccion-e-inmobiliario"
+      ],
+      "publication_frequency": "trimestral",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.ciu.org.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "medium",
+        "freshness": "medium",
+        "coverage": "low",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "low",
+      "status": "partial",
+      "notes": "Complementa a MVOT y a portales inmobiliarios para el mercado de inmuebles."
+    },
+    {
+      "id": "consultoras-economicas-uy",
+      "name": "Consultoras económicas (informes de coyuntura)",
+      "institution": "CERES, Exante, CPA Ferrere, Deloitte, Búho y otras",
+      "type": "secondary_trusted",
+      "authority": "medium",
+      "scope": "nacional + regional",
+      "description": "Proyecciones e interpretación de coyuntura macroeconómica, tipo de cambio, inflación y actividad; encuestas de expectativas empresariales.",
+      "coverage": [
+        "proyecciones-macro",
+        "expectativas-empresariales"
+      ],
+      "domains": [
+        "nivel-de-actividad-y-ciclo",
+        "tipo-de-cambio",
+        "situacion-regional"
+      ],
+      "publication_frequency": "mensual",
+      "access": {
+        "method": [
+          "web",
+          "pdf",
+          "manual"
+        ],
+        "url": null,
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "freemium"
+      },
+      "quality": {
+        "reliability": "medium",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "low",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "low",
+      "status": "partial",
+      "notes": "Fuente interpretativa de respaldo; parte del contenido es de pago. La encuesta de expectativas del BCU es la referencia primaria."
+    },
+    {
+      "id": "udelar-iecon",
+      "name": "Instituto de Economía (FCEA, UdelaR)",
+      "institution": "Universidad de la República — Instituto de Economía",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Investigación económica aplicada: actividad, empleo, distribución del ingreso, competitividad y estudios sectoriales.",
+      "coverage": [
+        "investigacion-economica",
+        "estudios-sectoriales"
+      ],
+      "domains": [
+        "nivel-de-actividad-y-ciclo",
+        "empleo-y-mercado-de-trabajo"
+      ],
+      "publication_frequency": "continua (documentos de trabajo)",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.iecon.ccee.edu.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "low",
+        "coverage": "medium",
+        "granularity": "low",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "low",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "fao-faostat",
+      "name": "FAO — FAOSTAT",
+      "institution": "Organización de las Naciones Unidas para la Alimentación y la Agricultura",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Estadística mundial de producción, comercio, precios, insumos y balances alimentarios por país y producto, e índice de precios de los alimentos de la FAO.",
+      "coverage": [
+        "produccion-mundial",
+        "comercio-mundial",
+        "precios-mundiales",
+        "balances-alimentarios"
+      ],
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "competencia-internacional"
+      ],
+      "publication_frequency": "anual (con actualizaciones)",
+      "access": {
+        "method": [
+          "api",
+          "download",
+          "web"
+        ],
+        "url": "https://www.fao.org/faostat/",
+        "endpoint": "https://faostatservices.fao.org/api/v1/",
+        "format": [
+          "json",
+          "csv"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "low",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "fao-giews-amis",
+      "name": "FAO — GIEWS / FPMA / AMIS / ASIS",
+      "institution": "FAO — Sistema Mundial de Información y Alerta Temprana",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Monitoreo y alerta temprana sobre precios de alimentos (FPMA), transparencia del mercado de granos (AMIS: trigo, maíz, arroz, soja) e índice de estrés agrícola por sequía (ASIS).",
+      "coverage": [
+        "precios-de-alimentos",
+        "mercado-de-granos",
+        "estres-agricola-sequia"
+      ],
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "sequia-y-deficit-hidrico",
+        "pronostico-agroclimatico"
+      ],
+      "publication_frequency": "mensual",
+      "access": {
+        "method": [
+          "web",
+          "api",
+          "download"
+        ],
+        "url": "https://www.fao.org/giews/",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "json"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "usda-fas",
+      "name": "USDA — Foreign Agricultural Service (PSD, WASDE, GATS)",
+      "institution": "United States Department of Agriculture — FAS",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Producción, oferta y demanda mundiales por commodity (PSD), estimaciones de oferta y demanda agrícola (WASDE), comercio agrícola (GATS) e informes de agregados por país.",
+      "coverage": [
+        "oferta-demanda-mundial",
+        "stocks-mundiales",
+        "comercio-agricola-mundial"
+      ],
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "demanda-mundial-y-tendencias-de-consumo",
+        "competencia-internacional"
+      ],
+      "publication_frequency": "mensual (WASDE) + continua",
+      "access": {
+        "method": [
+          "api",
+          "download",
+          "web"
+        ],
+        "url": "https://www.fas.usda.gov/data",
+        "endpoint": "https://apps.fas.usda.gov/opendataweb/",
+        "format": [
+          "json",
+          "csv"
+        ],
+        "requires_auth": true,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "API requiere clave gratuita. WASDE mueve mercados: señal de precios muy relevante para granos y carne.",
+      "lead_domains": [
+        "precios-internacionales-de-commodities"
+      ]
+    },
+    {
+      "id": "un-comtrade",
+      "name": "UN Comtrade",
+      "institution": "División de Estadística de las Naciones Unidas",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Base mundial de estadísticas de comercio de mercancías por país declarante, socio y producto (HS), para análisis de destinos, espejo y competencia.",
+      "coverage": [
+        "comercio-mundial",
+        "flujos-bilaterales",
+        "espejo-comercial"
+      ],
+      "domains": [
+        "mercados-destino",
+        "competencia-internacional",
+        "demanda-mundial-y-tendencias-de-consumo"
+      ],
+      "domains_secondary": [
+        "flujos-de-comercio-exterior"
+      ],
+      "publication_frequency": "mensual / anual",
+      "access": {
+        "method": [
+          "api",
+          "download"
+        ],
+        "url": "https://comtradeplus.un.org/",
+        "endpoint": "https://comtradeapi.un.org/",
+        "format": [
+          "json",
+          "csv"
+        ],
+        "requires_auth": true,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "very_high",
+        "granularity": "very_high",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Clave gratuita con límites de consulta. Para Uruguay usar Uruguay XXI; Comtrade sirve para demanda y competidores en terceros mercados.",
+      "markets": [
+        "global"
+      ]
+    },
+    {
+      "id": "itc-trademap",
+      "name": "ITC — Trade Map / Market Access Map / Export Potential Map",
+      "institution": "International Trade Centre (ONU/OMC)",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Estadística de comercio y demanda por mercado y producto (Trade Map), aranceles y medidas no arancelarias aplicadas (Market Access Map) y potencial exportador por producto y destino.",
+      "coverage": [
+        "demanda-por-mercado",
+        "aranceles",
+        "medidas-no-arancelarias",
+        "potencial-exportador"
+      ],
+      "domains": [
+        "mercados-destino",
+        "barreras-y-requisitos-de-acceso",
+        "competencia-internacional",
+        "demanda-mundial-y-tendencias-de-consumo"
+      ],
+      "publication_frequency": "mensual / anual",
+      "access": {
+        "method": [
+          "web"
+        ],
+        "url": "https://www.trademap.org/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "html"
+        ],
+        "requires_auth": true,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "very_high",
+        "granularity": "very_high",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Registro gratuito. Poco automatizable (interfaz web); útil para análisis de oportunidad de exportación.",
+      "lead_domains": [
+        "barreras-y-requisitos-de-acceso",
+        "mercados-destino"
+      ],
+      "markets": [
+        "global"
+      ]
+    },
+    {
+      "id": "wto",
+      "name": "OMC — Organización Mundial del Comercio",
+      "institution": "Organización Mundial del Comercio",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Aranceles consolidados y aplicados (Tariff Download Facility), notificaciones sanitarias y fitosanitarias y de obstáculos técnicos (ePing), diferencias comerciales y políticas comerciales por país (TPR).",
+      "coverage": [
+        "aranceles",
+        "notificaciones-sps-tbt",
+        "diferencias-comerciales",
+        "politica-comercial"
+      ],
+      "domains": [
+        "acuerdos-comerciales-y-aranceles",
+        "barreras-y-requisitos-de-acceso",
+        "politica-comercial-y-de-acceso-a-mercados"
+      ],
+      "publication_frequency": "continua",
+      "access": {
+        "method": [
+          "api",
+          "web",
+          "download"
+        ],
+        "url": "https://www.wto.org/",
+        "endpoint": "https://api.wto.org/",
+        "format": [
+          "json",
+          "csv"
+        ],
+        "requires_auth": true,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "ePing permite anticipar nuevas medidas SPS/TBT en los mercados de destino.",
+      "lead_domains": [
+        "acuerdos-comerciales-y-aranceles"
+      ],
+      "markets": [
+        "global"
+      ]
+    },
+    {
+      "id": "woah-wahis",
+      "name": "WOAH — WAHIS (sanidad animal mundial)",
+      "institution": "Organización Mundial de Sanidad Animal (WOAH/OIE)",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Notificaciones oficiales de enfermedades animales, estatus sanitario por país y enfermedad y alertas de eventos sanitarios.",
+      "coverage": [
+        "enfermedades-animales",
+        "estatus-sanitario-por-pais",
+        "alertas-sanitarias"
+      ],
+      "domains": [
+        "sanidad-animal",
+        "estatus-sanitario-y-habilitaciones",
+        "competencia-internacional"
+      ],
+      "publication_frequency": "continua (notificaciones)",
+      "access": {
+        "method": [
+          "web",
+          "api",
+          "download"
+        ],
+        "url": "https://wahis.woah.org/",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "json"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "very_high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Señal temprana de brotes regionales (aftosa, PPA, influenza aviar) que afectan acceso a mercados.",
+      "lead_domains": [
+        "sanidad-animal"
+      ],
+      "markets": [
+        "global"
+      ]
+    },
+    {
+      "id": "ippc",
+      "name": "CIPF — Convención Internacional de Protección Fitosanitaria",
+      "institution": "IPPC / FAO",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Requisitos fitosanitarios de importación por país, notificaciones de plagas y normas internacionales para medidas fitosanitarias.",
+      "coverage": [
+        "requisitos-fitosanitarios",
+        "plagas",
+        "nimf"
+      ],
+      "domains": [
+        "sanidad-vegetal",
+        "barreras-y-requisitos-de-acceso"
+      ],
+      "publication_frequency": "continua",
+      "access": {
+        "method": [
+          "web",
+          "download"
+        ],
+        "url": "https://www.ippc.int/",
+        "endpoint": null,
+        "format": [
+          "html",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "imf",
+      "name": "FMI — Fondo Monetario Internacional",
+      "institution": "Fondo Monetario Internacional",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Perspectivas de la economía mundial (WEO), estadísticas financieras internacionales (IFS) y sistema de precios de materias primas primarias (PCPS).",
+      "coverage": [
+        "macro-mundial",
+        "precios-de-materias-primas",
+        "proyecciones-regionales"
+      ],
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "situacion-regional"
+      ],
+      "domains_secondary": [
+        "tasas-de-interes"
+      ],
+      "publication_frequency": "trimestral / mensual",
+      "access": {
+        "method": [
+          "api",
+          "download"
+        ],
+        "url": "https://www.imf.org/en/Data",
+        "endpoint": "https://www.imf.org/external/datamapper/api/v1/",
+        "format": [
+          "json",
+          "csv"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "medium",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": ""
+    },
+    {
+      "id": "world-bank",
+      "name": "Banco Mundial — Datos, Pink Sheet y LPI",
+      "institution": "Grupo Banco Mundial",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Precios mensuales de materias primas (Commodity Markets 'Pink Sheet'), indicadores de desarrollo mundial (WDI), Índice de Desempeño Logístico (LPI) y panel de precios del carbono.",
+      "coverage": [
+        "precios-materias-primas",
+        "indicadores-desarrollo",
+        "desempeno-logistico",
+        "precio-carbono"
+      ],
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "fletes-y-logistica-internacional",
+        "mercado-de-carbono-y-sostenibilidad",
+        "precios-de-metales-y-siderurgia",
+        "precios-de-plasticos-y-quimicos",
+        "precios-de-fertilizantes-y-agroquimicos"
+      ],
+      "publication_frequency": "mensual (Pink Sheet) / anual",
+      "access": {
+        "method": [
+          "api",
+          "download"
+        ],
+        "url": "https://data.worldbank.org/",
+        "endpoint": "https://api.worldbank.org/v2/",
+        "format": [
+          "json",
+          "csv",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "Pink Sheet: serie mensual homogénea de precios de commodities relevantes para Uruguay (soja, carne, madera, lácteos, petróleo, fertilizantes, metales).",
+      "lead_domains": [
+        "precios-internacionales-de-commodities"
+      ]
+    },
+    {
+      "id": "oecd-fao-outlook",
+      "name": "OECD-FAO Agricultural Outlook",
+      "institution": "OCDE y FAO",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Proyecciones a diez años de producción, consumo, comercio y precios de los principales productos agropecuarios.",
+      "coverage": [
+        "proyecciones-agropecuarias",
+        "tendencias-de-largo-plazo"
+      ],
+      "domains": [
+        "demanda-mundial-y-tendencias-de-consumo",
+        "precios-internacionales-de-commodities"
+      ],
+      "publication_frequency": "anual",
+      "access": {
+        "method": [
+          "download",
+          "web"
+        ],
+        "url": "https://www.agri-outlook.org/",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "xlsx"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "low",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "Contexto estructural, no coyuntura."
+    },
+    {
+      "id": "eia-iea",
+      "name": "EIA (EE.UU.) e IEA",
+      "institution": "U.S. Energy Information Administration / International Energy Agency",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Precios internacionales de petróleo (Brent, WTI) y gas natural, existencias, proyecciones de energía y seguimiento de la transición energética y del hidrógeno.",
+      "coverage": [
+        "precios-petroleo",
+        "precios-gas",
+        "proyecciones-energia",
+        "transicion-energetica"
+      ],
+      "domains": [
+        "combustibles-liquidos",
+        "gas-natural",
+        "energia",
+        "transicion-energetica"
+      ],
+      "publication_frequency": "diaria / semanal (EIA) + informes",
+      "access": {
+        "method": [
+          "api",
+          "download",
+          "web"
+        ],
+        "url": "https://www.eia.gov/",
+        "endpoint": "https://api.eia.gov/",
+        "format": [
+          "json",
+          "csv"
+        ],
+        "requires_auth": true,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "API de EIA gratuita con clave; IEA es mayormente de pago (usar informes libres).",
+      "lead_domains": [
+        "combustibles-liquidos",
+        "gas-natural"
+      ]
+    },
+    {
+      "id": "noaa-iri-enso",
+      "name": "NOAA CPC / IRI — ENSO y clima estacional",
+      "institution": "NOAA Climate Prediction Center / IRI (Columbia University)",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Diagnóstico y pronóstico del fenómeno El Niño / La Niña (ENSO), perspectivas climáticas estacionales y monitores de sequía.",
+      "coverage": [
+        "enso",
+        "pronostico-estacional",
+        "monitor-de-sequia"
+      ],
+      "domains": [
+        "pronostico-agroclimatico",
+        "eventos-climaticos-extremos",
+        "sequia-y-deficit-hidrico"
+      ],
+      "publication_frequency": "mensual / semanal",
+      "access": {
+        "method": [
+          "api",
+          "download",
+          "web"
+        ],
+        "url": "https://www.cpc.ncep.noaa.gov/",
+        "endpoint": null,
+        "format": [
+          "json",
+          "csv",
+          "netcdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "medium",
+        "stability": "high",
+        "machine_readability": "high"
+      },
+      "priority": "high",
+      "status": "validated",
+      "notes": "ENSO es el principal predictor de anomalías de lluvia en Uruguay; complementa a INUMET e INIA GRAS en el horizonte estacional.",
+      "lead_domains": [
+        "pronostico-agroclimatico"
+      ]
+    },
+    {
+      "id": "copernicus-nasa-eo",
+      "name": "Copernicus y NASA — observación de la Tierra",
+      "institution": "Copernicus (UE / ECMWF) y NASA",
+      "type": "primary_institutional",
+      "authority": "very_high",
+      "scope": "internacional",
+      "description": "Datos satelitales y de reanálisis de clima (ERA5), lluvia (GPM), vegetación y sequía (NDVI, índices), y detección de focos de incendio (FIRMS).",
+      "coverage": [
+        "reanalisis-climatico",
+        "lluvia-satelital",
+        "ndvi",
+        "focos-de-incendio"
+      ],
+      "domains": [
+        "precipitaciones-y-temperatura",
+        "sequia-y-deficit-hidrico",
+        "eventos-climaticos-extremos",
+        "recursos-forestales"
+      ],
+      "publication_frequency": "diaria",
+      "access": {
+        "method": [
+          "api",
+          "download"
+        ],
+        "url": "https://cds.climate.copernicus.eu/",
+        "endpoint": "https://firms.modaps.eosdis.nasa.gov/api/",
+        "format": [
+          "netcdf",
+          "geotiff",
+          "csv"
+        ],
+        "requires_auth": true,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "very_high",
+        "freshness": "very_high",
+        "coverage": "very_high",
+        "granularity": "very_high",
+        "stability": "high",
+        "machine_readability": "very_high"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "Requiere registro. Alta complejidad de procesamiento; para uso operativo preferir productos ya elaborados de INIA GRAS / INUMET / FAO ASIS."
+    },
+    {
+      "id": "freightos-drewry",
+      "name": "Índices de flete marítimo (Freightos, Drewry, Baltic Exchange)",
+      "institution": "Freightos / Drewry / Baltic Exchange",
+      "type": "secondary_trusted",
+      "authority": "medium",
+      "scope": "internacional",
+      "description": "Índices de tarifas de flete marítimo de contenedores y de graneles (FBX, WCI, Baltic Dry Index).",
+      "coverage": [
+        "flete-contenedores",
+        "flete-graneles"
+      ],
+      "domains": [
+        "fletes-y-logistica-internacional"
+      ],
+      "publication_frequency": "semanal",
+      "access": {
+        "method": [
+          "web"
+        ],
+        "url": "https://fbx.freightos.com/",
+        "endpoint": null,
+        "format": [
+          "html"
+        ],
+        "requires_auth": false,
+        "cost": "freemium"
+      },
+      "quality": {
+        "reliability": "medium",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "partial",
+      "notes": "El índice FBX es de consulta libre; series históricas y detalle de rutas son de pago. Gap parcial en fletes."
+    },
+    {
+      "id": "precios-industriales-especializados",
+      "name": "Servicios especializados de precios industriales (Fastmarkets/FOEX, ICIS, Argus, LME)",
+      "institution": "Fastmarkets (FOEX/PIX), ICIS, Argus Media, London Metal Exchange",
+      "type": "tertiary_exceptional",
+      "authority": "high",
+      "scope": "internacional",
+      "description": "Precios de referencia de celulosa (PIX BHKP), resinas plásticas y petroquímicos, fertilizantes y metales.",
+      "coverage": [
+        "precio-celulosa",
+        "precio-resinas",
+        "precio-fertilizantes",
+        "precio-metales"
+      ],
+      "domains": [
+        "precios-internacionales-de-commodities",
+        "precios-de-plasticos-y-quimicos",
+        "precios-de-fertilizantes-y-agroquimicos",
+        "precios-de-metales-y-siderurgia"
+      ],
+      "publication_frequency": "semanal / mensual",
+      "access": {
+        "method": [
+          "web",
+          "manual"
+        ],
+        "url": null,
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": true,
+        "cost": "paid"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "high",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "low",
+      "status": "gap",
+      "notes": "GAP: no hay fuente libre y automatizable para celulosa, resinas y fertilizantes a nivel de precio de referencia. Proxy libre: Pink Sheet del Banco Mundial (menor granularidad) y reportes de las empresas (UPM, Montes del Plata)."
+    },
+    {
+      "id": "carbon-registries",
+      "name": "Registros y mercados de carbono (Verra, Gold Standard, UNFCCC, WB Carbon Dashboard)",
+      "institution": "Verra, Gold Standard, UNFCCC, Banco Mundial",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "internacional",
+      "description": "Proyectos y créditos de carbono emitidos y retirados, metodologías, precios de créditos y esquemas de precios al carbono por país.",
+      "coverage": [
+        "creditos-de-carbono",
+        "precio-carbono",
+        "esquemas-de-precio-al-carbono"
+      ],
+      "domains": [
+        "mercado-de-carbono-y-sostenibilidad"
+      ],
+      "publication_frequency": "continua",
+      "access": {
+        "method": [
+          "web",
+          "api",
+          "download"
+        ],
+        "url": "https://registry.verra.org/",
+        "endpoint": null,
+        "format": [
+          "csv",
+          "json"
+        ],
+        "requires_auth": false,
+        "cost": "freemium"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "medium",
+        "stability": "medium",
+        "machine_readability": "medium"
+      },
+      "priority": "low",
+      "status": "partial",
+      "notes": "Precios de mercado voluntario poco transparentes; combinar con el panel de precios del carbono del Banco Mundial."
+    },
+    {
+      "id": "conab-bcr-bcba",
+      "name": "Fuentes agrícolas regionales (CONAB, BCR, BCBA)",
+      "institution": "CONAB (Brasil), Bolsa de Comercio de Rosario, Bolsa de Cereales de Buenos Aires",
+      "type": "secondary_trusted",
+      "authority": "high",
+      "scope": "regional",
+      "description": "Estimaciones de área, producción y comercialización de granos y oleaginosos en Brasil y Argentina, principales competidores y referencias de precio regional.",
+      "coverage": [
+        "produccion-regional-granos",
+        "precios-regionales",
+        "competencia-regional"
+      ],
+      "domains": [
+        "competencia-internacional",
+        "precios-de-granos-y-raciones",
+        "demanda-mundial-y-tendencias-de-consumo"
+      ],
+      "publication_frequency": "mensual / por campaña",
+      "access": {
+        "method": [
+          "web",
+          "download"
+        ],
+        "url": "https://www.conab.gov.br/",
+        "endpoint": null,
+        "format": [
+          "xlsx",
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "high",
+        "stability": "high",
+        "machine_readability": "medium"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "Clave para leer la oferta de la competencia directa del complejo agrícola y ganadero."
+    },
+    {
+      "id": "cncs",
+      "name": "Cámara Nacional de Comercio y Servicios del Uruguay",
+      "institution": "Cámara Nacional de Comercio y Servicios del Uruguay",
+      "type": "primary_institutional",
+      "authority": "high",
+      "scope": "nacional",
+      "description": "Indicadores de comercio y servicios, encuesta de expectativas empresariales del sector, ventas del comercio minorista y clima de negocios.",
+      "coverage": [
+        "comercio-minorista",
+        "servicios",
+        "expectativas-empresariales"
+      ],
+      "domains": [
+        "comercio-y-distribucion",
+        "servicios-profesionales-y-financieros",
+        "mercado-interno-y-consumo-nacional",
+        "nivel-de-actividad-y-ciclo"
+      ],
+      "lead_domains": [
+        "comercio-y-distribucion"
+      ],
+      "publication_frequency": "trimestral",
+      "access": {
+        "method": [
+          "web",
+          "pdf"
+        ],
+        "url": "https://www.cncs.com.uy/",
+        "endpoint": null,
+        "format": [
+          "pdf"
+        ],
+        "requires_auth": false,
+        "cost": "free"
+      },
+      "quality": {
+        "reliability": "high",
+        "freshness": "high",
+        "coverage": "medium",
+        "granularity": "low",
+        "stability": "high",
+        "machine_readability": "low"
+      },
+      "priority": "medium",
+      "status": "validated",
+      "notes": "Principal fuente institucional del comercio y los servicios; complementa al INE en actividad minorista."
+    }
+  ]
+}

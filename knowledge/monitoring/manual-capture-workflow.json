@@ -1,0 +1,46 @@
+{
+  "generated": "2026-09-11",
+  "purpose": "Flujo reutilizable para monitores con method=manual_capture (30 fuentes; 12 de prioridad critical/high). No implementa una interfaz: define las etapas y los campos que cualquier captura manual debe dejar registrados para mantener trazabilidad equivalente a una fuente automatizada.",
+  "applies_to_monitors": "monitors[].method == 'manual_capture'",
+  "stages": [
+    {
+      "id": "captura",
+      "name": "Captura asistida",
+      "description": "Una persona (o un asistente dirigido) abre el recurso de la fuente y guarda el documento o extracto tal como se publicó.",
+      "required_fields": ["monitor_id", "source_id", "captured_by", "captured_at", "document_url_or_reference",
+                          "period_covered", "document_version", "file_hash"]
+    },
+    {
+      "id": "validacion",
+      "name": "Validación",
+      "description": "Se confirma que el documento corresponde a la fuente y al período esperados, y que es legible/procesable.",
+      "required_fields": ["validated_by", "validated_at", "validation_status"],
+      "validation_status_values": ["valid", "invalid_wrong_period", "invalid_corrupt", "invalid_wrong_source", "needs_review"]
+    },
+    {
+      "id": "ingreso",
+      "name": "Ingreso al sistema",
+      "description": "El documento validado y sus metadatos quedan registrados como una captura (fuera de knowledge/, en el almacenamiento de runtime).",
+      "required_fields": ["ingested_at", "storage_reference"]
+    },
+    {
+      "id": "normalizacion",
+      "name": "Normalización mínima",
+      "description": "Extracción de los valores concretos necesarios para la comparación (no interpretación ni análisis). Pertenece al límite captura→normalización descrito en README.md.",
+      "required_fields": ["normalized_fields"]
+    },
+    {
+      "id": "deteccion_de_cambios",
+      "name": "Detección de cambios",
+      "description": "Se aplica el change_detection.method configurado en el monitor (hash_comparison o new_document_detection) comparando contra la última captura válida.",
+      "required_fields": ["change_class"],
+      "change_class_values": ["sin_cambio", "cambio_de_contenido", "nuevo_registro", "fuente_no_disponible", "error_de_adquisicion"]
+    }
+  ],
+  "pdf_specific": {
+    "note": "Un PDF nuevo no implica necesariamente cambio de información (puede ser una republicación o corrección de formato).",
+    "fields": ["document_date", "origin", "period", "version", "file_hash", "processing_status"]
+  },
+  "traceability_chain": "cambio -> captura -> recurso -> fuente -> institucion, y en paralelo cambio -> dominio -> actividad -> ramificacion",
+  "security": "No registrar credenciales, tokens ni contraseñas en ningún campo de captura. Las fuentes que requieren autenticación (access.requires_auth=true) se acceden con secretos gestionados fuera de knowledge/."
+}

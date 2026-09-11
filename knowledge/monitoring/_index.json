@@ -1,0 +1,58 @@
+{
+  "generated": "2026-09-11",
+  "inputs": [
+    "knowledge/sources/sources.json",
+    "knowledge/sources/mappings.json",
+    "knowledge/sources/gaps.json"
+  ],
+  "counts": {
+    "monitors_total": 87,
+    "sources_covered": 77,
+    "compound_sources_with_multiple_resources": 10,
+    "by_frequency": {
+      "quarterly": 11,
+      "weekly": 30,
+      "daily": 17,
+      "event_driven": 9,
+      "monthly": 18,
+      "every_6_hours": 1,
+      "annual": 1
+    },
+    "by_method": {
+      "file_download": 33,
+      "manual_capture": 31,
+      "ckan_api": 6,
+      "api_soap": 3,
+      "feed": 1,
+      "api_rest_json": 13
+    },
+    "by_change_detection": {
+      "value_comparison": 29,
+      "new_document_detection": 28,
+      "record_diff": 20,
+      "new_item_detection": 7,
+      "hash_comparison": 3
+    },
+    "by_automation": {
+      "partially_automatable": 18,
+      "manual": 30,
+      "automatable": 39
+    },
+    "monitors_with_fallback_configured": 47,
+    "manual_high_priority_sources": [
+      "camara-mercantil",
+      "ciu",
+      "cuti",
+      "inia",
+      "ircca",
+      "itc-trademap",
+      "mgap-dgsg",
+      "mgap-dgssaa",
+      "mgap-opypa",
+      "ministerio-ambiente",
+      "mtss",
+      "sul"
+    ],
+    "gaps_carried_forward": 10
+  }
+}

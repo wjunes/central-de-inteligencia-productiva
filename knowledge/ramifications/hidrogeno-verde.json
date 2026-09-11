@@ -4,7 +4,7 @@
   "sector_id": "energia",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 31,
+  "ramification_count": 35,
   "ramifications": [
     {
       "id": "inversion-extranjera",
@@ -302,9 +302,56 @@
       "children": []
     },
     {
+      "id": "vc-insumos-generacion-eolica",
+      "name": "Energía renovable y agua desmineralizada",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "generacion-eolica"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Electrólisis y síntesis de derivados",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-distribucion-puertos-terminales",
+      "name": "Logística portuaria de exportación",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "puertos-terminales"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Unión Europea y mercados globales de e-combustibles",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
       "id": "decisiones-finales-de-inversion",
       "name": "Decisiones finales de inversión de proyectos",
       "category": "strategic_signals",
+      "signal_type": "inversion",
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "critical",
@@ -315,6 +362,7 @@
       "id": "politica-europea-de-hidrogeno",
       "name": "Política e incentivos de hidrógeno de la Unión Europea",
       "category": "strategic_signals",
+      "signal_type": "acceso-a-mercados",
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "high",

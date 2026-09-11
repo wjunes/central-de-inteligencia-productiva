@@ -4,179 +4,55 @@
   "sector_id": "industria-manufacturera",
   "level": "subactivity",
   "parent_activity_id": "bebidas",
-  "ramification_count": 17,
-  "ramifications": [
-    {
-      "id": "consumo-interno",
-      "name": "Consumo interno",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "costo-azucar",
-      "name": "Costo azucar",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "costo-envases",
-      "name": "Costo envases",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "agua",
-      "name": "Agua",
-      "category": "resources",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "azucar",
-      "name": "Azucar",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "edulcorantes",
-      "name": "Edulcorantes",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "concentrados",
-      "name": "Concentrados",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "envases-pet",
-      "name": "Envases pet",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "comercio-minorista",
-      "name": "Comercio minorista",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "comercio-minorista",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "plasticos-caucho",
-      "name": "Productos de plástico y caucho",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "plasticos-caucho",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "refrescos",
-      "name": "Refrescos",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "aguas",
-      "name": "Aguas",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "jugos",
-      "name": "Jugos",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "estacionalidad",
-      "name": "Estacionalidad",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "salario-real",
-      "name": "Salario real",
-      "category": "labor_factors",
-      "relation": "dependency",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "impuestos-especificos",
-      "name": "Impuestos específicos (IMESI)",
-      "category": "regulatory_factors",
-      "relation": "regulation",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "bebidas",
+  "inherited_ramifications": 13,
+  "own_ramifications": 4,
+  "effective_ramification_count": 36,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "costo-azucar",
+        "name": "Costo azucar",
+        "category": "cost_factors",
+        "relation": "cost",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "edulcorantes",
+        "name": "Edulcorantes",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "envases-pet",
+        "name": "Envases pet",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "plasticos-caucho",
+        "name": "Productos de plástico y caucho",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "plasticos-caucho",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [],
+    "modify": []
+  }
 }

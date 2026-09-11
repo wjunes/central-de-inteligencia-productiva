@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 27,
+  "ramification_count": 31,
   "ramifications": [
     {
       "id": "abastecimiento-grano",
@@ -276,6 +276,52 @@
       "category": "opportunities",
       "relation": "opportunity",
       "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-agricultura-secano",
+      "name": "Abastecimiento de soja, girasol y colza",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "agricultura-secano"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Prensado, extracción y refinación",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-subproductos-ganaderia",
+      "name": "Harinas y expellers para alimentación animal",
+      "category": "value_chain",
+      "stage": "subproductos",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "ganaderia"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercado interno y regional de aceites y harinas",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
       "relevance": "medium",
       "depth": 1,
       "children": []

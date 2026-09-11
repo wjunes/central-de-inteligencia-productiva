@@ -4,7 +4,7 @@
   "sector_id": "comercio",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 25,
+  "ramification_count": 26,
   "ramifications": [
     {
       "id": "acceso-mercados",
@@ -258,6 +258,17 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "politica-comercial-de-socios",
+      "name": "Cambios de política comercial de los principales socios",
+      "category": "strategic_signals",
+      "signal_type": "acceso-a-mercados",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

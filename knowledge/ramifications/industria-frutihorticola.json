@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 26,
+  "ramification_count": 29,
   "ramifications": [
     {
       "id": "abastecimiento-materia-prima",
@@ -266,6 +266,40 @@
       "category": "opportunities",
       "relation": "opportunity",
       "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-citricultura",
+      "name": "Abastecimiento de fruta y hortalizas",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "citricultura"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Selección, concentración, congelado y envasado",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercado interno y exportación de jugos y congelados",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
       "relevance": "medium",
       "depth": 1,
       "children": []

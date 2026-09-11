@@ -4,190 +4,123 @@
   "sector_id": "industria-manufacturera",
   "level": "subactivity",
   "parent_activity_id": "industria-textil-vestimenta",
-  "ramification_count": 18,
-  "ramifications": [
-    {
-      "id": "costo-mano-de-obra",
-      "name": "Costo mano de obra",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "competencia-importada",
-      "name": "Competencia de productos importados",
-      "category": "competitive_factors",
-      "relation": "competitor",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "consumo-interno",
-      "name": "Consumo interno",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tejidos",
-      "name": "Tejidos",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "avios",
-      "name": "Avios",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mano-de-obra",
-      "name": "Mano de obra",
-      "category": "labor_factors",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "industrias-creativas",
-      "name": "Industrias creativas y diseño",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "industrias-creativas",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "comercio-minorista",
-      "name": "Comercio minorista",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "comercio-minorista",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "hilanderia-tejeduria",
-      "name": "Hilandería y tejeduría",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "hilanderia-tejeduria",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "exportacion",
-      "name": "Exportación",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "prendas-vestir",
-      "name": "Prendas vestir",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tejido-punto",
-      "name": "Tejido punto",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "indumentaria-diseno",
-      "name": "Indumentaria diseño",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "costos-laborales",
-      "name": "Costos laborales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tipo-de-cambio",
-      "name": "Tipo de cambio",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cierre-o-restriccion-de-mercados",
-      "name": "Cierre o restricción de mercados de exportación",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "apertura-de-nuevos-mercados",
-      "name": "Apertura de nuevos mercados",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "industria-textil-vestimenta",
+  "inherited_ramifications": 7,
+  "own_ramifications": 8,
+  "effective_ramification_count": 37,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "competencia-importada",
+        "name": "Competencia de productos importados",
+        "category": "competitive_factors",
+        "relation": "competitor",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "consumo-interno",
+        "name": "Consumo interno",
+        "category": "demand_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "avios",
+        "name": "Avios",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "mano-de-obra",
+        "name": "Mano de obra",
+        "category": "labor_factors",
+        "relation": "dependency",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "comercio-minorista",
+        "name": "Comercio minorista",
+        "category": "customers",
+        "relation": "customer",
+        "target_activity_id": "comercio-minorista",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "hilanderia-tejeduria",
+        "name": "Hilandería y tejeduría",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "hilanderia-tejeduria",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "tejido-punto",
+        "name": "Tejido punto",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "indumentaria-diseno",
+        "name": "Indumentaria diseño",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [
+      {
+        "id": "oferta-lana",
+        "reason": "usa tejidos, no lana sucia"
+      },
+      {
+        "id": "ganaderia-ovina",
+        "reason": "sin relación directa con la producción ovina"
+      }
+    ],
+    "modify": [
+      {
+        "id": "tejidos",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium",
+        "relation": "input",
+        "category": "inputs"
+      },
+      {
+        "id": "industrias-creativas",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "high"
+      },
+      {
+        "id": "exportacion",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "high"
+      }
+    ]
+  }
 }

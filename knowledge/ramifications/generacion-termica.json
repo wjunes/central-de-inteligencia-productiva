@@ -4,140 +4,101 @@
   "sector_id": "energia",
   "level": "subactivity",
   "parent_activity_id": "generacion-electrica",
-  "ramification_count": 12,
-  "ramifications": [
-    {
-      "id": "hidrologia",
-      "name": "Hidrología",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": [
-        {
-          "id": "anos-secos",
-          "name": "Años secos que exigen respaldo térmico",
-          "category": "climate_factors",
-          "relation": "impact",
-          "direction": "direct",
-          "relevance": "critical",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "abastecimiento-combustibles",
-      "name": "Abastecimiento combustibles",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "gasoil",
-      "name": "Gasoil",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "fueloil",
-      "name": "Fueloil",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "gas-natural",
-      "name": "Gas natural",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "combustibles",
-      "name": "Refinación y distribución de combustibles",
-      "category": "suppliers",
-      "relation": "supplier",
-      "target_activity_id": "combustibles",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "transmision-distribucion-electrica",
-      "name": "Transmisión y distribución eléctrica",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "transmision-distribucion-electrica",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "energia-electrica",
-      "name": "Energía eléctrica",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precio-petroleo",
-      "name": "Precio del petróleo",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "demanda-electrica",
-      "name": "Demanda eléctrica",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tipo-de-cambio",
-      "name": "Tipo de cambio",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "generacion-electrica",
+  "inherited_ramifications": 5,
+  "own_ramifications": 6,
+  "effective_ramification_count": 30,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "abastecimiento-combustibles",
+        "name": "Abastecimiento combustibles",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "critical",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "gasoil",
+        "name": "Gasoil",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "fueloil",
+        "name": "Fueloil",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "gas-natural",
+        "name": "Gas natural",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "combustibles",
+        "name": "Refinación y distribución de combustibles",
+        "category": "suppliers",
+        "relation": "supplier",
+        "target_activity_id": "combustibles",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "tipo-de-cambio",
+        "name": "Tipo de cambio",
+        "category": "economic_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [
+      {
+        "id": "recurso-eolico",
+        "reason": "no aplica a generación térmica"
+      },
+      {
+        "id": "recurso-solar",
+        "reason": "no aplica"
+      },
+      {
+        "id": "recurso-hidrico",
+        "reason": "no aplica directamente"
+      }
+    ],
+    "modify": [
+      {
+        "id": "transmision-distribucion-electrica",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium",
+        "relation": "related_activity",
+        "category": "related_activities"
+      },
+      {
+        "id": "hidrologia",
+        "relevance": "critical",
+        "reason": "los años secos determinan el nivel de despacho térmico"
+      }
+    ]
+  }
 }

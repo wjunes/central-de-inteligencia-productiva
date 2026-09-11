@@ -1,0 +1,130 @@
+{
+  "generated": "2026-09-11",
+  "error_taxonomy": [
+    "success",
+    "partial_success",
+    "timeout",
+    "rate_limit",
+    "authentication_error",
+    "not_found",
+    "server_error",
+    "invalid_response",
+    "parse_error",
+    "source_unavailable"
+  ],
+  "adapters": {
+    "api_rest_json": {
+      "name": "API REST (JSON)",
+      "protocol": "http",
+      "formats": [
+        "json"
+      ],
+      "retry": {
+        "max_retries": 3,
+        "backoff": "exponential",
+        "base_delay_s": 5
+      },
+      "cache": {
+        "ttl_relative_to_frequency": true
+      }
+    },
+    "api_soap": {
+      "name": "API SOAP/XML",
+      "protocol": "http",
+      "formats": [
+        "xml",
+        "soap"
+      ],
+      "retry": {
+        "max_retries": 3,
+        "backoff": "exponential",
+        "base_delay_s": 5
+      },
+      "cache": {
+        "ttl_relative_to_frequency": true
+      }
+    },
+    "ckan_api": {
+      "name": "Catálogo CKAN (API de datasets)",
+      "protocol": "http",
+      "formats": [
+        "json",
+        "csv"
+      ],
+      "retry": {
+        "max_retries": 3,
+        "backoff": "exponential",
+        "base_delay_s": 10
+      },
+      "cache": {
+        "ttl_relative_to_frequency": true
+      }
+    },
+    "feed": {
+      "name": "Feed RSS/Atom",
+      "protocol": "http",
+      "formats": [
+        "rss",
+        "atom"
+      ],
+      "retry": {
+        "max_retries": 2,
+        "backoff": "fixed",
+        "base_delay_s": 30
+      },
+      "cache": {
+        "ttl_relative_to_frequency": false
+      }
+    },
+    "file_download": {
+      "name": "Descarga de archivo estructurado",
+      "protocol": "http",
+      "formats": [
+        "xlsx",
+        "csv",
+        "xml"
+      ],
+      "retry": {
+        "max_retries": 3,
+        "backoff": "exponential",
+        "base_delay_s": 15
+      },
+      "cache": {
+        "ttl_relative_to_frequency": true
+      }
+    },
+    "web_scrape": {
+      "name": "Lectura estructurada de página web",
+      "protocol": "http",
+      "formats": [
+        "html"
+      ],
+      "retry": {
+        "max_retries": 2,
+        "backoff": "exponential",
+        "base_delay_s": 15
+      },
+      "cache": {
+        "ttl_relative_to_frequency": true
+      },
+      "notes": "Requiere mantenimiento de selectores; usar solo cuando no exista dataset ni descarga."
+    },
+    "manual_capture": {
+      "name": "Captura asistida (documento o página no estructurada)",
+      "protocol": "human",
+      "formats": [
+        "pdf",
+        "html"
+      ],
+      "retry": {
+        "max_retries": 0,
+        "backoff": "none",
+        "base_delay_s": 0
+      },
+      "cache": {
+        "ttl_relative_to_frequency": false
+      },
+      "notes": "Ver manual-capture-workflow.json."
+    }
+  }
+}

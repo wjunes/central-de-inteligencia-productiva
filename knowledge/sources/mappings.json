@@ -1,0 +1,1391 @@
+{
+  "generated": "2026-09-10",
+  "note": "Rol: 'primary' = mejor fuente para el dominio; 'fallback' = otras primarias equivalentes; 'secondary' = respaldo o cobertura parcial.",
+  "domains": [
+    {
+      "domain": "acuerdos-comerciales-y-aranceles",
+      "type": "regulatorio",
+      "primary": [
+        "wto"
+      ],
+      "fallback": [
+        "impo"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "adopcion-tecnologica-y-digitalizacion",
+      "type": "tecnologico",
+      "primary": [
+        "anii"
+      ],
+      "fallback": [
+        "inia"
+      ],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "agua-potable-y-saneamiento",
+      "type": "sectorial",
+      "primary": [
+        "ursea"
+      ],
+      "fallback": [
+        "ose"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "almacenaje-y-cadena-de-frio",
+      "type": "logistico",
+      "primary": [
+        "mtop"
+      ],
+      "fallback": [
+        "anp"
+      ],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "apicultura",
+      "type": "sectorial",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "barreras-y-requisitos-de-acceso",
+      "type": "mercado",
+      "primary": [
+        "itc-trademap"
+      ],
+      "fallback": [
+        "uruguay-xxi",
+        "wto",
+        "ippc"
+      ],
+      "secondary": [
+        "mgap-dgssaa"
+      ],
+      "coverage": "complete"
+    },
+    {
+      "domain": "cannabis",
+      "type": "sectorial",
+      "primary": [
+        "ircca"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "clima-y-agua",
+      "type": "transversal",
+      "primary": [
+        "inumet"
+      ],
+      "fallback": [
+        "catalogodatos-agesic",
+        "inia-gras"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "combustibles-liquidos",
+      "type": "transversal",
+      "primary": [
+        "miem-dne"
+      ],
+      "fallback": [
+        "ursea",
+        "eia-iea",
+        "ancap",
+        "miem-observatorio"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "combustibles-y-gas",
+      "type": "sectorial",
+      "primary": [
+        "ancap"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "comercializacion-y-canales",
+      "type": "mercado",
+      "primary": [
+        "camara-mercantil"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "comercio-exterior",
+      "type": "transversal",
+      "primary": [
+        "uruguay-xxi"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "comercio-y-distribucion",
+      "type": "sectorial",
+      "primary": [
+        "cncs"
+      ],
+      "fallback": [
+        "uruguay-xxi",
+        "camara-mercantil"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "competencia-internacional",
+      "type": "mercado",
+      "primary": [
+        "uruguay-xxi"
+      ],
+      "fallback": [
+        "inac",
+        "fao-faostat",
+        "usda-fas",
+        "un-comtrade",
+        "itc-trademap",
+        "woah-wahis",
+        "ciu",
+        "conab-bcr-bcba"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-agricola-granos-y-oleaginosos",
+      "type": "sectorial",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [
+        "mgap-opypa",
+        "inase",
+        "camara-mercantil"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-arrocero",
+      "type": "sectorial",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [
+        "acaa-molinos-arroz"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-avicola-y-porcino",
+      "type": "sectorial",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [
+        "mgap-snig"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-carne-bovina",
+      "type": "sectorial",
+      "primary": [
+        "inac"
+      ],
+      "fallback": [
+        "mgap-diea",
+        "mgap-opypa",
+        "mgap-snig"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-citricola",
+      "type": "sectorial",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-forestal-celulosa",
+      "type": "sectorial",
+      "primary": [
+        "mgap-dgf"
+      ],
+      "fallback": [
+        "spf-forestal"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-hortifruticola",
+      "type": "sectorial",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [
+        "mercado-modelo-uam"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-lacteo",
+      "type": "sectorial",
+      "primary": [
+        "inale"
+      ],
+      "fallback": [
+        "mgap-diea"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-maderero",
+      "type": "sectorial",
+      "primary": [
+        "spf-forestal"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-ovino-lana",
+      "type": "sectorial",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [
+        "mgap-snig",
+        "sul"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-pesquero",
+      "type": "sectorial",
+      "primary": [
+        "dinara"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-sucroalcoholero",
+      "type": "sectorial",
+      "primary": [
+        "ancap"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "complejo-vitivinicola",
+      "type": "sectorial",
+      "primary": [
+        "inavi"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "construccion-e-inmobiliario",
+      "type": "sectorial",
+      "primary": [
+        "mvot"
+      ],
+      "fallback": [
+        "camara-construccion",
+        "camara-inmobiliaria"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "costos-de-materiales-de-construccion",
+      "type": "economico",
+      "primary": [
+        "ine"
+      ],
+      "fallback": [
+        "camara-construccion"
+      ],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "costos-laborales-y-negociacion-colectiva",
+      "type": "regulatorio",
+      "primary": [
+        "mtss"
+      ],
+      "fallback": [
+        "bps",
+        "impo"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "credito-y-condiciones-financieras",
+      "type": "economico",
+      "primary": [
+        "bcu"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "demanda-mundial-y-tendencias-de-consumo",
+      "type": "mercado",
+      "primary": [
+        "uruguay-xxi"
+      ],
+      "fallback": [
+        "inac",
+        "fao-faostat",
+        "fao-giews-amis",
+        "usda-fas",
+        "un-comtrade",
+        "itc-trademap",
+        "oecd-fao-outlook",
+        "conab-bcr-bcba"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "disponibilidad-de-agua",
+      "type": "transversal",
+      "primary": [
+        "dinagua"
+      ],
+      "fallback": [
+        "mgap-renare",
+        "ministerio-ambiente",
+        "ose",
+        "inia-gras"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "disponibilidad-de-talento-especializado",
+      "type": "transversal",
+      "primary": [
+        "inefop"
+      ],
+      "fallback": [
+        "cuti"
+      ],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "economia-del-conocimiento",
+      "type": "sectorial",
+      "primary": [
+        "cuti"
+      ],
+      "fallback": [
+        "uruguay-xxi"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "economia-macro",
+      "type": "economico",
+      "primary": [],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete_via_children"
+    },
+    {
+      "domain": "empleo-y-mercado-de-trabajo",
+      "type": "economico",
+      "primary": [
+        "ine"
+      ],
+      "fallback": [
+        "bps",
+        "mtss",
+        "catalogodatos-agesic",
+        "inefop",
+        "camara-construccion",
+        "udelar-iecon"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "energia",
+      "type": "transversal",
+      "primary": [
+        "miem-dne"
+      ],
+      "fallback": [
+        "eia-iea"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "energia-electrica",
+      "type": "transversal",
+      "primary": [
+        "adme"
+      ],
+      "fallback": [
+        "miem-dne",
+        "catalogodatos-agesic",
+        "ute",
+        "miem-observatorio"
+      ],
+      "secondary": [
+        "ursea"
+      ],
+      "coverage": "complete"
+    },
+    {
+      "domain": "estado-de-recursos-pesqueros",
+      "type": "ambiental",
+      "primary": [
+        "dinara"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "estatus-sanitario-y-habilitaciones",
+      "type": "sanitario",
+      "primary": [
+        "mgap-dgsg"
+      ],
+      "fallback": [
+        "woah-wahis"
+      ],
+      "secondary": [
+        "mgap-snig"
+      ],
+      "coverage": "complete"
+    },
+    {
+      "domain": "eventos-climaticos-extremos",
+      "type": "transversal",
+      "primary": [
+        "inumet"
+      ],
+      "fallback": [
+        "noaa-iri-enso",
+        "copernicus-nasa-eo"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "exceso-hidrico-e-inundaciones",
+      "type": "transversal",
+      "primary": [
+        "dinagua"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "financiamiento-e-inversion",
+      "type": "economico",
+      "primary": [
+        "mef"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "fletes-y-logistica-internacional",
+      "type": "logistico",
+      "primary": [
+        "world-bank"
+      ],
+      "fallback": [
+        "freightos-drewry"
+      ],
+      "secondary": [
+        "anp"
+      ],
+      "coverage": "partial"
+    },
+    {
+      "domain": "flujos-de-comercio-exterior",
+      "type": "economico",
+      "primary": [
+        "bcu"
+      ],
+      "fallback": [
+        "dna",
+        "uruguay-xxi",
+        "inac",
+        "inale",
+        "inavi",
+        "anp",
+        "catalogodatos-agesic"
+      ],
+      "secondary": [
+        "dinara",
+        "un-comtrade"
+      ],
+      "coverage": "complete"
+    },
+    {
+      "domain": "gas-natural",
+      "type": "transversal",
+      "primary": [
+        "eia-iea"
+      ],
+      "fallback": [
+        "miem-dne",
+        "ursea"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "generacion-y-transmision-electrica",
+      "type": "sectorial",
+      "primary": [
+        "adme"
+      ],
+      "fallback": [
+        "miem-dne",
+        "ute"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "genetica-y-biotecnologia",
+      "type": "tecnologico",
+      "primary": [
+        "inase"
+      ],
+      "fallback": [
+        "inia"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "gestion-de-residuos-y-economia-circular",
+      "type": "sectorial",
+      "primary": [
+        "ministerio-ambiente"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "hidrogeno-verde-y-derivados",
+      "type": "sectorial",
+      "primary": [
+        "miem-dne"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "hidrologia-energetica",
+      "type": "transversal",
+      "primary": [
+        "adme"
+      ],
+      "fallback": [
+        "dinagua"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "industria-de-alimentos-y-bebidas",
+      "type": "sectorial",
+      "primary": [
+        "ine"
+      ],
+      "fallback": [
+        "miem-observatorio",
+        "ciu"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "industria-de-materiales-de-construccion",
+      "type": "sectorial",
+      "primary": [
+        "ancap"
+      ],
+      "fallback": [
+        "miem-observatorio",
+        "miem-dni"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "industria-de-plasticos-y-caucho",
+      "type": "sectorial",
+      "primary": [
+        "miem-observatorio"
+      ],
+      "fallback": [
+        "miem-dni",
+        "ciu"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "industria-metalmecanica",
+      "type": "sectorial",
+      "primary": [
+        "ciu"
+      ],
+      "fallback": [
+        "ine",
+        "miem-observatorio",
+        "miem-dni"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "industria-quimica-y-farmaceutica",
+      "type": "sectorial",
+      "primary": [
+        "ine"
+      ],
+      "fallback": [
+        "miem-observatorio",
+        "ciu"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "industria-textil-y-vestimenta",
+      "type": "sectorial",
+      "primary": [
+        "miem-observatorio"
+      ],
+      "fallback": [
+        "ciu"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "inflacion-y-precios-internos",
+      "type": "economico",
+      "primary": [
+        "ine"
+      ],
+      "fallback": [
+        "bcu",
+        "catalogodatos-agesic"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "infraestructura-vial-y-camineria",
+      "type": "logistico",
+      "primary": [
+        "mtop"
+      ],
+      "fallback": [
+        "opp"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "inocuidad-alimentaria-y-residuos",
+      "type": "sanitario",
+      "primary": [
+        "mgap-dgsg"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "insumos-y-costos-de-produccion",
+      "type": "transversal",
+      "primary": [],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete_via_children"
+    },
+    {
+      "domain": "inteligencia-artificial-y-automatizacion",
+      "type": "tecnologico",
+      "primary": [
+        "anii"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "inversion-privada-e-ied",
+      "type": "economico",
+      "primary": [
+        "bcu"
+      ],
+      "fallback": [
+        "uruguay-xxi"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "inversion-publica",
+      "type": "economico",
+      "primary": [
+        "mef"
+      ],
+      "fallback": [
+        "opp"
+      ],
+      "secondary": [
+        "mtop"
+      ],
+      "coverage": "complete"
+    },
+    {
+      "domain": "investigacion-y-desarrollo",
+      "type": "tecnologico",
+      "primary": [
+        "anii"
+      ],
+      "fallback": [
+        "inia"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "laboral",
+      "type": "transversal",
+      "primary": [],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete_via_children"
+    },
+    {
+      "domain": "logistica-e-infraestructura",
+      "type": "logistico",
+      "primary": [
+        "mtop"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "mercado-de-carbono-y-sostenibilidad",
+      "type": "mercado",
+      "primary": [
+        "ministerio-ambiente"
+      ],
+      "fallback": [
+        "world-bank",
+        "carbon-registries"
+      ],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "mercado-interno-y-consumo-nacional",
+      "type": "mercado",
+      "primary": [
+        "ine"
+      ],
+      "fallback": [
+        "inavi",
+        "mintur",
+        "mercado-modelo-uam",
+        "cncs"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "mercados",
+      "type": "mercado",
+      "primary": [],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete_via_children"
+    },
+    {
+      "domain": "mercados-destino",
+      "type": "mercado",
+      "primary": [
+        "inac"
+      ],
+      "fallback": [
+        "uruguay-xxi",
+        "itc-trademap",
+        "inale",
+        "un-comtrade"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "mineria-y-extractivas",
+      "type": "sectorial",
+      "primary": [
+        "miem-dinamige"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "nivel-de-actividad-y-ciclo",
+      "type": "economico",
+      "primary": [
+        "bcu"
+      ],
+      "fallback": [
+        "mgap-opypa",
+        "ine",
+        "mef",
+        "dgi",
+        "ciu",
+        "udelar-iecon",
+        "cncs",
+        "consultoras-economicas-uy"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "normativa-ambiental-y-territorial",
+      "type": "regulatorio",
+      "primary": [
+        "ministerio-ambiente"
+      ],
+      "fallback": [
+        "impo",
+        "mgap-renare",
+        "mvot"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "normativa-sectorial-productiva",
+      "type": "regulatorio",
+      "primary": [
+        "impo"
+      ],
+      "fallback": [
+        "mgap-opypa",
+        "mgap-dgf",
+        "ircca",
+        "inase",
+        "miem-dni"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "politica-comercial-y-de-acceso-a-mercados",
+      "type": "regulatorio",
+      "primary": [
+        "impo"
+      ],
+      "fallback": [
+        "wto"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "politica-tributaria",
+      "type": "regulatorio",
+      "primary": [
+        "impo"
+      ],
+      "fallback": [
+        "mef",
+        "dgi"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "precios-de-fertilizantes-y-agroquimicos",
+      "type": "economico",
+      "primary": [
+        "mgap-dgssaa"
+      ],
+      "fallback": [
+        "world-bank",
+        "precios-industriales-especializados"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "precios-de-granos-y-raciones",
+      "type": "economico",
+      "primary": [
+        "camara-mercantil"
+      ],
+      "fallback": [
+        "mgap-opypa",
+        "inale",
+        "acaa-molinos-arroz",
+        "bolsa-cereales-mvd",
+        "conab-bcr-bcba"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "precios-de-metales-y-siderurgia",
+      "type": "economico",
+      "primary": [
+        "world-bank"
+      ],
+      "fallback": [
+        "precios-industriales-especializados"
+      ],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "precios-de-plasticos-y-quimicos",
+      "type": "economico",
+      "primary": [
+        "world-bank"
+      ],
+      "fallback": [
+        "precios-industriales-especializados"
+      ],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "precios-internacionales-de-commodities",
+      "type": "mercado",
+      "primary": [
+        "inac"
+      ],
+      "fallback": [
+        "usda-fas",
+        "world-bank",
+        "inale",
+        "fao-faostat",
+        "fao-giews-amis",
+        "imf",
+        "oecd-fao-outlook",
+        "sul",
+        "precios-industriales-especializados"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "precipitaciones-y-temperatura",
+      "type": "transversal",
+      "primary": [
+        "inumet"
+      ],
+      "fallback": [
+        "inia-gras",
+        "copernicus-nasa-eo"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "pronostico-agroclimatico",
+      "type": "transversal",
+      "primary": [
+        "inia-gras"
+      ],
+      "fallback": [
+        "noaa-iri-enso",
+        "inumet",
+        "fao-giews-amis"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "puertos-y-terminales",
+      "type": "logistico",
+      "primary": [
+        "anp"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "recursos-forestales",
+      "type": "ambiental",
+      "primary": [
+        "mgap-dgf"
+      ],
+      "fallback": [
+        "copernicus-nasa-eo",
+        "spf-forestal"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "recursos-mineros",
+      "type": "ambiental",
+      "primary": [
+        "miem-dinamige"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "recursos-naturales",
+      "type": "ambiental",
+      "primary": [
+        "ministerio-ambiente"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "regimenes-aduaneros-y-zonas-francas",
+      "type": "regulatorio",
+      "primary": [
+        "dna"
+      ],
+      "fallback": [
+        "impo"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "regimenes-de-promocion-de-inversiones",
+      "type": "regulatorio",
+      "primary": [
+        "mef"
+      ],
+      "fallback": [
+        "mvot",
+        "impo"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "regulacion-y-politicas",
+      "type": "regulatorio",
+      "primary": [
+        "impo"
+      ],
+      "fallback": [
+        "mgap-opypa"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "sanidad",
+      "type": "sanitario",
+      "primary": [],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete_via_children"
+    },
+    {
+      "domain": "sanidad-acuicola",
+      "type": "sanitario",
+      "primary": [
+        "mgap-dgsg"
+      ],
+      "fallback": [
+        "dinara"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "sanidad-animal",
+      "type": "sanitario",
+      "primary": [
+        "mgap-dgsg"
+      ],
+      "fallback": [
+        "woah-wahis"
+      ],
+      "secondary": [
+        "mgap-snig"
+      ],
+      "coverage": "complete"
+    },
+    {
+      "domain": "sanidad-vegetal",
+      "type": "sanitario",
+      "primary": [
+        "mgap-dgssaa"
+      ],
+      "fallback": [
+        "inia",
+        "ippc"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "sequia-y-deficit-hidrico",
+      "type": "transversal",
+      "primary": [
+        "inia-gras"
+      ],
+      "fallback": [
+        "inumet",
+        "dinagua",
+        "fao-giews-amis",
+        "noaa-iri-enso",
+        "copernicus-nasa-eo"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "servicios-globales-de-exportacion",
+      "type": "sectorial",
+      "primary": [
+        "cuti"
+      ],
+      "fallback": [
+        "uruguay-xxi"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "servicios-profesionales-y-financieros",
+      "type": "sectorial",
+      "primary": [
+        "bcu"
+      ],
+      "fallback": [
+        "cncs"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "situacion-regional",
+      "type": "economico",
+      "primary": [
+        "imf"
+      ],
+      "fallback": [
+        "consultoras-economicas-uy"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "suelo-y-uso-del-suelo",
+      "type": "ambiental",
+      "primary": [
+        "mgap-diea"
+      ],
+      "fallback": [
+        "mgap-dgf",
+        "mgap-renare"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "tarifas-y-politica-energetica",
+      "type": "regulatorio",
+      "primary": [
+        "miem-dne"
+      ],
+      "fallback": [
+        "ursea",
+        "impo",
+        "ute"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "tasas-de-interes",
+      "type": "economico",
+      "primary": [
+        "bcu"
+      ],
+      "fallback": [],
+      "secondary": [
+        "imf"
+      ],
+      "coverage": "complete"
+    },
+    {
+      "domain": "tecnologia-e-innovacion",
+      "type": "tecnologico",
+      "primary": [],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete_via_children"
+    },
+    {
+      "domain": "telecomunicaciones-e-infraestructura-digital",
+      "type": "sectorial",
+      "primary": [
+        "ursec"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "tipo-de-cambio",
+      "type": "economico",
+      "primary": [
+        "bcu"
+      ],
+      "fallback": [
+        "consultoras-economicas-uy"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "transicion-energetica",
+      "type": "tecnologico",
+      "primary": [
+        "miem-dne"
+      ],
+      "fallback": [
+        "adme",
+        "eia-iea"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "transporte-carretero",
+      "type": "logistico",
+      "primary": [
+        "mtop"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "partial"
+    },
+    {
+      "domain": "transporte-ferroviario",
+      "type": "logistico",
+      "primary": [
+        "mtop"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "transporte-y-logistica",
+      "type": "sectorial",
+      "primary": [
+        "mtop"
+      ],
+      "fallback": [
+        "anp",
+        "dinacia"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "turismo",
+      "type": "sectorial",
+      "primary": [
+        "mintur"
+      ],
+      "fallback": [],
+      "secondary": [],
+      "coverage": "complete"
+    },
+    {
+      "domain": "turismo-receptivo-regional",
+      "type": "mercado",
+      "primary": [
+        "mintur"
+      ],
+      "fallback": [
+        "dinacia"
+      ],
+      "secondary": [],
+      "coverage": "complete"
+    }
+  ]
+}

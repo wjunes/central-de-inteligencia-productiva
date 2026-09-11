@@ -1,0 +1,40 @@
+{
+  "generated": "2026-09-11",
+  "levels": [
+    {
+      "id": "critical",
+      "name": "Crítica",
+      "meaning": "La señal afecta directamente un elemento central de la actividad (su propia ramificación de origen, con relevancia crítica declarada en ramifications/).",
+      "criteria": "target_activity_id == actividad de origen de la señal, y la ramificación de origen tiene relevance=critical (ver rules.json: direct_dependency).",
+      "expected_behavior": "Debe considerarse candidata prioritaria en toda evaluación posterior (relevance/ no decide notificar; solo clasifica)."
+    },
+    {
+      "id": "high",
+      "name": "Alta",
+      "meaning": "Vínculo estructural fuerte (proveedor, cliente, infraestructura o competidor directo) con la actividad de origen, o la actividad de origen misma con relevancia alta declarada.",
+      "criteria": "relation en {supplier, customer, infrastructure, competitor} y edge_relevance=critical (decae un escalón), o edge_relevance=high sin decaimiento adicional; o direct_dependency con relevance=high.",
+      "expected_behavior": "Normalmente debe evaluarse en la siguiente capa."
+    },
+    {
+      "id": "medium",
+      "name": "Media",
+      "meaning": "Vínculo estructural moderado, o un vínculo fuerte propagado con un escalón de decaimiento, o una relación de cadena de valor/actividad relacionada (related_activity) de peso alto.",
+      "criteria": "Ver rules.json.decay_table.",
+      "expected_behavior": "Se evalúa junto con otras señales del mismo período/dominio; no se descarta pero tampoco se prioriza sola."
+    },
+    {
+      "id": "low",
+      "name": "Baja",
+      "meaning": "Vínculo débil: relación genérica (related_activity/complement) muy decaída, o coexposición por dominio compartido sin vínculo estructural directo.",
+      "criteria": "Ver rules.json.decay_table y rules.json.factors.domain_coexposure.",
+      "expected_behavior": "Disponible bajo demanda; no se propone proactivamente (reduce ruido, mismo principio que signals/)."
+    },
+    {
+      "id": "none",
+      "name": "Ninguna",
+      "meaning": "No existe evidencia estructural de relación entre la señal (su origen) y la actividad candidata.",
+      "criteria": "No hay arista en activity_relevance_graph, no hay dominio compartido, no hay exposición de mercado común.",
+      "expected_behavior": "No se evalúa más. Debe poder expresarse explícitamente (no ausencia por omisión) - ver Caso 5/10 en README.md."
+    }
+  ]
+}

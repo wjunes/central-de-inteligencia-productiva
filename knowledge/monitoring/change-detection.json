@@ -1,0 +1,82 @@
+{
+  "generated": "2026-09-11",
+  "change_classes": [
+    "sin_cambio",
+    "cambio_de_contenido",
+    "nuevo_registro",
+    "registro_eliminado",
+    "valor_modificado",
+    "estructura_modificada",
+    "fuente_no_disponible",
+    "error_de_adquisicion"
+  ],
+  "methods": {
+    "value_comparison": {
+      "name": "Comparación de valor",
+      "use": "Series numéricas / indicadores puntuales (cotización, tasa, índice).",
+      "emits": [
+        "sin_cambio",
+        "valor_modificado",
+        "fuente_no_disponible",
+        "error_de_adquisicion"
+      ]
+    },
+    "record_diff": {
+      "name": "Comparación de registros",
+      "use": "Datasets tabulares (altas, bajas, modificaciones por clave).",
+      "emits": [
+        "sin_cambio",
+        "nuevo_registro",
+        "registro_eliminado",
+        "valor_modificado",
+        "error_de_adquisicion"
+      ]
+    },
+    "structural_diff": {
+      "name": "Comparación estructural",
+      "use": "JSON/XML anidado o con esquema propio.",
+      "emits": [
+        "sin_cambio",
+        "cambio_de_contenido",
+        "estructura_modificada",
+        "error_de_adquisicion"
+      ]
+    },
+    "new_item_detection": {
+      "name": "Detección de nuevo ítem",
+      "use": "Feeds, catálogos CKAN, boletines: aparición de un nuevo recurso o entrada.",
+      "emits": [
+        "sin_cambio",
+        "nuevo_registro",
+        "fuente_no_disponible"
+      ]
+    },
+    "hash_comparison": {
+      "name": "Comparación por hash",
+      "use": "Documentos o páginas sin estructura de registros (PDF, HTML de referencia).",
+      "emits": [
+        "sin_cambio",
+        "cambio_de_contenido",
+        "fuente_no_disponible"
+      ]
+    },
+    "new_document_detection": {
+      "name": "Detección de nuevo documento",
+      "use": "Publicaciones periódicas en PDF (anuarios, informes).",
+      "emits": [
+        "sin_cambio",
+        "nuevo_registro",
+        "error_de_adquisicion"
+      ]
+    }
+  },
+  "thresholds": {
+    "types": [
+      "absolute_threshold",
+      "relative_threshold",
+      "percentage_threshold",
+      "minimum_variation"
+    ],
+    "note": "Disponibles para value_comparison; los umbrales concretos se definen en la capa signals/."
+  }
+}

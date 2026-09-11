@@ -403,17 +403,43 @@ def build_market_destinations(aid):
         out.append(node)
     return out
 
+# ------------------------------------------------------- catalogo de senales
+SIGNAL_TYPES = [
+ ["demanda", "Demanda", "Cambios en el volumen o la composición de la demanda del producto o servicio."],
+ ["consumo", "Consumo final", "Cambios en el consumo de los hogares o consumidores finales."],
+ ["precios", "Precios", "Movimientos de precios de venta, referencias internacionales o mayoristas."],
+ ["costos", "Costos", "Cambios estructurales en insumos, energía, logística o salarios."],
+ ["oferta", "Oferta y producción", "Cambios en el volumen producido, existencias o zafra propias o de competidores."],
+ ["capacidad-productiva", "Capacidad productiva", "Apertura, cierre o ampliación de capacidad instalada."],
+ ["inversion", "Inversión", "Decisiones de inversión, proyectos anunciados o financiamiento de largo plazo."],
+ ["comercio-exterior", "Comercio exterior", "Cambios en flujos, destinos, fletes o tipo de cambio relevantes al comercio."],
+ ["acceso-a-mercados", "Acceso a mercados", "Habilitaciones sanitarias, cuotas, acuerdos y barreras de acceso."],
+ ["regulacion", "Regulación", "Cambios normativos, tributarios o de políticas sectoriales internas."],
+ ["tecnologia", "Tecnología", "Nuevas tecnologías de proceso, producto o gestión que alteran la actividad."],
+ ["sustitucion", "Sustitución", "Aparición o retroceso de productos o servicios sustitutos."],
+ ["competencia", "Competencia", "Movimientos de competidores locales o de otros orígenes."],
+ ["infraestructura-logistica", "Infraestructura y logística", "Cambios en infraestructura, transporte, puertos o capacidad logística."],
+ ["clima-agua", "Clima y agua", "Pronósticos, eventos extremos y disponibilidad de agua."],
+ ["recursos-naturales", "Recursos naturales", "Estado de recursos pesqueros, forestales, mineros, suelo o pasturas."],
+ ["sanidad", "Sanidad", "Estatus y eventos sanitarios animales o vegetales."],
+ ["financiamiento", "Financiamiento", "Condiciones de crédito, tasas y acceso a capital."],
+ ["empleo-talento", "Empleo y talento", "Disponibilidad, costo y formación de mano de obra y talento especializado."],
+]
+SIGNAL_TYPE_IDS = {t[0] for t in SIGNAL_TYPES}
+
 def build_signals(aid):
     out = []
-    for s in SG.get(aid, []):  # s = [id, name, relation, relevance]
+    for s in SG.get(aid, []):  # s = [id, name, relation, relevance, signal_type]
+        st = s[4] if len(s) > 4 else "regulacion"
+        assert st in SIGNAL_TYPE_IDS, (aid, st)
         out.append({"id": s[0], "name": s[1], "category": "strategic_signals",
-                    "relation": s[2] if len(s) > 2 else "impact", "direction": "indirect",
-                    "relevance": s[3] if len(s) > 3 else "medium", "depth": 1, "children": []})
+                    "signal_type": st, "relation": s[2] if len(s) > 2 else "impact",
+                    "direction": "indirect", "relevance": s[3] if len(s) > 3 else "medium",
+                    "depth": 1, "children": []})
     return out
 
-# ------------------------------------------------------------------ build
-index, edge_count = [], 0
-for act in acts:
+# ------------------------------------------------------- ensamblado por actividad
+def build_rams(act):
     aid = act["id"]
     rams, seen = [], set()
     for field in ["dependencies","inputs","related_activities","markets","products","impact_factors"]:
@@ -425,7 +451,6 @@ for act in acts:
     for ro in rules_risk_opp(act):
         if ro["id"] not in seen:
             seen.add(ro["id"]); rams.append(ro)
-
     cur = PA.get(aid)
     if cur:
         for ov in cur.get("relevance_overrides", []):
@@ -441,35 +466,110 @@ for act in acts:
         for extra in cur.get("add", []):
             if extra["id"] not in seen:
                 seen.add(extra["id"]); rams.append(extra)
-
     for pid, rows in D2.get(aid, {}).items():
         for r in rams:
             if r["id"] == pid:
                 for t in rows:
                     if t[0] not in seen:
                         seen.add(t[0]); r["children"].append(tup2ram(t, 2))
-
     for r in build_value_chain(aid) + build_market_destinations(aid) + build_signals(aid):
         if r["id"] not in seen:
             seen.add(r["id"]); rams.append(r)
+    return rams
 
-    edges = sorted({r["target_activity_id"] for r in rams if r.get("target_activity_id")})
+SUB_DELTAS = CUR.get("subactivity_deltas", {})
+KEYS = ("relevance", "relation", "category", "direction")
+
+def deltas_vs_parent(sub, own_rams, parent_rams):
+    pidx = {r["id"]: r for r in parent_rams}
+    add, modify = [], []
+    inherited = 0
+    cur_rm = {x[0]: (x[1] if len(x) > 1 else "no aplica a la subactividad")
+              for x in SUB_DELTAS.get(sub["id"], {}).get("remove", [])}
+    cur_md = {x[0]: x for x in SUB_DELTAS.get(sub["id"], {}).get("modify", [])}
+    for r in own_rams:
+        if r["id"] in pidx:
+            pr = pidx[r["id"]]
+            if any(r.get(k) != pr.get(k) for k in KEYS) or r.get("children"):
+                m = {"id": r["id"], "reason": "ajuste específico de la subactividad"}
+                for k in KEYS:
+                    if r.get(k) != pr.get(k):
+                        m[k] = r.get(k)
+                if r.get("children"):
+                    m["children"] = r["children"]
+                modify.append(m)
+            else:
+                inherited += 1
+        else:
+            add.append(r)
+    for rid, mrow in cur_md.items():
+        if rid in pidx and rid not in {m["id"] for m in modify}:
+            m = {"id": rid, "relevance": mrow[1], "reason": mrow[2] if len(mrow) > 2 else "ajuste en subactividad"}
+            modify.append(m)
+    remove = [{"id": rid, "reason": rs} for rid, rs in cur_rm.items() if rid in pidx]
+    return {"add": add, "remove": remove, "modify": modify}, inherited
+
+# ------------------------------------------------------------------ build
+built = {}
+order = [a for a in acts if a["level"] == "activity"] + [a for a in acts if a["level"] == "subactivity"]
+index, edge_count = [], 0
+
+for act in order:
+    aid = act["id"]
+    own = build_rams(act)
+    base = {"activity_id": aid, "activity_name": act["name"], "sector_id": act["sector_id"],
+            "level": act["level"], "parent_activity_id": act.get("parent_id")}
+
+    if act["level"] == "subactivity":
+        parent_rams = built[act["parent_id"]]["ramifications"]
+        deltas, inherited = deltas_vs_parent(act, own, parent_rams)
+        eff_ids = ({r["id"] for r in parent_rams}
+                   - {d["id"] for d in deltas["remove"]}
+                   | {r["id"] for r in deltas["add"]})
+        doc = dict(base)
+        doc.update({"inherits_from": act["parent_id"],
+                    "inherited_ramifications": inherited,
+                    "own_ramifications": len(deltas["add"]),
+                    "effective_ramification_count": len(eff_ids),
+                    "ramification_deltas": deltas})
+        edges = sorted({r.get("target_activity_id") for r in deltas["add"] + deltas["modify"] if r.get("target_activity_id")}
+                       | {r.get("target_activity_id") for r in parent_rams
+                          if r.get("target_activity_id") and r["id"] not in {d["id"] for d in deltas["remove"]}})
+    else:
+        built[aid] = {"ramifications": own}
+        doc = dict(base)
+        doc.update({"ramification_count": len(own), "ramifications": own})
+        edges = sorted({r["target_activity_id"] for r in own if r.get("target_activity_id")})
+
+    edges = [e for e in edges if e]
     edge_count += len(edges)
-    doc = {"activity_id": aid, "activity_name": act["name"], "sector_id": act["sector_id"],
-           "level": act["level"], "parent_activity_id": act.get("parent_id"),
-           "ramification_count": len(rams), "ramifications": rams}
     open(OUT + "/" + aid + ".json", "w", encoding="utf-8").write(
         json.dumps(doc, ensure_ascii=False, indent=2) + "\n")
-    index.append({"activity_id": aid, "level": act["level"], "sector_id": act["sector_id"],
-                  "file": aid + ".json", "ramification_count": len(rams),
-                  "related_activities": edges})
+    row = {"activity_id": aid, "level": act["level"], "sector_id": act["sector_id"],
+           "file": aid + ".json", "related_activities": edges}
+    if act["level"] == "subactivity":
+        row.update({"inherits_from": act["parent_id"],
+                    "own_ramifications": doc["own_ramifications"],
+                    "effective_ramification_count": doc["effective_ramification_count"]})
+    else:
+        row["ramification_count"] = doc["ramification_count"]
+    index.append(row)
+
+open(OUT + "/_signal_types.json", "w", encoding="utf-8").write(json.dumps(
+    {"generated": "2026-09-10",
+     "description": "Catálogo transversal y reutilizable de tipos de señal estratégica. "
+                    "Cada ramificación de category strategic_signals referencia uno de estos tipos por signal_type.",
+     "signal_types": [{"id": t[0], "name": t[1], "description": t[2]} for t in SIGNAL_TYPES]},
+    ensure_ascii=False, indent=2) + "\n")
 
 idx = {"generated": "2026-09-10", "source": "knowledge/activities/activities.json",
        "counts": {"activity_files": len(index),
                   "activities": sum(1 for i in index if i["level"] == "activity"),
                   "subactivities": sum(1 for i in index if i["level"] == "subactivity"),
-                  "ramifications_total": sum(i["ramification_count"] for i in index),
-                  "cross_activity_edges": edge_count},
+                  "ramifications_activities": sum(i.get("ramification_count", 0) for i in index),
+                  "subactivity_own_ramifications": sum(i.get("own_ramifications", 0) for i in index),
+                  "cross_activity_edges": edge_count,
+                  "signal_types": len(SIGNAL_TYPES)},
        "activities": index}
 open(OUT + "/_index.json", "w", encoding="utf-8").write(json.dumps(idx, ensure_ascii=False, indent=2) + "\n")
 print(json.dumps(idx["counts"], indent=2))

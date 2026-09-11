@@ -1,0 +1,101 @@
+{
+  "generated": "2026-09-10",
+  "description": "Catálogo transversal y reutilizable de tipos de señal estratégica. Cada ramificación de category strategic_signals referencia uno de estos tipos por signal_type.",
+  "signal_types": [
+    {
+      "id": "demanda",
+      "name": "Demanda",
+      "description": "Cambios en el volumen o la composición de la demanda del producto o servicio."
+    },
+    {
+      "id": "consumo",
+      "name": "Consumo final",
+      "description": "Cambios en el consumo de los hogares o consumidores finales."
+    },
+    {
+      "id": "precios",
+      "name": "Precios",
+      "description": "Movimientos de precios de venta, referencias internacionales o mayoristas."
+    },
+    {
+      "id": "costos",
+      "name": "Costos",
+      "description": "Cambios estructurales en insumos, energía, logística o salarios."
+    },
+    {
+      "id": "oferta",
+      "name": "Oferta y producción",
+      "description": "Cambios en el volumen producido, existencias o zafra propias o de competidores."
+    },
+    {
+      "id": "capacidad-productiva",
+      "name": "Capacidad productiva",
+      "description": "Apertura, cierre o ampliación de capacidad instalada."
+    },
+    {
+      "id": "inversion",
+      "name": "Inversión",
+      "description": "Decisiones de inversión, proyectos anunciados o financiamiento de largo plazo."
+    },
+    {
+      "id": "comercio-exterior",
+      "name": "Comercio exterior",
+      "description": "Cambios en flujos, destinos, fletes o tipo de cambio relevantes al comercio."
+    },
+    {
+      "id": "acceso-a-mercados",
+      "name": "Acceso a mercados",
+      "description": "Habilitaciones sanitarias, cuotas, acuerdos y barreras de acceso."
+    },
+    {
+      "id": "regulacion",
+      "name": "Regulación",
+      "description": "Cambios normativos, tributarios o de políticas sectoriales internas."
+    },
+    {
+      "id": "tecnologia",
+      "name": "Tecnología",
+      "description": "Nuevas tecnologías de proceso, producto o gestión que alteran la actividad."
+    },
+    {
+      "id": "sustitucion",
+      "name": "Sustitución",
+      "description": "Aparición o retroceso de productos o servicios sustitutos."
+    },
+    {
+      "id": "competencia",
+      "name": "Competencia",
+      "description": "Movimientos de competidores locales o de otros orígenes."
+    },
+    {
+      "id": "infraestructura-logistica",
+      "name": "Infraestructura y logística",
+      "description": "Cambios en infraestructura, transporte, puertos o capacidad logística."
+    },
+    {
+      "id": "clima-agua",
+      "name": "Clima y agua",
+      "description": "Pronósticos, eventos extremos y disponibilidad de agua."
+    },
+    {
+      "id": "recursos-naturales",
+      "name": "Recursos naturales",
+      "description": "Estado de recursos pesqueros, forestales, mineros, suelo o pasturas."
+    },
+    {
+      "id": "sanidad",
+      "name": "Sanidad",
+      "description": "Estatus y eventos sanitarios animales o vegetales."
+    },
+    {
+      "id": "financiamiento",
+      "name": "Financiamiento",
+      "description": "Condiciones de crédito, tasas y acceso a capital."
+    },
+    {
+      "id": "empleo-talento",
+      "name": "Empleo y talento",
+      "description": "Disponibilidad, costo y formación de mano de obra y talento especializado."
+    }
+  ]
+}

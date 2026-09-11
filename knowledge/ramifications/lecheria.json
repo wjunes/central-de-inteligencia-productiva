@@ -343,6 +343,7 @@
       "id": "tendencia-precio-gdt",
       "name": "Tendencia del precio en Global Dairy Trade",
       "category": "strategic_signals",
+      "signal_type": "precios",
       "relation": "impact",
       "direction": "indirect",
       "relevance": "high",

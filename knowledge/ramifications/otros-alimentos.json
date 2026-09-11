@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 22,
+  "ramification_count": 26,
   "ramifications": [
     {
       "id": "insumos-importados",
@@ -225,6 +225,52 @@
       "category": "labor_factors",
       "relation": "dependency",
       "direction": "indirect",
+      "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-elaboracion-aceites",
+      "name": "Insumos: azúcar, cacao, aceites y aditivos",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "elaboracion-aceites"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Mezclado, cocción y envasado",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-distribucion-comercio-mayorista-general",
+      "name": "Distribución mayorista",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-mayorista-general"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercado interno y Mercosur",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
       "relevance": "medium",
       "depth": 1,
       "children": []

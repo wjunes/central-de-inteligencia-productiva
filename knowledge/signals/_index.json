@@ -1,0 +1,34 @@
+{
+  "generated": "2026-09-11",
+  "inputs": [
+    "knowledge/monitoring/monitors.json",
+    "knowledge/monitoring/gaps.json",
+    "knowledge/monitoring/change-detection.json",
+    "knowledge/sources/sources.json",
+    "knowledge/ramifications/_signal_types.json"
+  ],
+  "counts": {
+    "signal_types_total": 5,
+    "excluded_candidates": 4,
+    "rules_total": 10,
+    "rules_by_outcome": {
+      "no_signal": 1,
+      "pending_threshold": 1,
+      "pending_validation": 1,
+      "signal": 6,
+      "signal_candidate_requires_grouping": 1
+    },
+    "topics_with_monitors": 12,
+    "topics_without_monitors": 7,
+    "monitors_without_topics": 29,
+    "monitors_total": 87,
+    "gaps_carried_forward": 10,
+    "gaps_signal_partially_supported": 10,
+    "gaps_signal_unsupported": 0
+  },
+  "known_upstream_gaps": {
+    "domain_names": "barreras-y-requisitos-de-acceso (ver knowledge/sources/README.md) - no corregido en esta tarea",
+    "sources_and_domain_names_signals_coverage": "7/19 topics del catalogo sin ninguna fuente ni dominio asociado - ver gaps.json.additional_gap_detected - no corregido en esta tarea"
+  },
+  "validation_errors": []
+}

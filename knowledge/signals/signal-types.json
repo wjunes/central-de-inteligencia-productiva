@@ -1,0 +1,107 @@
+{
+  "generated": "2026-09-11",
+  "description": "Taxonomia pequena y transversal de la NATURALEZA de una senal estructurada (que clase de evento es). El TEMA de la senal (de que trata) usa el catalogo ya existente de knowledge/ramifications/_signal_types.json via topic_id; no se duplica aqui.",
+  "principle": "signal_type != topic_id != direction. Son tres dimensiones independientes de la misma senal (ver seccion 9-10 del prompt de construccion).",
+  "signal_types": [
+    {
+      "id": "cambio-significativo",
+      "name": "Cambio significativo",
+      "description": "Un valor monitoreado se modifico y la magnitud del cambio alcanza o supera el umbral definido para ese dominio/actividad/indicador.",
+      "criteria": "change_class = valor_modificado AND magnitud >= umbral aplicable (ver thresholds.json).",
+      "derived_from_change_classes": [
+        "valor_modificado"
+      ]
+    },
+    {
+      "id": "nuevo-elemento",
+      "name": "Nuevo elemento",
+      "description": "Aparicion de un registro, documento o entrada que no existia en la captura anterior del mismo recurso.",
+      "criteria": "change_class = nuevo_registro.",
+      "derived_from_change_classes": [
+        "nuevo_registro"
+      ]
+    },
+    {
+      "id": "elemento-retirado",
+      "name": "Elemento retirado",
+      "description": "Baja de un registro que estaba presente en la captura anterior (p. ej. una habilitacion revocada, un producto delistado).",
+      "criteria": "change_class = registro_eliminado.",
+      "derived_from_change_classes": [
+        "registro_eliminado"
+      ]
+    },
+    {
+      "id": "cambio-estructural",
+      "name": "Cambio estructural",
+      "description": "Cambio en el esquema o la estructura del recurso monitoreado (campo nuevo, campo eliminado, reclasificacion), o cambio de contenido detectado con evidencia de estructura (no solo hash).",
+      "criteria": "change_class = estructura_modificada, o change_class = cambio_de_contenido cuando el metodo de deteccion es structural_diff.",
+      "derived_from_change_classes": [
+        "estructura_modificada",
+        "cambio_de_contenido"
+      ]
+    },
+    {
+      "id": "tendencia",
+      "name": "Tendencia",
+      "description": "Persistencia de cambios significativos en la misma direccion, sobre el mismo indicador y monitor, durante varias observaciones consecutivas sin reversion.",
+      "criteria": ">=3 senales consecutivas de tipo cambio-significativo, mismo monitor_id + mismo indicador + misma direction, sin reversion intermedia (ver rules.json: tendencia-por-persistencia).",
+      "derived_from_change_classes": []
+    }
+  ],
+  "excluded_as_types": [
+    {
+      "candidate": "riesgo",
+      "decision": "no_incluido_como_signal_type",
+      "reason": "Afirmar que un cambio observable 'es un riesgo' incorpora interpretacion de contexto (para quien, cuan grave, con que probabilidad). Eso es trabajo de relevance/ e intelligence/, no de signals/. signals/ estructura el cambio (p. ej. 'oferta cae 12%'); calificarlo como riesgo u oportunidad es una capa posterior."
+    },
+    {
+      "candidate": "oportunidad",
+      "decision": "no_incluido_como_signal_type",
+      "reason": "Misma razon que 'riesgo': requiere evaluar para quien y en que contexto productivo es favorable, lo cual excede la responsabilidad de esta capa."
+    },
+    {
+      "candidate": "cambio_de_precios / cambio_de_costos / cambio_de_oferta / cambio_de_demanda / cambio_regulatorio / cambio_comercial / cambio_productivo / cambio_climatico / cambio_sanitario / cambio_logistico / cambio_tecnologico / cambio_financiero",
+      "decision": "no_incluido_como_signal_type",
+      "reason": "Redundante con el TEMA (topic) de la senal, que ya existe como catalogo transversal en knowledge/ramifications/_signal_types.json (precios, costos, oferta, demanda, regulacion, comercio-exterior, clima-agua, sanidad, infraestructura-logistica, tecnologia, financiamiento, etc.). Crear un signal_type por tema duplicaria esa taxonomia. Se modela como topic_id (campo separado), y la naturaleza del cambio (que clase de evento es) queda en signal_type."
+    },
+    {
+      "candidate": "cambio_significativo (variantes precio_alza/precio_baja, etc.)",
+      "decision": "no_se_bifurca_por_direccion",
+      "reason": "La direccion (increase/decrease/new/removed/...) es una dimension propia (ver dimensions.direction), no un signal_type distinto. Evita proliferacion de tipos (precio-alza, precio-baja, costo-alza, costo-baja, ...)."
+    }
+  ],
+  "topic_reference": "knowledge/ramifications/_signal_types.json (19 ids). Usar el campo topic_id de cada senal para referenciarlo; no crear un catalogo de temas nuevo en signals/.",
+  "dimensions": {
+    "direction": [
+      "increase",
+      "decrease",
+      "new",
+      "removed",
+      "stable",
+      "accelerating",
+      "decelerating",
+      "unknown"
+    ],
+    "provenance": {
+      "values": [
+        "observed",
+        "derived",
+        "estimated",
+        "projected",
+        "inferred"
+      ],
+      "note": "Procedencia epistemologica del valor que origina la senal. La mayoria de los monitores automatizados producen 'observed'; una fuente manual con extraccion propia puede producir 'derived'."
+    },
+    "status": {
+      "values": [
+        "detected",
+        "validated",
+        "active",
+        "expired",
+        "superseded",
+        "dismissed"
+      ],
+      "note": "Estado de la senal en si misma. No confundir con un estado de notificacion al usuario (eso pertenece a una capa posterior)."
+    }
+  }
+}

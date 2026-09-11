@@ -1,0 +1,103 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Un change_class de monitoring/ no se convierte automaticamente en senal. Estas reglas determinan, para cada change_class relevante, si corresponde estructurar una senal, con que signal_type, o si el cambio queda sin senal / pendiente de umbral / pendiente de validacion.",
+  "excluded_change_classes": {
+    "values": [
+      "sin_cambio",
+      "fuente_no_disponible",
+      "error_de_adquisicion"
+    ],
+    "reason": "Son estados tecnicos de adquisicion (ver monitoring/change-detection.json), no eventos productivos. Se conservan para observabilidad operativa; nunca se estructuran como senal (caso de prueba 4 y 5, ver README)."
+  },
+  "rules": [
+    {
+      "id": "valor-modificado-sobre-umbral",
+      "change_class": "valor_modificado",
+      "condition": "Existe un umbral definido (thresholds.json) para el dominio/actividad/indicador y la magnitud del cambio lo iguala o supera.",
+      "outcome": "signal",
+      "signal_type": "cambio-significativo"
+    },
+    {
+      "id": "valor-modificado-bajo-umbral",
+      "change_class": "valor_modificado",
+      "condition": "Existe un umbral definido y la magnitud no lo alcanza.",
+      "outcome": "no_signal",
+      "rationale": "Variacion dentro del rango esperado del indicador: ruido, no senal (caso de prueba 1)."
+    },
+    {
+      "id": "valor-modificado-sin-umbral",
+      "change_class": "valor_modificado",
+      "condition": "No existe todavia un umbral definido para ese dominio/actividad/indicador.",
+      "outcome": "pending_threshold",
+      "rationale": "No se inventa un umbral (regla explicita del prompt de construccion, seccion 7). El cambio se registra como candidato y queda pendiente hasta que thresholds.json lo defina."
+    },
+    {
+      "id": "nuevo-registro-publicacion-periodica",
+      "change_class": "nuevo_registro",
+      "condition": "El metodo de deteccion es new_document_detection: la aparicion del documento ES el objeto de monitoreo (anuario, informe, boletin).",
+      "outcome": "signal",
+      "signal_type": "nuevo-elemento"
+    },
+    {
+      "id": "nuevo-registro-dataset",
+      "change_class": "nuevo_registro",
+      "condition": "El metodo de deteccion es record_diff o new_item_detection sobre un dataset/catalogo.",
+      "outcome": "signal_candidate_requires_grouping",
+      "signal_type": "nuevo-elemento",
+      "rationale": "Cada alta puede ser relevante (p. ej. nueva habilitacion sanitaria), pero un dataset puede tener varias altas por captura. Se estructura como senal sujeta a deduplicacion/agrupacion (ver 'deduplication'); filtrar por relevancia productiva especifica es tarea de relevance/, no de esta capa."
+    },
+    {
+      "id": "registro-eliminado",
+      "change_class": "registro_eliminado",
+      "condition": "record_diff detecta la baja de un registro presente en la captura anterior.",
+      "outcome": "signal",
+      "signal_type": "elemento-retirado"
+    },
+    {
+      "id": "cambio-de-contenido-hash",
+      "change_class": "cambio_de_contenido",
+      "condition": "Detectado por hash_comparison sobre un documento o pagina sin estructura de registros.",
+      "outcome": "pending_validation",
+      "rationale": "hash_comparison detecta cualquier cambio de bytes, incluida una reformulacion cosmetica o una republicacion (ver manual-capture-workflow.json: 'un PDF nuevo no implica cambio de informacion'). No se promueve a senal sin confirmar que cambio el contenido sustantivo."
+    },
+    {
+      "id": "cambio-de-contenido-estructural",
+      "change_class": "cambio_de_contenido",
+      "condition": "Detectado por structural_diff (JSON/XML con esquema propio).",
+      "outcome": "signal",
+      "signal_type": "cambio-estructural"
+    },
+    {
+      "id": "estructura-modificada",
+      "change_class": "estructura_modificada",
+      "condition": "structural_diff detecta cambio de esquema (campo agregado, quitado o de tipo modificado).",
+      "outcome": "signal",
+      "signal_type": "cambio-estructural"
+    },
+    {
+      "id": "tendencia-por-persistencia",
+      "change_class": "n/a - deriva de una secuencia de senales ya estructuradas, no de un change_class individual",
+      "condition": ">=3 senales consecutivas de tipo cambio-significativo, mismo monitor_id + mismo indicador + misma direction, sin reversion intermedia, dentro de una ventana de observacion.",
+      "outcome": "signal",
+      "signal_type": "tendencia",
+      "rationale": "Distingue cambio puntual de tendencia. No usa estadistica compleja: es un conteo de persistencia direccional (seccion 13 del prompt).",
+      "note": "El minimo de 3 observaciones y la ventana son un valor estructural por defecto, ajustable por dominio/indicador cuando haya evidencia (ver thresholds.json). No se afirma tendencia con menos de 3 observaciones (caso de prueba: ver README)."
+    }
+  ],
+  "deduplication": {
+    "key": [
+      "monitor_id",
+      "indicator_or_resource_id",
+      "period_compared",
+      "direction"
+    ],
+    "rule": "Una nueva captura con el mismo change_class, el mismo resultado y la misma clave de deduplicacion que la ultima senal activa no genera una senal nueva: se trata como persistencia de la senal existente (ver signal-types.json: dimensions.status).",
+    "applies_especially_to": "Fuentes de alta frecuencia (daily / every_6_hours) con condicion persistente (p. ej. una sequia que continua varias semanas). Caso de prueba 6 del prompt de construccion."
+  },
+  "grouping": {
+    "allowed": true,
+    "condition": "Varios cambios distintos (distinto monitor_id) referidos al mismo dominio/actividad y periodo pueden agruparse compartiendo un grouping_id, conservando cada change_id original.",
+    "prohibited": "Afirmar una relacion causal entre los cambios agrupados (seccion 21 del prompt: no inferir causalidad por simultaneidad).",
+    "example": "precio de hacienda sube + tipo de cambio sube en la misma semana -> dos senales con un grouping_id comun, sin afirmar que una causo la otra."
+  }
+}

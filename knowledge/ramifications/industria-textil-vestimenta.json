@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 26,
+  "ramification_count": 31,
   "ramifications": [
     {
       "id": "oferta-lana",
@@ -260,6 +260,52 @@
       "children": []
     },
     {
+      "id": "vc-proveedores-ganaderia-ovina",
+      "name": "Abastecimiento de lana sucia",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "ganaderia-ovina"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Lavado, peinado, hilado, tejido y confección",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de tops y tejidos",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "China, Unión Europea",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
       "id": "mercados-destino-lana",
       "name": "Mercados-destino",
       "category": "markets",
@@ -371,6 +417,17 @@
           ]
         }
       ]
+    },
+    {
+      "id": "precio-lana-en-australia",
+      "name": "Precio de referencia de la lana (Australia)",
+      "category": "strategic_signals",
+      "signal_type": "precios",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
     }
   ]
 }

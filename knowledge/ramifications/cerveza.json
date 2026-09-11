@@ -4,193 +4,105 @@
   "sector_id": "industria-manufacturera",
   "level": "subactivity",
   "parent_activity_id": "bebidas",
-  "ramification_count": 14,
-  "ramifications": [
-    {
-      "id": "consumo-interno",
-      "name": "Consumo interno",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "cerveza-artesanal",
-          "name": "Crecimiento del segmento artesanal",
-          "category": "demand_factors",
-          "relation": "opportunity",
-          "direction": "indirect",
-          "relevance": "medium",
-          "depth": 2,
-          "children": []
-        },
-        {
-          "id": "habitos-de-consumo",
-          "name": "Cambios en hábitos de consumo de alcohol",
-          "category": "demand_factors",
-          "relation": "impact",
-          "direction": "indirect",
-          "relevance": "medium",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "estacionalidad",
-      "name": "Estacionalidad",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "costo-malta",
-      "name": "Costo malta",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "cebada-cervecera-local",
-          "name": "Contratos de cebada cervecera nacional",
-          "category": "suppliers",
-          "relation": "supplier",
-          "direction": "direct",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "malta",
-      "name": "Malta cervecera",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "lupulo",
-      "name": "Lúpulo",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "agua",
-      "name": "Agua",
-      "category": "resources",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "levadura",
-      "name": "Levadura",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "envases",
-      "name": "Envases",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cultivo-cereales-invierno",
-      "name": "Cultivo de cereales de invierno",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "cultivo-cereales-invierno",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "turismo-rural-naturaleza",
-      "name": "Turismo rural y de naturaleza",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "turismo-rural-naturaleza",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "comercio-minorista",
-      "name": "Comercio minorista",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "comercio-minorista",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "salario-real",
-      "name": "Salario real",
-      "category": "labor_factors",
-      "relation": "dependency",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "impuestos-especificos",
-      "name": "Impuestos específicos (IMESI)",
-      "category": "regulatory_factors",
-      "relation": "regulation",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "cambios-imesi",
-          "name": "Cambios en el IMESI a bebidas alcohólicas",
-          "category": "regulatory_factors",
-          "relation": "regulation",
-          "direction": "direct",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    }
-  ]
+  "inherits_from": "bebidas",
+  "inherited_ramifications": 8,
+  "own_ramifications": 3,
+  "effective_ramification_count": 35,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "costo-malta",
+        "name": "Costo malta",
+        "category": "cost_factors",
+        "relation": "cost",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "cebada-cervecera-local",
+            "name": "Contratos de cebada cervecera nacional",
+            "category": "suppliers",
+            "relation": "supplier",
+            "direction": "direct",
+            "relevance": "high",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "lupulo",
+        "name": "Lúpulo",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "levadura",
+        "name": "Levadura",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [],
+    "modify": [
+      {
+        "id": "consumo-interno",
+        "reason": "ajuste específico de la subactividad",
+        "children": [
+          {
+            "id": "cerveza-artesanal",
+            "name": "Crecimiento del segmento artesanal",
+            "category": "demand_factors",
+            "relation": "opportunity",
+            "direction": "indirect",
+            "relevance": "medium",
+            "depth": 2,
+            "children": []
+          },
+          {
+            "id": "habitos-de-consumo",
+            "name": "Cambios en hábitos de consumo de alcohol",
+            "category": "demand_factors",
+            "relation": "impact",
+            "direction": "indirect",
+            "relevance": "medium",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "cultivo-cereales-invierno",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium",
+        "relation": "related_activity",
+        "category": "related_activities"
+      },
+      {
+        "id": "impuestos-especificos",
+        "reason": "ajuste específico de la subactividad",
+        "children": [
+          {
+            "id": "cambios-imesi",
+            "name": "Cambios en el IMESI a bebidas alcohólicas",
+            "category": "regulatory_factors",
+            "relation": "regulation",
+            "direction": "direct",
+            "relevance": "high",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
 }

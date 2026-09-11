@@ -4,7 +4,7 @@
   "sector_id": "forestal-celulosa",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 36,
+  "ramification_count": 37,
   "ramifications": [
     {
       "id": "clima",
@@ -376,6 +376,17 @@
       "relation": "dependency",
       "direction": "direct",
       "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "expansion-de-area-forestada",
+      "name": "Expansión o retracción del área forestada",
+      "category": "strategic_signals",
+      "signal_type": "oferta",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "medium",
       "depth": 1,
       "children": []
     }

@@ -4,7 +4,7 @@
   "sector_id": "pesca-acuicultura",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 24,
+  "ramification_count": 28,
   "ramifications": [
     {
       "id": "abastecimiento-materia-prima",
@@ -247,6 +247,52 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-pesca-industrial",
+      "name": "Abastecimiento de pescado fresco",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "pesca-industrial"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Fileteado, congelado y conservas",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de productos pesqueros",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Brasil, Unión Europea, África, China",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

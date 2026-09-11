@@ -4,7 +4,7 @@
   "sector_id": "logistica-transporte",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 29,
+  "ramification_count": 28,
   "ramifications": [
     {
       "id": "dragado",
@@ -294,19 +294,10 @@
       "children": []
     },
     {
-      "id": "nueva-terminal-o-concesion",
-      "name": "Nueva terminal o cambio de concesión",
-      "category": "strategic_signals",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
       "id": "movimiento-de-contenedores",
       "name": "Movimiento mensual de contenedores y graneles",
       "category": "strategic_signals",
+      "signal_type": "comercio-exterior",
       "relation": "impact",
       "direction": "indirect",
       "relevance": "high",
@@ -317,6 +308,7 @@
       "id": "inversiones-portuarias-regionales",
       "name": "Inversiones portuarias en la región",
       "category": "strategic_signals",
+      "signal_type": "competencia",
       "relation": "risk",
       "direction": "indirect",
       "relevance": "medium",

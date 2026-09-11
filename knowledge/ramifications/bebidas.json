@@ -4,7 +4,7 @@
   "sector_id": "industria-manufacturera",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 28,
+  "ramification_count": 32,
   "ramifications": [
     {
       "id": "consumo-interno",
@@ -287,6 +287,52 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-cultivo-cereales-invierno",
+      "name": "Insumos: malta, uva, concentrados y envases",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "cultivo-cereales-invierno"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Fermentación, carbonatación y embotellado",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-distribucion-comercio-minorista",
+      "name": "Distribución y venta minorista",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-minorista"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Mercado interno",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

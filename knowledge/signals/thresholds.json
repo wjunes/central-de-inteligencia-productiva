@@ -1,0 +1,41 @@
+{
+  "generated": "2026-09-11",
+  "principle": "Los tipos de umbral (absolute_threshold, relative_threshold, percentage_threshold, minimum_variation) estan definidos en monitoring/change-detection.json y no se redefinen aqui. Este archivo fija valores solo donde hay base objetiva; donde no la hay, el caso queda pendiente en vez de inventar un numero (regla explicita del prompt, seccion 7).",
+  "threshold_types_ref": "knowledge/monitoring/change-detection.json#thresholds.types",
+  "noise_floor": {
+    "applies_to": "value_comparison",
+    "type": "minimum_variation",
+    "rule": "Un valor_modificado con variacion menor a la precision/resolucion reportada por la fuente (p. ej. redondeo) se descarta antes de evaluar cualquier otro umbral.",
+    "rationale": "Piso tecnico de calidad de dato, no un umbral de negocio. Evita falsas senales por ruido de captura."
+  },
+  "profiles_by_volatility": {
+    "note": "monitors.json ya calcula volatility (high/medium/low/event) via priority x volatility. Sirve de guia de orden de magnitud mientras no exista un umbral especifico por indicador.",
+    "high": {
+      "suggested_threshold_type": "percentage_threshold",
+      "status": "pending_definition_per_indicator"
+    },
+    "medium": {
+      "suggested_threshold_type": "percentage_threshold",
+      "status": "pending_definition_per_indicator"
+    },
+    "low": {
+      "suggested_threshold_type": "relative_threshold",
+      "status": "pending_definition_per_indicator"
+    },
+    "event": {
+      "suggested_threshold_type": "n/a",
+      "status": "cualquier ocurrencia del evento es candidata a senal; no es un umbral de magnitud"
+    }
+  },
+  "overrides": [],
+  "overrides_schema": {
+    "domain_id": "id de knowledge/domain-names/",
+    "activity_id": "id de knowledge/activities/ (opcional, mas especifico que domain_id)",
+    "indicator": "nombre del indicador o variable dentro del recurso monitoreado",
+    "threshold_type": "uno de threshold_types_ref",
+    "value": "valor numerico o expresion",
+    "direction": "opcional: solo aplica a increase/decrease",
+    "source_of_value": "quien o que justifico el numero (obligatorio si value esta presente)"
+  },
+  "why_empty": "No se fijo ningun valor numerico por dominio/actividad/indicador en esta etapa: ninguna capa anterior registra series historicas ni volatilidad medida (solo una clasificacion cualitativa high/medium/low en monitoring/). Fijar un numero sin esa base seria inventar el umbral. El esquema queda listo para completarse incrementalmente (ver gaps.json)."
+}

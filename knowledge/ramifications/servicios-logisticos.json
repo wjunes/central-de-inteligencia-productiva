@@ -4,7 +4,7 @@
   "sector_id": "logistica-transporte",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 21,
+  "ramification_count": 25,
   "ramifications": [
     {
       "id": "comercio-exterior",
@@ -217,6 +217,52 @@
       "relation": "cost",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-transporte-carga-carretera",
+      "name": "Red de transporte y depósitos",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "transporte-carga-carretera"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Coordinación, despacho y distribución",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-infraestructura-puertos-terminales",
+      "name": "Terminales portuarias y zonas francas",
+      "category": "value_chain",
+      "stage": "infraestructura",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "puertos-terminales"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Comercio exterior y distribución regional",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

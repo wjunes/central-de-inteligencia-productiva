@@ -4,7 +4,7 @@
   "sector_id": "logistica-transporte",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 20,
+  "ramification_count": 24,
   "ramifications": [
     {
       "id": "precio-combustible",
@@ -206,6 +206,52 @@
       "name": "Normativa sectorial",
       "category": "regulatory_factors",
       "relation": "regulation",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-combustibles",
+      "name": "Combustible, neumáticos y unidades",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "combustibles"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Operación de flota y viajes",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-clientes-agricultura-secano",
+      "name": "Cargas del agro, forestal e industria",
+      "category": "value_chain",
+      "stage": "clientes",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "agricultura-secano"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Comercio interno y regional (Mercosur)",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
       "direction": "direct",
       "relevance": "high",
       "depth": 1,

@@ -1,0 +1,144 @@
+{
+  "generated": "2026-09-10",
+  "domains_without_full_coverage": [
+    {
+      "domain": "adopcion-tecnologica-y-digitalizacion",
+      "type": "tecnologico",
+      "coverage": "partial",
+      "activities_affected": [
+        "servicios-tecnicos-agroveterinarios"
+      ],
+      "note": "Sin fuente cuantitativa periódica específica; se infiere de ANII (bienal) y CUTI. Cobertura parcial."
+    },
+    {
+      "domain": "almacenaje-y-cadena-de-frio",
+      "type": "logistico",
+      "coverage": "partial",
+      "activities_affected": [
+        "acopio-granos",
+        "agricultura-secano",
+        "citricultura",
+        "cultivo-cereales-invierno",
+        "cultivo-maiz-sorgo",
+        "cultivo-soja",
+        "fruticultura",
+        "pesca-artesanal"
+      ],
+      "note": "No hay fuente pública de capacidad instalada de frío y depósitos; se infiere de ANP (portuario) y del régimen de zonas francas."
+    },
+    {
+      "domain": "costos-de-materiales-de-construccion",
+      "type": "economico",
+      "coverage": "partial",
+      "activities_affected": [
+        "construccion-edificios",
+        "instalaciones-terminaciones",
+        "muebles"
+      ],
+      "note": "ICC del INE cubre el índice agregado; falta desglose de precios por material. Cámara de la Construcción complementa parcialmente."
+    },
+    {
+      "domain": "disponibilidad-de-talento-especializado",
+      "type": "transversal",
+      "coverage": "partial",
+      "activities_affected": [
+        "industrias-creativas",
+        "servicios-audiovisuales",
+        "servicios-globales-exportacion",
+        "software-ti"
+      ],
+      "note": "CUTI e INEFOP dan señales; falta un observatorio de brechas de talento con frecuencia alta."
+    },
+    {
+      "domain": "fletes-y-logistica-internacional",
+      "type": "logistico",
+      "coverage": "partial",
+      "activities_affected": [
+        "agricultura-secano",
+        "cultivo-cereales-invierno",
+        "cultivo-maiz-sorgo",
+        "cultivo-soja",
+        "puertos-terminales",
+        "servicios-logisticos",
+        "transporte-maritimo-fluvial"
+      ],
+      "note": "Índice FBX de consulta libre; series históricas y detalle por ruta son de pago. Sin fuente automatizable completa."
+    },
+    {
+      "domain": "inteligencia-artificial-y-automatizacion",
+      "type": "tecnologico",
+      "coverage": "partial",
+      "activities_affected": [
+        "software-ti"
+      ],
+      "note": "Sin fuente nacional específica; contexto internacional disperso. Gap estructural, prioridad baja en esta etapa."
+    },
+    {
+      "domain": "mercado-de-carbono-y-sostenibilidad",
+      "type": "mercado",
+      "coverage": "partial",
+      "activities_affected": [
+        "apicultura",
+        "avicultura",
+        "cosecha-forestal",
+        "ganaderia",
+        "ganaderia-bovina-carne",
+        "ganaderia-ovina",
+        "ganaderia-porcina",
+        "plantaciones-forestales",
+        "servicios-ambientales",
+        "silvicultura"
+      ],
+      "note": "Precios del mercado voluntario poco transparentes; registros (Verra, Gold Standard) dan volúmenes pero no precio homogéneo."
+    },
+    {
+      "domain": "precios-de-metales-y-siderurgia",
+      "type": "economico",
+      "coverage": "partial",
+      "activities_affected": [
+        "industria-electrica-electronica",
+        "industria-metalica",
+        "maquinaria-equipo",
+        "material-transporte",
+        "obras-infraestructura"
+      ],
+      "note": "Precio de acero y metales: LME y worldsteel son de pago o poco granulares en abierto. Proxy: Pink Sheet del Banco Mundial."
+    },
+    {
+      "domain": "precios-de-plasticos-y-quimicos",
+      "type": "economico",
+      "coverage": "partial",
+      "activities_affected": [
+        "agroquimicos-fertilizantes",
+        "farmaceutica",
+        "industria-quimica",
+        "plasticos-caucho",
+        "productos-quimicos-diversos",
+        "tableros-madera"
+      ],
+      "note": "Sin fuente libre de precio de referencia de resinas y petroquímicos. Proxy: Pink Sheet del Banco Mundial (parcial) + reportes de empresas."
+    },
+    {
+      "domain": "transporte-carretero",
+      "type": "logistico",
+      "coverage": "partial",
+      "activities_affected": [
+        "transporte-carga-carretera"
+      ],
+      "note": "MTOP cubre infraestructura y tránsito; los costos operativos del transporte de carga se estiman por gremiales privadas, sin serie pública estable."
+    }
+  ],
+  "notes_by_domain": {
+    "precios-de-plasticos-y-quimicos": "Sin fuente libre de precio de referencia de resinas y petroquímicos. Proxy: Pink Sheet del Banco Mundial (parcial) + reportes de empresas.",
+    "precios-de-metales-y-siderurgia": "Precio de acero y metales: LME y worldsteel son de pago o poco granulares en abierto. Proxy: Pink Sheet del Banco Mundial.",
+    "precios-internacionales-de-commodities": "Cobertura buena para carne (INAC), lácteos (INALE/GDT), granos (USDA/FAO), petróleo (EIA) y agregados (Pink Sheet). Débil para celulosa (solo servicios de pago FOEX/PIX; proxy en reportes de UPM/Montes del Plata).",
+    "fletes-y-logistica-internacional": "Índice FBX de consulta libre; series históricas y detalle por ruta son de pago. Sin fuente automatizable completa.",
+    "mercado-de-carbono-y-sostenibilidad": "Precios del mercado voluntario poco transparentes; registros (Verra, Gold Standard) dan volúmenes pero no precio homogéneo.",
+    "adopcion-tecnologica-y-digitalizacion": "Sin fuente cuantitativa periódica específica; se infiere de ANII (bienal) y CUTI. Cobertura parcial.",
+    "inteligencia-artificial-y-automatizacion": "Sin fuente nacional específica; contexto internacional disperso. Gap estructural, prioridad baja en esta etapa.",
+    "costos-de-materiales-de-construccion": "ICC del INE cubre el índice agregado; falta desglose de precios por material. Cámara de la Construcción complementa parcialmente.",
+    "transporte-carretero": "MTOP cubre infraestructura y tránsito; los costos operativos del transporte de carga se estiman por gremiales privadas, sin serie pública estable.",
+    "disponibilidad-de-talento-especializado": "CUTI e INEFOP dan señales; falta un observatorio de brechas de talento con frecuencia alta.",
+    "almacenaje-y-cadena-de-frio": "No hay fuente pública de capacidad instalada de frío y depósitos; se infiere de ANP (portuario) y del régimen de zonas francas."
+  }
+}

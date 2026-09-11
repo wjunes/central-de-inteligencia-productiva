@@ -4,220 +4,107 @@
   "sector_id": "industria-manufacturera",
   "level": "subactivity",
   "parent_activity_id": "industria-quimica",
-  "ramification_count": 21,
-  "ramifications": [
-    {
-      "id": "insumos-importados",
-      "name": "Insumos importados",
-      "category": "resources",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "consumo-interno",
-      "name": "Consumo interno",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "costo-energia",
-      "name": "Costo de la energía",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "resinas",
-      "name": "Resinas",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "solventes",
-      "name": "Solventes",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tensioactivos",
-      "name": "Tensioactivos",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "envases",
-      "name": "Envases",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "construccion-edificios",
-      "name": "Construcción de edificios",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "construccion-edificios",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "comercio-minorista",
-      "name": "Comercio minorista",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "comercio-minorista",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "plasticos-caucho",
-      "name": "Productos de plástico y caucho",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "plasticos-caucho",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "regional-mercosur",
-      "name": "Regional mercosur",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "pinturas",
-      "name": "Pinturas",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "adhesivos",
-      "name": "Adhesivos",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "detergentes",
-      "name": "Detergentes",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cosmeticos",
-      "name": "Cosmeticos",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "gases-industriales",
-      "name": "Gases industriales",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tipo-de-cambio",
-      "name": "Tipo de cambio",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precios-internacionales",
-      "name": "Precios internacionales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "caida-de-precios-internacionales",
-      "name": "Caída sostenida de precios internacionales",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "suba-sostenida-de-precios",
-      "name": "Suba sostenida de precios internacionales",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "industria-quimica",
+  "inherited_ramifications": 12,
+  "own_ramifications": 9,
+  "effective_ramification_count": 36,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "consumo-interno",
+        "name": "Consumo interno",
+        "category": "demand_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "resinas",
+        "name": "Resinas",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "solventes",
+        "name": "Solventes",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "tensioactivos",
+        "name": "Tensioactivos",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "construccion-edificios",
+        "name": "Construcción de edificios",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "construccion-edificios",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "comercio-minorista",
+        "name": "Comercio minorista",
+        "category": "customers",
+        "relation": "customer",
+        "target_activity_id": "comercio-minorista",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "plasticos-caucho",
+        "name": "Productos de plástico y caucho",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "plasticos-caucho",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "adhesivos",
+        "name": "Adhesivos",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "cosmeticos",
+        "name": "Cosmeticos",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [],
+    "modify": []
+  }
 }

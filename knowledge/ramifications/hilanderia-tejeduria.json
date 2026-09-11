@@ -4,209 +4,99 @@
   "sector_id": "industria-manufacturera",
   "level": "subactivity",
   "parent_activity_id": "industria-textil-vestimenta",
-  "ramification_count": 20,
-  "ramifications": [
-    {
-      "id": "costo-energia",
-      "name": "Costo de la energía",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "escala-produccion",
-      "name": "Escala producción",
-      "category": "resources",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tops-lana",
-      "name": "Tops lana",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "fibras",
-      "name": "Fibras",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "colorantes",
-      "name": "Colorantes",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "energia",
-      "name": "Energía",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "lavaderos-tops-lana",
-      "name": "Lavado y peinado de lana",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "lavaderos-tops-lana",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "confeccion-prendas",
-      "name": "Confección de prendas",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "confeccion-prendas",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "exportacion",
-      "name": "Exportación",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "hilados",
-      "name": "Hilados",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tejidos-plano",
-      "name": "Tejidos plano",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tejidos-punto",
-      "name": "Tejidos punto",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precios-internacionales",
-      "name": "Precios internacionales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tipo-de-cambio",
-      "name": "Tipo de cambio",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "costos-laborales",
-      "name": "Costos laborales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cierre-o-restriccion-de-mercados",
-      "name": "Cierre o restricción de mercados de exportación",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "apertura-de-nuevos-mercados",
-      "name": "Apertura de nuevos mercados",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "caida-de-precios-internacionales",
-      "name": "Caída sostenida de precios internacionales",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "suba-sostenida-de-precios",
-      "name": "Suba sostenida de precios internacionales",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "industria-textil-vestimenta",
+  "inherited_ramifications": 11,
+  "own_ramifications": 7,
+  "effective_ramification_count": 38,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "costo-energia",
+        "name": "Costo de la energía",
+        "category": "cost_factors",
+        "relation": "cost",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "escala-produccion",
+        "name": "Escala producción",
+        "category": "resources",
+        "relation": "dependency",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "fibras",
+        "name": "Fibras",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "lavaderos-tops-lana",
+        "name": "Lavado y peinado de lana",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "lavaderos-tops-lana",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "confeccion-prendas",
+        "name": "Confección de prendas",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "confeccion-prendas",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "tejidos-plano",
+        "name": "Tejidos plano",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "tejidos-punto",
+        "name": "Tejidos punto",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [],
+    "modify": [
+      {
+        "id": "tops-lana",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium",
+        "relation": "input",
+        "category": "inputs"
+      },
+      {
+        "id": "exportacion",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "high"
+      }
+    ]
+  }
 }

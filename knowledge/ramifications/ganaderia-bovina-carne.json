@@ -4,327 +4,106 @@
   "sector_id": "agropecuario",
   "level": "subactivity",
   "parent_activity_id": "ganaderia",
-  "ramification_count": 31,
-  "ramifications": [
-    {
-      "id": "pasturas",
-      "name": "Pasturas",
-      "category": "resources",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "clima",
-      "name": "Clima",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "sanidad-animal",
-      "name": "Sanidad animal",
-      "category": "sanitary_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "trazabilidad",
-      "name": "Trazabilidad",
-      "category": "regulatory_factors",
-      "relation": "regulation",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "granos-forrajeros",
-      "name": "Granos forrajeros",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "genetica-bovina",
-      "name": "Genética bovina",
-      "category": "technologies",
-      "relation": "complement",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "frigorifica",
-      "name": "Industria frigorífica",
-      "category": "customers",
-      "relation": "customer",
-      "target_activity_id": "frigorifica",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "agricultura-secano",
-      "name": "Agricultura de secano",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "agricultura-secano",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "curtiembre",
-      "name": "Curtiembres y productos de cuero",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "curtiembre",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "puertos-terminales",
-      "name": "Operación portuaria y terminales",
-      "category": "infrastructure",
-      "relation": "infrastructure",
-      "target_activity_id": "puertos-terminales",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "exportacion",
-      "name": "Exportación",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "carne-bovina",
-      "name": "Carne bovina",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "ganado-en-pie",
-      "name": "Ganado en pie",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cueros",
-      "name": "Cueros",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precios-internacionales",
-      "name": "Precios internacionales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "demanda-china",
-      "name": "Demanda de China",
-      "category": "demand_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "tipo-de-cambio",
-      "name": "Tipo de cambio",
-      "category": "economic_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "acuerdos-comerciales",
-      "name": "Acuerdos comerciales",
-      "category": "regulatory_factors",
-      "relation": "regulation",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "normativa-sanitaria",
-      "name": "Normativa sanitaria",
-      "category": "regulatory_factors",
-      "relation": "regulation",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "evento-climatico-adverso",
-      "name": "Evento climático adverso",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cierre-o-restriccion-de-mercados",
-      "name": "Cierre o restricción de mercados de exportación",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "apertura-de-nuevos-mercados",
-      "name": "Apertura de nuevos mercados",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "caida-de-precios-internacionales",
-      "name": "Caída sostenida de precios internacionales",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "suba-sostenida-de-precios",
-      "name": "Suba sostenida de precios internacionales",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "concentracion-de-la-demanda-en-china",
-      "name": "Concentración de la demanda en China",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "nuevos-acuerdos-comerciales",
-      "name": "Nuevos acuerdos comerciales",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "vc-produccion",
-      "name": "Producción de novillos y vacas para faena",
-      "category": "value_chain",
-      "stage": "produccion",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "vc-transformacion-frigorifica",
-      "name": "Faena e industrialización",
-      "category": "value_chain",
-      "stage": "transformacion",
-      "relation": "related_activity",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": [],
-      "target_activity_id": "frigorifica"
-    },
-    {
-      "id": "vc-distribucion-puertos-terminales",
-      "name": "Logística portuaria de exportación",
-      "category": "value_chain",
-      "stage": "distribucion",
-      "relation": "related_activity",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [],
-      "target_activity_id": "puertos-terminales"
-    },
-    {
-      "id": "vc-mercado",
-      "name": "China, Unión Europea, Estados Unidos, Mercosur",
-      "category": "value_chain",
-      "stage": "mercado",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "ganaderia",
+  "inherited_ramifications": 22,
+  "own_ramifications": 7,
+  "effective_ramification_count": 49,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "trazabilidad",
+        "name": "Trazabilidad",
+        "category": "regulatory_factors",
+        "relation": "regulation",
+        "direction": "direct",
+        "relevance": "critical",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "genetica-bovina",
+        "name": "Genética bovina",
+        "category": "technologies",
+        "relation": "complement",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "puertos-terminales",
+        "name": "Operación portuaria y terminales",
+        "category": "infrastructure",
+        "relation": "infrastructure",
+        "target_activity_id": "puertos-terminales",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "acuerdos-comerciales",
+        "name": "Acuerdos comerciales",
+        "category": "regulatory_factors",
+        "relation": "regulation",
+        "direction": "indirect",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "nuevos-acuerdos-comerciales",
+        "name": "Nuevos acuerdos comerciales",
+        "category": "opportunities",
+        "relation": "opportunity",
+        "direction": "indirect",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "vc-distribucion-puertos-terminales",
+        "name": "Logística portuaria de exportación",
+        "category": "value_chain",
+        "stage": "distribucion",
+        "relation": "related_activity",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": [],
+        "target_activity_id": "puertos-terminales"
+      },
+      {
+        "id": "ciclo-ganadero-regional",
+        "name": "Fase del ciclo ganadero en la región",
+        "category": "strategic_signals",
+        "signal_type": "oferta",
+        "relation": "impact",
+        "direction": "indirect",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [],
+    "modify": [
+      {
+        "id": "pasturas",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "high"
+      },
+      {
+        "id": "agricultura-secano",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium"
+      },
+      {
+        "id": "curtiembre",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium",
+        "relation": "related_activity",
+        "category": "related_activities"
+      }
+    ]
+  }
 }

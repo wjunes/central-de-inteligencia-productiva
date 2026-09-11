@@ -4,7 +4,7 @@
   "sector_id": "energia",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 23,
+  "ramification_count": 27,
   "ramifications": [
     {
       "id": "hidrologia",
@@ -232,9 +232,55 @@
       "children": []
     },
     {
+      "id": "vc-insumos",
+      "name": "Recurso hídrico, eólico, solar, biomasa y combustibles",
+      "category": "value_chain",
+      "stage": "insumos",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Generación y despacho",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-transporte-transmision-distribucion-electrica",
+      "name": "Transmisión y distribución",
+      "category": "value_chain",
+      "stage": "transporte",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "transmision-distribucion-electrica"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Demanda interna y exportación a la región",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
       "id": "nueva-demanda-de-data-centers",
       "name": "Nueva demanda de data centers e hidrógeno verde",
       "category": "strategic_signals",
+      "signal_type": "demanda",
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "high",
@@ -245,6 +291,7 @@
       "id": "pronostico-hidrologico",
       "name": "Pronóstico hidrológico y de El Niño / La Niña",
       "category": "strategic_signals",
+      "signal_type": "clima-agua",
       "relation": "impact",
       "direction": "indirect",
       "relevance": "critical",

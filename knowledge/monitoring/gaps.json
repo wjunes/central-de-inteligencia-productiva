@@ -1,0 +1,112 @@
+{
+  "generated": "2026-09-11",
+  "source": "knowledge/sources/gaps.json",
+  "domains_without_full_coverage": [
+    {
+      "domain": "adopcion-tecnologica-y-digitalizacion",
+      "coverage": "partial",
+      "activities_affected": 1,
+      "future_signal_types_affected": [
+        "tecnologia"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "Sin fuente cuantitativa periódica específica; se infiere de ANII (bienal) y CUTI. Cobertura parcial."
+    },
+    {
+      "domain": "almacenaje-y-cadena-de-frio",
+      "coverage": "partial",
+      "activities_affected": 8,
+      "future_signal_types_affected": [
+        "infraestructura-logistica",
+        "oferta"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "No hay fuente pública de capacidad instalada de frío y depósitos; se infiere de ANP (portuario) y del régimen de zonas francas."
+    },
+    {
+      "domain": "costos-de-materiales-de-construccion",
+      "coverage": "partial",
+      "activities_affected": 3,
+      "future_signal_types_affected": [
+        "costos"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "ICC del INE cubre el índice agregado; falta desglose de precios por material. Cámara de la Construcción complementa parcialmente."
+    },
+    {
+      "domain": "disponibilidad-de-talento-especializado",
+      "coverage": "partial",
+      "activities_affected": 4,
+      "future_signal_types_affected": [
+        "empleo-talento"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "CUTI e INEFOP dan señales; falta un observatorio de brechas de talento con frecuencia alta."
+    },
+    {
+      "domain": "fletes-y-logistica-internacional",
+      "coverage": "partial",
+      "activities_affected": 7,
+      "future_signal_types_affected": [
+        "costos",
+        "infraestructura-logistica"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "Índice FBX de consulta libre; series históricas y detalle por ruta son de pago. Sin fuente automatizable completa."
+    },
+    {
+      "domain": "inteligencia-artificial-y-automatizacion",
+      "coverage": "partial",
+      "activities_affected": 1,
+      "future_signal_types_affected": [
+        "tecnologia"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "Sin fuente nacional específica; contexto internacional disperso. Gap estructural, prioridad baja en esta etapa."
+    },
+    {
+      "domain": "mercado-de-carbono-y-sostenibilidad",
+      "coverage": "partial",
+      "activities_affected": 10,
+      "future_signal_types_affected": [
+        "precios",
+        "regulacion"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "Precios del mercado voluntario poco transparentes; registros (Verra, Gold Standard) dan volúmenes pero no precio homogéneo."
+    },
+    {
+      "domain": "precios-de-metales-y-siderurgia",
+      "coverage": "partial",
+      "activities_affected": 5,
+      "future_signal_types_affected": [
+        "precios",
+        "costos"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "Precio de acero y metales: LME y worldsteel son de pago o poco granulares en abierto. Proxy: Pink Sheet del Banco Mundial."
+    },
+    {
+      "domain": "precios-de-plasticos-y-quimicos",
+      "coverage": "partial",
+      "activities_affected": 6,
+      "future_signal_types_affected": [
+        "precios",
+        "costos"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "Sin fuente libre de precio de referencia de resinas y petroquímicos. Proxy: Pink Sheet del Banco Mundial (parcial) + reportes de empresas."
+    },
+    {
+      "domain": "transporte-carretero",
+      "coverage": "partial",
+      "activities_affected": 1,
+      "future_signal_types_affected": [
+        "costos",
+        "infraestructura-logistica"
+      ],
+      "monitoring_status": "proxy_monitored",
+      "note": "MTOP cubre infraestructura y tránsito; los costos operativos del transporte de carga se estiman por gremiales privadas, sin serie pública estable."
+    }
+  ]
+}

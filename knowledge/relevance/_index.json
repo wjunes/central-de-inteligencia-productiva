@@ -1,0 +1,28 @@
+{
+  "generated": "2026-09-11",
+  "inputs": [
+    "knowledge/ramifications/*.json"
+  ],
+  "counts": {
+    "activities_total": 115,
+    "base_edges": 713,
+    "propagated_edges": 366,
+    "self_loops_excluded": 3,
+    "activity_pairs_with_relevance": 944,
+    "activity_pairs_by_level": {
+      "high": 57,
+      "low": 705,
+      "medium": 182
+    },
+    "origin_activities_with_outbound_relevance": 115,
+    "isolated_activities": 0,
+    "levels_total": 5,
+    "rule_factors_total": 4,
+    "excluded_factors": 4
+  },
+  "known_upstream_gaps": {
+    "domain_names": "barreras-y-requisitos-de-acceso (ver sources/README.md) - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics del catálogo sin fuente/dominio asociado (ver signals/gaps.json.additional_gap_detected) - no corregido aquí"
+  },
+  "validation_errors": []
+}

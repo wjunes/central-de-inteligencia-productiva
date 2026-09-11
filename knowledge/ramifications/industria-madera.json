@@ -4,7 +4,7 @@
   "sector_id": "forestal-celulosa",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 25,
+  "ramification_count": 32,
   "ramifications": [
     {
       "id": "abastecimiento-rolos",
@@ -257,6 +257,239 @@
       "relation": "opportunity",
       "direction": "indirect",
       "relevance": "medium",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-proveedores-silvicultura",
+      "name": "Abastecimiento de rollos de aserrío",
+      "category": "value_chain",
+      "stage": "proveedores",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "critical",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "silvicultura"
+    },
+    {
+      "id": "vc-produccion",
+      "name": "Aserrado, secado y tableros",
+      "category": "value_chain",
+      "stage": "produccion",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "vc-distribucion-puertos-terminales",
+      "name": "Logística de exportación",
+      "category": "value_chain",
+      "stage": "distribucion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "medium",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "puertos-terminales"
+    },
+    {
+      "id": "vc-comercializacion-comercio-exterior",
+      "name": "Exportación de madera y tableros",
+      "category": "value_chain",
+      "stage": "comercializacion",
+      "relation": "related_activity",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": [],
+      "target_activity_id": "comercio-exterior"
+    },
+    {
+      "id": "vc-mercado",
+      "name": "Estados Unidos, China, Mercosur",
+      "category": "value_chain",
+      "stage": "mercado",
+      "relation": "dependency",
+      "direction": "direct",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
+    },
+    {
+      "id": "mercados-destino-madera",
+      "name": "Mercados-destino",
+      "category": "markets",
+      "relation": "market",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": [
+        {
+          "id": "estados-unidos",
+          "name": "Estados Unidos",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "estados-unidos-demanda",
+              "name": "Demanda — Estados Unidos",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-precios",
+              "name": "Precios — Estados Unidos",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Estados Unidos",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "estados-unidos-competencia",
+              "name": "Competencia de otros orígenes — Estados Unidos",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "china",
+          "name": "China",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "high",
+          "depth": 2,
+          "children": [
+            {
+              "id": "china-demanda",
+              "name": "Demanda — China",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-precios",
+              "name": "Precios — China",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — China",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "china-competencia",
+              "name": "Competencia de otros orígenes — China",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "mercosur",
+          "name": "Mercosur",
+          "category": "markets",
+          "relation": "market",
+          "direction": "indirect",
+          "relevance": "medium",
+          "depth": 2,
+          "children": [
+            {
+              "id": "mercosur-demanda",
+              "name": "Demanda — Mercosur",
+              "category": "demand_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-precios",
+              "name": "Precios — Mercosur",
+              "category": "cost_factors",
+              "relation": "impact",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-requisitos-y-barreras",
+              "name": "Requisitos y barreras de acceso — Mercosur",
+              "category": "regulatory_factors",
+              "relation": "regulation",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            },
+            {
+              "id": "mercosur-competencia",
+              "name": "Competencia de otros orígenes — Mercosur",
+              "category": "competitive_factors",
+              "relation": "competitor",
+              "direction": "indirect",
+              "relevance": "medium",
+              "depth": 3,
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ciclo-de-la-construccion-en-estados-unidos",
+      "name": "Ciclo de la construcción de viviendas en EE.UU.",
+      "category": "strategic_signals",
+      "signal_type": "demanda",
+      "relation": "impact",
+      "direction": "indirect",
+      "relevance": "high",
       "depth": 1,
       "children": []
     }

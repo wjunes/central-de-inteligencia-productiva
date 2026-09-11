@@ -1,0 +1,38 @@
+{
+  "generated": "2026-09-11",
+  "vocabulary": [
+    "realtime",
+    "hourly",
+    "every_3_hours",
+    "every_6_hours",
+    "daily",
+    "weekly",
+    "monthly",
+    "quarterly",
+    "annual",
+    "event_driven",
+    "manual"
+  ],
+  "principle": "monitor_frequency != publication_frequency_code. Se deriva de (priority x volatility), no se copia de sources/.",
+  "priority_x_volatility_table": {
+    "critical/high": "daily",
+    "critical/medium": "weekly",
+    "critical/low": "quarterly",
+    "high/high": "daily",
+    "high/medium": "weekly",
+    "high/low": "monthly",
+    "medium/high": "weekly",
+    "medium/medium": "monthly",
+    "medium/low": "quarterly",
+    "low/high": "monthly",
+    "low/medium": "quarterly",
+    "low/low": "annual"
+  },
+  "manual_cap": "Una fuente con access.automation=manual nunca se programa mas seguido que weekly.",
+  "overrides": {
+    "adme": "every_6_hours",
+    "inumet": "daily",
+    "bcu": "daily",
+    "impo": "event_driven"
+  }
+}

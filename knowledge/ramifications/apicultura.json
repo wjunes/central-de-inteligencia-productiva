@@ -4,272 +4,332 @@
   "sector_id": "agropecuario",
   "level": "subactivity",
   "parent_activity_id": "ganaderia",
-  "ramification_count": 23,
-  "ramifications": [
-    {
-      "id": "floracion",
-      "name": "Floración",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "uso-de-suelo-agricola",
-          "name": "Avance de la agricultura sobre praderas melíferas",
-          "category": "environmental_factors",
-          "relation": "risk",
-          "direction": "direct",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        },
-        {
-          "id": "monte-nativo",
-          "name": "Disponibilidad de monte nativo y eucalipto",
-          "category": "resources",
-          "relation": "dependency",
-          "direction": "direct",
-          "relevance": "medium",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "uso-agroquimicos",
-      "name": "Uso agroquimicos",
-      "category": "resources",
-      "relation": "dependency",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "clima",
-      "name": "Clima",
-      "category": "climate_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "colmenas",
-      "name": "Colmenas",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "material-apicola",
-      "name": "Material apicola",
-      "category": "inputs",
-      "relation": "input",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "sanidad-apicola",
-      "name": "Sanidad apicola",
-      "category": "sanitary_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "agricultura-secano",
-      "name": "Agricultura de secano",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "agricultura-secano",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "fruticultura",
-      "name": "Fruticultura",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "fruticultura",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "silvicultura",
-      "name": "Silvicultura y extracción de madera",
-      "category": "related_activities",
-      "relation": "related_activity",
-      "target_activity_id": "silvicultura",
-      "direction": "direct",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "exportacion",
-      "name": "Exportación",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "critical",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "mercado-interno",
-      "name": "Mercado interno",
-      "category": "markets",
-      "relation": "market",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "miel",
-      "name": "Miel",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cera",
-      "name": "Cera",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "propoleos",
-      "name": "Propoleos",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "polen",
-      "name": "Polen",
-      "category": "products",
-      "relation": "output",
-      "direction": "direct",
-      "relevance": "low",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "precios-internacionales",
-      "name": "Precios internacionales",
-      "category": "cost_factors",
-      "relation": "cost",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "sanidad-vegetal",
-      "name": "Sanidad vegetal",
-      "category": "sanitary_factors",
-      "relation": "impact",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": [
-        {
-          "id": "mortandad-por-agroquimicos",
-          "name": "Mortandad de colmenas por agroquímicos",
-          "category": "sanitary_factors",
-          "relation": "risk",
-          "direction": "direct",
-          "relevance": "high",
-          "depth": 2,
-          "children": []
-        }
-      ]
-    },
-    {
-      "id": "normativa-sanitaria",
-      "name": "Normativa sanitaria",
-      "category": "regulatory_factors",
-      "relation": "regulation",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "evento-climatico-adverso",
-      "name": "Evento climático adverso",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "direct",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "cierre-o-restriccion-de-mercados",
-      "name": "Cierre o restricción de mercados de exportación",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "apertura-de-nuevos-mercados",
-      "name": "Apertura de nuevos mercados",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "caida-de-precios-internacionales",
-      "name": "Caída sostenida de precios internacionales",
-      "category": "risks",
-      "relation": "risk",
-      "direction": "indirect",
-      "relevance": "high",
-      "depth": 1,
-      "children": []
-    },
-    {
-      "id": "suba-sostenida-de-precios",
-      "name": "Suba sostenida de precios internacionales",
-      "category": "opportunities",
-      "relation": "opportunity",
-      "direction": "indirect",
-      "relevance": "medium",
-      "depth": 1,
-      "children": []
-    }
-  ]
+  "inherits_from": "ganaderia",
+  "inherited_ramifications": 10,
+  "own_ramifications": 14,
+  "effective_ramification_count": 49,
+  "ramification_deltas": {
+    "add": [
+      {
+        "id": "floracion",
+        "name": "Floración",
+        "category": "climate_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "uso-de-suelo-agricola",
+            "name": "Avance de la agricultura sobre praderas melíferas",
+            "category": "environmental_factors",
+            "relation": "risk",
+            "direction": "direct",
+            "relevance": "high",
+            "depth": 2,
+            "children": []
+          },
+          {
+            "id": "monte-nativo",
+            "name": "Disponibilidad de monte nativo y eucalipto",
+            "category": "resources",
+            "relation": "dependency",
+            "direction": "direct",
+            "relevance": "medium",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "uso-agroquimicos",
+        "name": "Uso agroquimicos",
+        "category": "resources",
+        "relation": "dependency",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "colmenas",
+        "name": "Colmenas",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "material-apicola",
+        "name": "Material apicola",
+        "category": "inputs",
+        "relation": "input",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "sanidad-apicola",
+        "name": "Sanidad apicola",
+        "category": "sanitary_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "fruticultura",
+        "name": "Fruticultura",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "fruticultura",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "silvicultura",
+        "name": "Silvicultura y extracción de madera",
+        "category": "related_activities",
+        "relation": "related_activity",
+        "target_activity_id": "silvicultura",
+        "direction": "direct",
+        "relevance": "medium",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "miel",
+        "name": "Miel",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "cera",
+        "name": "Cera",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "propoleos",
+        "name": "Propoleos",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "polen",
+        "name": "Polen",
+        "category": "products",
+        "relation": "output",
+        "direction": "direct",
+        "relevance": "low",
+        "depth": 1,
+        "children": []
+      },
+      {
+        "id": "sanidad-vegetal",
+        "name": "Sanidad vegetal",
+        "category": "sanitary_factors",
+        "relation": "impact",
+        "direction": "direct",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "mortandad-por-agroquimicos",
+            "name": "Mortandad de colmenas por agroquímicos",
+            "category": "sanitary_factors",
+            "relation": "risk",
+            "direction": "direct",
+            "relevance": "high",
+            "depth": 2,
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "mercados-destino-miel",
+        "name": "Mercados-destino",
+        "category": "markets",
+        "relation": "market",
+        "direction": "indirect",
+        "relevance": "high",
+        "depth": 1,
+        "children": [
+          {
+            "id": "alemania",
+            "name": "Alemania",
+            "category": "markets",
+            "relation": "market",
+            "direction": "indirect",
+            "relevance": "high",
+            "depth": 2,
+            "children": [
+              {
+                "id": "alemania-demanda",
+                "name": "Demanda — Alemania",
+                "category": "demand_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "alemania-precios",
+                "name": "Precios — Alemania",
+                "category": "cost_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "alemania-requisitos-y-barreras",
+                "name": "Requisitos y barreras de acceso — Alemania",
+                "category": "regulatory_factors",
+                "relation": "regulation",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "alemania-competencia",
+                "name": "Competencia de otros orígenes — Alemania",
+                "category": "competitive_factors",
+                "relation": "competitor",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              }
+            ]
+          },
+          {
+            "id": "estados-unidos",
+            "name": "Estados Unidos",
+            "category": "markets",
+            "relation": "market",
+            "direction": "indirect",
+            "relevance": "medium",
+            "depth": 2,
+            "children": [
+              {
+                "id": "estados-unidos-demanda",
+                "name": "Demanda — Estados Unidos",
+                "category": "demand_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "estados-unidos-precios",
+                "name": "Precios — Estados Unidos",
+                "category": "cost_factors",
+                "relation": "impact",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "estados-unidos-requisitos-y-barreras",
+                "name": "Requisitos y barreras de acceso — Estados Unidos",
+                "category": "regulatory_factors",
+                "relation": "regulation",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              },
+              {
+                "id": "estados-unidos-competencia",
+                "name": "Competencia de otros orígenes — Estados Unidos",
+                "category": "competitive_factors",
+                "relation": "competitor",
+                "direction": "indirect",
+                "relevance": "medium",
+                "depth": 3,
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "residuos-y-rechazos-en-destino",
+        "name": "Detección de residuos y rechazos en mercados de destino",
+        "category": "strategic_signals",
+        "signal_type": "acceso-a-mercados",
+        "relation": "risk",
+        "direction": "indirect",
+        "relevance": "high",
+        "depth": 1,
+        "children": []
+      }
+    ],
+    "remove": [
+      {
+        "id": "pasturas",
+        "reason": "no depende de pasturas"
+      },
+      {
+        "id": "granos-forrajeros",
+        "reason": "no aplica"
+      },
+      {
+        "id": "frigorifica",
+        "reason": "no vende a frigoríficos"
+      },
+      {
+        "id": "ganado-en-pie",
+        "reason": "no aplica"
+      },
+      {
+        "id": "genetica-animal",
+        "reason": "no aplica"
+      },
+      {
+        "id": "demanda-china",
+        "reason": "principal destino es Alemania y Estados Unidos"
+      },
+      {
+        "id": "concentracion-de-la-demanda-en-china",
+        "reason": "no aplica"
+      }
+    ],
+    "modify": [
+      {
+        "id": "agricultura-secano",
+        "reason": "ajuste específico de la subactividad",
+        "relevance": "medium"
+      },
+      {
+        "id": "sanidad-animal",
+        "relevance": "high",
+        "reason": "sanidad apícola (varroa, loque), no sanidad de rodeo"
+      }
+    ]
+  }
 }

@@ -4,7 +4,7 @@
   "sector_id": "agropecuario",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 31,
+  "ramification_count": 32,
   "ramifications": [
     {
       "id": "clima",
@@ -427,6 +427,17 @@
           ]
         }
       ]
+    },
+    {
+      "id": "apertura-o-cierre-fitosanitario",
+      "name": "Aperturas o cierres fitosanitarios de mercados",
+      "category": "strategic_signals",
+      "signal_type": "acceso-a-mercados",
+      "relation": "risk",
+      "direction": "indirect",
+      "relevance": "high",
+      "depth": 1,
+      "children": []
     }
   ]
 }

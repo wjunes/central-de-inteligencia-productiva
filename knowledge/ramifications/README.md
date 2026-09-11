@@ -40,7 +40,12 @@ ramifications/
 ├── ...                         # un archivo por actividad y subactividad
 ```
 
-Un archivo por cada nodo de `activities.json` (actividades y subactividades). Las subactividades incluyen `parent_activity_id` y, salvo especialización, comparten conceptualmente las ramificaciones de su actividad madre.
+Un archivo por cada nodo de `activities.json`:
+
+- **Actividades** (`level: activity`): archivo completo con el array `ramifications`.
+- **Subactividades** (`level: subactivity`): archivo **por diferencias**. No repite las ramificaciones del padre; declara `inherits_from` y un bloque `ramification_deltas` (`add` / `remove` / `modify`). Ver *Herencia de subactividades* más abajo.
+
+Archivos meta: `_index.json` (recuento y aristas actividad↔actividad) y `_signal_types.json` (catálogo transversal de tipos de señal estratégica).
 
 ---
 
@@ -53,7 +58,7 @@ Un archivo por cada nodo de `activities.json` (actividades y subactividades). La
   "sector_id": "agropecuario",
   "level": "activity",
   "parent_activity_id": null,
-  "ramification_count": 32,
+  "ramification_count": 42,
   "ramifications": [
     {
       "id": "pasturas",
@@ -95,6 +100,7 @@ Un archivo por cada nodo de `activities.json` (actividades y subactividades). La
 - **`children`**: subramificaciones (`depth` 2 y 3). Vacío en la mayoría; se desarrolla solo donde aporta valor informativo, no por simetría entre archivos.
 - **`target_activity_id`**: presente cuando la ramificación es otra actividad de `activities.json`; se referencia por id en lugar de duplicarla. La `relation` precisa el rol: `supplier`, `customer`, `competitor`, `infrastructure`, `related_activity`, etc.
 - **`stage`**: presente solo en ramificaciones de `category: value_chain`; posición en la cadena (`proveedores`, `insumos`, `produccion`, `transformacion`, `distribucion`, `comercializacion`, `mercado`).
+- **`signal_type`**: presente solo en ramificaciones de `category: strategic_signals`; referencia un tipo del catálogo `_signal_types.json`.
 
 ### Vocabulario de `category`
 
@@ -128,11 +134,65 @@ Se identifican **situaciones a vigilar**, no recomendaciones. Una oportunidad ma
 
 ---
 
+## Señales estratégicas (`strategic_signals`)
+
+`strategic_signals` marca **tipos de cambio que conviene anticipar**. Cada señal referencia por `signal_type` un tipo del catálogo transversal y reutilizable de `_signal_types.json` (demanda, consumo, precios, costos, oferta, capacidad-productiva, inversión, comercio-exterior, acceso-a-mercados, regulación, tecnología, sustitución, competencia, infraestructura-logística, clima-agua, recursos-naturales, sanidad, financiamiento, empleo-talento).
+
+El catálogo es independiente de cada actividad: la misma taxonomía de tipos se aplicará a todas. No es una regla de alerta ni una recomendación; eso corresponde al motor de relevancia y a la capa de inteligencia.
+
+---
+
+## Herencia de subactividades
+
+Una subactividad **no copia** las ramificaciones de su actividad madre. Su archivo declara:
+
+```json
+{
+  "activity_id": "ganaderia-porcina",
+  "parent_activity_id": "ganaderia",
+  "inherits_from": "ganaderia",
+  "inherited_ramifications": 3,
+  "own_ramifications": 8,
+  "effective_ramification_count": 45,
+  "ramification_deltas": {
+    "add":    [ { ...ramificación específica de la subactividad... } ],
+    "remove": [ { "id": "exportacion", "reason": "actividad orientada al mercado interno" } ],
+    "modify": [ { "id": "frigorifica", "relevance": "high", "reason": "..." } ]
+  }
+}
+```
+
+### Resolución (para la capa `domain-names/` y el motor de relevancia)
+
+```text
+efectivas(subactividad) =
+      ramificaciones(padre)
+    − { r | r.id ∈ deltas.remove }
+    ⊕ deltas.modify        (aplica relevance / relation / category / children nuevos por id)
+    ∪ deltas.add           (ramificaciones propias que el padre no tiene)
+```
+
+Cada ramificación resultante es trazable: **heredada** (venía del padre y no fue tocada), **modificada** (heredada con ajuste), **específica** (`deltas.add`) o **excluida** (`deltas.remove`, no se monitorea).
+
+`inherited_ramifications` cuenta las que la subactividad reafirma sin cambios (no se guardan en el archivo, se resuelven desde el padre). No hay ciclos: toda subactividad hereda de una actividad de nivel 1.
+
+---
+
+## `processes`: decisión explícita
+
+`ramifications/` **no representa** `processes`. La estructura interna de cada actividad (cría, faena, molienda, etc.) ya está en `knowledge/activities/activities.json`.
+
+- `activities/` define **qué produce** una actividad y **cómo se estructura**.
+- `ramifications/` define **qué elementos externos o relacionados** pueden afectarla, complementarla o generar oportunidades.
+- `domain-names/` (etapa siguiente) derivará los universos de información monitoreables, incluidos los vinculados a procesos, a partir de `activities.json`.
+
+---
+
 ## Cómo se construyó
 
 1. Base derivada automáticamente de `knowledge/activities/activities.json`: cada identificador de relación se clasificó en `category` / `relation` / `direction` / `relevance` mediante un diccionario de factores transversales y reglas por tipo de campo.
 2. **Roles entre actividades**: las relaciones actividad↔actividad se clasificaron con una tabla de cadenas de procesamiento y sectores en `supplier`, `customer`, `competitor`, `infrastructure`, `logistics` o `related_activity`, en vez de una relación genérica única.
-3. Enriquecimiento curado (`_build/curated.json`) de ~30 actividades: subramificaciones `depth` 2‑3, cadena de valor, mercados-destino, señales estratégicas, ajustes de relevancia y riesgos/oportunidades específicos. Se priorizó la profundidad donde hay dependencia productiva, climática, energética, logística, sanitaria, regulatoria, de mercado o de costos fuerte; **no** para igualar el tamaño de los archivos.
+3. Enriquecimiento curado (`_build/curated.json`): `value_chain` en ~32 actividades con cadena identificable, `mercados-destino` en ~16 actividades exportadoras, `strategic_signals` tipadas en ~24 actividades, subramificaciones `depth` 2‑3, `subactivity_deltas` (remove/modify heredados) y ajustes de relevancia. Se priorizó la profundidad donde hay dependencia productiva, climática, energética, logística, sanitaria, regulatoria, de mercado o de costos fuerte; **no** para igualar el tamaño de los archivos.
 4. `risks` y `opportunities` generales por reglas conservadoras (clima, cierre de mercados, precios internacionales, concentración en China, exigencias ambientales, acuerdos comerciales, atracción de inversión, escasez de talento, shock de petróleo) solo cuando la actividad tiene el factor asociado.
 
 El mapa es **reproducible**: `python knowledge/ramifications/_build/generate.py` regenera todos los archivos a partir de `activities.json` + `curated.json`.
@@ -153,8 +213,12 @@ Datos, series, precios, indicadores, normativa detallada, fuentes por actividad,
 
 ---
 
+## Estado
+
+`knowledge/ramifications/` queda **cerrado como capa estructural**: cobertura, roles entre actividades, cadena de valor, mercados-destino, catálogo de señales y herencia de subactividades están resueltos. Lo que falta es población de detalle, que corresponde a capas posteriores.
+
 ## Próximos pasos
 
-- `domain-names/`: dominios de conocimiento y fuentes asociados a cada ramificación.
+- `domain-names/`: universos de información y fuentes por ramificación; derivará también dominios de proceso desde `activities.json`.
 - `relationships/`: consolidación del grafo productivo (aristas actividad↔actividad de `_index.json`).
-- Motor de relevancia: fórmula que combine `relevance`, `direction`, `depth` y perfil del usuario.
+- Motor de relevancia: fórmula que combine `relevance`, `direction`, `depth`, resolución de herencia y perfil del usuario.

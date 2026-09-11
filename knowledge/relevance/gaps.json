@@ -1,0 +1,59 @@
+{
+  "generated": "2026-09-11",
+  "principle": "No se asigna relevancia artificial cuando falta evidencia estructural suficiente (prompt §37, Caso 10).",
+  "isolated_activities": {
+    "count": 0,
+    "ids": [],
+    "meaning": "Actividades sin ninguna arista cruzada (ni como origen ni como destino) en ramifications/. Una señal originada en ellas solo puede evaluarse con direct_dependency (sobre sí mismas) y domain_coexposure (vía dominios compartidos); no hay propagación estructural a otras actividades.",
+    "corregido_en_esta_tarea": false
+  },
+  "self_loop_anomaly": {
+    "count": 3,
+    "entries": [
+      {
+        "activity": "agencias-operadores",
+        "ramification_id": "vc-operacion-agencias-operadores",
+        "category": "value_chain"
+      },
+      {
+        "activity": "alojamiento",
+        "ramification_id": "vc-servicios-alojamiento",
+        "category": "value_chain"
+      },
+      {
+        "activity": "cosecha-forestal",
+        "ramification_id": "vc-cosecha-cosecha-forestal",
+        "category": "value_chain"
+      }
+    ],
+    "gap": "GAP DETECTADO",
+    "capa": "ramifications/ (heredado, capa cerrada)",
+    "elemento": "3 nodos de value_chain con target_activity_id igual a su propia actividad de origen (agencias-operadores, alojamiento, cosecha-forestal).",
+    "motivo": "Etapa de la propia cadena de valor etiquetada con target_activity_id apuntando a la misma actividad, en vez de omitir el campo (como en el resto de los nodos value_chain de etapa propia).",
+    "impacto": "Ninguno sobre relevance/: estos 3 casos se excluyen explícitamente del grafo (un origin==target no aporta relevancia hacia una OTRA actividad).",
+    "correccion_propuesta": "Quitar target_activity_id de esos 3 nodos en una futura revisión de ramifications/ (no se modifica aquí).",
+    "corregido_en_esta_tarea": false
+  },
+  "market_exposure_granularity": {
+    "gap": "GAP DETECTADO",
+    "capa": "sources/ y domain-names/ (heredado)",
+    "elemento": "Exposición a mercado por actividad individual.",
+    "motivo": "sources.json[].markets existe a nivel de FUENTE (~10 de 77), y domain-names/mercados.json#mercados-destino.market_dimensions existe a nivel de DOMINIO; no existe un campo 'actividad expuesta a mercado X' a nivel de ramifications/ o activities/.",
+    "impacto": "La regla market_exposure de rules.json solo puede aplicarse de forma aproximada (vía la lista sources.json[source].activities de una fuente con markets), no de forma precisa por actividad.",
+    "correccion_propuesta": "Si se necesita precisión, agregar una exposición de mercado explícita en una futura revisión de ramifications/ o activities/ (no se modifica aquí).",
+    "corregido_en_esta_tarea": false
+  },
+  "relations_without_target_ramification": {
+    "gap": "GAP DETECTADO",
+    "capa": "ramifications/ (heredado, capa cerrada)",
+    "elemento": "target_activity_id sin target_ramification_id equivalente.",
+    "motivo": "Cada arista conoce la ramificación de ORIGEN exacta (ram_id) pero solo la ACTIVIDAD de destino, no una ramificación de destino específica (prompt §12 pedía permitir actividad+ramificación+relevancia 'cuando exista evidencia estructural suficiente' - existe solo del lado origen).",
+    "impacto": "La relevancia a nivel de ramificación (no solo actividad) solo puede calcularse para la actividad de ORIGEN de la señal (via direct_dependency), no para las actividades relacionadas.",
+    "correccion_propuesta": "No aplica corrección: es una limitación real de granularidad de datos, no un error. Documentada para que intelligence/ no asuma una precisión que no existe.",
+    "corregido_en_esta_tarea": false
+  },
+  "known_upstream_gaps_carried_forward": {
+    "domain_names": "barreras-y-requisitos-de-acceso (ver sources/README.md) - no corregido aquí",
+    "sources_signals_topic_coverage": "7/19 topics del catálogo sin fuente/dominio asociado (ver signals/gaps.json.additional_gap_detected) - no corregido aquí"
+  }
+}
