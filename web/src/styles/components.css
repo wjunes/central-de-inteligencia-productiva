@@ -1,0 +1,112 @@
+/* Componentes visuales minimos de esta etapa (prompt seccion 21). Ningun
+   color literal - todo via tokens (seccion 15/21). */
+
+/* --- navegacion --- */
+.app-nav__link {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-sm);
+  font-size: var(--text-nav-size);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  min-height: 44px; /* tamaño tactil adecuado - prompt seccion 23 */
+}
+.app-nav__link:hover {
+  color: var(--color-text-primary);
+}
+.app-nav__link[aria-current='page'] {
+  color: var(--color-interactive);
+  /* el color nunca es el unico portador de estado: el borde y aria-current
+     tambien lo comunican (prompt seccion 18) */
+  box-shadow: inset 0 2px 0 0 var(--color-interactive);
+}
+
+/* --- selector de tema: botones reales, no divs con click (prompt seccion 16) --- */
+.theme-selector {
+  display: inline-flex;
+  gap: var(--space-xs);
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-xs);
+}
+.theme-selector__button {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-small-size);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+.theme-selector__button:hover {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+}
+.theme-selector__button[aria-pressed='true'] {
+  background: var(--color-interactive);
+  color: var(--color-text-inverse);
+}
+
+/* --- botones genericos --- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  font-weight: var(--font-weight-medium);
+  background: var(--color-interactive);
+  color: var(--color-text-inverse);
+  min-height: 44px;
+}
+.button:hover { background: var(--color-interactive-hover); }
+.button:active { background: var(--color-interactive-active); }
+.button:disabled { opacity: 0.5; cursor: not-allowed; }
+.button--secondary {
+  background: transparent;
+  color: var(--color-interactive);
+  border: var(--border-width) solid var(--color-border);
+}
+
+/* --- placeholder de seccion (prompt seccion 10) --- */
+.placeholder {
+  border: var(--border-width) dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  background: var(--color-surface);
+}
+.placeholder__text {
+  margin-top: var(--space-sm);
+  color: var(--color-text-secondary);
+}
+
+/* --- mensaje de estado: loading/empty/error/warning/success/info (prompt
+   seccion 22). La etiqueta de texto es obligatoria - el color de borde es un
+   refuerzo visual, nunca el unico portador de significado. */
+.status-message {
+  border-left: 4px solid var(--color-neutral);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  padding: var(--space-sm) var(--space-md);
+}
+.status-message__label {
+  display: block;
+  font-size: var(--text-caption-size);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: var(--font-weight-bold);
+}
+.status-message__title { margin-top: var(--space-xs); font-weight: var(--font-weight-medium); }
+.status-message__text { margin-top: var(--space-xs); color: var(--color-text-secondary); }
+
+.status-message--error { border-left-color: var(--color-danger); }
+.status-message--error .status-message__label { color: var(--color-danger); }
+.status-message--warning { border-left-color: var(--color-warning); }
+.status-message--warning .status-message__label { color: var(--color-warning); }
+.status-message--success { border-left-color: var(--color-success); }
+.status-message--success .status-message__label { color: var(--color-success); }
+.status-message--info { border-left-color: var(--color-info); }
+.status-message--info .status-message__label { color: var(--color-info); }
+.status-message--loading { border-left-color: var(--color-neutral); }
+.status-message--empty { border-left-color: var(--color-neutral); }

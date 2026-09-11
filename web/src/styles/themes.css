@@ -1,0 +1,84 @@
+/* Tema oscuro: NO es una inversion global (prompt seccion 13) - cada token se
+   redefine a proposito para contraste/legibilidad, nunca solo
+   background:negro + color:blanco. Tres estados posibles, resueltos sin
+   JavaScript salvo para persistir la preferencia (ver src/state/theme.js):
+     - 'system' (default): sin atributo -> decide prefers-color-scheme.
+     - 'dark'/'light' explicitos: [data-theme] fuerza el tema
+       independientemente del sistema operativo. */
+
+/* Sistema en oscuro, sin preferencia explicita de tema claro */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --color-background: #0b0d10;
+    --color-surface: #15181c;
+    --color-surface-elevated: #1c2126;
+    --color-text-primary: #f5f6f7;
+    --color-text-secondary: #b7bec4;
+    --color-text-inverse: #0a0a0a;
+    --color-border: #2c3238;
+    --color-focus: #7fb2ff;
+
+    --color-interactive: #4c8dff;
+    --color-interactive-hover: #6ea1ff;
+    --color-interactive-active: #3a72d1;
+
+    --color-success: #55c67c;
+    --color-warning: #e3a530;
+    --color-danger: #f2777b;
+    --color-info: #5ec8e8;
+    --color-risk: #f0955a;
+    --color-opportunity: #4fd6c0;
+    --color-neutral: #a7acb2;
+  }
+}
+
+/* Preferencia explicita del usuario: Oscuro (independiente del so) */
+:root[data-theme='dark'] {
+  --color-background: #0b0d10;
+  --color-surface: #15181c;
+  --color-surface-elevated: #1c2126;
+  --color-text-primary: #f5f6f7;
+  --color-text-secondary: #b7bec4;
+  --color-text-inverse: #0a0a0a;
+  --color-border: #2c3238;
+  --color-focus: #7fb2ff;
+
+  --color-interactive: #4c8dff;
+  --color-interactive-hover: #6ea1ff;
+  --color-interactive-active: #3a72d1;
+
+  --color-success: #55c67c;
+  --color-warning: #e3a530;
+  --color-danger: #f2777b;
+  --color-info: #5ec8e8;
+  --color-risk: #f0955a;
+  --color-opportunity: #4fd6c0;
+  --color-neutral: #a7acb2;
+}
+
+/* Preferencia explicita del usuario: Claro (independiente del so, por si el
+   sistema operativo esta en oscuro). Redundante con tokens.css a proposito -
+   sin esto, un sistema en modo oscuro ganaria por especificidad de :root y
+   'Claro' explicito no tendria efecto. */
+:root[data-theme='light'] {
+  --color-background: #ffffff;
+  --color-surface: #f4f5f6;
+  --color-surface-elevated: #ffffff;
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #40464c;
+  --color-text-inverse: #ffffff;
+  --color-border: #c7ccd1;
+  --color-focus: #1957c2;
+
+  --color-interactive: #1957c2;
+  --color-interactive-hover: #123f8f;
+  --color-interactive-active: #0d2f6b;
+
+  --color-success: #146c2e;
+  --color-warning: #8a4b00;
+  --color-danger: #a4161a;
+  --color-info: #0b5c78;
+  --color-risk: #8a3b12;
+  --color-opportunity: #0f6a5c;
+  --color-neutral: #4b5056;
+}

@@ -1,0 +1,79 @@
+/* AppShell: header / nav / main / footer (prompt seccion 7). Mobile-first:
+   por defecto la navegacion es una barra inferior (no depende de hover, apta
+   para touch - prompt seccion 24); web/src/styles/responsive.css la
+   convierte en barra lateral a partir del breakpoint de tablet. */
+#app-root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  height: var(--app-header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-inline: var(--space-md);
+  border-bottom: var(--border-width) solid var(--color-border);
+  background: var(--color-surface-elevated);
+  flex-shrink: 0;
+}
+
+.app-header__brand {
+  font-size: var(--text-h3-size);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.app-main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--space-lg) var(--space-md);
+  padding-bottom: calc(var(--app-bottom-nav-height) + var(--space-lg));
+}
+
+.app-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--app-bottom-nav-height);
+  display: flex;
+  background: var(--color-surface-elevated);
+  border-top: var(--border-width) solid var(--color-border);
+  z-index: 10;
+}
+
+.app-nav__list {
+  display: flex;
+  width: 100%;
+}
+
+.app-nav__item {
+  flex: 1;
+  display: flex;
+}
+
+.app-footer {
+  padding: var(--space-sm) var(--space-md);
+  border-top: var(--border-width) solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.container {
+  max-width: 960px;
+  margin-inline: auto;
+}
+
+.stack > * + * {
+  margin-top: var(--space-md);
+}

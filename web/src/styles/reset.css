@@ -1,0 +1,19 @@
+/* Reset minimo - solo lo que evita inconsistencias entre navegadores, nada
+   decorativo (prompt: informacion > decoracion). */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+h1, h2, h3, p, fieldset { margin: 0; padding: 0; border: 0; }
+ul { list-style: none; margin: 0; padding: 0; }
+img, svg { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: none; padding: 0; cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+input, select, textarea { font: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

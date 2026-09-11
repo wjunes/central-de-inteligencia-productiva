@@ -1,0 +1,75 @@
+/* Design tokens (prompt seccion 15/21). Ningun componente escribe un color,
+   tamano o radio literal - todo pasa por estas variables. Los valores de
+   color de aqui son el TEMA CLARO (base); web/src/styles/themes.css los
+   redefine para oscuro/sistema sin tocar ningun componente.
+
+   Contraste verificado (ver web/tests/contrast.test.js, calculo real WCAG
+   sobre estos mismos valores, no una promesa sin comprobar):
+   texto principal >= 7:1, texto secundario >= 4.5:1 contra el fondo,
+   foco >= 3:1 (contraste de UI, no de texto) contra el fondo, en ambos temas. */
+:root {
+  /* --- color: superficies y texto --- */
+  --color-background: #ffffff;
+  --color-surface: #f4f5f6;
+  --color-surface-elevated: #ffffff;
+  --color-text-primary: #0a0a0a;
+  --color-text-secondary: #40464c;
+  --color-text-inverse: #ffffff;
+  --color-border: #c7ccd1;
+  --color-focus: #1957c2;
+
+  /* --- color: interactivo --- */
+  --color-interactive: #1957c2;
+  --color-interactive-hover: #123f8f;
+  --color-interactive-active: #0d2f6b;
+
+  /* --- color: semantico (nunca el unico portador de significado - siempre
+     acompañado de texto/icono, ver components.css) --- */
+  --color-success: #146c2e;
+  --color-warning: #8a4b00;
+  --color-danger: #a4161a;
+  --color-info: #0b5c78;
+  --color-risk: #8a3b12;
+  --color-opportunity: #0f6a5c;
+  --color-neutral: #4b5056;
+
+  /* --- tipografia --- */
+  --font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --text-caption-size: 0.75rem;   /* 12px */
+  --text-caption-line: 1.4;
+  --text-small-size: 0.875rem;    /* 14px */
+  --text-small-line: 1.5;
+  --text-body-size: 1rem;         /* 16px */
+  --text-body-line: 1.6;
+  --text-label-size: 0.875rem;    /* 14px */
+  --text-nav-size: 0.9375rem;     /* 15px */
+  --text-h3-size: 1.25rem;        /* 20px */
+  --text-h2-size: 1.5rem;         /* 24px */
+  --text-h1-size: 1.875rem;       /* 30px */
+  --font-weight-regular: 400;
+  --font-weight-medium: 600;
+  --font-weight-bold: 700;
+
+  /* --- espaciado (base 4px, sin valores libres en componentes) --- */
+  --space-xs: 0.25rem;   /* 4px */
+  --space-sm: 0.5rem;    /* 8px */
+  --space-md: 1rem;      /* 16px */
+  --space-lg: 1.5rem;    /* 24px */
+  --space-xl: 2rem;      /* 32px */
+  --space-2xl: 3rem;     /* 48px */
+
+  /* --- bordes --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --border-width: 1px;
+
+  /* --- foco: siempre visible, nunca solo un cambio sutil de color --- */
+  --focus-ring-width: 3px;
+  --focus-ring-offset: 2px;
+
+  /* --- layout --- */
+  --app-nav-width: 240px;
+  --app-header-height: 56px;
+  --app-bottom-nav-height: 60px;
+}

@@ -1,0 +1,47 @@
+/* Una sola arquitectura funcional, reorganizada por breakpoint (prompt
+   seccion 23/24) - no tres aplicaciones distintas. Mobile-first: las reglas
+   base (layout.css/components.css) ya son la version movil; aqui solo se
+   reorganiza para pantallas mas grandes, nunca se oculta informacion. */
+
+/* Tablet en adelante: la navegacion pasa de barra inferior a barra lateral */
+@media (min-width: 768px) {
+  .app-nav {
+    position: static;
+    height: auto;
+    width: var(--app-nav-width);
+    flex-shrink: 0;
+    border-top: none;
+    border-right: var(--border-width) solid var(--color-border);
+  }
+  .app-nav__list {
+    flex-direction: column;
+    padding: var(--space-md) var(--space-sm);
+  }
+  .app-nav__item {
+    flex: none;
+  }
+  .app-nav__link {
+    justify-content: flex-start;
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-md);
+  }
+  .app-nav__link[aria-current='page'] {
+    background: var(--color-surface);
+    box-shadow: inset 3px 0 0 0 var(--color-interactive);
+  }
+
+  .app-main {
+    padding: var(--space-xl) var(--space-lg);
+    padding-bottom: var(--space-xl);
+  }
+}
+
+/* Desktop: aprovechar espacio sin crear densidad innecesaria (prompt seccion 23) */
+@media (min-width: 1024px) {
+  .app-main {
+    padding-inline: var(--space-2xl);
+  }
+  .container {
+    max-width: 1100px;
+  }
+}

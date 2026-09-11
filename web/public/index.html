@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Central de Inteligencia Productiva</title>
+  <link rel="stylesheet" href="/src/styles/reset.css">
+  <link rel="stylesheet" href="/src/styles/tokens.css">
+  <link rel="stylesheet" href="/src/styles/themes.css">
+  <link rel="stylesheet" href="/src/styles/base.css">
+  <link rel="stylesheet" href="/src/styles/layout.css">
+  <link rel="stylesheet" href="/src/styles/components.css">
+  <link rel="stylesheet" href="/src/styles/responsive.css">
+  <script src="/env.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  <div id="app-root">
+    <header class="app-header">
+      <span class="app-header__brand">Central de Inteligencia Productiva</span>
+      <div id="theme-selector-slot"></div>
+    </header>
+
+    <div class="app-body">
+      <nav class="app-nav" aria-label="Navegación principal">
+        <ul class="app-nav__list">
+          <li class="app-nav__item"><a class="app-nav__link" href="/" data-nav-link="inicio">Inicio</a></li>
+          <li class="app-nav__item"><a class="app-nav__link" href="/radar" data-nav-link="radar">Radar</a></li>
+          <li class="app-nav__item"><a class="app-nav__link" href="/informes" data-nav-link="informes">Informes</a></li>
+          <li class="app-nav__item"><a class="app-nav__link" href="/perfil" data-nav-link="perfil">Perfil</a></li>
+          <li class="app-nav__item"><a class="app-nav__link" href="/configuracion" data-nav-link="configuracion">Configuración</a></li>
+        </ul>
+      </nav>
+
+      <main id="main-content" class="app-main container" tabindex="-1">
+        <noscript>Esta aplicación necesita JavaScript habilitado para funcionar.</noscript>
+      </main>
+    </div>
+
+    <footer class="app-footer text-caption">
+      Central de Inteligencia Productiva · entorno: <span id="env-label">—</span>
+    </footer>
+  </div>
+
+  <script type="module" src="/src/app.js"></script>
+  <script type="module">
+    import { renderThemeSelector } from '/src/components/theme-selector.js';
+    document.getElementById('theme-selector-slot').append(renderThemeSelector());
+  </script>
+</body>
+</html>

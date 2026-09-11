@@ -1,0 +1,16 @@
+{
+  "name": "cip-web",
+  "version": "0.1.0",
+  "description": "Frontend de la Central de Inteligencia Productiva (AppShell, navegación, sistema de diseño) - HTML/CSS/JS moderno, sin dependencias, sin bundler.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
