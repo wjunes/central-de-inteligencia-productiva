@@ -11,6 +11,8 @@ import {
 } from '../core/profile/store.js';
 import { getChanges, getPersonalizedRelevance } from '../core/profile/personalize.js';
 import { buildRadarView } from '../radar/build.js';
+import { generateReport } from '../reports/build.js';
+import { getReport, listReports, getVersions, getTraceability } from '../reports/store.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FIXTURES_DIR = join(__dirname, '..', 'fixtures');
@@ -142,6 +144,32 @@ export function createRouter(db) {
             const recs = changes.changes.flatMap((c) => c.intelligence.flatMap((i) => i.decisions.map((d) => d.recommendation).filter(Boolean)));
             return json(res, 200, { profile_id: id, recommendations: recs });
           }
+        }
+      }
+
+      // --- /reports (Motor de Reportes) ---
+      if (seg[0] === 'reports') {
+        if (seg.length === 1 && req.method === 'GET') {
+          return json(res, 200, { reports: listReports(db, { type: url.searchParams.get('type'), profileId: url.searchParams.get('profile_id') }) });
+        }
+        if (seg.length === 2 && seg[1] === 'generate' && req.method === 'POST') {
+          const body = await readBody(req);
+          const { type, ...params } = body;
+          if (!type) return json(res, 400, { error: 'validation_error', message: 'body.type es obligatorio' });
+          const report = generateReport(db, type, params);
+          return json(res, 201, report);
+        }
+        if (seg.length === 2 && req.method === 'GET') {
+          const report = getReport(db, seg[1]);
+          return report ? json(res, 200, report) : json(res, 404, { error: 'report_not_found' });
+        }
+        if (seg.length === 3 && seg[2] === 'traceability' && req.method === 'GET') {
+          if (!getReport(db, seg[1])) return json(res, 404, { error: 'report_not_found' });
+          return json(res, 200, { report_id: seg[1], traceability: getTraceability(db, seg[1]) });
+        }
+        if (seg.length === 3 && seg[2] === 'versions' && req.method === 'GET') {
+          if (!getReport(db, seg[1])) return json(res, 404, { error: 'report_not_found' });
+          return json(res, 200, { report_id: seg[1], versions: getVersions(db, seg[1]) });
         }
       }
 

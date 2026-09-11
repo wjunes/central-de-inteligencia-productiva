@@ -54,7 +54,10 @@ function parseIds(json) {
   }
 }
 
-function intelligenceForSignal(db, runId, activityId, signalId) {
+// Exportadas para reuso por backend/reports/ (reportes no personalizados
+// consumen la misma resolución intelligence->decision->recommendation, sin
+// pasar por un perfil - evita duplicar esta lógica, ver reports/select.js).
+export function intelligenceForSignal(db, runId, activityId, signalId) {
   const rows = db.prepare('SELECT * FROM intelligence WHERE run_id = ? AND activity_id = ?').all(runId, activityId);
   return rows.filter((i) => parseIds(i.based_on_signal_ids).includes(signalId));
 }
@@ -64,7 +67,7 @@ function intelligenceForSignal(db, runId, activityId, signalId) {
 // decision/decision.js), así que el historial de una misma actividad
 // atraviesa varias decisiones a lo largo del tiempo (recommendations.js:
 // findActiveRecommendation ya busca por activity_id, no por decisión).
-function decisionsAndRecommendations(db, intelligenceId) {
+export function decisionsAndRecommendations(db, intelligenceId) {
   const decisions = db.prepare('SELECT * FROM decisions WHERE triggered_by_intelligence_id = ?').all(intelligenceId);
   return decisions.map((decision) => {
     const recs = db.prepare('SELECT * FROM recommendations WHERE activity_id = ? ORDER BY created_at DESC').all(decision.activity_id);

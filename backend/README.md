@@ -66,6 +66,16 @@ Una situación solo se considera "observada actualmente" si tiene evidencia (una
 
 **Corrección aditiva** (no rompe nada existente): se agregó la columna `recommendations.evidence_level` — ya se calculaba en memoria (`recommendations.js`) pero no se persistía, y el Radar necesita distinguir `conflicting` de `insufficient` (antes ambos producían `strength=none` de forma indistinguible). Y se ajustó `signals.js`: la clave de deduplicación de una señal ahora incluye el valor observado (antes solo `monitor+indicador+clase+dirección`, lo que colapsaba subas consecutivas del mismo indicador en una sola señal, impidiendo sostener una tendencia con >1 observación).
 
+## Motor de Reportes (`reports/`)
+
+Presenta inteligencia ya validada — nunca la genera. `reports/select.js` (reusa la resolución `intelligence→decision→recommendation` de `core/profile/personalize.js`, ahora exportada, sin requerir un perfil), `reports/claims.js` (construye `claims` con plantillas deterministas — 10 tipos: `fact/change/trend/impact/risk/opportunity/decision/recommendation/uncertainty/comparison` — nunca texto libre ni IA), `reports/build.js` (orquesta: selector de alcance → claims → snapshot → persistencia), `reports/store.js` (CRUD + versionado, mismo patrón de `supersede` que `recommendations.js`). 7 tipos de reporte, cada uno un módulo delgado en `reports/<tipo>/index.js` — 5 reusan el scaffold original del repo (`sectorial/`, `markets/`, `risks/`, `opportunities/`, `personalized/`); `executive/` y `periodic/` son carpetas nuevas (ninguna de las 5 existentes encajaba con una síntesis transversal o una comparación entre períodos).
+
+**Solo 4 tablas** (de las 6 sugeridas): `reports`, `report_claims`, `report_snapshots`, `report_sources`. Se omiten `report_sections` (una sección es `report_claims` agrupado por `section`, más el JSON ya ensamblado en `reports.body` — una tabla aparte duplicaría lo mismo dos veces) y `report_versions` (el historial ya se reconstruye encadenando `reports.previous_version_id`, igual que `recommendations`).
+
+Endpoints: `GET /reports`, `POST /reports/generate`, `GET /reports/:id`, `GET /reports/:id/traceability`, `GET /reports/:id/versions`. `POST /reports/generate` recibe `{type, ...params}` (p. ej. `{"type":"sectorial","activityId":"cultivo-soja"}`, `{"type":"periodic","monitorId":...,"field":...,"periodStart":...,"periodEnd":...}`).
+
+**Reproducibilidad**: `GET /reports/:id` nunca recalcula — devuelve el `body` ya persistido en la generación (verificado por test). Una comparación de período (`type=periodic`) nunca usa la palabra "tendencia" para afirmar algo — solo `radar/trend.js` puede producir un claim `type=trend`, con su propia regla de evidencia.
+
 ## Umbrales operativos (`config/thresholds.json`)
 
 `knowledge/signals/thresholds.json` dejó `overrides: []` **a propósito** (no hay metodología estadística validada en el repositorio). Este archivo es la configuración **operativa** que ese esquema anticipó como "a completar incrementalmente" — sigue el mismo `overrides_schema`, vive en `backend/` (no en `knowledge/`, que no se modificó), y cada valor declara su `source_of_value` explícitamente. Sin una entrada aquí, cualquier `valor_modificado` queda `pending_threshold` — nunca se inventa un umbral por defecto.

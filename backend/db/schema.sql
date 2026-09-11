@@ -233,3 +233,66 @@ CREATE INDEX IF NOT EXISTS idx_signals_dedup ON signals(dedup_key);
 CREATE INDEX IF NOT EXISTS idx_relevance_activity ON relevance_results(activity_id);
 CREATE INDEX IF NOT EXISTS idx_intelligence_activity ON intelligence(activity_id);
 CREATE INDEX IF NOT EXISTS idx_recommendations_activity ON recommendations(activity_id, status);
+
+-- ---------------------------------------------------------------------------
+-- Motor de Reportes. Presenta inteligencia ya validada - no la genera.
+-- Solo 4 tablas (de las 6 sugeridas): 'report_sections' se omite (una
+-- sección es una agrupación de report_claims por campo 'section' + el JSON
+-- ya ensamblado en reports.body - una tabla aparte duplicaria lo mismo dos
+-- veces); 'report_versions' se omite (reports.previous_version_id +
+-- status ya encadenan el historial, mismo patrón que recommendations).
+-- ---------------------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS report_snapshots (
+  id                    TEXT PRIMARY KEY,
+  created_at            TEXT NOT NULL,
+  cutoff_at             TEXT NOT NULL,
+  situation_ids         TEXT NOT NULL,  -- JSON array (radar_situations.id)
+  intelligence_ids      TEXT NOT NULL,  -- JSON array
+  decision_ids          TEXT NOT NULL,  -- JSON array
+  recommendation_ids    TEXT NOT NULL,  -- JSON array
+  signal_ids            TEXT NOT NULL   -- JSON array
+);
+
+CREATE TABLE IF NOT EXISTS reports (
+  id                   TEXT PRIMARY KEY,
+  type                 TEXT NOT NULL,   -- executive|sectorial|market|risk|opportunity|personalized|periodic
+  title                TEXT NOT NULL,
+  scope                TEXT NOT NULL,   -- JSON: {activity_id?, market_id?, profile_id?, period?, ...} - declarado, nunca inferido del título
+  profile_id           TEXT REFERENCES profiles(id),
+  created_at           TEXT NOT NULL,
+  cutoff_at            TEXT NOT NULL,
+  period_start         TEXT,
+  period_end           TEXT,
+  rules_version        TEXT NOT NULL,   -- version declarada de las reglas de seleccion/plantillas (reports/build.js)
+  snapshot_id          TEXT NOT NULL REFERENCES report_snapshots(id),
+  status               TEXT NOT NULL DEFAULT 'generated',  -- draft|generated|published|superseded|archived
+  version              INTEGER NOT NULL DEFAULT 1,
+  previous_version_id  TEXT REFERENCES reports(id),
+  supersede_reason     TEXT,
+  body                 TEXT NOT NULL    -- JSON ya ensamblado (metadata+scope+secciones) - derivado de report_claims, cacheado para lectura
+);
+
+CREATE TABLE IF NOT EXISTS report_claims (
+  id              TEXT PRIMARY KEY,
+  report_id       TEXT NOT NULL REFERENCES reports(id) ON DELETE CASCADE,
+  section         TEXT NOT NULL,   -- current_situation|changes|trends|impacts|risks|opportunities|decisions|recommendations|uncertainty|comparisons
+  type            TEXT NOT NULL,   -- fact|change|trend|impact|risk|opportunity|decision|recommendation|uncertainty|comparison
+  activity_id     TEXT,
+  text            TEXT NOT NULL,   -- plantilla determinística, nunca texto libre/IA
+  importance      TEXT NOT NULL,   -- critical|high|medium|low|none (reusa relevance/levels.json)
+  evidence_level  TEXT,
+  confidence      TEXT,            -- JSON
+  references_json TEXT NOT NULL    -- JSON: {intelligence_id?, decision_id?, recommendation_id?, signal_id?, situation_id?}
+);
+
+CREATE TABLE IF NOT EXISTS report_sources (
+  id          TEXT PRIMARY KEY,
+  report_id   TEXT NOT NULL REFERENCES reports(id) ON DELETE CASCADE,
+  source_id   TEXT NOT NULL,
+  UNIQUE(report_id, source_id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_reports_type_profile ON reports(type, profile_id);
+CREATE INDEX IF NOT EXISTS idx_report_claims_report ON report_claims(report_id, section);
+CREATE INDEX IF NOT EXISTS idx_report_sources_report ON report_sources(report_id);

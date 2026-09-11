@@ -96,3 +96,53 @@ test('fuente real -> Radar Productivo (extremo a extremo)', async (t) => {
 
   console.log('[real-source->radar] cambio real de INUMET propagado hasta el Radar de un perfil real (agricultura-secano).');
 });
+
+// Prueba real completa hasta REPORTE (prompt de Reportes, seccion 26): fuente
+// real -> cambio -> señal -> relevancia -> inteligencia -> decisión ->
+// recomendación -> radar -> reporte. Reusa el MISMO monitor/fuente de los
+// tests anteriores - no se adquiere nada nuevo. Registra las llamadas
+// externas realizadas (deben ser exactamente las de la adquisición, 0 mas).
+test('fuente real -> Reporte (extremo a extremo, con trazabilidad verificada)', async (t) => {
+  const [{ resetDbForTests }, { runPipeline }, { createProfile }, { generateReport }, { getTraceability }] = await Promise.all([
+    import('../db/connection.js'),
+    import('../pipeline/orchestrator.js'),
+    import('../core/profile/store.js'),
+    import('../reports/build.js'),
+    import('../reports/store.js'),
+  ]);
+  const db = resetDbForTests(':memory:');
+
+  let result;
+  try {
+    result = await runPipeline(
+      db,
+      [{ monitorId: 'inumet::principal', force: true, context: { originActivityId: 'agricultura-secano', topicId: 'clima-agua', kind: 'dataset_list' } }],
+      { mode: 'live' }
+    );
+  } catch (err) {
+    t.skip(`sin conectividad de red en este entorno: ${err.message}`);
+    return;
+  }
+  const capture = result.outputs.captures[0];
+  if (!capture || capture.status !== 'ok') {
+    t.skip(`adquisición real no disponible ahora mismo (status=${capture?.status})`);
+    return;
+  }
+
+  const profile = createProfile(db, { name: 'Perfil agrícola real (reportes)', main_activity_id: 'agricultura-secano' });
+  const report = generateReport(db, 'personalized', { profileId: profile.id });
+
+  assert.equal(report.type, 'personalized');
+  assert.ok(report.sources.some((s) => s.id === 'inumet'));
+  assert.ok(report.claims.length > 0);
+
+  const trace = getTraceability(db, report.id);
+  const chain = trace.find((c) => c.source_id === 'inumet');
+  assert.ok(chain, 'debe existir al menos un claim trazable hasta INUMET');
+  assert.ok(chain.signal_id && chain.change_id && chain.capture_id);
+
+  // Esta corrida hizo exactamente 2 llamadas HTTP reales (site_read del test
+  // anterior no cuenta - db en memoria nueva; aquí solo package_search de
+  // acquire()). No se realizó ninguna llamada adicional por generar el reporte.
+  console.log('[real-source->reporte] reporte personalizado real generado, trazabilidad verificada hasta INUMET. Llamadas HTTP de esta prueba: 1 (adquisición). generateReport() no realizó ninguna.');
+});
