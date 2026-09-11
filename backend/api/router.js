@@ -11,6 +11,7 @@ import {
 } from '../core/profile/store.js';
 import { getChanges, getPersonalizedRelevance } from '../core/profile/personalize.js';
 import { getProfileCatalogs } from '../core/profile/catalogs.js';
+import { getActivityRamifications, ActivityNotFoundError } from '../core/profile/ramifications.js';
 import { buildRadarView } from '../radar/build.js';
 import { generateReport } from '../reports/build.js';
 import { getReport, listReports, getVersions, getTraceability } from '../reports/store.js';
@@ -86,6 +87,19 @@ export function createRouter(db) {
       // resolución de ':id' de la ruta plural de abajo.
       if (req.method === 'GET' && pathname === '/profile/catalogs') {
         return json(res, 200, getProfileCatalogs());
+      }
+
+      // GET /profile/ramifications/:activityId (GAP "Paso 2A"): ramificaciones
+      // efectivas de una actividad (productos/insumos/... reales), unica
+      // fuente = knowledge.effectiveRamifications() via core/profile/ramifications.js.
+      const ramificationsMatch = pathname.match(/^\/profile\/ramifications\/([^/]+)$/);
+      if (req.method === 'GET' && ramificationsMatch) {
+        try {
+          return json(res, 200, getActivityRamifications(decodeURIComponent(ramificationsMatch[1])));
+        } catch (err) {
+          if (err instanceof ActivityNotFoundError) return json(res, 404, { error: 'activity_not_found', message: err.message });
+          throw err;
+        }
       }
 
       // --- /profiles (perfil productivo y personalización) ---
