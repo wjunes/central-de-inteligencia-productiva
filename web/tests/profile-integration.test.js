@@ -110,4 +110,47 @@ describe('Integración real: catálogo -> actividad -> ramificaciones -> perfil 
       return true;
     });
   });
+
+  // Paso 2B-1 (auditoría de integración, sección 6, pasos 10-13): modificar
+  // UNA colección vía las mismas funciones que usa pages/perfil.js no debe
+  // afectar a las demás, y vaciar una con [] no debe tocar el resto -
+  // verificado contra el backend real, no solo contra la lógica pura.
+  test('modificar una colección no afecta a las demás; vaciar una con [] no toca el resto', async () => {
+    const opts = { baseUrl };
+    const catalogs = await api.getProfileCatalogs(opts);
+    const profile = await api.createProfile({ name: 'Perfil de integración (colecciones independientes)' }, opts);
+
+    await api.updateProfileActivities(profile.id, { main_activity_id: 'cultivo-soja', secondary_activity_ids: ['ganaderia'] }, opts);
+    await api.updateProfileMarkets(profile.id, ['brasil', 'china'], opts);
+    await api.updateProfileProducts(profile.id, [{ activity_id: 'cultivo-soja', ramification_id: 'soja' }], opts);
+    await api.updateProfileInputs(profile.id, [{ activity_id: 'cultivo-soja', ramification_id: 'semillas' }], opts);
+    await api.updateProfilePriorities(profile.id, [{ topic_id: catalogs.topics[0].id, rank: 1 }], opts);
+    await api.updateProfileConstraints(profile.id, [{ category: catalogs.constraints.categories[0].id, severity: catalogs.constraints.severities[0], description: null }], opts);
+
+    // paso 10/11: modificar SOLO markets -> nada más debe cambiar
+    const afterMarketsChange = await api.updateProfileMarkets(profile.id, ['china'], opts);
+    assert.deepEqual(afterMarketsChange.markets, ['china']);
+    assert.deepEqual(afterMarketsChange.activities, [
+      { activity_id: 'cultivo-soja', kind: 'main' },
+      { activity_id: 'ganaderia', kind: 'secondary' },
+    ], 'activities no debió cambiar por haber modificado solo markets');
+    assert.equal(afterMarketsChange.products.length, 1);
+    assert.equal(afterMarketsChange.inputs.length, 1);
+    assert.equal(afterMarketsChange.priorities.length, 1);
+    assert.equal(afterMarketsChange.constraints.length, 1);
+
+    // paso 12/13: vaciar products con [] -> inputs/markets/priorities/constraints/activities intactos
+    const afterEmptyProducts = await api.updateProfileProducts(profile.id, [], opts);
+    assert.deepEqual(afterEmptyProducts.products, []);
+    assert.equal(afterEmptyProducts.inputs.length, 1, 'inputs no debió vaciarse al vaciar products');
+    assert.deepEqual(afterEmptyProducts.markets, ['china']);
+    assert.equal(afterEmptyProducts.priorities.length, 1);
+    assert.equal(afterEmptyProducts.constraints.length, 1);
+    assert.deepEqual(afterEmptyProducts.activities, [
+      { activity_id: 'cultivo-soja', kind: 'main' },
+      { activity_id: 'ganaderia', kind: 'secondary' },
+    ]);
+
+    console.log('[integración real] independencia de colecciones verificada: modificar/vaciar una no afecta a las demás.');
+  });
 });

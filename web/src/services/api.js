@@ -105,3 +105,12 @@ export function updateProfilePriorities(id, priorities, opts) {
 export function updateProfileConstraints(id, constraints, opts) {
   return apiPut(`/profiles/${encodeURIComponent(id)}/constraints`, { constraints }, opts);
 }
+
+// getProfileRadar(): fuente principal de la pantalla Situación (Paso 2C-1,
+// docs/arquitectura/contrato-situacion.md) - correspondencia directa con
+// GET /profiles/:id/radar, sin parámetro `view` (se pide siempre el objeto
+// agregado completo: changes+situations+risks+opportunities+monitor+recommendations
+// en una sola llamada, tal como exige el contrato de costo).
+export function getProfileRadar(id, opts) {
+  return apiGet(`/profiles/${encodeURIComponent(id)}/radar`, opts);
+}

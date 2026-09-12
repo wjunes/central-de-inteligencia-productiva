@@ -1,11 +1,11 @@
-// Los componentes y la página de Perfil Productivo son DOM-dependientes
-// (usan document.createElement vía utils/dom.js) y no pueden ejecutarse ni
-// renderizarse bajo node:test sin un navegador/jsdom (no se agregó esa
-// dependencia - ver web/README.md, "Limitación conocida"). Esta prueba SÍ
-// puede verificarse sin DOM: que cada módulo importa sin errores (detecta
-// typos de import/export, rutas rotas) y exporta las funciones esperadas -
-// un smoke test barato que atrapa una clase real de error antes de llegar al
-// navegador.
+// Los componentes y páginas son DOM-dependientes (usan document.createElement
+// vía utils/dom.js) y no pueden ejecutarse ni renderizarse bajo node:test sin
+// un navegador/jsdom (no se agregó esa dependencia - ver web/README.md,
+// "Limitación conocida"). Esta prueba SÍ puede verificarse sin DOM: que cada
+// módulo importa sin errores (detecta typos de import/export, rutas rotas) y
+// exporta las funciones esperadas - un smoke test barato que atrapa una clase
+// real de error antes de llegar al navegador. Cubre Perfil Productivo (Paso
+// 2B) y Situación/Dashboard (Paso 2C-1).
 import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 
@@ -35,5 +35,17 @@ describe('Perfil Productivo - módulos cargan sin errores y exportan lo esperado
       // no debería lanzar solo por eso.
       throw err;
     }));
+  });
+});
+
+describe('Situación/Dashboard - módulos cargan sin errores y exportan lo esperado', () => {
+  test('components/*', async () => {
+    assert.equal(typeof (await import('../src/components/situation-summary.js')).renderSituationSummary, 'function');
+    assert.equal(typeof (await import('../src/components/intelligence-item.js')).renderIntelligenceItem, 'function');
+  });
+
+  test('pages/home.js', async () => {
+    const mod = await import('../src/pages/home.js');
+    assert.equal(typeof mod.renderHome, 'function');
   });
 });

@@ -251,3 +251,69 @@ select, input[type='text'] {
   position: relative;
 }
 .constraint-editor__control { max-width: 32rem; }
+
+/* --- Situación / Dashboard (Paso 2C-1) --- */
+
+.summary-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+.summary-strip__item {
+  display: flex;
+  flex-direction: column;
+  min-width: 96px;
+}
+.summary-strip__value {
+  font-size: var(--text-h1-size);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.1;
+}
+.summary-strip__label {
+  color: var(--color-text-secondary);
+  font-size: var(--text-small-size);
+}
+
+.intelligence-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.intelligence-item {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.intelligence-item__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xs);
+}
+.intelligence-item__title {
+  font-weight: var(--font-weight-medium);
+}
+.intelligence-item__recommendation {
+  margin-top: var(--space-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Badge: el texto siempre está presente (ver intelligence-item.js) - el
+   color es un refuerzo, nunca el único portador de significado (prompt
+   seccion 13/18 de etapas anteriores, reafirmado aquí). */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-caption-size);
+  font-weight: var(--font-weight-medium);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--color-border);
+  color: var(--color-text-secondary);
+}
+.badge--risk { color: var(--color-risk); border-color: var(--color-risk); }
+.badge--opportunity { color: var(--color-opportunity); border-color: var(--color-opportunity); }
+.badge--impact { color: var(--color-info); border-color: var(--color-info); }
+.badge--trend { color: var(--color-interactive); border-color: var(--color-interactive); }
+.badge--status { color: var(--color-neutral); border-color: var(--color-neutral); }

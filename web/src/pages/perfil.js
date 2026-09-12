@@ -26,6 +26,7 @@ import {
   removeConstraintAt,
   humanizeSlug,
   describeApiError,
+  isNotFoundError,
 } from '../utils/profile-form.js';
 
 function mainActivityId(profile) {
@@ -414,7 +415,16 @@ export function renderPerfil() {
         state.profile = await api.getProfile(activeId);
       } catch (err) {
         console.error(err);
-        state.profile = null; // perfil inexistente/borrado -> vuelve a modo creación, sin romper la pantalla
+        if (isNotFoundError(err)) {
+          state.profile = null; // el perfil realmente ya no existe (404) -> vuelve a modo creación
+        } else {
+          // Cualquier OTRO error (red, 500, etc.) no debe confundirse con "no
+          // tengo perfil" - eso ocultaría un error real (Paso 2B-1, auditoría
+          // de integración) tras un mensaje que sugiere falsamente que el
+          // perfil se perdió.
+          body.replaceChildren(renderStatusMessage({ kind: 'error', title: 'No se pudo cargar tu perfil', text: describeApiError(err) }));
+          return;
+        }
       }
     }
 

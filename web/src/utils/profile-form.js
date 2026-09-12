@@ -105,6 +105,18 @@ export function humanizeSlug(slug) {
     .join(' ');
 }
 
+// isNotFoundError(): distingue "el perfil ya no existe" (404 real) de
+// cualquier otro error (red, 500, etc.) - Paso 2B-1, auditoría de
+// integración: pages/perfil.js trataba CUALQUIER error al recargar el
+// perfil activo como "no tengo perfil, mostrar creación", incluido un error
+// de conectividad o un 500 del backend. Eso ocultaba un error real
+// (sección 4 del prompt de auditoría: "el frontend no debe ocultar
+// silenciosamente errores reales") tras un mensaje que sugiere falsamente
+// que el perfil se perdió.
+export function isNotFoundError(err) {
+  return err instanceof ApiError && err.status === 404;
+}
+
 // describeApiError(): nunca expone stack traces, JSON crudo ni rutas
 // internas del servidor (prompt seccion 14) - el detalle tecnico completo
 // sigue disponible via console.error en quien llame a esta funcion.

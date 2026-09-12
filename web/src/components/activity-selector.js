@@ -48,11 +48,19 @@ export function renderActivitySelector({ catalog, selectedId = null, onChange, e
   }
 
   sectorSelect.addEventListener('change', () => {
+    // Elegir un sector es un paso INTERMEDIO de la cascada (todavía no hay
+    // una actividad elegida) - nunca dispara onChange (Paso 2B-1, auditoría
+    // de integración: disparaba onChange(null) prematuramente, lo que
+    // guardaba de inmediato main_activity_id:null contra el backend con solo
+    // cambiar de sector, sin que el usuario haya terminado de elegir una
+    // actividad nueva. Eso producía un PUT innecesario y alcanzaba el GAP DE
+    // CONTRATO #2 de docs/arquitectura/contrato-perfil.md sin que el usuario
+    // lo pidiera). Solo activitySelect/subSelect representan una selección
+    // real (completa o deliberadamente vacía).
     currentSectorId = sectorSelect.value;
     currentActivityId = '';
     fillActivities();
     fillSubactivities();
-    onChange(null);
   });
   activitySelect.addEventListener('change', () => {
     currentActivityId = activitySelect.value;

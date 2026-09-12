@@ -16,6 +16,7 @@ import {
   removeConstraintAt,
   humanizeSlug,
   describeApiError,
+  isNotFoundError,
 } from '../src/utils/profile-form.js';
 import { ApiError } from '../src/services/api.js';
 
@@ -137,6 +138,21 @@ describe('humanizeSlug - formateo tipográfico, no invención de datos', () => {
     assert.equal(humanizeSlug('reino-unido'), 'Reino Unido');
     assert.equal(humanizeSlug('brasil'), 'Brasil');
     assert.equal(humanizeSlug('estados-unidos'), 'Estados Unidos');
+  });
+});
+
+describe('isNotFoundError - distingue "perfil borrado" de cualquier otro error (Paso 2B-1)', () => {
+  test('404 real es not-found', () => {
+    assert.equal(isNotFoundError(new ApiError('x', { status: 404 })), true);
+  });
+  test('error de red NO es not-found (no debe tratarse como "perfil borrado")', () => {
+    assert.equal(isNotFoundError(new ApiError('x', { status: null })), false);
+  });
+  test('500 NO es not-found', () => {
+    assert.equal(isNotFoundError(new ApiError('x', { status: 500 })), false);
+  });
+  test('un error que no es ApiError nunca es not-found', () => {
+    assert.equal(isNotFoundError(new TypeError('boom')), false);
   });
 });
 
