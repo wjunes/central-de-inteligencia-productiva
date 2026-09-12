@@ -5,7 +5,7 @@
 import { test, describe, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
-import { apiGet, ApiError } from '../src/services/api.js';
+import { apiGet, apiPost, apiPut, ApiError } from '../src/services/api.js';
 
 describe('api.js - manejo de respuestas HTTP', () => {
   let server;
@@ -18,6 +18,24 @@ describe('api.js - manejo de respuestas HTTP', () => {
       if (req.url === '/bad') { res.statusCode = 400; return res.end(JSON.stringify({ error: 'validation_error', message: 'dato inválido' })); }
       if (req.url === '/boom') { res.statusCode = 500; return res.end(JSON.stringify({ error: 'internal_error', message: 'fallo interno' })); }
       if (req.url === '/sin-cuerpo') { res.statusCode = 204; return res.end(); }
+      if (req.url === '/echo' && req.method === 'POST') {
+        let raw = '';
+        req.on('data', (chunk) => { raw += chunk; });
+        req.on('end', () => {
+          res.statusCode = 201;
+          res.end(JSON.stringify({ received: JSON.parse(raw), contentType: req.headers['content-type'] }));
+        });
+        return;
+      }
+      if (req.url === '/replace' && req.method === 'PUT') {
+        let raw = '';
+        req.on('data', (chunk) => { raw += chunk; });
+        req.on('end', () => {
+          res.statusCode = 200;
+          res.end(JSON.stringify({ replaced: JSON.parse(raw) }));
+        });
+        return;
+      }
       res.statusCode = 404;
       res.end(JSON.stringify({ error: 'not_found' }));
     });
@@ -61,6 +79,25 @@ describe('api.js - manejo de respuestas HTTP', () => {
   test('respuesta sin cuerpo JSON no rompe el parseo', async () => {
     const body = await apiGet('/sin-cuerpo', { baseUrl });
     assert.equal(body, null);
+  });
+
+  test('apiPost: envía el cuerpo como JSON con Content-Type correcto (usado por createProfile)', async () => {
+    const body = await apiPost('/echo', { name: 'Perfil de prueba' }, { baseUrl });
+    assert.deepEqual(body.received, { name: 'Perfil de prueba' });
+    assert.match(body.contentType, /application\/json/);
+  });
+
+  test('apiPut: envía el cuerpo como JSON (usado por updateProfileActivities/markets/products/...)', async () => {
+    const body = await apiPut('/replace', { market_ids: ['brasil', 'china'] }, { baseUrl });
+    assert.deepEqual(body.replaced, { market_ids: ['brasil', 'china'] });
+  });
+
+  test('apiPost propaga 4xx igual que apiGet (mismo manejo de errores centralizado)', async () => {
+    await assert.rejects(() => apiPost('/bad', {}, { baseUrl }), (err) => {
+      assert.ok(err instanceof ApiError);
+      assert.equal(err.status, 400);
+      return true;
+    });
   });
 
   test('error de red: lanza ApiError sin status, con la causa original', async () => {

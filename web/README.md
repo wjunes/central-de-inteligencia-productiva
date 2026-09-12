@@ -1,6 +1,6 @@
 # web — AppShell, navegación y sistema de diseño
 
-Primer núcleo del frontend de la **Central de Inteligencia Productiva**: `AppShell + Navegación + Sistema de diseño + Temas + Responsive + Accesibilidad`. No implementa todavía Radar, Informes, Perfil ni ninguna pantalla de inteligencia — esta es la base sobre la que esas etapas construyen (ver `docs/producto/arquitectura-funcional-ux.md`).
+Frontend de la **Central de Inteligencia Productiva**. Paso 1 construyó `AppShell + Navegación + Sistema de diseño + Temas + Responsive + Accesibilidad`; Paso 2B agregó la primera pantalla funcional real, **Perfil Productivo** (`/perfil`). Radar e Informes siguen siendo placeholders — esta base es sobre la que esas etapas construyen (ver `docs/producto/arquitectura-funcional-ux.md`).
 
 **Cero dependencias npm**: HTML + CSS + JavaScript moderno (módulos ES nativos, sin bundler), `node:http`/`node:fs` para servir los archivos estáticos — mismo principio de cero-dependencias que `backend/`.
 
@@ -10,7 +10,7 @@ Primer núcleo del frontend de la **Central de Inteligencia Productiva**: `AppSh
 cd web
 cp .env.example .env       # ajustar API_BASE_URL si el backend no corre en localhost:3001
 npm start                    # sirve la app en :5173
-npm test                      # corre la suite (47 tests)
+npm test                      # corre la suite (82 tests)
 ```
 
 Requiere `backend/` corriendo aparte (`cd backend && npm start`) para que la comprobación de conectividad de Inicio y las futuras pantallas funcionen.
@@ -27,16 +27,33 @@ web/
 ├── src/
 │   ├── app.js                     # bootstrap: router + tema + montaje de páginas
 │   ├── router.js                    # router de cliente (History API), tabla de rutas
-│   ├── services/api.js                # única capa de acceso al backend (fetch centralizado)
-│   ├── state/theme.js                   # Claro/Oscuro/Sistema (lógica pura + localStorage)
-│   ├── components/                        # Navigation, ThemeSelector, SectionPlaceholder, StatusMessage
-│   ├── pages/                               # Inicio, Configuración, NotFound (+ placeholders inline en app.js)
-│   ├── utils/                                 # env.js (lee window.__CIP_ENV__), dom.js (helper de creación de DOM)
+│   ├── services/api.js                # única capa de acceso al backend (fetch centralizado + endpoints de Perfil)
+│   ├── state/{theme,active-profile}.js  # Claro/Oscuro/Sistema; qué perfil ve este dispositivo (sin autenticación)
+│   ├── components/                        # Navigation, ThemeSelector, SectionPlaceholder, StatusMessage,
+│   │                                         # ProfileSection, SaveStatus, MultiSelect, ActivitySelector,
+│   │                                         # RamificationSelector, PrioritySelector, ConstraintEditor
+│   ├── pages/                               # Inicio, Configuración, Perfil (real), NotFound (+ placeholders en app.js)
+│   ├── utils/                                 # env.js, dom.js, profile-form.js (lógica pura del formulario de Perfil)
 │   └── styles/                                  # tokens.css, themes.css, reset.css, base.css, layout.css, components.css, responsive.css
-└── tests/                                          # 47 tests (node:test) - router, tema, api, servidor estático, contraste
+└── tests/                                          # 82 tests (node:test) - router, tema, api, servidor estático,
+                                                       # contraste, formulario de Perfil, integración real con el backend
 ```
 
-`web/src/modules/` (scaffold original del repo) queda sin uso todavía — se reserva para módulos por dominio (radar/, informes/, perfil/) que orquesten componentes + datos en etapas futuras (ver `docs/producto/arquitectura-funcional-ux.md`, sección 5.1). No se creó contenido ahí para no anticipar esas etapas.
+`web/src/modules/` (scaffold original del repo) queda sin uso todavía — se reserva para módulos por dominio (radar/, informes/) que orquesten componentes + datos en etapas futuras (ver `docs/producto/arquitectura-funcional-ux.md`, sección 5.1). Perfil Productivo no lo necesitó: es una sola pantalla, así que su orquestación vive directamente en `pages/perfil.js` (mismo criterio que `pages/home.js`), sin introducir una capa intermedia innecesaria.
+
+## Perfil Productivo (`pages/perfil.js`)
+
+Primera pantalla funcional real. El frontend nunca decide qué actividades/productos/insumos/mercados son válidos — solo consume `GET /profile/catalogs` y `GET /profile/ramifications/:activityId` y llama a los endpoints `PUT /profiles/:id/*` existentes; toda autoridad de catálogo y validación permanece en `backend/knowledge`.
+
+**Identidad de sesión sin autenticación**: como no hay login, `state/active-profile.js` recuerda en `localStorage` (por dispositivo, nunca enviado al backend) qué `profile_id` está viendo este navegador — mismo patrón que `state/theme.js`. Sin un id guardado (o si el perfil fue borrado), la pantalla muestra un formulario mínimo de creación (`POST /profiles`, solo pide `name`).
+
+**Secciones** (cada una guarda de inmediato al cambiar, con su propio `SaveStatus` — no hay un botón único "Guardar todo" porque el backend tampoco tiene un endpoint combinado): Identificación (`PUT /profiles/:id`) · Actividades — principal y secundarias juntas, porque `PUT /profiles/:id/activities` reemplaza el conjunto completo en una sola llamada · Productos e insumos — por actividad, vía un selector de actividad (principal/secundarias) que carga `GET /profile/ramifications/:activityId` bajo demanda y con cache en memoria por sesión · Mercados (`markets.market_dimensions` del catálogo) · Prioridades (lista ordenada por posición, nunca un score) · Restricciones (categoría + severidad + detalle, del catálogo, nunca inventadas).
+
+**El detalle más delicado**: `products`/`inputs` se reemplazan COMPLETOS en cada `PUT` (no por actividad) — `src/utils/profile-form.js#toggleRamificationSelection` calcula la lista nueva completa preservando intactas las selecciones de cualquier otra actividad del mismo perfil, verificado explícitamente en `tests/profile-form.test.js`.
+
+**Lógica pura vs. DOM**: igual que `state/theme.js` en Paso 1, toda la lógica no trivial (jerarquía de actividades, reemplazo de ramificaciones, reordenamiento de prioridades, humanización de errores) vive en `utils/profile-form.js`, sin tocar el DOM — comprobable con `node:test` sin navegador. Los componentes (`components/*`) y la página solo construyen DOM a partir de esos resultados ya calculados.
+
+**Limitación de foco conocida**: cada sección se re-renderiza completa tras guardar (reemplaza su propio `<section>`, no toda la página), lo que hace perder el foco del control que disparó el guardado. Aceptable para esta etapa (checkboxes/selects, no texto continuo) pero una mejora futura razonable sería parchear el DOM de forma más quirúrgica en vez de reemplazar el nodo completo.
 
 ## Servidor estático (`static-server.js`)
 
@@ -50,7 +67,7 @@ Sirve únicamente `public/` y `src/` (nunca `server.js`/`.env`/`package.json` �
 /               inicio         (real: confirma AppShell/tema/responsive/estado inicial)
 /radar          radar          (placeholder)
 /informes       informes       (placeholder)
-/perfil         perfil         (placeholder)
+/perfil         perfil         (real: Perfil Productivo)
 /configuracion  configuracion  (real: selector de tema)
 ```
 
@@ -78,7 +95,7 @@ Mobile-first: la navegación es una barra inferior por defecto (apta para touch,
 
 ## Capa de API (`src/services/api.js`)
 
-Único punto que llama `fetch` — ninguna vista lo hace directamente. Centraliza JSON, 2xx/4xx/5xx (`ApiError` con `status`+`body`+mensaje del backend) y error de red (`ApiError` con `cause`). `baseUrl` y `fetchImpl` son inyectables, por eso es comprobable con un servidor HTTP local en los tests, sin red real.
+Único punto que llama `fetch` — ninguna vista lo hace directamente. Centraliza JSON, 2xx/4xx/5xx (`ApiError` con `status`+`body`+mensaje del backend) y error de red (`ApiError` con `cause`), sobre `apiGet`/`apiPost`/`apiPut`. Concentra además el conocimiento de **todos** los endpoints de Perfil (`getProfileCatalogs`, `getActivityRamifications`, `getProfile`, `createProfile`, `updateProfile`, `updateProfileActivities/Markets/Products/Inputs/Priorities/Constraints`) — `pages/perfil.js` nunca arma una URL a mano. `baseUrl` y `fetchImpl` son inyectables, por eso es comprobable con un servidor HTTP local en los tests, sin red real.
 
 ## Configuración de ambiente
 
@@ -86,10 +103,10 @@ Mobile-first: la navegación es una barra inferior por defecto (apta para touch,
 
 ## Datos ficticios
 
-Ninguno. Inicio no muestra métricas/riesgos/oportunidades simuladas — el único dato que expone es un chequeo real y honesto de `GET /health` contra el backend (éxito o error, tal como responda de verdad).
+Ninguno. Inicio no muestra métricas/riesgos/oportunidades simuladas — el único dato que expone es un chequeo real y honesto de `GET /health` contra el backend. Perfil Productivo solo muestra catálogos, ramificaciones y perfiles reales obtenidos del backend — nunca una actividad/producto/mercado inventado; un catálogo vacío se muestra como estado vacío, no se rellena.
 
 ## Tests
 
-`npm test` — 47 tests: `router.test.js` (tabla de rutas y su alineación con la jerarquía de navegación documentada), `theme.test.js` (normalización/persistencia/aplicación, lógica pura), `api.test.js` (2xx/4xx/5xx/error de red contra un servidor HTTP local), `server.test.js` (AppShell servido de verdad por HTTP, deep-linking, seguridad de path traversal, tipos de contenido), `contrast.test.js` (contraste WCAG real calculado sobre los tokens tal como están escritos en el CSS).
+`npm test` — 82 tests: `router.test.js`, `theme.test.js`, `api.test.js` (2xx/4xx/5xx/error de red, incluyendo `apiPost`/`apiPut`), `server.test.js`, `contrast.test.js` (ver Paso 1) + de Perfil Productivo: `profile-form.test.js` (22 tests de la lógica pura — jerarquía de actividades, reemplazo de ramificaciones preservando otras actividades, reordenamiento de prioridades, humanización de errores), `active-profile.test.js` (persistencia del id de perfil activo), `perfil-modules.test.js` (smoke test de que todos los módulos/componentes cargan sin errores de import) y `profile-integration.test.js` (**integración real**: levanta `backend/server.js` como proceso hijo con SQLite en memoria en un puerto dedicado, y ejecuta el flujo completo `catálogo → actividad → ramificaciones → perfil → guardado` a través de las mismas funciones de `services/api.js` que usa la pantalla, sin datos ficticios).
 
-**Limitación conocida**: no hay verificación automatizada dentro de un navegador real (renderizado visual, foco real, `prefers-color-scheme` real, comportamiento táctil) — no hay una herramienta de navegador/headless disponible en este entorno. Lo comprobado automáticamente es: estructura HTML servida por HTTP real, lógica de router/tema/api como funciones puras, y contraste real calculado sobre los valores de los tokens. La verificación visual en navegador (prompt sección 32) queda pendiente de una validación manual del usuario.
+**Limitación conocida**: no hay verificación automatizada dentro de un navegador real (renderizado visual, foco real, `prefers-color-scheme` real, comportamiento táctil, ni el DOM de `pages/perfil.js`/`components/*` en sí — usan `document.createElement`, no ejecutable bajo `node:test` sin jsdom, que no se agregó como dependencia). Lo comprobado automáticamente es: estructura HTML servida por HTTP real, lógica de router/tema/api/formulario de Perfil como funciones puras, contraste real calculado sobre los tokens, que los módulos de UI importan sin errores, y el contrato completo de la API de Perfil contra un backend real. La verificación visual en navegador (prompt sección 32) queda pendiente de una validación manual del usuario.

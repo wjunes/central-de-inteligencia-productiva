@@ -6,6 +6,7 @@ import { setActiveNavItem } from './components/navigation.js';
 import { renderSectionPlaceholder } from './components/section-placeholder.js';
 import { renderHome } from './pages/home.js';
 import { renderConfiguracion } from './pages/configuracion.js';
+import { renderPerfil } from './pages/perfil.js';
 import { renderNotFound } from './pages/not-found.js';
 import { currentEnvironment } from './utils/env.js';
 
@@ -19,7 +20,7 @@ const RENDERERS = {
   inicio: renderHome,
   radar: () => renderSectionPlaceholder({ title: 'Radar Productivo' }),
   informes: () => renderSectionPlaceholder({ title: 'Informes' }),
-  perfil: () => renderSectionPlaceholder({ title: 'Perfil Productivo' }),
+  perfil: renderPerfil,
   configuracion: renderConfiguracion,
 };
 
@@ -44,6 +45,7 @@ function mount(route) {
 }
 
 function initEnvironmentLabel() {
+  if (typeof document === 'undefined') return; // p. ej. al importar este módulo bajo node:test, sin DOM
   const label = document.getElementById('env-label');
   if (label) label.textContent = currentEnvironment();
 }

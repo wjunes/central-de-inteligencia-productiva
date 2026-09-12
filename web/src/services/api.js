@@ -1,8 +1,10 @@
-// Capa unica de acceso al backend (prompt seccion 26) - centraliza fetch,
-// JSON, estados HTTP y manejo de errores. Ninguna vista debe llamar fetch()
-// directamente. Toda dependencia externa (baseUrl, fetchImpl) es inyectable
-// para poder probar 2xx/4xx/5xx/error de red sin tocar la red real (ver
-// web/tests/api.test.js).
+// Capa unica de acceso al backend (prompt seccion 26/20) - centraliza fetch,
+// JSON, estados HTTP y manejo de errores, y concentra el conocimiento de
+// TODOS los endpoints que el frontend consume (ninguna vista llama fetch()
+// directamente). baseUrl/fetchImpl son inyectables en toda funcion para
+// poder probar 2xx/4xx/5xx/error de red y para las pruebas de integracion
+// contra un backend real en un puerto de prueba (ver tests/api.test.js y
+// tests/profile-integration.test.js).
 import { apiBaseUrl } from '../utils/env.js';
 
 export class ApiError extends Error {
@@ -15,24 +17,91 @@ export class ApiError extends Error {
   }
 }
 
-export async function apiGet(path, { baseUrl = apiBaseUrl(), fetchImpl = fetch } = {}) {
+async function request(method, path, { baseUrl = apiBaseUrl(), fetchImpl = fetch, body } = {}) {
+  const init = { method };
+  if (body !== undefined) {
+    init.headers = { 'Content-Type': 'application/json' };
+    init.body = JSON.stringify(body);
+  }
+
   let res;
   try {
-    res = await fetchImpl(`${baseUrl}${path}`, { method: 'GET' });
+    res = await fetchImpl(`${baseUrl}${path}`, init);
   } catch (err) {
     throw new ApiError('No se pudo contactar al backend (error de red).', { cause: err });
   }
 
-  let body = null;
+  let responseBody = null;
   try {
-    body = await res.json();
+    responseBody = await res.json();
   } catch {
-    /* respuesta sin cuerpo JSON valido - se conserva body=null */
+    /* respuesta sin cuerpo JSON valido - se conserva responseBody=null */
   }
 
   if (!res.ok) {
-    throw new ApiError(body?.message ?? body?.error ?? `El backend respondió con estado ${res.status}.`, { status: res.status, body });
+    throw new ApiError(responseBody?.message ?? responseBody?.error ?? `El backend respondió con estado ${res.status}.`, { status: res.status, body: responseBody });
   }
 
-  return body;
+  return responseBody;
+}
+
+export function apiGet(path, opts) {
+  return request('GET', path, opts);
+}
+export function apiPost(path, body, opts = {}) {
+  return request('POST', path, { ...opts, body });
+}
+export function apiPut(path, body, opts = {}) {
+  return request('PUT', path, { ...opts, body });
+}
+
+// --- Perfil Productivo: conocimiento de endpoints concentrado aqui (prompt
+// seccion 20) - pages/perfil.js nunca arma una URL a mano. ---
+
+export function getProfileCatalogs(opts) {
+  return apiGet('/profile/catalogs', opts);
+}
+
+export function getActivityRamifications(activityId, opts) {
+  return apiGet(`/profile/ramifications/${encodeURIComponent(activityId)}`, opts);
+}
+
+export function listProfiles(opts) {
+  return apiGet('/profiles', opts);
+}
+
+export function getProfile(id, opts) {
+  return apiGet(`/profiles/${encodeURIComponent(id)}`, opts);
+}
+
+export function createProfile(data, opts) {
+  return apiPost('/profiles', data, opts);
+}
+
+export function updateProfile(id, patch, opts) {
+  return apiPut(`/profiles/${encodeURIComponent(id)}`, patch, opts);
+}
+
+export function updateProfileActivities(id, data, opts) {
+  return apiPut(`/profiles/${encodeURIComponent(id)}/activities`, data, opts);
+}
+
+export function updateProfileMarkets(id, marketIds, opts) {
+  return apiPut(`/profiles/${encodeURIComponent(id)}/markets`, { market_ids: marketIds }, opts);
+}
+
+export function updateProfileProducts(id, products, opts) {
+  return apiPut(`/profiles/${encodeURIComponent(id)}/products`, { products }, opts);
+}
+
+export function updateProfileInputs(id, inputs, opts) {
+  return apiPut(`/profiles/${encodeURIComponent(id)}/inputs`, { inputs }, opts);
+}
+
+export function updateProfilePriorities(id, priorities, opts) {
+  return apiPut(`/profiles/${encodeURIComponent(id)}/priorities`, { priorities }, opts);
+}
+
+export function updateProfileConstraints(id, constraints, opts) {
+  return apiPut(`/profiles/${encodeURIComponent(id)}/constraints`, { constraints }, opts);
 }
