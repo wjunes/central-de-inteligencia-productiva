@@ -317,3 +317,63 @@ select, input[type='text'] {
 .badge--impact { color: var(--color-info); border-color: var(--color-info); }
 .badge--trend { color: var(--color-interactive); border-color: var(--color-interactive); }
 .badge--status { color: var(--color-neutral); border-color: var(--color-neutral); }
+
+/* --- Radar Productivo (Paso 2D-2) --- */
+
+.radar-filter__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.radar-filter__row select { min-width: 12rem; }
+
+.situation-card {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.situation-card__members {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+.situation-card__member { display: flex; align-items: center; gap: var(--space-sm); }
+
+.change-item {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.change-item summary { cursor: pointer; }
+.change-item__summary-text { color: var(--color-text-secondary); }
+.change-item__body { margin-top: var(--space-sm); }
+.change-item__intelligence-unit {
+  border-top: var(--border-width) solid var(--color-border);
+  padding-top: var(--space-sm);
+}
+.change-item__decision {
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+}
+
+.decision-alt-list { display: flex; flex-direction: column; gap: var(--space-sm); }
+.decision-alt {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+}
+.decision-alt__kind { font-weight: var(--font-weight-medium); }
+
+.recommendation-item {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.recommendation-item__statement { font-weight: var(--font-weight-medium); margin-top: var(--space-xs); }
+
+.evidence-panel { margin-top: var(--space-sm); }
+.evidence-panel summary { cursor: pointer; color: var(--color-text-secondary); }
+.evidence-panel__body { margin-top: var(--space-xs); }
+.evidence-panel__row { font-size: var(--text-small-size); }

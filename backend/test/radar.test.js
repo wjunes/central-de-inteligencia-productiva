@@ -8,7 +8,7 @@ import { resetDbForTests } from '../db/connection.js';
 import { runPipeline } from '../pipeline/orchestrator.js';
 import { knowledge } from '../knowledge/loader.js';
 import { createProfile, setActivities } from '../core/profile/store.js';
-import { buildRadar } from '../radar/build.js';
+import { buildRadar, buildRadarView } from '../radar/build.js';
 import { priorityKeyOf } from '../radar/prioritize.js';
 import fs from 'node:fs';
 
@@ -225,5 +225,40 @@ describe('Radar Productivo', () => {
     const source = knowledge.sourceById(capture.source_id);
     assert.ok(source, 'la cadena llega hasta una fuente real de knowledge/sources/');
     assert.equal(source.id, 'fao-giews-amis');
+  });
+
+  // Casos agregados en Paso 2D-0 (auditoría de contrato de Radar, ver
+  // docs/arquitectura/contrato-radar.md §17.4/§17.5) - protegen dos
+  // comportamientos reales confirmados por ejecución directa durante la
+  // auditoría, no cubiertos por los casos 1-21 de arriba.
+
+  test('Caso 26 (2D-0/§17.5) - last_seen_at de una situación se actualiza con una simple relectura de Radar, sin evidencia nueva (GAP, no corregido)', async () => {
+    await runSojaT1T2(db);
+    const p = profileABC(db);
+
+    buildRadar(db, p.id);
+    const row1 = db.prepare('SELECT * FROM radar_situations').get();
+
+    await new Promise((r) => setTimeout(r, 5));
+    buildRadar(db, p.id); // segunda lectura, sin ninguna corrida de pipeline en el medio
+
+    const row2 = db.prepare('SELECT * FROM radar_situations').get();
+    assert.notEqual(row1.last_seen_at, row2.last_seen_at, 'last_seen_at cambia aunque no llegó evidencia nueva (comportamiento real, documentado como GAP - no debe "corregirse" sin revisar radar/situations.js#upsertSituations deliberadamente)');
+    assert.equal(row1.observation_count, row2.observation_count, 'observation_count sí permanece estable - solo last_seen_at está afectado');
+  });
+
+  test('Caso 27 (2D-0/§17.4) - view desconocido devuelve {error:...} en el cuerpo, sin lanzar excepción (el router lo envuelve igual en HTTP 200, ver contrato §3)', async () => {
+    await runSojaT1T2(db);
+    const p = profileABC(db);
+    const view = buildRadarView(db, p.id, 'algo-que-no-existe');
+    assert.deepEqual(view, { error: 'view desconocida: algo-que-no-existe' });
+  });
+
+  test('Caso 28 (2D-0/§5.4) - radar.recommendations incluye tipos distintos de monitor/seek_information (mitigate, pursue_opportunity), no solo los que Situación expone en "Para observar"', async () => {
+    await runSojaT1T2(db);
+    const p = profileABC(db);
+    const radar = buildRadar(db, p.id);
+    const types = new Set(radar.recommendations.map((r) => r.type));
+    assert.ok(types.has('mitigate') || types.has('pursue_opportunity'), 'con el perfil ABC real, al menos uno de estos dos tipos debe estar presente (no solo monitor)');
   });
 });

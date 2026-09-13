@@ -49,3 +49,31 @@ describe('Situación/Dashboard - módulos cargan sin errores y exportan lo esper
     assert.equal(typeof mod.renderHome, 'function');
   });
 });
+
+describe('Radar Productivo (Paso 2D-2) - módulos cargan sin errores y exportan lo esperado', () => {
+  test('components/*', async () => {
+    assert.equal(typeof (await import('../src/components/activity-badge.js')).renderActivityBadge, 'function');
+    assert.equal(typeof (await import('../src/components/radar-filter.js')).renderRadarFilter, 'function');
+    assert.equal(typeof (await import('../src/components/situation-card.js')).renderSituationCard, 'function');
+    assert.equal(typeof (await import('../src/components/change-item.js')).renderChangeItem, 'function');
+    assert.equal(typeof (await import('../src/components/decision-detail.js')).renderDecisionDetail, 'function');
+    assert.equal(typeof (await import('../src/components/evidence-panel.js')).renderEvidencePanel, 'function');
+    assert.equal(typeof (await import('../src/components/recommendation-item.js')).renderRecommendationItem, 'function');
+  });
+
+  test('utils/labels.js exporta las tablas esperadas (compartidas con intelligence-item.js)', async () => {
+    const labels = await import('../src/utils/labels.js');
+    for (const key of ['TYPE_LABEL', 'DIRECTION_LABEL', 'EVIDENCE_LABEL', 'CONFIDENCE_LABEL', 'RELEVANCE_LABEL', 'SITUATION_STATUS_LABEL', 'TREND_STATUS_LABEL', 'RECOMMENDATION_TYPE_LABEL', 'PRIORITY_LABEL', 'DECISION_ALT_KIND_LABEL']) {
+      assert.equal(typeof labels[key], 'object', `labels.js debe exportar ${key}`);
+    }
+  });
+
+  test('pages/radar.js', async () => {
+    const mod = await import('../src/pages/radar.js');
+    assert.equal(typeof mod.renderRadar, 'function');
+  });
+
+  test('app.js sigue importando correctamente pages/radar.js (ya no usa el placeholder genérico para /radar)', async () => {
+    await assert.doesNotReject(() => import('../src/app.js'));
+  });
+});
