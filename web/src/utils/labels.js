@@ -58,3 +58,19 @@ export const PRIORITY_LABEL = { low: 'Prioridad baja', medium: 'Prioridad media'
 // etiqueta ninguna como "mejor opción" (el backend no produce `best_option`,
 // contrato §14).
 export const DECISION_ALT_KIND_LABEL = { no_action: 'Alternativa: no actuar (monitoreo habitual)', action: 'Alternativa evaluada' };
+
+// CLAIM_TYPE_LABEL (Paso 2E-2): los 10 tipos reales de `report_claims`
+// (backend/reports/claims.js#TEMPLATES, verificado en contrato-informes.md
+// §5) - un claim de informe es más plano que un item de Radar (no trae
+// intelligence[]/decisions[] anidados, solo {type, text, importance,
+// evidence_level, references}), por eso usa su propia etiqueta de tipo en
+// vez de TYPE_LABEL (que es específico de intelligence.type). 'fact' está
+// catalogado pero ningún claim real lo usa hoy (claims.js nunca lo invoca) -
+// se incluye igual por completitud/robustez, nunca se oculta un valor no
+// catalogado (fallback al valor crudo, mismo principio que el resto de este
+// archivo).
+export const CLAIM_TYPE_LABEL = {
+  fact: 'Dato', change: 'Cambio', trend: 'Tendencia', impact: 'Impacto', risk: 'Riesgo',
+  opportunity: 'Oportunidad', decision: 'Decisión', recommendation: 'Recomendación',
+  uncertainty: 'Incertidumbre', comparison: 'Comparación',
+};

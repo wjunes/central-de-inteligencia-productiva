@@ -77,3 +77,43 @@ describe('Radar Productivo (Paso 2D-2) - módulos cargan sin errores y exportan 
     await assert.doesNotReject(() => import('../src/app.js'));
   });
 });
+
+describe('Informes (Paso 2E-2) - módulos cargan sin errores y exportan lo esperado', () => {
+  test('components/*', async () => {
+    assert.equal(typeof (await import('../src/components/report-catalog-card.js')).renderReportCatalogCard, 'function');
+    assert.equal(typeof (await import('../src/components/report-config-panel.js')).renderReportConfigPanel, 'function');
+    assert.equal(typeof (await import('../src/components/report-header.js')).renderReportHeader, 'function');
+    assert.equal(typeof (await import('../src/components/report-comparison.js')).renderReportComparison, 'function');
+    assert.equal(typeof (await import('../src/components/report-claim-list.js')).renderReportClaimList, 'function');
+    assert.equal(typeof (await import('../src/components/report-claim-list.js')).renderReportClaimItem, 'function');
+    assert.equal(typeof (await import('../src/components/traceability-panel.js')).renderTraceabilityPanel, 'function');
+    assert.equal(typeof (await import('../src/components/narrative-section.js')).renderNarrativeSection, 'function');
+    assert.equal(typeof (await import('../src/components/report-history-list.js')).renderReportHistoryList, 'function');
+    assert.equal(typeof (await import('../src/components/report-versions-panel.js')).renderReportVersionsPanel, 'function');
+  });
+
+  test('utils/reports.js y utils/dom-interaction.js exportan lo esperado', async () => {
+    const reports = await import('../src/utils/reports.js');
+    assert.ok(Array.isArray(reports.REPORT_TYPES) && reports.REPORT_TYPES.length === 7);
+    assert.equal(typeof reports.buildGenerateParams, 'function');
+    assert.equal(typeof reports.classifyGenerateError, 'function');
+    const domInteraction = await import('../src/utils/dom-interaction.js');
+    assert.equal(typeof domInteraction.withPreservedInteraction, 'function');
+  });
+
+  test('services/api.js expone los 7 wrappers de Informes', async () => {
+    const apiMod = await import('../src/services/api.js');
+    for (const fn of ['listReports', 'generateReport', 'getReport', 'getReportTraceability', 'getReportVersions', 'getReportNarrative', 'generateReportNarrative']) {
+      assert.equal(typeof apiMod[fn], 'function', `api.js debe exportar ${fn}`);
+    }
+  });
+
+  test('pages/informes.js', async () => {
+    const mod = await import('../src/pages/informes.js');
+    assert.equal(typeof mod.renderInformes, 'function');
+  });
+
+  test('app.js ya no usa el placeholder genérico para /informes', async () => {
+    await assert.doesNotReject(() => import('../src/app.js'));
+  });
+});

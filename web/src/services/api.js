@@ -114,3 +114,38 @@ export function updateProfileConstraints(id, constraints, opts) {
 export function getProfileRadar(id, opts) {
   return apiGet(`/profiles/${encodeURIComponent(id)}/radar`, opts);
 }
+
+// --- Informes (Paso 2E-2, docs/arquitectura/contrato-informes.md §24):
+// los 8 endpoints reales, ninguno nuevo. ---
+
+export function listReports({ type, profileId } = {}, opts) {
+  const params = new URLSearchParams();
+  if (type) params.set('type', type);
+  if (profileId) params.set('profile_id', profileId);
+  const qs = params.toString();
+  return apiGet(`/reports${qs ? `?${qs}` : ''}`, opts);
+}
+
+export function generateReport(payload, opts) {
+  return apiPost('/reports/generate', payload, opts);
+}
+
+export function getReport(id, opts) {
+  return apiGet(`/reports/${encodeURIComponent(id)}`, opts);
+}
+
+export function getReportTraceability(id, opts) {
+  return apiGet(`/reports/${encodeURIComponent(id)}/traceability`, opts);
+}
+
+export function getReportVersions(id, opts) {
+  return apiGet(`/reports/${encodeURIComponent(id)}/versions`, opts);
+}
+
+export function getReportNarrative(id, opts) {
+  return apiGet(`/reports/${encodeURIComponent(id)}/narrative`, opts);
+}
+
+export function generateReportNarrative(id, { mode = 'deterministic' } = {}, opts) {
+  return apiPost(`/reports/${encodeURIComponent(id)}/narrative`, { mode }, opts);
+}

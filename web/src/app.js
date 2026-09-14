@@ -3,26 +3,24 @@
 import { initRouter } from './router.js';
 import { loadThemePreference, applyThemePreference } from './state/theme.js';
 import { setActiveNavItem } from './components/navigation.js';
-import { renderSectionPlaceholder } from './components/section-placeholder.js';
 import { renderHome } from './pages/home.js';
 import { renderConfiguracion } from './pages/configuracion.js';
 import { renderPerfil } from './pages/perfil.js';
 import { renderRadar } from './pages/radar.js';
+import { renderInformes } from './pages/informes.js';
 import { renderNotFound } from './pages/not-found.js';
 import { currentEnvironment } from './utils/env.js';
 
 const APP_NAME = 'Central de Inteligencia Productiva';
 
-// Un placeholder por ruta todavia no implementada (prompt seccion 10) - no
-// una pantalla por tipo de dato de backend (ver docs/producto/arquitectura-
-// funcional-ux.md, seccion 3: Radar/Informes/Perfil son las pantallas reales
-// de las siguientes etapas). Radar Productivo se implementó en el Paso 2D-2
-// (docs/arquitectura/contrato-radar.md + docs/producto/arquitectura-radar-ux.md)
-// - "informes" sigue pendiente de una etapa futura.
+// Radar Productivo se implementó en el Paso 2D-2 (docs/arquitectura/contrato-
+// radar.md + docs/producto/arquitectura-radar-ux.md); Informes en el Paso
+// 2E-2 (docs/arquitectura/contrato-informes.md + docs/producto/arquitectura-
+// informes-ux.md) - ya no queda ninguna ruta con placeholder genérico.
 const RENDERERS = {
   inicio: renderHome,
   radar: renderRadar,
-  informes: () => renderSectionPlaceholder({ title: 'Informes' }),
+  informes: renderInformes,
   perfil: renderPerfil,
   configuracion: renderConfiguracion,
 };

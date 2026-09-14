@@ -17,6 +17,7 @@ import { renderDecisionDetail } from '../components/decision-detail.js';
 import * as api from '../services/api.js';
 import { loadActiveProfileId } from '../state/active-profile.js';
 import { describeApiError, isNotFoundError } from '../utils/profile-form.js';
+import { withPreservedInteraction } from '../utils/dom-interaction.js';
 import {
   uniqueActivityIds,
   uniqueRelevanceLevels,
@@ -164,36 +165,20 @@ export function renderRadar() {
   const filters = { type: 'all', activityId: null, relevanceLevel: null };
 
   // Cada cambio de filtro reconstruye body.replaceChildren(...) desde cero
-  // (sin diffing - prompt seccion "sin dependencias"). Sin lo siguiente, ESO
-  // colapsaría cualquier <details> ya expandido y perdería el foco del
+  // (sin diffing - prompt seccion "sin dependencias"). Sin preservar estado,
+  // eso colapsaría cualquier <details> ya expandido y perdería el foco del
   // control que el usuario acaba de usar (QA Paso 2D-3, defecto real
-  // encontrado y corregido aquí - ver utils/radar.js#changeItemKey/situationKey
-  // y components/radar-filter.js#data-filter-key). Ninguno de los dos es un
-  // dato del contrato: son solo continuidad de interacción del lado del
-  // cliente.
-  function capturedOpenKeys() {
-    return new Set([...body.querySelectorAll('details[data-key]')].filter((d) => d.open).map((d) => d.dataset.key));
-  }
-
-  function restoreOpenKeys(keys) {
-    for (const d of body.querySelectorAll('details[data-key]')) {
-      if (keys.has(d.dataset.key)) d.open = true;
-    }
-  }
-
+  // encontrado y corregido aquí). Mecanismo compartido con pages/informes.js
+  // desde el Paso 2E-2 - ver utils/dom-interaction.js.
   function rerender() {
-    const openKeys = capturedOpenKeys();
-    const focusedKey = document.activeElement?.dataset?.filterKey ?? null;
-
-    body.replaceChildren(
-      renderRadarContent(radarData, filters, (patch) => {
-        Object.assign(filters, patch);
-        rerender();
-      })
-    );
-
-    restoreOpenKeys(openKeys);
-    if (focusedKey) body.querySelector(`[data-filter-key="${focusedKey}"]`)?.focus();
+    withPreservedInteraction(body, () => {
+      body.replaceChildren(
+        renderRadarContent(radarData, filters, (patch) => {
+          Object.assign(filters, patch);
+          rerender();
+        })
+      );
+    });
   }
 
   async function boot() {
