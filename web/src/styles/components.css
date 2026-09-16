@@ -317,3 +317,63 @@ select, input[type='text'] {
 .badge--impact { color: var(--color-info); border-color: var(--color-info); }
 .badge--trend { color: var(--color-interactive); border-color: var(--color-interactive); }
 .badge--status { color: var(--color-neutral); border-color: var(--color-neutral); }
+
+/* --- Radar / Informes / Decisiones y Recomendaciones (Paso 2F-2) --- */
+
+.button--link {
+  background: transparent;
+  color: var(--color-interactive);
+  text-decoration: underline;
+  min-height: 44px;
+  padding: 0;
+}
+.button--link:hover { color: var(--color-interactive-hover); }
+
+/* <details> nativo (arquitectura-radar-ux.md §18/§21): sin JS/ARIA manual -
+   el navegador ya da aria-expanded correcto. */
+.change-item,
+.situation-card,
+.evidence-panel,
+.traceability-panel {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.change-item > summary,
+.situation-card > summary,
+.evidence-panel > summary,
+.traceability-panel > summary {
+  cursor: pointer;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  font-weight: var(--font-weight-medium);
+}
+.change-item[open] > summary,
+.situation-card[open] > summary { margin-bottom: var(--space-sm); }
+
+.change-item__detail { margin-top: var(--space-md); padding-top: var(--space-md); border-top: var(--border-width) solid var(--color-border); }
+
+.decision-detail { display: flex; flex-direction: column; gap: var(--space-sm); }
+.decision-alternatives { display: flex; flex-direction: column; gap: var(--space-sm); }
+.decision-alternative {
+  border: var(--border-width) solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm);
+}
+.decision-alternative__label { font-weight: var(--font-weight-medium); }
+.decision-alternative--no_action { border-left: 3px solid var(--color-neutral); }
+.decision-alternative--action { border-left: 3px solid var(--color-interactive); }
+
+.recommendation-item__statement { font-weight: var(--font-weight-medium); margin-top: var(--space-xs); }
+.decision-recommendation-link { margin-top: var(--space-xs); }
+.decision-recommendation-link__label { margin: 0; }
+
+.evidence-panel__body { margin-top: var(--space-sm); display: flex; flex-direction: column; gap: var(--space-xs); }
+.evidence-panel__confidence { display: flex; flex-direction: column; gap: 2px; }
+.evidence-panel__limit { font-style: italic; }
+
+.traceability-panel__body { margin-top: var(--space-sm); }
+.traceability-panel__entry { font-size: var(--text-caption-size); }
+
+.activity-badge { background: var(--color-surface-elevated); }

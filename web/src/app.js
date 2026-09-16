@@ -3,8 +3,9 @@
 import { initRouter } from './router.js';
 import { loadThemePreference, applyThemePreference } from './state/theme.js';
 import { setActiveNavItem } from './components/navigation.js';
-import { renderSectionPlaceholder } from './components/section-placeholder.js';
 import { renderHome } from './pages/home.js';
+import { renderRadarPage } from './pages/radar.js';
+import { renderInformesPage } from './pages/informes.js';
 import { renderConfiguracion } from './pages/configuracion.js';
 import { renderPerfil } from './pages/perfil.js';
 import { renderNotFound } from './pages/not-found.js';
@@ -12,14 +13,11 @@ import { currentEnvironment } from './utils/env.js';
 
 const APP_NAME = 'Central de Inteligencia Productiva';
 
-// Un placeholder por ruta todavia no implementada (prompt seccion 10) - no
-// una pantalla por tipo de dato de backend (ver docs/producto/arquitectura-
-// funcional-ux.md, seccion 3: Radar/Informes/Perfil son las pantallas reales
-// de las siguientes etapas).
+// Paso 2F-2: Radar e Informes dejan de ser placeholders.
 const RENDERERS = {
   inicio: renderHome,
-  radar: () => renderSectionPlaceholder({ title: 'Radar Productivo' }),
-  informes: () => renderSectionPlaceholder({ title: 'Informes' }),
+  radar: renderRadarPage,
+  informes: renderInformesPage,
   perfil: renderPerfil,
   configuracion: renderConfiguracion,
 };

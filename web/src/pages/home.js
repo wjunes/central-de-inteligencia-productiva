@@ -8,21 +8,11 @@ import { renderStatusMessage } from '../components/status-message.js';
 import { renderProfileSection } from '../components/profile-section.js';
 import { renderSituationSummary } from '../components/situation-summary.js';
 import { renderIntelligenceItem } from '../components/intelligence-item.js';
+import { renderNoProfileState } from '../components/no-profile-state.js';
 import * as api from '../services/api.js';
 import { loadActiveProfileId } from '../state/active-profile.js';
 import { describeApiError, isNotFoundError } from '../utils/profile-form.js';
 import { itemsByIntelligenceType, monitorEntries, primaryActivityId } from '../utils/situation.js';
-
-function renderNoProfileState(reason = null) {
-  return el('div', { class: 'stack' }, [
-    renderStatusMessage({
-      kind: 'info',
-      title: 'Todavía no configuraste un perfil productivo',
-      text: reason ?? 'Configurá tu actividad, mercados y prioridades para ver tu situación personalizada.',
-    }),
-    el('a', { class: 'button', href: '/perfil', 'data-nav-link': 'perfil' }, 'Configurar Perfil Productivo'),
-  ]);
-}
 
 function renderTypedSection(title, items, type, emptyText, description = null) {
   const entries = itemsByIntelligenceType(items, type);
@@ -137,7 +127,7 @@ export function renderHome() {
   async function boot() {
     const activeId = loadActiveProfileId();
     if (!activeId) {
-      body.replaceChildren(renderNoProfileState());
+      body.replaceChildren(renderNoProfileState('Configurá tu actividad, mercados y prioridades para ver tu situación personalizada.'));
       return;
     }
 

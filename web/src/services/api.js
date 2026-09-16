@@ -114,3 +114,18 @@ export function updateProfileConstraints(id, constraints, opts) {
 export function getProfileRadar(id, opts) {
   return apiGet(`/profiles/${encodeURIComponent(id)}/radar`, opts);
 }
+
+// --- Informes (Paso 2F-2): solo los 2 endpoints habilitados para esta etapa
+// (ver docs/arquitectura/contrato-informes.md §24) - GET /reports (listado)
+// y POST /reports/generate NO se integran aquí, quedan fuera de alcance de
+// 2F-2 por restricción explícita del enunciado (/informes es un visor de un
+// informe ya existente, vía deep-link, no el catálogo/generación completo
+// especificado en arquitectura-informes-ux.md). ---
+
+export function getReport(id, opts) {
+  return apiGet(`/reports/${encodeURIComponent(id)}`, opts);
+}
+
+export function getReportTraceability(id, opts) {
+  return apiGet(`/reports/${encodeURIComponent(id)}/traceability`, opts);
+}

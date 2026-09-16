@@ -7,21 +7,15 @@
 // en español legible). El color nunca es el único portador: cada badge lleva
 // siempre su texto (prompt seccion 13).
 import { el } from '../utils/dom.js';
-
-const TYPE_LABEL = { risk: 'Riesgo', opportunity: 'Oportunidad', impact: 'Impacto', trend: 'Tendencia' };
-const DIRECTION_LABEL = { increase: 'Aumentó', decrease: 'Disminuyó', stable: 'Sin cambios', mixed: 'Mixto', uncertain: 'Dirección incierta' };
-const EVIDENCE_LABEL = {
-  structural_relationship: 'Relación estructural',
-  strong: 'Evidencia fuerte',
-  moderate: 'Evidencia moderada',
-  limited: 'Evidencia limitada',
-  insufficient: 'Evidencia insuficiente',
-  conflicting: 'Evidencia contradictoria',
-};
-const CONFIDENCE_LABEL = { very_high: 'Confianza muy alta', high: 'Confianza alta', medium: 'Confianza media', low: 'Confianza baja' };
-const RELEVANCE_LABEL = { critical: 'Relevancia crítica', high: 'Relevancia alta', medium: 'Relevancia media', low: 'Relevancia baja', none: 'Sin relevancia' };
-const SITUATION_STATUS_LABEL = { emerging: 'Emergente', active: 'Activa', persistent: 'Persistente', resolved: 'Resuelta' };
-const TREND_STATUS_LABEL = { confirmed: 'Tendencia confirmada', insufficient_evidence: 'Evidencia insuficiente para tendencia' };
+import {
+  TYPE_LABEL,
+  DIRECTION_LABEL,
+  EVIDENCE_LABEL,
+  CONFIDENCE_LABEL,
+  RELEVANCE_LABEL,
+  SITUATION_STATUS_LABEL,
+  TREND_STATUS_LABEL,
+} from '../utils/labels.js';
 
 function badge(kind, text) {
   return el('span', { class: `badge${kind ? ` badge--${kind}` : ''}` }, text);

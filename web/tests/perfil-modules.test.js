@@ -49,3 +49,48 @@ describe('Situación/Dashboard - módulos cargan sin errores y exportan lo esper
     assert.equal(typeof mod.renderHome, 'function');
   });
 });
+
+describe('Radar / Informes / Decisiones y Recomendaciones (Paso 2F-2) - módulos cargan sin errores y exportan lo esperado', () => {
+  test('utils/*', async () => {
+    const labels = await import('../src/utils/labels.js');
+    assert.equal(typeof labels.TYPE_LABEL, 'object');
+    assert.equal(typeof labels.RECOMMENDATION_TYPE_LABEL, 'object');
+    assert.equal(typeof labels.alternativeLabel, 'function');
+
+    const dr = await import('../src/utils/decision-recommendation.js');
+    assert.equal(typeof dr.isDirectRelation, 'function');
+    assert.equal(typeof dr.relationLabel, 'function');
+    assert.equal(typeof dr.findDecisionForRecommendation, 'function');
+    assert.equal(typeof dr.resolveMemberDirection, 'function');
+  });
+
+  test('components/*', async () => {
+    assert.equal(typeof (await import('../src/components/activity-badge.js')).renderActivityBadge, 'function');
+    assert.equal(typeof (await import('../src/components/decision-detail.js')).renderDecisionDetail, 'function');
+    assert.equal(typeof (await import('../src/components/recommendation-item.js')).renderRecommendationItem, 'function');
+    assert.equal(typeof (await import('../src/components/decision-recommendation-link.js')).renderDecisionRecommendationLink, 'function');
+    assert.equal(typeof (await import('../src/components/evidence-panel.js')).renderEvidencePanel, 'function');
+    assert.equal(typeof (await import('../src/components/traceability-panel.js')).renderTraceabilityPanel, 'function');
+    assert.equal(typeof (await import('../src/components/no-profile-state.js')).renderNoProfileState, 'function');
+  });
+
+  test('pages/radar.js', async () => {
+    const mod = await import('../src/pages/radar.js');
+    assert.equal(typeof mod.renderRadarPage, 'function');
+  });
+
+  test('pages/informes.js', async () => {
+    const mod = await import('../src/pages/informes.js');
+    assert.equal(typeof mod.renderInformesPage, 'function');
+  });
+
+  test('services/api.js expone getReport/getReportTraceability (únicos 2 endpoints nuevos consumidos en esta etapa - ambos ya existentes en backend)', async () => {
+    const api = await import('../src/services/api.js');
+    assert.equal(typeof api.getReport, 'function');
+    assert.equal(typeof api.getReportTraceability, 'function');
+  });
+
+  test('app.js sigue exportando la tabla de renderers sin romper (Radar/Informes ya no son placeholders)', async () => {
+    await assert.doesNotReject(() => import('../src/app.js'));
+  });
+});
