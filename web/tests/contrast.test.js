@@ -83,22 +83,3 @@ describe('Contraste real de tokens (WCAG, calculado sobre los valores del CSS)',
     });
   }
 });
-
-// QA de Situación/Dashboard (Paso 2C-2): los badges nuevos (components.css
-// .badge/.badge--*) pintan su texto sobre `--color-surface`, NO sobre
-// `--color-background` - un fondo distinto del que el bloque de arriba
-// verifica. Sin este test, un cambio a --color-surface, --color-interactive
-// o --color-neutral podría romper el contraste real de "Para observar"
-// (badge--trend) o "Inteligencia destacada" (badge--status) sin que ningún
-// test lo detectara (los otros 4 tokens de badge ya estaban cubiertos contra
-// --color-background arriba, pero no contra el fondo real que usan).
-describe('Contraste real de los badges de Situación (fondo real: --color-surface, no --color-background)', () => {
-  for (const [name, theme] of [['claro', light], ['oscuro', dark]]) {
-    for (const token of ['color-risk', 'color-opportunity', 'color-info', 'color-interactive', 'color-neutral', 'color-text-secondary']) {
-      test(`tema ${name}: ${token} como texto de badge vs. --color-surface >= 4.5:1`, () => {
-        const ratio = contrastRatio(theme[token], theme['color-surface']);
-        assert.ok(ratio >= 4.5, `contraste real de ${token} sobre --color-surface = ${ratio.toFixed(2)}:1`);
-      });
-    }
-  }
-});

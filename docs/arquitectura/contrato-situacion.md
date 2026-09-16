@@ -172,11 +172,7 @@ Existe el filtro de informe (`reports type=markets`) pero no una consulta livian
 
 Reafirmación del GAP ya documentado en `arquitectura-funcional-ux.md` §11.2 (sin comparación automática "vs. semana pasada" a nivel de todo el perfil). No crítico: `radar_situations.first_seen_at`/`observation_count` ya permiten mostrar antigüedad/persistencia sin ser estrictamente una comparación de período.
 
-### 12.6 GAP FUNCIONAL — `buildRadar()` no propaga el `reason` de `getChanges()` (detectado en Paso 2C-1, confirmado por ejecución real en Paso 2C-2)
-
-**Corrección a este documento**: la fila de la tabla §14 ("Sin información relevante") afirmaba que el `reason` distinto de cada caso vacío ya era "diferenciable" a nivel de contrato. Verificado por lectura de `radar/build.js#buildRadar()` y por ejecución real (dos perfiles — uno sin actividades, otro con actividad pero sin señales relacionadas — consultados vía `GET /profiles/:id/radar`): ambos devuelven exactamente `{no_relevant_changes:true, items:[]}`, byte-idénticos. `buildRadar()` solo reenvía `changes.no_relevant_changes`, nunca `changes.reason`, aunque `getChanges()` sí lo calcula y lo expone en `GET /profiles/:id/changes`. Impacto: un consumidor que solo llama a `/radar` (como exige esta etapa, por costo — ver §15) no puede distinguir "perfil sin actividades declaradas" de "perfil con actividades sin señales relacionadas"; ambos se presentan con un único mensaje genérico. **No se corrige en esta etapa** (`radar/build.js` no se modifica — fuera del alcance de una auditoría/QA de frontend). Propuesta, no implementada: agregar `reason` al objeto `changes` que devuelve `buildRadar()` cuando `no_relevant_changes:true` (aditivo, mismo patrón que la propuesta §12.1/§13).
-
-Ningún GAP es **crítico** para congelar este contrato — los 6 son documentados, ninguno bloquea que `GET /profiles/:id/radar` sea la base de datos real de un primer Dashboard funcional.
+Ningún GAP es **crítico** para congelar este contrato — los 5 son documentados, ninguno bloquea que `GET /profiles/:id/radar` sea la base de datos real de un primer Dashboard funcional.
 
 ## 13. Endpoints nuevos propuestos
 
@@ -199,8 +195,8 @@ No implementado en esta etapa, por mandato explícito.
 | Estado | Cómo se distingue hoy en el backend |
 |---|---|
 | Sin perfil | Frontend aún no tiene `profile_id` guardado — no llama a `/radar` (ver `contrato-perfil.md` §9) |
-| Perfil recién creado, sin actividades | `getChanges()` devuelve `no_relevant_changes:true, reason:'el perfil no tiene actividades declaradas'` |
-| Sin información relevante (con actividades) | `getChanges()` devuelve `no_relevant_changes:true, reason:'no hay cambios centrales relacionados con las actividades del perfil'` — reason distinto del caso anterior, diferenciable **solo vía `GET /profiles/:id/changes`** (ver corrección §12.6: `buildRadar()`/`GET /profiles/:id/radar` NO propaga `reason` — ambos casos son indistinguibles para un consumidor que solo llama a `/radar`) |
+| Perfil recién creado, sin actividades | `getChanges()`/`buildRadar()` devuelven `no_relevant_changes:true, reason:'el perfil no tiene actividades declaradas'` |
+| Sin información relevante (con actividades) | `no_relevant_changes:true, reason:'no hay cambios centrales relacionados con las actividades del perfil'` — **reason distinto del caso anterior, ya diferenciable** |
 | Información disponible | `no_relevant_changes:false`, con `changes`/`situations`/etc. poblados |
 | Error de servidor | 500 `{error: 'internal_error', message}` (router genérico) |
 | Error de red | Responsabilidad exclusiva del cliente (no hay nada que auditar en backend) |
