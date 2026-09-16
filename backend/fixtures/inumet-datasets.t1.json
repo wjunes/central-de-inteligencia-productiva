@@ -1,0 +1,11 @@
+{
+  "_note": "Fixture de prueba - NO es una captura real. Representa el catalogo CKAN de INUMET (monitor real: inumet::principal, ver knowledge/monitoring/monitors.json), usado para probar Bloque B (contexto de monitor) sin depender de red.",
+  "normalized": {
+    "kind": "dataset_list",
+    "count": 2,
+    "datasets": [
+      { "name": "pronostico-agroclimatico", "title": "Pronóstico agroclimático", "metadata_modified": "2026-09-01", "num_resources": 3 },
+      { "name": "precipitaciones-acumuladas", "title": "Precipitaciones acumuladas", "metadata_modified": "2026-09-01", "num_resources": 2 }
+    ]
+  }
+}

@@ -654,7 +654,13 @@
       "last_run": null,
       "last_success": null,
       "last_change": null,
-      "notes": "Datos abiertos vía catálogo AGESIC. Para ENSO y perspectivas estacionales de largo plazo complementar con NOAA/IRI."
+      "notes": "Datos abiertos vía catálogo AGESIC. Para ENSO y perspectivas estacionales de largo plazo complementar con NOAA/IRI.",
+      "context": {
+        "origin_activity_id": "agricultura-secano",
+        "origin_ramification_id": "clima",
+        "topic_id": "clima-agua",
+        "basis": "curación manual, no inferida: 'clima' es un nodo real de knowledge/ramifications/agricultura-secano.json (no heredado), y 'clima-agua' existe en knowledge/ramifications/_signal_types.json. Ya validado como asociación aceptable en backend/test/real-source.test.js antes de esta etapa. No implica que INUMET solo afecte a agricultura-secano (knowledge/sources/sources.json declara 13 actividades para esta fuente) - es la única de esas 13 con una dependencia climática directa y documentada en su propio árbol de ramificaciones, por eso es la única elegida como origen determinístico."
+      }
     },
     {
       "id": "ine::ipc",

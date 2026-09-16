@@ -6,6 +6,15 @@ export const config = {
   nodeEnv: process.env.NODE_ENV ?? 'development',
   dbPath: process.env.DB_PATH ?? './data/cip.sqlite',
   acquisitionTimeoutMs: Number(process.env.ACQUISITION_TIMEOUT_MS ?? 10000),
+  // Automatización real del monitoreo (Bloque A). SCHEDULER_ENABLED explícito
+  // siempre gana; si se omite, se activa en todo ambiente EXCEPTO 'test' -
+  // evita que los tests de integración que levantan server.js como proceso
+  // hijo (situation-integration.test.js, reports-integration.test.js, etc.,
+  // todos con NODE_ENV=test) disparen llamadas reales a fuentes externas.
+  scheduler: {
+    enabled: process.env.SCHEDULER_ENABLED != null ? process.env.SCHEDULER_ENABLED === 'true' : (process.env.NODE_ENV ?? 'development') !== 'test',
+    intervalMs: Number(process.env.SCHEDULER_INTERVAL_MS ?? 15 * 60 * 1000),
+  },
   ai: {
     deepseek: {
       apiKey: process.env.DEEPSEEK_API_KEY ?? '',

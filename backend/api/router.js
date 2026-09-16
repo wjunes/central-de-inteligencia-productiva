@@ -44,7 +44,10 @@ async function readBody(req) {
   }
 }
 
-export function createRouter(db) {
+// scheduler es opcional (Bloque A) - las llamadas existentes createRouter(db)
+// (backend/test/profile-*.test.js) siguen funcionando sin cambios; sin
+// scheduler, /pipeline/status simplemente no agrega el bloque `scheduler`.
+export function createRouter(db, { scheduler = null } = {}) {
   return async function handle(req, res) {
     const url = new URL(req.url, `http://${req.headers.host}`);
     const { pathname } = url;
@@ -56,7 +59,7 @@ export function createRouter(db) {
 
       if (req.method === 'GET' && pathname === '/pipeline/status') {
         const last = db.prepare('SELECT * FROM pipeline_runs ORDER BY started_at DESC LIMIT 1').get();
-        return json(res, 200, { last_run: last ?? null });
+        return json(res, 200, { last_run: last ?? null, scheduler: scheduler ? scheduler.getStatus() : null });
       }
 
       if (req.method === 'GET' && pathname === '/pipeline/runs') {
