@@ -1,0 +1,10 @@
+{
+  "_note": "Fixture Bloque L - mismo mes (Fecha), Importe modificado (100 -> 105) para probar valor_modificado.",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["", "", "", "Fecha", "Importe", "", ""],
+    "rows": [
+      ["", "", "2026", "Ene-2026", "105", "", ""]
+    ]
+  }
+}

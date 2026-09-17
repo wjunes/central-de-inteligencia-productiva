@@ -88,14 +88,18 @@ describe('Bloque E - Caso 10: propagación de contexto (mecanismo de Bloque B, s
 });
 
 describe('Bloque E - Caso 9: detección de cambios con el método YA declarado, sobre datos CSV reales', () => {
-  test('value_comparison (declarado por dgi::principal) sobre csv_table real: no inventa un campo, no genera señal, no rompe el pipeline', async () => {
+  test('value_comparison (declarado por dgi::principal) sobre csv_table real: desde Bloque N, selection.latest_period resuelve la ambigüedad de fila y la extracción llega a buen puerto', async () => {
     // Bloque J: dgi::principal declara monitoring_definition (delimiter ';',
-    // encoding windows-1252, header_row=13 - 13 filas de preambulo) y desde
-    // este bloque esa configuración SÍ se aplica de verdad (ver
-    // adapters.js#csvParsingConfig) - el cuerpo sintético debe respetar esa
-    // forma real para seguir probando lo que esta prueba siempre probó
-    // (value_comparison genérico sobre csv_table), no una forma que Bloque E
-    // asumía por defecto y que ya no aplica a este monitor curado.
+    // encoding windows-1252, header_row=13 - 13 filas de preambulo). Bloque L
+    // agregó la extracción genérica csv_table->valor escalar
+    // (data/normalization/scalar.js), que con 2+ filas fallaba de forma
+    // controlada (value_field='Importe' por sí solo era ambiguo). Bloque M
+    // curó monitoring_definition.selection (field='Fecha',
+    // strategy='latest_period') y Bloque N la implementó genéricamente
+    // (data/normalization/selection.js) - el mismo cuerpo sintético de dos
+    // meses que antes quedaba bloqueado ahora se reduce a 1 fila (el período
+    // más reciente, Feb-2026) ANTES de extractValue(), y la extracción tiene
+    // éxito.
     const preamble = ';;;;;;\n'.repeat(13);
     const body = `${preamble};;;Fecha;Importe;;\n;;2026;Ene-2026;100;;\n;;2026;Feb-2026;110;;\n`;
     await withServer(
@@ -107,16 +111,18 @@ describe('Bloque E - Caso 9: detección de cambios con el método YA declarado, 
         const db = resetDbForTests(':memory:');
         const monitor = knowledge.monitorById('dgi::principal');
         assert.equal(monitor.change_detection.method, 'value_comparison');
+        assert.equal(monitor.monitoring_definition.value_field, 'Importe');
+        assert.equal(monitor.monitoring_definition.selection.strategy, 'latest_period');
         const original = knowledge.sourceById;
         try {
           knowledge.sourceById = (id) => (id === monitor.source_id ? { ...original(id), access: { ...original(id).access, endpoint: url } } : original(id));
           const result = await runPipeline(db, [{ monitorId: monitor.id, context: { kind: 'csv_table' } }], { mode: 'live' });
 
-          assert.equal(result.hadErrors, false, 'un csv_table sin campo de valor curado no debe registrarse como error de pipeline');
+          assert.equal(result.hadErrors, false, 'la selección resuelve la ambigüedad - ya no es un error de normalización');
           assert.equal(result.outputs.captures[0].status, 'ok');
-          assert.equal(result.outputs.captures[0].normalized.kind, 'csv_table');
-          assert.equal(result.outputs.changes[0].change_class, 'valor_modificado', 'valueComparison(prev=null,...) siempre marca la primera captura como valor_modificado, aunque curr.value sea undefined - comportamiento preexistente, no nuevo');
-          assert.equal(result.stats.signals_generated, 0, 'sin threshold configurado para un indicador inexistente (curr.indicator=undefined), pending_threshold -> no signal, exactamente como ya hacia magnitudeOutcome() antes de esta etapa');
+          assert.equal(result.outputs.captures[0].normalized.kind, 'indicator');
+          assert.equal(result.outputs.captures[0].normalized.value, 110, 'debe seleccionar Feb-2026 (el período más reciente), no Ene-2026 ni una suma/promedio');
+          assert.equal(result.outputs.changes[0].change_class, 'valor_modificado', 'primera captura, comportamiento preexistente de valueComparison(prev=null,...)');
         } finally {
           knowledge.sourceById = original;
         }

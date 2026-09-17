@@ -1,0 +1,10 @@
+{
+  "_note": "Fixture Bloque L - identico a dgi-value-t1-base.json (mismo Importe) para probar sin_cambio en la segunda captura.",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["", "", "", "Fecha", "Importe", "", ""],
+    "rows": [
+      ["", "", "2026", "Ene-2026", "100", "", ""]
+    ]
+  }
+}

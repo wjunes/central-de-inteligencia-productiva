@@ -10,6 +10,8 @@ import { validate } from '../data/validation/validate.js';
 import { detectChanges } from '../data/updates/change-detection.js';
 import { generateSignal } from '../intelligence/signals/signals.js';
 import { isApplicable as isTabularApplicable, toRecords, persistNormalized } from '../data/normalization/tabular.js';
+import { isApplicable as isScalarApplicable, extractValue } from '../data/normalization/scalar.js';
+import { isApplicable as isSelectionApplicable, select } from '../data/normalization/selection.js';
 import { calculateRelevance } from '../core/relevance/relevance-engine.js';
 import { generateIntelligenceUnit } from '../intelligence/analysis/intelligence.js';
 import { evaluateDecision } from '../decision/decision.js';
@@ -89,6 +91,35 @@ export async function runPipeline(db, jobs, { mode = 'fixture' } = {}) {
         if (isTabularApplicable(capture.normalized, monitor)) {
           try {
             capture.normalized = toRecords(capture.normalized, monitor.change_detection.record_key);
+            persistNormalized(db, capture.id, capture.normalized);
+          } catch (err) {
+            logError(db, runId, 'normalize', 'validation_error', err.message, { monitorId });
+            hadErrors = true;
+            continue;
+          }
+        } else if (isScalarApplicable(capture.normalized, monitor)) {
+          // Bloque L: si la captura es una tabla CSV Y el monitor declara
+          // monitoring_definition.value_field (curado por evidencia real),
+          // se extrae el valor escalar hacia la forma {kind:'indicator',
+          // indicator, value} que change-detection.js#valueComparison() YA
+          // sabe leer (mismo contrato de los monitores ckan_api/api_rest_json
+          // existentes) - sin tocar ese archivo. mutuamente excluyente con la
+          // rama record_diff de arriba (un monitor declara record_key O
+          // value_field, nunca ambos hoy).
+          try {
+            // Bloque N: si ADEMAS el monitor declara monitoring_definition.
+            // selection (curado por evidencia real, ver dgi::principal en
+            // Bloque M), el csv_table de N filas se reduce a EXACTAMENTE 1
+            // fila (por valor de la columna declarada, nunca por posicion)
+            // ANTES de extractValue() - que sigue exigiendo 1 sola fila
+            // exactamente igual que en Bloque L, sin saber nada de
+            // estrategias temporales. Sin selection declarada, este paso no
+            // hace nada (comportamiento de Bloque L intacto).
+            let scalarInput = capture.normalized;
+            if (isSelectionApplicable(scalarInput, monitor)) {
+              scalarInput = select(scalarInput, monitor.monitoring_definition.selection);
+            }
+            capture.normalized = extractValue(scalarInput, monitor);
             persistNormalized(db, capture.id, capture.normalized);
           } catch (err) {
             logError(db, runId, 'normalize', 'validation_error', err.message, { monitorId });

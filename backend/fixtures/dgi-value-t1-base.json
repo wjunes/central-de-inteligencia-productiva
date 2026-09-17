@@ -1,0 +1,10 @@
+{
+  "_note": "Fixture Bloque L - forma real de dgi::principal (headers reales verificados en Bloque J: ['','','','Fecha','Importe','','']) reducida a UNA sola fila de datos - la unica forma en que value_field='Importe' identifica un valor inequivoco sin inventar una dimension de seleccion (el archivo real tiene 534 filas y por eso queda bloqueado, ver informe de Bloque L). Sirve para probar el mecanismo GENERICO de extraccion, no para reactivar DGI real.",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["", "", "", "Fecha", "Importe", "", ""],
+    "rows": [
+      ["", "", "2026", "Ene-2026", "100", "", ""]
+    ]
+  }
+}
