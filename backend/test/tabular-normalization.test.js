@@ -108,3 +108,52 @@ describe('Bloque H4 - re-curación de ursea::precios-paridad-combustibles (H1) -
     assert.throws(() => toRecords(table, ['producto', 'fecha_vigencia']), /clave duplicada 'Gas Oil 10S\|2026-08-01'/, 'confirma que el problema era la elección de columnas de la clave, no un bug del parser/normalizador');
   });
 });
+
+describe('Bloque K - re-curación de mgap-snig::principal (record_key con prefijo real ns1:)', () => {
+  // Headers reales verificados en Bloque J/K (curl directo contra
+  // datosgenerales.csv): las 15 columnas del archivo real traen el prefijo
+  // de namespace XML 'ns1:' - ningun nombre aqui es inventado.
+  const headers = [
+    'ns1:Ejercicio', 'ns1:DepartamentoCodigo', 'ns1:SeccionalPolicialCodigo', 'ns1:AreaSupervision', 'ns1:AreaEnumeracion',
+    'ns1:ActividadCodigo', 'ns1:GiroCodigo', 'ns1:NaturalezaJuridicaCodigo', 'ns1:EstratoCodigo', 'ns1:EspecializacionMGAPCodigo',
+    'ns1:TipoProduccionMGAPCodigo', 'ns1:Superficie', 'ns1:UnidadesGanaderas', 'ns1:SuperficieGanadera', 'ns1:CantidadTenedores',
+  ];
+  const RECORD_KEY_11 = headers.slice(0, 11);
+
+  test('14 - las 11 dimensiones del record_key existen en el header real (ninguna columna inexistente)', () => {
+    const table = csvTable(headers, [['2025', '1', '0', '0', '0', '44', '10', '3', '1', '1', '1', '0', '0,00', '0,00', '1']]);
+    assert.doesNotThrow(() => toRecords(table, RECORD_KEY_11));
+  });
+
+  test('15 - registros con la misma combinación de 11 dimensiones -> clave duplicada (el prefijo no cambia la semántica de unicidad)', () => {
+    const table = csvTable(headers, [
+      ['2025', '1', '0', '0', '0', '44', '10', '3', '1', '1', '1', '0', '0,00', '0,00', '1'],
+      ['2025', '1', '0', '0', '0', '44', '10', '3', '1', '1', '1', '999', '99,99', '99,99', '9'], // mismas 11 dimensiones, solo cambian columnas fuera de la clave
+    ]);
+    assert.throws(() => toRecords(table, RECORD_KEY_11), /clave duplicada/);
+  });
+
+  test('16 - registros con al menos una de las 11 dimensiones distinta -> 0 duplicados, ambos records válidos', () => {
+    const table = csvTable(headers, [
+      ['2025', '1', '0', '0', '0', '44', '10', '3', '1', '1', '1', '0', '0,00', '0,00', '1'],
+      ['2025', '2', '0', '0', '0', '44', '10', '3', '1', '1', '1', '0', '0,00', '0,00', '1'], // DepartamentoCodigo distinto
+    ]);
+    const result = toRecords(table, RECORD_KEY_11);
+    assert.equal(result.records.length, 2);
+    assert.notEqual(result.records[0].key, result.records[1].key);
+  });
+
+  test('17 - normalización preserva los 15 campos reales (clave + relevantes), sin alterar ni perder valores', () => {
+    const table = csvTable(headers, [['2025', '1', '0', '0', '0', '44', '10', '3', '1', '1', '1', '120', '45,50', '0,00', '1']]);
+    const result = toRecords(table, RECORD_KEY_11);
+    assert.equal(result.records[0]['ns1:Superficie'], '120');
+    assert.equal(result.records[0]['ns1:UnidadesGanaderas'], '45,50', 'coma decimal preservada tal cual, sin conversion numerica');
+    assert.equal(Object.keys(result.records[0]).length, headers.length + 1, '15 columnas reales + la propiedad "key" agregada por toRecords()');
+  });
+
+  test('18 - record_key SIN el prefijo real (la curación previa a Bloque K) sigue fallando con columna(s) inexistente(s) - confirma que el gap era de nombres, no del parser', () => {
+    const table = csvTable(headers, [['2025', '1', '0', '0', '0', '44', '10', '3', '1', '1', '1', '0', '0,00', '0,00', '1']]);
+    const unprefixed = RECORD_KEY_11.map((c) => c.replace('ns1:', ''));
+    assert.throws(() => toRecords(table, unprefixed), /columna\(s\) inexistente/);
+  });
+});

@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import { resetDbForTests } from '../db/connection.js';
 import { runPipeline } from '../pipeline/orchestrator.js';
 import { knowledge } from '../knowledge/loader.js';
+import { isApplicable } from '../data/normalization/tabular.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FX = (name) => join(__dirname, '..', 'fixtures', name);
@@ -128,12 +129,77 @@ describe('Bloque G - errores de estructura no abortan el resto del batch', () =>
   });
 });
 
-describe('Bloque G - regresión: monitores fuera de alcance (mgap-snig/dgi/opp) permanecen sin cambios funcionales', () => {
-  test('mgap-snig y dgi NO tienen change_detection.record_key -> isApplicable() sigue devolviendo false para ellos', async () => {
+describe('Bloque G/K - regresión: monitores fuera de alcance (dgi/opp) permanecen sin cambios funcionales', () => {
+  test('dgi NO tiene change_detection.record_key (fuera de alcance de Bloque K) -> isApplicable() sigue devolviendo false', async () => {
     const { isApplicable } = await import('../data/normalization/tabular.js');
-    const snig = knowledge.monitorById('mgap-snig::principal');
     const dgi = knowledge.monitorById('dgi::principal');
-    assert.equal(isApplicable({ kind: 'csv_table', headers: [], rows: [] }, snig), false);
     assert.equal(isApplicable({ kind: 'csv_table', headers: [], rows: [] }, dgi), false);
+  });
+});
+
+describe('Bloque K - mgap-snig::principal: recuración del record_key (prefijo real ns1:) y activación técnica', () => {
+  const MGAP_SNIG_ID = 'mgap-snig::principal';
+  function snigJob(fixtureFile) {
+    return { monitorId: MGAP_SNIG_ID, fixturePath: FX(fixtureFile), context: { kind: 'csv_table' } };
+  }
+
+  test('isApplicable() ahora es true para mgap-snig: change_detection.record_key fue curado en Bloque K (11 columnas, prefijo ns1: real)', () => {
+    const snig = knowledge.monitorById(MGAP_SNIG_ID);
+    assert.equal(snig.change_detection.record_key.length, 11);
+    assert.ok(snig.change_detection.record_key.every((c) => c.startsWith('ns1:')), 'las 11 dimensiones deben usar el prefijo real observado en el CSV, no nombres inventados');
+    assert.equal(isApplicable({ kind: 'csv_table', headers: [], rows: [] }, snig), true);
+  });
+
+  test('primera ejecución (fixture con la forma real, 2 registros con record_key distinto) -> nuevo_registro + 1 señal (nuevo-elemento)', async () => {
+    const db = resetDbForTests(':memory:');
+    const result = await runPipeline(db, [snigJob('mgap-snig-t1-base.json')], { mode: 'fixture' });
+
+    assert.equal(result.hadErrors, false);
+    assert.equal(result.outputs.captures[0].normalized.records.length, 2);
+    assert.equal(result.outputs.changes[0].change_class, 'nuevo_registro');
+    assert.equal(result.stats.signals_generated, 1);
+    assert.equal(result.outputs.signals[0].signal_type, 'nuevo-elemento');
+    assert.equal(result.outputs.signals[0].origin_activity_id, null, 'mgap-snig no tiene context curado (Bloque F): no se inventa uno en Bloque K');
+  });
+
+  test('segunda ejecución con el mismo contenido exacto -> sin_cambio, 0 señales nuevas', async () => {
+    const db = resetDbForTests(':memory:');
+    await runPipeline(db, [snigJob('mgap-snig-t1-base.json')], { mode: 'fixture' });
+    const result = await runPipeline(db, [snigJob('mgap-snig-t2-same.json')], { mode: 'fixture' });
+
+    assert.equal(result.outputs.changes[0].change_class, 'sin_cambio');
+    assert.equal(result.stats.signals_generated, 0);
+  });
+
+  test('modificación controlada (misma record_key, ns1:Superficie/ns1:UnidadesGanaderas cambiados) -> valor_modificado, señal estructural, sin depender de magnitud numérica', async () => {
+    const db = resetDbForTests(':memory:');
+    await runPipeline(db, [snigJob('mgap-snig-t1-base.json')], { mode: 'fixture' });
+    const result = await runPipeline(db, [snigJob('mgap-snig-t3-modified.json')], { mode: 'fixture' });
+
+    assert.equal(result.outputs.changes[0].change_class, 'valor_modificado', 'record_diff detecta la modificación conservando la misma clave (la clave NO cambió, solo el contenido)');
+    assert.equal(result.hadErrors, false);
+    assert.equal(result.stats.signals_generated, 1);
+    assert.equal(result.outputs.signals[0].signal_type, 'cambio-estructural', 'reutiliza el mismo signal_type ya usado para record_diff (H3), sin inventar un umbral numérico');
+  });
+
+  test('las 3 ejecuciones combinadas (base, igual, modificado) no producen falsos duplicados: exactamente 2 señales activas (alta + modificación)', async () => {
+    const db = resetDbForTests(':memory:');
+    await runPipeline(db, [snigJob('mgap-snig-t1-base.json')], { mode: 'fixture' });
+    await runPipeline(db, [snigJob('mgap-snig-t2-same.json')], { mode: 'fixture' });
+    await runPipeline(db, [snigJob('mgap-snig-t3-modified.json')], { mode: 'fixture' });
+
+    const rows = db.prepare('SELECT dedup_key FROM signals').all();
+    assert.equal(rows.length, 2);
+    assert.notEqual(rows[0].dedup_key, rows[1].dedup_key);
+  });
+
+  test('valores de columna preservados sin alteración tras la re-curación del record_key (el prefijo solo afecta el nombre usado para localizar la clave, no el contenido)', async () => {
+    const db = resetDbForTests(':memory:');
+    const result = await runPipeline(db, [snigJob('mgap-snig-t1-base.json')], { mode: 'fixture' });
+    const [record] = result.outputs.captures[0].normalized.records;
+    assert.equal(record['ns1:Ejercicio'], '2025');
+    assert.equal(record['ns1:DepartamentoCodigo'], '1');
+    assert.equal(record['ns1:Superficie'], '0');
+    assert.equal(record['ns1:UnidadesGanaderas'], '0,00', 'la coma decimal original se preserva tal cual, sin conversion numerica');
   });
 });

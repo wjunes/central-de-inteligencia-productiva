@@ -130,7 +130,8 @@
       "automation": "automatable",
       "scope": {},
       "change_detection": {
-        "method": "record_diff"
+        "method": "record_diff",
+        "record_key": ["ns1:Ejercicio", "ns1:DepartamentoCodigo", "ns1:SeccionalPolicialCodigo", "ns1:AreaSupervision", "ns1:AreaEnumeracion", "ns1:ActividadCodigo", "ns1:GiroCodigo", "ns1:NaturalezaJuridicaCodigo", "ns1:EstratoCodigo", "ns1:EspecializacionMGAPCodigo", "ns1:TipoProduccionMGAPCodigo"]
       },
       "fallback": null,
       "last_run": null,
@@ -142,10 +143,10 @@
         "format": "csv",
         "delimiter": ";",
         "encoding": "utf-8",
-        "header_row": 1,
+        "header_row": 0,
         "change_type": "record_diff",
         "value_field": null,
-        "record_key": ["Ejercicio", "DepartamentoCodigo", "SeccionalPolicialCodigo", "AreaSupervision", "AreaEnumeracion", "ActividadCodigo", "GiroCodigo", "NaturalezaJuridicaCodigo", "EstratoCodigo", "EspecializacionMGAPCodigo", "TipoProduccionMGAPCodigo"],
+        "record_key": ["ns1:Ejercicio", "ns1:DepartamentoCodigo", "ns1:SeccionalPolicialCodigo", "ns1:AreaSupervision", "ns1:AreaEnumeracion", "ns1:ActividadCodigo", "ns1:GiroCodigo", "ns1:NaturalezaJuridicaCodigo", "ns1:EstratoCodigo", "ns1:EspecializacionMGAPCodigo", "ns1:TipoProduccionMGAPCodigo"],
         "unit": null,
         "periodicity": "annual (por ejercicio DICOSE; el dataset real vigente es 'mgap-...-dicose-snig-2025' en catalogodatos.gub.uy, publicado anualmente)",
         "relevant_fields": ["Superficie", "UnidadesGanaderas", "SuperficieGanadera", "CantidadTenedores"],
@@ -154,7 +155,7 @@
         "topicId": null,
         "semantic_description": "Recurso 'Datos generales' de la Declaración Jurada de Existencias DICOSE-SNIG: una fila por combinación de ejercicio+departamento+área+actividad+giro+naturaleza jurídica+estrato+especialización+tipo de producción, con superficie, unidades ganaderas, superficie ganadera y cantidad de tenedores.",
         "productive_meaning": "El record_key (11 columnas) es la única combinación verificada sin duplicados sobre 37.072 filas reales (0 claves repetidas) - es una clave compuesta real, no inventada. No se asigna actividad productiva ni tema: ActividadCodigo/GiroCodigo son códigos internos de la taxonomía DICOSE/MGAP sin tabla de correspondencia verificada hacia knowledge/activities/activities.json - construir esa correspondencia ahora sería inventar el vínculo.",
-        "evidence": "Verificado 2026-09-16 vía curl directo contra https://catalogodatos.gub.uy/dataset/8c99ab66-e547-4d6a-b7d3-55b80473b3c6/resource/a6050711-7c15-4a1e-baa4-48d310f95991/download/datosgenerales.csv (HTTP 200, text/csv, 1.986.751 bytes, 37.072 filas de datos). Unicidad del record_key verificada por conteo exacto (0 grupos duplicados). GAP técnico separado de lo semántico: el delimitador real es ';' y los valores numéricos usan ',' como separador decimal (ej. '0,00') - el parser genérico de Bloque E (delimitador ',' por defecto) falla al leer este archivo (confirmado en vivo: acquisition_error 'estructura invalida'); no se modifica el parser en este bloque."
+        "evidence": "Verificado 2026-09-16 vía curl directo contra https://catalogodatos.gub.uy/dataset/8c99ab66-e547-4d6a-b7d3-55b80473b3c6/resource/a6050711-7c15-4a1e-baa4-48d310f95991/download/datosgenerales.csv (HTTP 200, text/csv, 1.986.751 bytes, 37.072 filas de datos). Bloque J (2026-09-17): header_row 0-based confirmado (header en la línea 1, sin preámbulo), delimiter ';' confirmado; GAP descubierto: el encabezado real trae cada una de las 15 columnas con el prefijo de namespace XML 'ns1:' (ej. 'ns1:Ejercicio', 'ns1:DepartamentoCodigo', ...), no los nombres planos con los que se había curado originalmente el record_key. Bloque K (2026-09-18) - RE-CURADO: record_key actualizado a los 11 nombres reales con prefijo 'ns1:' (misma composición semántica de 11 dimensiones, ningún nombre inventado ni reconstruido - se tomó literalmente el encabezado real). Re-verificado en vivo contra el mismo archivo real (headers reales, 15 columnas, 37.072 filas de datos): toRecords() con el record_key prefijado produce exactamente 37.072 records, 0 claves duplicadas, 0 claves incompletas, y los valores de columna se preservan sin alteración (comparados byte a byte contra headers/rows crudos del parser). change_detection.record_key (campo operacional que consume tabular.js#isApplicable/toRecords) actualizado en paralelo con este mismo valor - antes de Bloque K este monitor no lo declaraba, por lo que isApplicable() siempre devolvía false y record_diff nunca se ejecutaba realmente sobre él. 'relevant_fields' (arriba) permanece con nombres sin prefijo: es documental, no se resuelve contra headers reales en ningún código actual (grep sin resultados), y no fue parte del alcance declarado de Bloque K (exclusivamente record_key). No se asigna originActivityId/originRamificationId/topicId - ninguna correspondencia verificada existe (ver productive_meaning), no se inventa contexto en este bloque."
       }
     },
     {
@@ -1115,7 +1116,7 @@
         "format": "csv",
         "delimiter": ";",
         "encoding": "windows-1252",
-        "header_row": 14,
+        "header_row": 13,
         "change_type": "value_comparison",
         "value_field": "Importe",
         "record_key": null,
@@ -1125,9 +1126,9 @@
         "originActivityId": null,
         "originRamificationId": null,
         "topicId": null,
-        "semantic_description": "Recaudación mensual total de la DGI (todos los impuestos consolidados), serie historica desde 1982. El archivo real es un reporte exportado: 13 filas de titulo/blanco antes del encabezado real (fila 14: ';;;Fecha;Importe;;'), columnas relevantes 'Fecha' (ej. 'Feb-2026') e 'Importe' (monto en pesos, formato con '.' como separador de miles, ej. '55.478.974.426').",
+        "semantic_description": "Recaudación mensual total de la DGI (todos los impuestos consolidados), serie historica desde 1982. El archivo real es un reporte exportado: 13 filas de titulo/blanco antes del encabezado real (línea 14 en numeración humana 1-based, índice 13 en el header_row 0-based que consume el parser desde Bloque J: ';;;Fecha;Importe;;'), columnas relevantes 'Fecha' (ej. 'Feb-2026') e 'Importe' (monto en pesos, formato con '.' como separador de miles, ej. '55.478.974.426').",
         "productive_meaning": "Es el unico de los 5 monitores con un unico campo de valor genuinamente inequivoco (Importe = recaudacion total). No se asigna actividad ni tema: es un indicador macro-fiscal agregado del Estado, no especifico de ninguna actividad productiva (mismo criterio ya aplicado a INE::IPC en Bloque B).",
-        "evidence": "Verificado 2026-09-16 vía curl + iconv (HTTP 200, Content-Type text/csv, contenido en Windows-1252 confirmado por byte 0xD3 en 'RECAUDACIÓN' que corresponde a 'Ó' en esa codificacion). GAP tecnico separado de lo semantico: delimitador ';', encoding no-UTF8, y 13 filas de preambulo antes del encabezado real - el parser generico de Bloque E (UTF-8, header en fila 1) no soporta esto; confirmado que decodificar como UTF-8 y parsear con delimitador ',' por defecto NO lanza error (todas las lineas colapsan a 1 solo campo, sin comas) pero produce una tabla sin sentido - riesgo real de 'exito' silenciosamente incorrecto, motivo adicional para NO habilitar este monitor todavia. No se modifica el parser en este bloque."
+        "evidence": "Verificado 2026-09-16 vía curl + iconv (HTTP 200, Content-Type text/csv, contenido en Windows-1252 confirmado por byte 0xD3 en 'RECAUDACIÓN' que corresponde a 'Ó' en esa codificacion). Re-verificado en vivo en Bloque J (2026-09-17): mismo endpoint (https://www.gub.uy/direccion-general-impositiva/sites/direccion-general-impositiva/files/2026-08/Recaudaci%C3%B3n%20Total%20Mensual%20de%20la%20DGI.csv), HTTP 200, 548 líneas totales, contenido byte-identico al de la verificación anterior. GAP tecnico (delimitador ';', encoding no-UTF8, 13 filas de preambulo) resuelto por el parser configurable de Bloque J: decodifica Windows-1252, separa por ';', y toma header_row=13 (0-based) como encabezado - validado end-to-end contra el archivo real (headers=['','','','Fecha','Importe','',''], 534 filas de datos). No se activa este monitor en sources.json todavia (fuera de alcance de Bloque J)."
       }
     },
     {
@@ -1576,7 +1577,7 @@
         "format": "csv",
         "delimiter": ",",
         "encoding": "utf-8",
-        "header_row": 1,
+        "header_row": 0,
         "change_type": "record_diff",
         "value_field": null,
         "record_key": ["producto", "fecha_cierre"],
@@ -1588,7 +1589,7 @@
         "topicId": "precios",
         "semantic_description": "Desglose del costo de importacion (Precio de Paridad de Importacion, columnas precio_fob_ajustado...subtotal_1_precio_cif) y el precio final ex-planta (subtotal_2/3, total_precio_ex_planta_1/2) de 5 combustibles: Gas Oil 10S, Gas Oil 50S, Gasolina Premium 97, Gasolina Super 95 y GLP. Cada fila = un CIERRE de precio (evento de fijacion, fecha_cierre) para un producto, con la fecha_vigencia (mes) a la que aplica ese cierre.",
         "productive_meaning": "Bloque H1 - RE-CURADO: record_key cambia de (producto,fecha_vigencia) a (producto,fecha_cierre). Motivo, verificado con datos reales el 2026-09-17: (producto,fecha_vigencia) dejo de ser unico - URSEA publico un segundo cierre (2026-08-25) para 'Gas Oil 10S' y para 'GLP', ambos con fecha_vigencia=2026-08-01 pero valores distintos al cierre anterior (2026-07-25) - una revision intra-mensual real de precios, no un error de datos. (producto,fecha_cierre) SI es unico (355/355, 0 duplicados, 0 claves incompletas) y es semanticamente mas correcto: fecha_cierre es la fecha del EVENTO de fijacion de precio (inmutable, un hecho que ocurrio una vez), mientras que fecha_vigencia es solo el periodo nominal al que ese cierre aplica - dos cierres distintos pueden legitimamente compartir el mismo periodo de vigencia. Con esta clave, una revision intra-mensual se modela correctamente como ALTA de un nuevo registro (un nuevo cierre ocurrio), no como una modificacion ambigua de un registro existente - consistente con que cada cierre es un evento inmutable, nunca editado retroactivamente.",
-        "evidence": "Clave original (producto,fecha_vigencia) verificada 2026-09-16 (355/355, 0 duplicados en ese momento). Re-verificado 2026-09-17 vía curl directo contra la misma URL: (producto,fecha_vigencia) paso a tener 2 grupos duplicados reales (Gas Oil 10S y GLP, ambos fecha_vigencia=2026-08-01, 2 fechas_cierre distintas cada uno: 2026-07-25 y 2026-08-25). (producto,fecha_cierre) verificado en el mismo archivo: 355 filas de datos, 355 combinaciones distintas, 0 duplicados, 0 valores vacios en ninguna de las 2 columnas."
+        "evidence": "Clave original (producto,fecha_vigencia) verificada 2026-09-16 (355/355, 0 duplicados en ese momento). Re-verificado 2026-09-17 vía curl directo contra la misma URL: (producto,fecha_vigencia) paso a tener 2 grupos duplicados reales (Gas Oil 10S y GLP, ambos fecha_vigencia=2026-08-01, 2 fechas_cierre distintas cada uno: 2026-07-25 y 2026-08-25). (producto,fecha_cierre) verificado en el mismo archivo: 355 filas de datos, 355 combinaciones distintas, 0 duplicados, 0 valores vacios en ninguna de las 2 columnas. Bloque J: header_row migrado de 1 a 0 (convencion 0-based, 0=primera linea del archivo) - sin cambio de comportamiento real, el encabezado real siempre estuvo en la primera linea, sin preambulo."
       }
     },
     {
@@ -1943,7 +1944,7 @@
         "format": "csv",
         "delimiter": ",",
         "encoding": "utf-8",
-        "header_row": 1,
+        "header_row": 0,
         "change_type": "record_diff",
         "value_field": null,
         "record_key": ["Fecha"],
@@ -1955,7 +1956,7 @@
         "topicId": null,
         "semantic_description": "Serie mensual de trafico de servicios de telecomunicaciones fijas y moviles en Uruguay: computos de voz fija, minutos voz fija-a-movil, minutos voz movil, terabytes de datos banda ancha fija y movil. Una fila por mes (columna 'Fecha').",
         "productive_meaning": "Reclasificado de value_comparison (declarado originalmente) a record_diff: hay 5 metricas candidatas y el monitor no define cual seria 'el' valor - elegir una habria sido arbitrario. 'Fecha' es la unica columna con valores completamente unicos (90/90) y es literalmente el periodo de la serie, por lo que es record_key valido y no arbitrario. No se asigna originRamificationId: los 5 campos mapean a al menos 3 nodos distintos de telecomunicaciones.json (telefonia-movil, banda-ancha, y no existe nodo para telefonia fija) - asignar uno solo seria impreciso. No se asigna topicId: ningun id de ramifications/_signal_types.json corresponde a trafico de telecomunicaciones sin forzar una aproximacion (el mas cercano, 'infraestructura-logistica', es sobre transporte fisico, no telecom).",
-        "evidence": "Verificado 2026-09-16 via curl directo contra https://catalogodatos.gub.uy/dataset/f2e28862-2d9b-42bd-8ca5-e233755b794b/resource/6d43482b-1067-47fb-8184-fe41dcd5236e/download/trafico-de-servicios-de-telecomunicaciones.csv (HTTP 200, text/csv, 5.942 bytes, 90 filas de datos, UTF-8 ASCII-safe). Unicidad de 'Fecha' verificada por conteo exacto (90 valores, 90 distintos)."
+        "evidence": "Verificado 2026-09-16 via curl directo contra https://catalogodatos.gub.uy/dataset/f2e28862-2d9b-42bd-8ca5-e233755b794b/resource/6d43482b-1067-47fb-8184-fe41dcd5236e/download/trafico-de-servicios-de-telecomunicaciones.csv (HTTP 200, text/csv, 5.942 bytes, 90 filas de datos, UTF-8 ASCII-safe). Unicidad de 'Fecha' verificada por conteo exacto (90 valores, 90 distintos). Bloque J: header_row migrado de 1 a 0 (convencion 0-based, 0=primera linea del archivo) - sin cambio de comportamiento real, el encabezado real siempre estuvo en la primera linea, sin preambulo."
       }
     },
     {

@@ -10,7 +10,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { config } from '../../config.js';
-import { parseCsv } from '../parsing/csv.js';
+import { parseCsvBuffer } from '../parsing/csv.js';
 
 function hashOf(value) {
   if (Buffer.isBuffer(value)) return createHash('sha256').update(value).digest('hex');
@@ -93,15 +93,31 @@ async function apiRestJson(monitor, source, params = {}) {
 // normalized.kind='raw_file' - eso no cambia en esta etapa (Bloque E).
 //
 // Bloque E: cuando la respuesta es CSV (por content-type o extension de la
-// URL - nunca por institucion), se decodifica como UTF-8 y se interpreta con
-// data/parsing/csv.js#parseCsv() (parser generico, no especifico de ninguna
-// fuente), devolviendo normalized.kind='csv_table' con headers/rows ya
-// estructurados. NO decide aqui cual columna es "la clave" (record_diff) o
+// URL - nunca por institucion), se interpreta con
+// data/parsing/csv.js#parseCsvBuffer() (parser generico, no especifico de
+// ninguna fuente), devolviendo normalized.kind='csv_table' con headers/rows
+// ya estructurados. NO decide aqui cual columna es "la clave" (record_diff) o
 // "el valor" (value_comparison) de ese cambio: esa interpretacion depende de
-// curacion por monitor que hoy no existe (ver informe de esta etapa) - dejar
-// esa decision sin resolver aca es intencional, no un olvido. Un CSV
-// invalido se reporta como acquisition_error (visible, no silencioso), en
-// vez de degradar a raw_file.
+// curacion por monitor (ver knowledge/monitoring/monitors.json) - dejar esa
+// decision sin resolver aca es intencional, no un olvido. Un CSV invalido se
+// reporta como acquisition_error (visible, no silencioso), en vez de
+// degradar a raw_file.
+//
+// Bloque J: delimiter/encoding/header_row YA NO se asumen fijos (',',
+// UTF-8, primera fila) - se leen de monitor.monitoring_definition (curado
+// por evidencia real sobre el archivo, Bloque F/J), con esos mismos valores
+// como default para cualquier monitor que no declare la configuracion (todo
+// el comportamiento de Bloque E queda intacto para ellos). Nunca se infiere
+// delimiter/encoding/header_row del contenido, la institucion o el nombre
+// del archivo.
+function csvParsingConfig(monitor) {
+  const def = monitor.monitoring_definition ?? {};
+  return {
+    delimiter: def.delimiter ?? ',',
+    encoding: def.encoding ?? 'utf-8',
+    headerRow: def.header_row ?? 0,
+  };
+}
 function looksLikeCsv(contentType, url) {
   if (contentType && contentType.toLowerCase().includes('csv')) return true;
   try {
@@ -164,7 +180,7 @@ async function fileDownload(monitor, source) {
     if (looksLikeCsv(contentType, url)) {
       let parsed;
       try {
-        parsed = parseCsv(buffer.toString('utf-8'));
+        parsed = parseCsvBuffer(buffer, csvParsingConfig(monitor));
       } catch (err) {
         return { status: 'acquisition_error', error: `file_download: CSV invalido - ${err.message}`, latency_ms: elapsed() };
       }

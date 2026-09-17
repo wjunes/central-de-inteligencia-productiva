@@ -1,0 +1,11 @@
+{
+  "_note": "Fixture Bloque K - forma real de mgap-snig::principal (15 columnas con prefijo XML 'ns1:', verificado en vivo en Bloque J/K contra el archivo real datosgenerales.csv). record_key real (11 dimensiones, prefijadas) curado en Bloque K. Baseline: 2 registros con DepartamentoCodigo distinto (unica columna que difiere del record_key entre ambas filas), valores tomados de la forma real observada.",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["ns1:Ejercicio", "ns1:DepartamentoCodigo", "ns1:SeccionalPolicialCodigo", "ns1:AreaSupervision", "ns1:AreaEnumeracion", "ns1:ActividadCodigo", "ns1:GiroCodigo", "ns1:NaturalezaJuridicaCodigo", "ns1:EstratoCodigo", "ns1:EspecializacionMGAPCodigo", "ns1:TipoProduccionMGAPCodigo", "ns1:Superficie", "ns1:UnidadesGanaderas", "ns1:SuperficieGanadera", "ns1:CantidadTenedores"],
+    "rows": [
+      ["2025", "1", "0", "0", "0", "44", "10", "3", "1", "1", "1", "0", "0,00", "0,00", "1"],
+      ["2025", "2", "0", "0", "0", "44", "10", "3", "1", "1", "1", "0", "0,00", "0,00", "1"]
+    ]
+  }
+}

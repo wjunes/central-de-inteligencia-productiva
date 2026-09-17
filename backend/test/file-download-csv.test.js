@@ -89,10 +89,19 @@ describe('Bloque E - Caso 10: propagación de contexto (mecanismo de Bloque B, s
 
 describe('Bloque E - Caso 9: detección de cambios con el método YA declarado, sobre datos CSV reales', () => {
   test('value_comparison (declarado por dgi::principal) sobre csv_table real: no inventa un campo, no genera señal, no rompe el pipeline', async () => {
+    // Bloque J: dgi::principal declara monitoring_definition (delimiter ';',
+    // encoding windows-1252, header_row=13 - 13 filas de preambulo) y desde
+    // este bloque esa configuración SÍ se aplica de verdad (ver
+    // adapters.js#csvParsingConfig) - el cuerpo sintético debe respetar esa
+    // forma real para seguir probando lo que esta prueba siempre probó
+    // (value_comparison genérico sobre csv_table), no una forma que Bloque E
+    // asumía por defecto y que ya no aplica a este monitor curado.
+    const preamble = ';;;;;;\n'.repeat(13);
+    const body = `${preamble};;;Fecha;Importe;;\n;;2026;Ene-2026;100;;\n;;2026;Feb-2026;110;;\n`;
     await withServer(
       (req, res) => {
         res.writeHead(200, { 'content-type': 'text/csv' });
-        res.end('Fecha,Importe\nEne-2026,100\nFeb-2026,110\n');
+        res.end(body);
       },
       async (url) => {
         const db = resetDbForTests(':memory:');
@@ -115,21 +124,29 @@ describe('Bloque E - Caso 9: detección de cambios con el método YA declarado, 
     );
   });
 
-  test('record_diff (declarado por mgap-snig::principal) sobre csv_table real: sin curr.records, no detecta altas/bajas, no rompe el pipeline', async () => {
+  test('record_diff (declarado por mgap-snig::principal) sobre csv_table real: desde Bloque K el record_key real (prefijo ns1:) SÍ produce records y detecta altas', async () => {
+    // Bloque K re-curó change_detection.record_key con el prefijo real
+    // 'ns1:' (ver informe) - el cuerpo sintético debe usar ';' (delimiter
+    // curado desde Bloque J) y las 11 columnas reales para seguir probando
+    // el camino real de este monitor, ya no la ausencia de record_key.
+    const header = 'ns1:Ejercicio;ns1:DepartamentoCodigo;ns1:SeccionalPolicialCodigo;ns1:AreaSupervision;ns1:AreaEnumeracion;ns1:ActividadCodigo;ns1:GiroCodigo;ns1:NaturalezaJuridicaCodigo;ns1:EstratoCodigo;ns1:EspecializacionMGAPCodigo;ns1:TipoProduccionMGAPCodigo';
+    const body = `${header}\n2025;1;0;0;0;44;10;3;1;1;1\n2025;2;0;0;0;44;10;3;1;1;1\n`;
     await withServer(
-      (req, res) => { res.writeHead(200, { 'content-type': 'text/csv' }); res.end('Ejercicio,DepartamentoCodigo\n2025,1\n2025,2\n'); },
+      (req, res) => { res.writeHead(200, { 'content-type': 'text/csv' }); res.end(body); },
       async (url) => {
         const db = resetDbForTests(':memory:');
         const monitor = knowledge.monitorById('mgap-snig::principal');
         assert.equal(monitor.change_detection.method, 'record_diff');
+        assert.equal(monitor.change_detection.record_key.length, 11);
         const original = knowledge.sourceById;
         try {
           knowledge.sourceById = (id) => (id === monitor.source_id ? { ...original(id), access: { ...original(id).access, endpoint: url } } : original(id));
           const result = await runPipeline(db, [{ monitorId: monitor.id, context: { kind: 'csv_table' } }], { mode: 'live' });
 
           assert.equal(result.hadErrors, false);
-          assert.equal(result.outputs.changes[0].change_class, 'sin_cambio', 'recordDiff() busca curr.records (no existe en csv_table) -> ambos lados vacios -> sin_cambio, sin inventar una clave de registro');
-          assert.equal(result.stats.signals_generated, 0);
+          assert.equal(result.outputs.captures[0].normalized.records.length, 2, 'toRecords() ahora produce records reales (record_key con prefijo ns1: coincide con el header real)');
+          assert.equal(result.outputs.changes[0].change_class, 'nuevo_registro', 'primera captura, sin snapshot previo -> ambos registros son altas');
+          assert.equal(result.stats.signals_generated, 1);
         } finally {
           knowledge.sourceById = original;
         }
@@ -148,7 +165,14 @@ describe('Bloque E - Caso 11: error individual (CSV roto) no aborta el resto del
         const brokenUrl = `http://127.0.0.1:${brokenServer.address().port}/roto.csv`;
         try {
           const db = resetDbForTests(':memory:');
-          const [goodMonitor, brokenMonitor] = [knowledge.monitorById('ursec::principal'), knowledge.monitorById('opp::principal')];
+          // mgap-dgf::principal (no monitoring_definition, ver Bloque F: solo 5
+          // monitores fueron curados) - a diferencia de opp::principal (usado
+          // hasta Bloque I aquí), desde Bloque J cualquier monitor CON
+          // monitoring_definition ve su delimiter/encoding/header_row
+          // realmente aplicados; usar aquí un monitor SIN curar mantiene esta
+          // prueba enfocada en aislamiento genérico de errores, no en la
+          // configuración curada de un monitor específico.
+          const [goodMonitor, brokenMonitor] = [knowledge.monitorById('ursec::principal'), knowledge.monitorById('mgap-dgf::principal')];
           const original = knowledge.sourceById;
           try {
             knowledge.sourceById = (id) => {
