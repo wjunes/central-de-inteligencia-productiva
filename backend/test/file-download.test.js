@@ -137,11 +137,11 @@ describe('Bloque C - adaptador file_download (adapters.js), directo', () => {
     assert.match(result.error, /no declara access\.endpoint/);
   });
 
-  test('Caso 9b - estado real del repositorio: ningún monitor file_download real declara access.endpoint hoy', () => {
+  test('Caso 9b - estado real del repositorio: desde Bloque I, exactamente 2 monitores file_download declaran access.endpoint (ursea/ursec) - el resto sigue sin declarar', () => {
     const monitors = knowledge.monitors().filter((m) => m.method === 'file_download');
     assert.ok(monitors.length > 0);
     const withEndpoint = monitors.filter((m) => knowledge.sourceById(m.source_id)?.access?.endpoint);
-    assert.equal(withEndpoint.length, 0, 'si esto falla, la curación cambió: revisar operableMonitors() y este informe');
+    assert.deepEqual(withEndpoint.map((m) => m.id).sort(), ['ursea::precios-paridad-combustibles', 'ursec::principal'], 'si esto falla, la curación cambió: revisar operableMonitors() y este informe');
   });
 });
 
@@ -242,9 +242,10 @@ describe('Bloque C - a través del pipeline real (runPipeline) y del scheduler',
     assert.equal(fileJob.context.originActivityId, 'agricultura-secano');
   });
 
-  test('Caso 12 - regresión: operableMonitors() sigue devolviendo exactamente los 19 de Bloque A/B (0 file_download reales se sumaron)', () => {
+  test('Caso 12 - regresión: operableMonitors() devuelve los 19 de Bloque A/B + ursea/ursec (Bloque I) = 21', () => {
     const monitors = operableMonitors();
-    assert.equal(monitors.length, 19);
-    assert.ok(monitors.every((m) => m.method !== 'file_download'), 'ningún file_download real es operable hoy - ver informe de esta etapa');
+    assert.equal(monitors.length, 21);
+    const fileDownloadOperable = monitors.filter((m) => m.method === 'file_download').map((m) => m.id);
+    assert.deepEqual(fileDownloadOperable.sort(), ['ursea::precios-paridad-combustibles', 'ursec::principal'], 'ver informe de Bloque I - único cambio funcional: endpoint real persistido para estos dos monitores');
   });
 });

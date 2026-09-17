@@ -18,24 +18,37 @@ function deferred() {
 }
 
 describe('operableMonitors() - Fase FRECUENCIA/Caso 5 y 10', () => {
-  test('solo incluye monitores con adaptador real (ckan_api/api_rest_json) y enabled', () => {
+  test('solo incluye monitores con adaptador real (ckan_api/api_rest_json/file_download) y enabled', () => {
     const monitors = operableMonitors();
     assert.ok(monitors.length > 0);
     for (const m of monitors) {
-      assert.ok(['ckan_api', 'api_rest_json'].includes(m.method), `${m.id} tiene method=${m.method}, no debería estar en la lista operable`);
+      assert.ok(['ckan_api', 'api_rest_json', 'file_download'].includes(m.method), `${m.id} tiene method=${m.method}, no debería estar en la lista operable`);
       assert.equal(m.enabled, true);
     }
   });
 
-  test('excluye explícitamente los métodos todavía stub (file_download/manual_capture/api_soap/feed) - nunca se presentan como ejecutables', () => {
+  test('excluye explícitamente los métodos todavía stub (manual_capture/api_soap/feed) - nunca se presentan como ejecutables', () => {
     const ids = new Set(operableMonitors().map((m) => m.id));
-    const stubMonitors = knowledge.monitors().filter((m) => ['file_download', 'manual_capture', 'api_soap', 'feed'].includes(m.method));
+    const stubMonitors = knowledge.monitors().filter((m) => ['manual_capture', 'api_soap', 'feed'].includes(m.method));
     assert.ok(stubMonitors.length > 0, 'la base de conocimiento real debe tener monitores con métodos todavía no implementados');
     for (const m of stubMonitors) assert.ok(!ids.has(m.id), `${m.id} (method=${m.method}) no debe aparecer entre los operables`);
   });
 
-  test('coincide con el conteo verificado en la evaluación de estado (19 monitores reales operables)', () => {
-    assert.equal(operableMonitors().length, 19);
+  // Bloque I: file_download solo es operable por fuente, si esa fuente
+  // declara access.endpoint (ver isOperable() en scheduler.js) - hoy
+  // mgap-snig/dgi/opp siguen sin endpoint persistido (fuera de alcance de
+  // este bloque) y por lo tanto siguen sin aparecer aquí.
+  test('file_download solo es operable si el source declarado tiene access.endpoint real (ursea/ursec activados en Bloque I, mgap-snig/dgi/opp no)', () => {
+    const ids = new Set(operableMonitors().map((m) => m.id));
+    assert.ok(ids.has('ursea::precios-paridad-combustibles'), 'ursea debe ser operable tras Bloque I');
+    assert.ok(ids.has('ursec::principal'), 'ursec debe ser operable tras Bloque I');
+    for (const monitorId of ['mgap-snig::principal', 'dgi::principal', 'opp::principal']) {
+      assert.ok(!ids.has(monitorId), `${monitorId} sigue fuera de alcance (sin endpoint persistido) - Bloque I no debía tocarlo`);
+    }
+  });
+
+  test('coincide con el conteo verificado en la evaluación de estado (21 monitores reales operables: 19 previos + ursea + ursec desde Bloque I)', () => {
+    assert.equal(operableMonitors().length, 21);
   });
 });
 

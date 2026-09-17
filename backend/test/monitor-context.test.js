@@ -41,11 +41,11 @@ describe('Bloque B - monitor -> contexto (buildLiveJobs)', () => {
     assert.deepEqual(job.context, { kind: 'dataset_list' });
   });
 
-  test('Caso 9b - de los 19 monitores operables, hoy solo 1 tiene contexto determinístico curado', () => {
+  test('Caso 9b - de los 21 monitores operables (19 + ursea/ursec desde Bloque I), hoy 3 tienen contexto determinístico curado', () => {
     const monitors = operableMonitors();
     const withContext = monitors.filter((m) => m.context);
-    assert.equal(monitors.length, 19);
-    assert.deepEqual(withContext.map((m) => m.id), ['inumet::principal']);
+    assert.equal(monitors.length, 21);
+    assert.deepEqual(withContext.map((m) => m.id), ['inumet::principal', 'ursea::precios-paridad-combustibles', 'ursec::principal']);
   });
 });
 
@@ -144,7 +144,7 @@ describe('Bloque B - contexto -> signal -> change -> Radar (fixture, sin red)', 
 });
 
 describe('Bloque B - regresión del scheduler (Bloque A) con contexto habilitado', () => {
-  test('Caso 10 - triggerNow() sigue despachando los 19 operables, con el contexto ya mezclado en el job del monitor curado', async () => {
+  test('Caso 10 - triggerNow() sigue despachando los 21 operables (Bloque I: + ursea/ursec), con el contexto ya mezclado en el job de cada monitor curado', async () => {
     const db = resetDbForTests(':memory:');
     const calls = [];
     const scheduler = createScheduler(db, {
@@ -152,10 +152,15 @@ describe('Bloque B - regresión del scheduler (Bloque A) con contexto habilitado
     });
     await scheduler.triggerNow();
     assert.equal(calls.length, 1);
-    assert.equal(calls[0].length, 19);
+    assert.equal(calls[0].length, 21);
     const inumetJob = calls[0].find((j) => j.monitorId === 'inumet::principal');
     assert.equal(inumetJob.context.originActivityId, 'agricultura-secano');
-    const others = calls[0].filter((j) => j.monitorId !== 'inumet::principal');
+    const ureaJob = calls[0].find((j) => j.monitorId === 'ursea::precios-paridad-combustibles');
+    assert.equal(ureaJob.context.originActivityId, 'combustibles');
+    const ursecJob = calls[0].find((j) => j.monitorId === 'ursec::principal');
+    assert.equal(ursecJob.context.originActivityId, 'telecomunicaciones');
+    const curated = new Set(['inumet::principal', 'ursea::precios-paridad-combustibles', 'ursec::principal']);
+    const others = calls[0].filter((j) => !curated.has(j.monitorId));
     assert.ok(others.every((j) => j.context.originActivityId === undefined), 'ningún otro monitor debe recibir un origin_activity_id inventado');
   });
 });

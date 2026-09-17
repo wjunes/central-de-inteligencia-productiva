@@ -3325,7 +3325,7 @@
           "excel"
         ],
         "url": "https://www.gub.uy/unidad-reguladora-servicios-energia-agua/",
-        "endpoint": null,
+        "endpoint": "https://catalogodatos.gub.uy/dataset/af74758a-2175-4b93-9847-4386a17aee00/resource/7fb4c8d9-8db4-41bf-aac0-254368269d24/download/ppi_pe.csv",
         "format": [
           "pdf",
           "xlsx"
@@ -4985,7 +4985,7 @@
           "excel"
         ],
         "url": "https://www.gub.uy/unidad-reguladora-servicios-comunicaciones/",
-        "endpoint": null,
+        "endpoint": "https://catalogodatos.gub.uy/dataset/f2e28862-2d9b-42bd-8ca5-e233755b794b/resource/6d43482b-1067-47fb-8184-fe41dcd5236e/download/trafico-de-servicios-de-telecomunicaciones.csv",
         "format": [
           "xlsx",
           "pdf"

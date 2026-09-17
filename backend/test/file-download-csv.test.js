@@ -181,9 +181,15 @@ describe('Bloque E - Caso 11: error individual (CSV roto) no aborta el resto del
 });
 
 describe('Bloque E - Caso 12: regresión A+B+C (scheduler y ejecución manual sin cambios)', () => {
-  test('operableMonitors() sigue en 19: ningún monitor CSV pasó a ser operable en este bloque (curación de campo/clave ausente)', () => {
-    assert.equal(operableMonitors().length, 19);
-    assert.ok(operableMonitors().every((m) => m.method !== 'file_download'));
+  // En Bloque E ningún monitor CSV era operable (19). Desde Bloque I,
+  // ursea/ursec tienen access.endpoint real persistido en sources.json y sí
+  // son operables (21) - ver test dedicado en scheduler.test.js. El resto de
+  // los monitores file_download (mgap-snig/dgi/opp) sigue sin endpoint y por
+  // lo tanto sigue excluido, que es lo que esta prueba verifica ahora.
+  test('operableMonitors() en 21 (19 previos + ursea + ursec desde Bloque I): los demás monitores file_download siguen sin endpoint', () => {
+    assert.equal(operableMonitors().length, 21);
+    const fileDownloadOperable = operableMonitors().filter((m) => m.method === 'file_download').map((m) => m.id);
+    assert.deepEqual(fileDownloadOperable.sort(), ['ursea::precios-paridad-combustibles', 'ursec::principal']);
   });
 
   test('el scheduler sigue despachando con normalidad (regresión de Bloque A/B/C)', async () => {
@@ -192,6 +198,6 @@ describe('Bloque E - Caso 12: regresión A+B+C (scheduler y ejecución manual si
     const scheduler = createScheduler(db, { runPipelineFn: async (_db, jobs) => { calls.push(jobs); return { runId: 'r1', hadErrors: false }; } });
     await scheduler.triggerNow();
     assert.equal(calls.length, 1);
-    assert.equal(calls[0].length, 19);
+    assert.equal(calls[0].length, 21);
   });
 });
