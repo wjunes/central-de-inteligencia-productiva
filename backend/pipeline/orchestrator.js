@@ -9,6 +9,7 @@ import { normalize } from '../data/normalization/normalize.js';
 import { validate } from '../data/validation/validate.js';
 import { detectChanges } from '../data/updates/change-detection.js';
 import { generateSignal } from '../intelligence/signals/signals.js';
+import { isApplicable as isTabularApplicable, toRecords, persistNormalized } from '../data/normalization/tabular.js';
 import { calculateRelevance } from '../core/relevance/relevance-engine.js';
 import { generateIntelligenceUnit } from '../intelligence/analysis/intelligence.js';
 import { evaluateDecision } from '../decision/decision.js';
@@ -76,6 +77,24 @@ export async function runPipeline(db, jobs, { mode = 'fixture' } = {}) {
           logError(db, runId, 'validate', 'validation_error', validation.errors.join('; '), { monitorId });
           hadErrors = true;
           continue;
+        }
+
+        // Bloque G: si la captura es una tabla CSV (Bloque E) Y el monitor
+        // tiene una record_key curada (Bloque F/G, ver monitors.json), se
+        // convierte a { records: [...] } - la forma que
+        // change-detection.js#recordDiff() ya sabe leer, sin tocar ese
+        // archivo. Para cualquier otro caso (raw_json/dataset_list/indicator,
+        // o un csv_table SIN record_key curada - mgap-snig/dgi hoy) esto no
+        // hace nada: capture.normalized sigue exactamente igual que antes.
+        if (isTabularApplicable(capture.normalized, monitor)) {
+          try {
+            capture.normalized = toRecords(capture.normalized, monitor.change_detection.record_key);
+            persistNormalized(db, capture.id, capture.normalized);
+          } catch (err) {
+            logError(db, runId, 'normalize', 'validation_error', err.message, { monitorId });
+            hadErrors = true;
+            continue;
+          }
         }
       }
 

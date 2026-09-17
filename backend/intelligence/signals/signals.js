@@ -40,6 +40,19 @@ export function evaluateSignalRule(change, monitor, context) {
   }
 
   if (change.change_class === 'valor_modificado') {
+    // Bloque H3: record_diff produce valor_modificado cuando un REGISTRO
+    // existente cambio de contenido (comparacion de objetos completos, ver
+    // recordDiff() en change-detection.js) - no hay un unico valor escalar
+    // ni un indicador que magnitudeOutcome() pueda evaluar (no fue diseñada
+    // para esto: exige context.indicator + un threshold numerico que
+    // record_diff nunca declara). Es un cambio ESTRUCTURAL (que campos
+    // cambiaron), no CUANTITATIVO (cuanto cambio un numero) - se reutiliza
+    // el mismo signal_type ya usado para otros cambios estructurales
+    // (cambio_de_contenido/estructura_modificada, mas abajo), sin inventar
+    // threshold, indicator ni porcentaje de variacion.
+    if (monitor.change_detection.method === 'record_diff') {
+      return { outcome: 'signal', signal_type: 'cambio-estructural' };
+    }
     return magnitudeOutcome(change, context);
   }
 
@@ -68,6 +81,35 @@ export function evaluateSignalRule(change, monitor, context) {
   return { outcome: 'no_signal', reason: `change_class no manejado: ${change.change_class}` };
 }
 
+// Bloque H2: identidad determinista del REGISTRO/evento afectado, para
+// dedup_key. Antes, cuando change.new_value era undefined (siempre el caso
+// para record_diff), se usaba `change.detail` (un objeto) directo en un
+// template string - la interpolacion lo colapsa SIEMPRE a la cadena literal
+// "[object Object]", sin importar su contenido real: dos altas/bajas/
+// modificaciones distintas del mismo monitor terminaban con el MISMO
+// dedup_key (la segunda se trataba como repeticion de la primera). No se usa
+// JSON.stringify(detail) directo (el orden de un array construido
+// dinamicamente - ver recordDiff() - no esta garantizado): se ordena
+// explicitamente cada lista de claves antes de unirla, para que la MISMA
+// entrada produzca siempre la MISMA identidad y entradas distintas produzcan
+// identidades distintas.
+function structuralIdentity(detail) {
+  if (!detail || typeof detail !== 'object') return null;
+  const recordKeys = detail.newKeys ?? detail.removedKeys ?? detail.modified ?? null;
+  if (Array.isArray(recordKeys)) return [...recordKeys].sort().join(',');
+  if (typeof detail.currKeys === 'string' || typeof detail.prevKeys === 'string') {
+    return `${detail.prevKeys ?? ''}=>${detail.currKeys ?? ''}`;
+  }
+  return null;
+}
+
+function eventIdentity(change) {
+  if (change.new_value != null) return String(change.new_value);
+  const structural = structuralIdentity(change.detail);
+  if (structural != null) return structural;
+  return 'na';
+}
+
 function signalTypeForOutcome(outcome, evaluation) {
   if (evaluation.outcome === 'signal' && evaluation.signal_type) return evaluation.signal_type;
   if (evaluation.outcome === 'signal') return 'cambio-significativo';
@@ -94,7 +136,7 @@ export function generateSignal(db, runId, change, monitor, context) {
   // (idempotencia), pero una 2da/3ra suba consecutiva con un valor DISTINTO,
   // aunque comparta dirección, es una observación nueva - no debe colapsarse
   // (necesario para poder confirmar una tendencia con >1 observación, ver radar/trend.js).
-  const period = change.new_value ?? change.detail ?? 'na';
+  const period = eventIdentity(change);
   const dedupKey = `${monitor.id}|${context.indicator ?? context.originRamificationId ?? 'na'}|${change.change_class}|${direction}|${period}`;
 
   const existing = findActiveSignalByDedupKey(db, dedupKey);

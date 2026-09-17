@@ -1,0 +1,10 @@
+{
+  "_note": "Fixture Bloque G/H1 - solo 1 de los 2 registros de tabular-t1-base.json (falta 'Gasolina Premium 97') - usada para probar registro_eliminado (baja).",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["producto", "fecha_cierre", "fecha_vigencia", "total_precio_ex_planta_1"],
+    "rows": [
+      ["Gas Oil 10S", "2026-01-25", "2026-02-01", "1000"]
+    ]
+  }
+}

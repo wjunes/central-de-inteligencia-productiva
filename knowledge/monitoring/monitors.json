@@ -1553,7 +1553,11 @@
       "automation": "partially_automatable",
       "scope": {},
       "change_detection": {
-        "method": "record_diff"
+        "method": "record_diff",
+        "record_key": ["producto", "fecha_cierre"]
+      },
+      "context": {
+        "origin_activity_id": "combustibles"
       },
       "fallback": {
         "activation": "on_failure_or_unavailable",
@@ -1575,16 +1579,16 @@
         "header_row": 1,
         "change_type": "record_diff",
         "value_field": null,
-        "record_key": ["producto", "fecha_vigencia"],
+        "record_key": ["producto", "fecha_cierre"],
         "unit": null,
-        "periodicity": "mensual (verificado: 71 meses consecutivos por producto; el monitor declara frequency='daily' pero el dato real solo cambia una vez por mes - desajuste de frecuencia detectado, no corregido en este bloque)",
-        "relevant_fields": ["total_precio_ex_planta_1", "total_precio_ex_planta_2", "subtotal_1_precio_cif", "tipo_cambio_promedio"],
+        "periodicity": "aproximadamente mensual por cierre (fecha_cierre, tipicamente el dia 25 de cada mes), pero un mismo producto puede tener MAS de un cierre dentro de la misma fecha_vigencia si hay una revision intra-mensual real (ver GAP de Bloque G resuelto en H1); el monitor declara frequency='daily' - desajuste de frecuencia detectado, no corregido en este bloque",
+        "relevant_fields": ["total_precio_ex_planta_1", "total_precio_ex_planta_2", "subtotal_1_precio_cif", "tipo_cambio_promedio", "fecha_vigencia"],
         "originActivityId": "combustibles",
         "originRamificationId": null,
         "topicId": "precios",
-        "semantic_description": "Desglose mensual del costo de importacion (Precio de Paridad de Importacion, columnas precio_fob_ajustado...subtotal_1_precio_cif) y el precio final ex-planta (subtotal_2/3, total_precio_ex_planta_1/2) de 5 combustibles: Gas Oil 10S, Gas Oil 50S, Gasolina Premium 97, Gasolina Super 95 y GLP. Cada fila = un producto en un mes de vigencia (fecha_vigencia).",
-        "productive_meaning": "Reclasificado de value_comparison (declarado originalmente) a record_diff: el archivo es un panel de 5 productos x 71 meses (33 columnas de desglose de costos), no un unico indicador escalar - elegir una sola columna de las 33 para value_comparison habria sido arbitrario. record_key=(producto,fecha_vigencia) es la clave natural verificada: 355 combinaciones distintas para 355 filas de datos (0 duplicados). Un cambio detectado (alta de un nuevo mes, o modificacion de un mes ya publicado) es relevante como costo directo para 'combustibles' (refinacion y distribucion) y como costo indirecto para actividades dependientes segun su propio arbol de ramificaciones (transporte-carga-carretera, generacion-termica - ya vinculadas en knowledge/ramifications/combustibles.json). No se asigna originRamificationId: los 5 productos mapean a 2 nodos distintos de combustibles.json ('gasolinas' y 'gasoil') y GLP no tiene nodo propio - asignar uno solo seria impreciso para las demas filas.",
-        "evidence": "Verificado 2026-09-16 via curl directo contra https://catalogodatos.gub.uy/dataset/af74758a-2175-4b93-9847-4386a17aee00/resource/7fb4c8d9-8db4-41bf-aac0-254368269d24/download/ppi_pe.csv (HTTP 200, text/csv, 72.109 bytes, 355 filas de datos, UTF-8 sin BOM). Unicidad de record_key verificada por conteo exacto (5 productos x 71 meses = 355, sin duplicados). Unidad de total_precio_ex_planta_1/2 no confirmada oficialmente (magnitudes ~1000 y ~45 respectivamente para el mismo producto/mes, no se pudo verificar la formula de conversion exacta entre ambas sin la metodologia oficial de URSEA - no se inventa la unidad)."
+        "semantic_description": "Desglose del costo de importacion (Precio de Paridad de Importacion, columnas precio_fob_ajustado...subtotal_1_precio_cif) y el precio final ex-planta (subtotal_2/3, total_precio_ex_planta_1/2) de 5 combustibles: Gas Oil 10S, Gas Oil 50S, Gasolina Premium 97, Gasolina Super 95 y GLP. Cada fila = un CIERRE de precio (evento de fijacion, fecha_cierre) para un producto, con la fecha_vigencia (mes) a la que aplica ese cierre.",
+        "productive_meaning": "Bloque H1 - RE-CURADO: record_key cambia de (producto,fecha_vigencia) a (producto,fecha_cierre). Motivo, verificado con datos reales el 2026-09-17: (producto,fecha_vigencia) dejo de ser unico - URSEA publico un segundo cierre (2026-08-25) para 'Gas Oil 10S' y para 'GLP', ambos con fecha_vigencia=2026-08-01 pero valores distintos al cierre anterior (2026-07-25) - una revision intra-mensual real de precios, no un error de datos. (producto,fecha_cierre) SI es unico (355/355, 0 duplicados, 0 claves incompletas) y es semanticamente mas correcto: fecha_cierre es la fecha del EVENTO de fijacion de precio (inmutable, un hecho que ocurrio una vez), mientras que fecha_vigencia es solo el periodo nominal al que ese cierre aplica - dos cierres distintos pueden legitimamente compartir el mismo periodo de vigencia. Con esta clave, una revision intra-mensual se modela correctamente como ALTA de un nuevo registro (un nuevo cierre ocurrio), no como una modificacion ambigua de un registro existente - consistente con que cada cierre es un evento inmutable, nunca editado retroactivamente.",
+        "evidence": "Clave original (producto,fecha_vigencia) verificada 2026-09-16 (355/355, 0 duplicados en ese momento). Re-verificado 2026-09-17 vía curl directo contra la misma URL: (producto,fecha_vigencia) paso a tener 2 grupos duplicados reales (Gas Oil 10S y GLP, ambos fecha_vigencia=2026-08-01, 2 fechas_cierre distintas cada uno: 2026-07-25 y 2026-08-25). (producto,fecha_cierre) verificado en el mismo archivo: 355 filas de datos, 355 combinaciones distintas, 0 duplicados, 0 valores vacios en ninguna de las 2 columnas."
       }
     },
     {
@@ -1923,7 +1927,11 @@
       "automation": "partially_automatable",
       "scope": {},
       "change_detection": {
-        "method": "record_diff"
+        "method": "record_diff",
+        "record_key": ["Fecha"]
+      },
+      "context": {
+        "origin_activity_id": "telecomunicaciones"
       },
       "fallback": null,
       "last_run": null,

@@ -1,0 +1,12 @@
+{
+  "_note": "Fixture Bloque G/H1 - los mismos 2 registros de tabular-t1-base.json mas 1 registro nuevo: una revision intra-mensual real de 'Gas Oil 10S' (nuevo fecha_cierre 2026-02-25, MISMA fecha_vigencia 2026-02-01 que el cierre anterior) - reproduce exactamente el escenario real descubierto en Bloque G/H1 (2 cierres para el mismo periodo de vigencia). Con record_key=[producto,fecha_cierre] esto es correctamente una ALTA, no una modificacion ambigua.",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["producto", "fecha_cierre", "fecha_vigencia", "total_precio_ex_planta_1"],
+    "rows": [
+      ["Gas Oil 10S", "2026-01-25", "2026-02-01", "1000"],
+      ["Gasolina Premium 97", "2026-01-25", "2026-02-01", "1100"],
+      ["Gas Oil 10S", "2026-02-25", "2026-02-01", "1080"]
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_note": "Fixture Bloque G/H1 - tabla CSV sintetica con la misma forma real de ursea::precios-paridad-combustibles (producto, fecha_cierre, fecha_vigencia, total_precio_ex_planta_1). record_key real (post-H1) = [producto, fecha_cierre]. Baseline: 2 registros.",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["producto", "fecha_cierre", "fecha_vigencia", "total_precio_ex_planta_1"],
+    "rows": [
+      ["Gas Oil 10S", "2026-01-25", "2026-02-01", "1000"],
+      ["Gasolina Premium 97", "2026-01-25", "2026-02-01", "1100"]
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "_note": "Fixture Bloque G/H1 - misma clave (producto,fecha_cierre) que tabular-t1-base.json pero con total_precio_ex_planta_1 modificado para 'Gas Oil 10S' (1000 -> 1050) - usada para probar valor_modificado.",
+  "normalized": {
+    "kind": "csv_table",
+    "headers": ["producto", "fecha_cierre", "fecha_vigencia", "total_precio_ex_planta_1"],
+    "rows": [
+      ["Gas Oil 10S", "2026-01-25", "2026-02-01", "1050"],
+      ["Gasolina Premium 97", "2026-01-25", "2026-02-01", "1100"]
+    ]
+  }
+}
