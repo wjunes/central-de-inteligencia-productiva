@@ -1,0 +1,197 @@
+// Bloque E - integración CSV + file_download + pipeline real. Sin red: usa
+// servidor HTTP local y el mismo patrón de monkeypatch temporal de
+// knowledge.sourceById ya usado en file-download.test.js (Bloque C).
+import { test, describe } from 'node:test';
+import assert from 'node:assert/strict';
+import { createServer } from 'node:http';
+import { adapters } from '../data/acquisition/adapters.js';
+import { resetDbForTests } from '../db/connection.js';
+import { runPipeline } from '../pipeline/orchestrator.js';
+import { createScheduler, operableMonitors, buildLiveJobs } from '../pipeline/scheduler.js';
+import { knowledge } from '../knowledge/loader.js';
+
+async function withServer(handler, fn) {
+  const server = createServer(handler);
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  const url = `http://127.0.0.1:${server.address().port}/datos.csv`;
+  try {
+    return await fn(url);
+  } finally {
+    await new Promise((resolve) => server.close(resolve));
+  }
+}
+
+function fakeMonitor(overrides = {}) {
+  return { id: 'test::csv', source_id: 'test-source', method: 'file_download', enabled: true, ...overrides };
+}
+function fakeSource(endpoint) {
+  return { id: 'test-source', access: { endpoint, url: 'https://institucion.example/pagina' } };
+}
+
+describe('Bloque E - Caso 8: adaptador file_download detecta y parsea CSV', () => {
+  test('respuesta con content-type csv se normaliza como csv_table', async () => {
+    await withServer(
+      (req, res) => { res.writeHead(200, { 'content-type': 'text/csv; charset=utf-8' }); res.end('a,b\n1,2\n3,4\n'); },
+      async (url) => {
+        const result = await adapters.file_download(fakeMonitor(), fakeSource(url));
+        assert.equal(result.status, 'ok');
+        assert.equal(result.normalized.kind, 'csv_table');
+        assert.deepEqual(result.normalized.headers, ['a', 'b']);
+        assert.deepEqual(result.normalized.rows, [['1', '2'], ['3', '4']]);
+        assert.equal(result.normalized.row_count, 2);
+      }
+    );
+  });
+
+  test('respuesta sin content-type csv pero con URL terminada en .csv también se detecta', async () => {
+    await withServer(
+      (req, res) => { res.writeHead(200, { 'content-type': 'application/octet-stream' }); res.end('x,y\n1,2\n'); },
+      async (url) => {
+        const result = await adapters.file_download(fakeMonitor(), fakeSource(url));
+        assert.equal(result.normalized.kind, 'csv_table');
+      }
+    );
+  });
+
+  test('respuesta que no es CSV (ni content-type ni extensión) sigue devolviendo raw_file, sin cambios de Bloque C', async () => {
+    const server = createServer((req, res) => { res.writeHead(200, { 'content-type': 'application/pdf' }); res.end('%PDF-1.4 fake'); });
+    await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+    const url = `http://127.0.0.1:${server.address().port}/archivo.pdf`;
+    try {
+      const result = await adapters.file_download(fakeMonitor(), fakeSource(url));
+      assert.equal(result.normalized.kind, 'raw_file');
+    } finally {
+      await new Promise((resolve) => server.close(resolve));
+    }
+  });
+
+  test('CSV inválido (fila con distinta cantidad de campos) -> acquisition_error visible, no acquisition "ok" falsa', async () => {
+    await withServer(
+      (req, res) => { res.writeHead(200, { 'content-type': 'text/csv' }); res.end('a,b,c\n1,2\n'); },
+      async (url) => {
+        const result = await adapters.file_download(fakeMonitor(), fakeSource(url));
+        assert.equal(result.status, 'acquisition_error');
+        assert.match(result.error, /CSV invalido/);
+      }
+    );
+  });
+});
+
+describe('Bloque E - Caso 10: propagación de contexto (mecanismo de Bloque B, sin cambios)', () => {
+  test('un monitor file_download+CSV con context curado propaga origin_activity_id/topic_id igual que cualquier otro método', () => {
+    const monitor = fakeMonitor({ context: { origin_activity_id: 'agricultura-secano', topic_id: 'precios' } });
+    const [job] = buildLiveJobs([monitor]);
+    assert.equal(job.context.kind, 'raw_file'); // VALIDATION_KIND_BY_METHOD no distingue csv_table (decisión del adaptador, no del scheduler)
+    assert.equal(job.context.originActivityId, 'agricultura-secano');
+    assert.equal(job.context.topicId, 'precios');
+  });
+});
+
+describe('Bloque E - Caso 9: detección de cambios con el método YA declarado, sobre datos CSV reales', () => {
+  test('value_comparison (declarado por dgi::principal) sobre csv_table real: no inventa un campo, no genera señal, no rompe el pipeline', async () => {
+    await withServer(
+      (req, res) => {
+        res.writeHead(200, { 'content-type': 'text/csv' });
+        res.end('Fecha,Importe\nEne-2026,100\nFeb-2026,110\n');
+      },
+      async (url) => {
+        const db = resetDbForTests(':memory:');
+        const monitor = knowledge.monitorById('dgi::principal');
+        assert.equal(monitor.change_detection.method, 'value_comparison');
+        const original = knowledge.sourceById;
+        try {
+          knowledge.sourceById = (id) => (id === monitor.source_id ? { ...original(id), access: { ...original(id).access, endpoint: url } } : original(id));
+          const result = await runPipeline(db, [{ monitorId: monitor.id, context: { kind: 'csv_table' } }], { mode: 'live' });
+
+          assert.equal(result.hadErrors, false, 'un csv_table sin campo de valor curado no debe registrarse como error de pipeline');
+          assert.equal(result.outputs.captures[0].status, 'ok');
+          assert.equal(result.outputs.captures[0].normalized.kind, 'csv_table');
+          assert.equal(result.outputs.changes[0].change_class, 'valor_modificado', 'valueComparison(prev=null,...) siempre marca la primera captura como valor_modificado, aunque curr.value sea undefined - comportamiento preexistente, no nuevo');
+          assert.equal(result.stats.signals_generated, 0, 'sin threshold configurado para un indicador inexistente (curr.indicator=undefined), pending_threshold -> no signal, exactamente como ya hacia magnitudeOutcome() antes de esta etapa');
+        } finally {
+          knowledge.sourceById = original;
+        }
+      }
+    );
+  });
+
+  test('record_diff (declarado por mgap-snig::principal) sobre csv_table real: sin curr.records, no detecta altas/bajas, no rompe el pipeline', async () => {
+    await withServer(
+      (req, res) => { res.writeHead(200, { 'content-type': 'text/csv' }); res.end('Ejercicio,DepartamentoCodigo\n2025,1\n2025,2\n'); },
+      async (url) => {
+        const db = resetDbForTests(':memory:');
+        const monitor = knowledge.monitorById('mgap-snig::principal');
+        assert.equal(monitor.change_detection.method, 'record_diff');
+        const original = knowledge.sourceById;
+        try {
+          knowledge.sourceById = (id) => (id === monitor.source_id ? { ...original(id), access: { ...original(id).access, endpoint: url } } : original(id));
+          const result = await runPipeline(db, [{ monitorId: monitor.id, context: { kind: 'csv_table' } }], { mode: 'live' });
+
+          assert.equal(result.hadErrors, false);
+          assert.equal(result.outputs.changes[0].change_class, 'sin_cambio', 'recordDiff() busca curr.records (no existe en csv_table) -> ambos lados vacios -> sin_cambio, sin inventar una clave de registro');
+          assert.equal(result.stats.signals_generated, 0);
+        } finally {
+          knowledge.sourceById = original;
+        }
+      }
+    );
+  });
+});
+
+describe('Bloque E - Caso 11: error individual (CSV roto) no aborta el resto del batch', () => {
+  test('un job CSV inválido junto a un job CSV válido: ambos se procesan, solo el roto queda como acquisition_error', async () => {
+    await withServer(
+      (req, res) => { res.writeHead(200, { 'content-type': 'text/csv' }); res.end('a,b\n1,2\n'); },
+      async (goodUrl) => {
+        const brokenServer = createServer((req, res) => { res.writeHead(200, { 'content-type': 'text/csv' }); res.end('a,b,c\n1,2\n'); });
+        await new Promise((resolve) => brokenServer.listen(0, '127.0.0.1', resolve));
+        const brokenUrl = `http://127.0.0.1:${brokenServer.address().port}/roto.csv`;
+        try {
+          const db = resetDbForTests(':memory:');
+          const [goodMonitor, brokenMonitor] = [knowledge.monitorById('ursec::principal'), knowledge.monitorById('opp::principal')];
+          const original = knowledge.sourceById;
+          try {
+            knowledge.sourceById = (id) => {
+              if (id === goodMonitor.source_id) return { ...original(id), access: { ...original(id).access, endpoint: goodUrl } };
+              if (id === brokenMonitor.source_id) return { ...original(id), access: { ...original(id).access, endpoint: brokenUrl } };
+              return original(id);
+            };
+            const result = await runPipeline(
+              db,
+              [
+                { monitorId: goodMonitor.id, context: { kind: 'csv_table' } },
+                { monitorId: brokenMonitor.id, context: { kind: 'csv_table' } },
+              ],
+              { mode: 'live' }
+            );
+            assert.equal(result.outputs.captures.length, 2);
+            const good = result.outputs.captures.find((c) => c.monitor_id === goodMonitor.id);
+            const broken = result.outputs.captures.find((c) => c.monitor_id === brokenMonitor.id);
+            assert.equal(good.status, 'ok');
+            assert.equal(broken.status, 'acquisition_error');
+          } finally {
+            knowledge.sourceById = original;
+          }
+        } finally {
+          await new Promise((resolve) => brokenServer.close(resolve));
+        }
+      }
+    );
+  });
+});
+
+describe('Bloque E - Caso 12: regresión A+B+C (scheduler y ejecución manual sin cambios)', () => {
+  test('operableMonitors() sigue en 19: ningún monitor CSV pasó a ser operable en este bloque (curación de campo/clave ausente)', () => {
+    assert.equal(operableMonitors().length, 19);
+    assert.ok(operableMonitors().every((m) => m.method !== 'file_download'));
+  });
+
+  test('el scheduler sigue despachando con normalidad (regresión de Bloque A/B/C)', async () => {
+    const db = resetDbForTests(':memory:');
+    const calls = [];
+    const scheduler = createScheduler(db, { runPipelineFn: async (_db, jobs) => { calls.push(jobs); return { runId: 'r1', hadErrors: false }; } });
+    await scheduler.triggerNow();
+    assert.equal(calls.length, 1);
+    assert.equal(calls[0].length, 19);
+  });
+});

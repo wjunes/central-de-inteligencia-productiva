@@ -6,6 +6,10 @@ export const config = {
   nodeEnv: process.env.NODE_ENV ?? 'development',
   dbPath: process.env.DB_PATH ?? './data/cip.sqlite',
   acquisitionTimeoutMs: Number(process.env.ACQUISITION_TIMEOUT_MS ?? 10000),
+  // file_download (Bloque C): limite de bytes aplicado en streaming (con o sin
+  // Content-Length declarado) para no permitir una descarga sin cota - ver
+  // data/acquisition/adapters.js#fileDownload.
+  acquisitionMaxBytes: Number(process.env.ACQUISITION_MAX_BYTES ?? 20 * 1024 * 1024),
   // Automatización real del monitoreo (Bloque A). SCHEDULER_ENABLED explícito
   // siempre gana; si se omite, se activa en todo ambiente EXCEPTO 'test' -
   // evita que los tests de integración que levantan server.js como proceso

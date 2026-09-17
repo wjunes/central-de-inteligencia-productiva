@@ -136,7 +136,26 @@
       "last_run": null,
       "last_success": null,
       "last_change": null,
-      "notes": "Base del inventario ganadero nacional y de la trazabilidad exigida por mercados."
+      "notes": "Base del inventario ganadero nacional y de la trazabilidad exigida por mercados.",
+      "monitoring_definition": {
+        "status": "monitorizable",
+        "format": "csv",
+        "delimiter": ";",
+        "encoding": "utf-8",
+        "header_row": 1,
+        "change_type": "record_diff",
+        "value_field": null,
+        "record_key": ["Ejercicio", "DepartamentoCodigo", "SeccionalPolicialCodigo", "AreaSupervision", "AreaEnumeracion", "ActividadCodigo", "GiroCodigo", "NaturalezaJuridicaCodigo", "EstratoCodigo", "EspecializacionMGAPCodigo", "TipoProduccionMGAPCodigo"],
+        "unit": null,
+        "periodicity": "annual (por ejercicio DICOSE; el dataset real vigente es 'mgap-...-dicose-snig-2025' en catalogodatos.gub.uy, publicado anualmente)",
+        "relevant_fields": ["Superficie", "UnidadesGanaderas", "SuperficieGanadera", "CantidadTenedores"],
+        "originActivityId": null,
+        "originRamificationId": null,
+        "topicId": null,
+        "semantic_description": "Recurso 'Datos generales' de la Declaración Jurada de Existencias DICOSE-SNIG: una fila por combinación de ejercicio+departamento+área+actividad+giro+naturaleza jurídica+estrato+especialización+tipo de producción, con superficie, unidades ganaderas, superficie ganadera y cantidad de tenedores.",
+        "productive_meaning": "El record_key (11 columnas) es la única combinación verificada sin duplicados sobre 37.072 filas reales (0 claves repetidas) - es una clave compuesta real, no inventada. No se asigna actividad productiva ni tema: ActividadCodigo/GiroCodigo son códigos internos de la taxonomía DICOSE/MGAP sin tabla de correspondencia verificada hacia knowledge/activities/activities.json - construir esa correspondencia ahora sería inventar el vínculo.",
+        "evidence": "Verificado 2026-09-16 vía curl directo contra https://catalogodatos.gub.uy/dataset/8c99ab66-e547-4d6a-b7d3-55b80473b3c6/resource/a6050711-7c15-4a1e-baa4-48d310f95991/download/datosgenerales.csv (HTTP 200, text/csv, 1.986.751 bytes, 37.072 filas de datos). Unicidad del record_key verificada por conteo exacto (0 grupos duplicados). GAP técnico separado de lo semántico: el delimitador real es ';' y los valores numéricos usan ',' como separador decimal (ej. '0,00') - el parser genérico de Bloque E (delimitador ',' por defecto) falla al leer este archivo (confirmado en vivo: acquisition_error 'estructura invalida'); no se modifica el parser en este bloque."
+      }
     },
     {
       "id": "mgap-dgsg::principal",
@@ -1050,7 +1069,26 @@
       "last_run": null,
       "last_success": null,
       "last_change": null,
-      "notes": ""
+      "notes": "",
+      "monitoring_definition": {
+        "status": "not_monitorizable",
+        "format": "csv",
+        "delimiter": ",",
+        "encoding": "utf-8",
+        "header_row": 1,
+        "change_type": null,
+        "value_field": null,
+        "record_key": null,
+        "unit": null,
+        "periodicity": null,
+        "relevant_fields": null,
+        "originActivityId": null,
+        "originRamificationId": null,
+        "topicId": null,
+        "semantic_description": "Recurso 'credito_presupuestal_resumen.csv' de Transparencia Presupuestaria (OPP): crédito y ejecución presupuestal por organismo/unidad ejecutora/programa/financiamiento/ODS y año, con nombre y código para cada dimensión.",
+        "productive_meaning": null,
+        "evidence": "Verificado 2026-09-16 (HTTP 200, text/csv, 27.903 filas de datos, todos los campos entrecomillados, UTF-8 real). No se encontró una record_key completa y única: la combinación de AÑO + los 8 campos '_codigo' (Organismo/UE/Grupo_ues/AP/Programa/Financ/Fuente_financ/ODS) produce solo 27.495 claves distintas para 27.903 filas (408 filas en grupos duplicados); agregar 'Apertura' y 'Tipo_gasto_nombre' reduce pero no elimina los duplicados (27.833 distintas). Existe al menos una dimensión adicional no visible en este recurso que distingue esas filas - inventar una clave con las columnas disponibles habría sido exactamente la 'record_key arbitraria' que este bloque prohíbe. Declarado not_monitorizable por esta razón, no por falta de endpoint ni de dato real."
+      }
     },
     {
       "id": "dgi::principal",
@@ -1071,7 +1109,26 @@
       "last_run": null,
       "last_success": null,
       "last_change": null,
-      "notes": "Recaudación como proxy de actividad económica sectorial."
+      "notes": "Recaudación como proxy de actividad económica sectorial.",
+      "monitoring_definition": {
+        "status": "monitorizable",
+        "format": "csv",
+        "delimiter": ";",
+        "encoding": "windows-1252",
+        "header_row": 14,
+        "change_type": "value_comparison",
+        "value_field": "Importe",
+        "record_key": null,
+        "unit": "pesos uruguayos corrientes (segun el propio archivo: 'en pesos corrientes')",
+        "periodicity": "mensual (534 meses consecutivos verificados, Ene-1982 a Jun-2026, sin huecos por conteo exacto)",
+        "relevant_fields": ["Fecha", "Importe"],
+        "originActivityId": null,
+        "originRamificationId": null,
+        "topicId": null,
+        "semantic_description": "Recaudación mensual total de la DGI (todos los impuestos consolidados), serie historica desde 1982. El archivo real es un reporte exportado: 13 filas de titulo/blanco antes del encabezado real (fila 14: ';;;Fecha;Importe;;'), columnas relevantes 'Fecha' (ej. 'Feb-2026') e 'Importe' (monto en pesos, formato con '.' como separador de miles, ej. '55.478.974.426').",
+        "productive_meaning": "Es el unico de los 5 monitores con un unico campo de valor genuinamente inequivoco (Importe = recaudacion total). No se asigna actividad ni tema: es un indicador macro-fiscal agregado del Estado, no especifico de ninguna actividad productiva (mismo criterio ya aplicado a INE::IPC en Bloque B).",
+        "evidence": "Verificado 2026-09-16 vía curl + iconv (HTTP 200, Content-Type text/csv, contenido en Windows-1252 confirmado por byte 0xD3 en 'RECAUDACIÓN' que corresponde a 'Ó' en esa codificacion). GAP tecnico separado de lo semantico: delimitador ';', encoding no-UTF8, y 13 filas de preambulo antes del encabezado real - el parser generico de Bloque E (UTF-8, header en fila 1) no soporta esto; confirmado que decodificar como UTF-8 y parsear con delimitador ',' por defecto NO lanza error (todas las lineas colapsan a 1 solo campo, sin comas) pero produce una tabla sin sentido - riesgo real de 'exito' silenciosamente incorrecto, motivo adicional para NO habilitar este monitor todavia. No se modifica el parser en este bloque."
+      }
     },
     {
       "id": "bps::principal",
@@ -1496,7 +1553,7 @@
       "automation": "partially_automatable",
       "scope": {},
       "change_detection": {
-        "method": "value_comparison"
+        "method": "record_diff"
       },
       "fallback": {
         "activation": "on_failure_or_unavailable",
@@ -1509,7 +1566,26 @@
       "last_run": null,
       "last_success": null,
       "last_change": null,
-      "notes": ""
+      "notes": "",
+      "monitoring_definition": {
+        "status": "monitorizable",
+        "format": "csv",
+        "delimiter": ",",
+        "encoding": "utf-8",
+        "header_row": 1,
+        "change_type": "record_diff",
+        "value_field": null,
+        "record_key": ["producto", "fecha_vigencia"],
+        "unit": null,
+        "periodicity": "mensual (verificado: 71 meses consecutivos por producto; el monitor declara frequency='daily' pero el dato real solo cambia una vez por mes - desajuste de frecuencia detectado, no corregido en este bloque)",
+        "relevant_fields": ["total_precio_ex_planta_1", "total_precio_ex_planta_2", "subtotal_1_precio_cif", "tipo_cambio_promedio"],
+        "originActivityId": "combustibles",
+        "originRamificationId": null,
+        "topicId": "precios",
+        "semantic_description": "Desglose mensual del costo de importacion (Precio de Paridad de Importacion, columnas precio_fob_ajustado...subtotal_1_precio_cif) y el precio final ex-planta (subtotal_2/3, total_precio_ex_planta_1/2) de 5 combustibles: Gas Oil 10S, Gas Oil 50S, Gasolina Premium 97, Gasolina Super 95 y GLP. Cada fila = un producto en un mes de vigencia (fecha_vigencia).",
+        "productive_meaning": "Reclasificado de value_comparison (declarado originalmente) a record_diff: el archivo es un panel de 5 productos x 71 meses (33 columnas de desglose de costos), no un unico indicador escalar - elegir una sola columna de las 33 para value_comparison habria sido arbitrario. record_key=(producto,fecha_vigencia) es la clave natural verificada: 355 combinaciones distintas para 355 filas de datos (0 duplicados). Un cambio detectado (alta de un nuevo mes, o modificacion de un mes ya publicado) es relevante como costo directo para 'combustibles' (refinacion y distribucion) y como costo indirecto para actividades dependientes segun su propio arbol de ramificaciones (transporte-carga-carretera, generacion-termica - ya vinculadas en knowledge/ramifications/combustibles.json). No se asigna originRamificationId: los 5 productos mapean a 2 nodos distintos de combustibles.json ('gasolinas' y 'gasoil') y GLP no tiene nodo propio - asignar uno solo seria impreciso para las demas filas.",
+        "evidence": "Verificado 2026-09-16 via curl directo contra https://catalogodatos.gub.uy/dataset/af74758a-2175-4b93-9847-4386a17aee00/resource/7fb4c8d9-8db4-41bf-aac0-254368269d24/download/ppi_pe.csv (HTTP 200, text/csv, 72.109 bytes, 355 filas de datos, UTF-8 sin BOM). Unicidad de record_key verificada por conteo exacto (5 productos x 71 meses = 355, sin duplicados). Unidad de total_precio_ex_planta_1/2 no confirmada oficialmente (magnitudes ~1000 y ~45 respectivamente para el mismo producto/mes, no se pudo verificar la formula de conversion exacta entre ambas sin la metodologia oficial de URSEA - no se inventa la unidad)."
+      }
     },
     {
       "id": "ancap::principal",
@@ -1847,13 +1923,32 @@
       "automation": "partially_automatable",
       "scope": {},
       "change_detection": {
-        "method": "value_comparison"
+        "method": "record_diff"
       },
       "fallback": null,
       "last_run": null,
       "last_success": null,
       "last_change": null,
-      "notes": ""
+      "notes": "",
+      "monitoring_definition": {
+        "status": "monitorizable",
+        "format": "csv",
+        "delimiter": ",",
+        "encoding": "utf-8",
+        "header_row": 1,
+        "change_type": "record_diff",
+        "value_field": null,
+        "record_key": ["Fecha"],
+        "unit": null,
+        "periodicity": "mensual (verificado: 90 valores de Fecha, todos distintos, 2018-01 a 2025-06)",
+        "relevant_fields": ["Trafico de voz de suscriptores de telefonia fija en computos", "Trafico de voz de telefonia fija a telefonia movil en minutos", "Trafico de voz de suscriptores de telefonia movil en minutos", "Trafico de datos de servicios de banda ancha fija en terabytes", "Trafico de datos de servicios de banda ancha movil en terabytes"],
+        "originActivityId": "telecomunicaciones",
+        "originRamificationId": null,
+        "topicId": null,
+        "semantic_description": "Serie mensual de trafico de servicios de telecomunicaciones fijas y moviles en Uruguay: computos de voz fija, minutos voz fija-a-movil, minutos voz movil, terabytes de datos banda ancha fija y movil. Una fila por mes (columna 'Fecha').",
+        "productive_meaning": "Reclasificado de value_comparison (declarado originalmente) a record_diff: hay 5 metricas candidatas y el monitor no define cual seria 'el' valor - elegir una habria sido arbitrario. 'Fecha' es la unica columna con valores completamente unicos (90/90) y es literalmente el periodo de la serie, por lo que es record_key valido y no arbitrario. No se asigna originRamificationId: los 5 campos mapean a al menos 3 nodos distintos de telecomunicaciones.json (telefonia-movil, banda-ancha, y no existe nodo para telefonia fija) - asignar uno solo seria impreciso. No se asigna topicId: ningun id de ramifications/_signal_types.json corresponde a trafico de telecomunicaciones sin forzar una aproximacion (el mas cercano, 'infraestructura-logistica', es sobre transporte fisico, no telecom).",
+        "evidence": "Verificado 2026-09-16 via curl directo contra https://catalogodatos.gub.uy/dataset/f2e28862-2d9b-42bd-8ca5-e233755b794b/resource/6d43482b-1067-47fb-8184-fe41dcd5236e/download/trafico-de-servicios-de-telecomunicaciones.csv (HTTP 200, text/csv, 5.942 bytes, 90 filas de datos, UTF-8 ASCII-safe). Unicidad de 'Fecha' verificada por conteo exacto (90 valores, 90 distintos)."
+      }
     },
     {
       "id": "anii::principal",

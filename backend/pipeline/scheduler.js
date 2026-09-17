@@ -16,14 +16,30 @@
 import { knowledge } from '../knowledge/loader.js';
 import { runPipeline as defaultRunPipeline } from './orchestrator.js';
 
-// Únicos 2 métodos con adaptador real hoy (data/acquisition/adapters.js) -
-// api_soap/feed/file_download/manual_capture son stubs que solo devolverían
+// Métodos con adaptador real hoy (data/acquisition/adapters.js) - api_soap/
+// feed/manual_capture siguen siendo stubs que solo devolverían
 // acquisition_error; incluirlos aquí generaría "ejecuciones" que nunca
 // adquieren nada real, sin aportar valor y ensuciando pipeline_runs/errors.
-const LIVE_METHODS = ['ckan_api', 'api_rest_json'];
+const LIVE_METHODS = ['ckan_api', 'api_rest_json', 'file_download'];
+
+// file_download (Bloque C) es distinto de ckan_api/api_rest_json: su
+// adaptador SÍ está implementado, pero solo puede operar sobre un source que
+// declare access.endpoint (URL directa de archivo, ver adapters.js#fileDownload) -
+// a diferencia de los 19 monitores de Bloque A, hoy NINGÚN source detrás de un
+// monitor file_download declara esa URL (solo access.url de página
+// institucional). "operable por método" no alcanza: se verifica por fuente,
+// con el mismo criterio ya usado para excluir métodos sin adaptador (no
+// contar como operable algo que siempre terminaría en acquisition_error).
+function isOperable(m) {
+  if (!m.enabled || !LIVE_METHODS.includes(m.method)) return false;
+  if (m.method === 'file_download') {
+    return Boolean(knowledge.sourceById(m.source_id)?.access?.endpoint);
+  }
+  return true;
+}
 
 export function operableMonitors() {
-  return knowledge.monitors().filter((m) => m.enabled && LIVE_METHODS.includes(m.method));
+  return knowledge.monitors().filter(isOperable);
 }
 
 // kind debe coincidir con la forma real que cada adaptador normaliza
@@ -36,7 +52,7 @@ export function operableMonitors() {
 // en la validación real de esta etapa (Fase VALIDACIÓN REAL). Esto NO es
 // una regla nueva de negocio: es hacer coincidir 2 vocabularios que el
 // motor central ya define, para los monitores que la automatización dispara.
-const VALIDATION_KIND_BY_METHOD = { ckan_api: 'dataset_list', api_rest_json: 'raw_json' };
+const VALIDATION_KIND_BY_METHOD = { ckan_api: 'dataset_list', api_rest_json: 'raw_json', file_download: 'raw_file' };
 
 // Bloque B: propaga m.context (knowledge/monitoring/monitors.json) hacia el
 // context del job, EXACTAMENTE con el mismo shape que ya consume

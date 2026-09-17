@@ -10,8 +10,10 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { config } from '../../config.js';
+import { parseCsv } from '../parsing/csv.js';
 
 function hashOf(value) {
+  if (Buffer.isBuffer(value)) return createHash('sha256').update(value).digest('hex');
   return createHash('sha256').update(typeof value === 'string' ? value : JSON.stringify(value)).digest('hex');
 }
 
@@ -77,6 +79,117 @@ async function apiRestJson(monitor, source, params = {}) {
   }
 }
 
+// --- file_download (Bloque C): descarga la URL declarada explicitamente en
+// sources.json.access.endpoint (MISMO campo que ya usa api_rest_json - no se
+// inventa un segundo concepto de "URL configurada"; solo cambia que aqui el
+// contenido no se interpreta como JSON). No se acepta access.url (pagina
+// institucional) como sustituto: si un source no declara access.endpoint,
+// significa que todavia no existe una URL de archivo curada y verificable
+// para el, y se documenta como tal (regla de esta etapa: no descargar
+// archivos arbitrarios ni adivinar la URL real a partir de la pagina web).
+//
+// El contrato NO parsea binarios (pdf/xlsx/shp/geotiff): esos siguen
+// devolviendo solo metadatos (content-type, tamano, hash) como
+// normalized.kind='raw_file' - eso no cambia en esta etapa (Bloque E).
+//
+// Bloque E: cuando la respuesta es CSV (por content-type o extension de la
+// URL - nunca por institucion), se decodifica como UTF-8 y se interpreta con
+// data/parsing/csv.js#parseCsv() (parser generico, no especifico de ninguna
+// fuente), devolviendo normalized.kind='csv_table' con headers/rows ya
+// estructurados. NO decide aqui cual columna es "la clave" (record_diff) o
+// "el valor" (value_comparison) de ese cambio: esa interpretacion depende de
+// curacion por monitor que hoy no existe (ver informe de esta etapa) - dejar
+// esa decision sin resolver aca es intencional, no un olvido. Un CSV
+// invalido se reporta como acquisition_error (visible, no silencioso), en
+// vez de degradar a raw_file.
+function looksLikeCsv(contentType, url) {
+  if (contentType && contentType.toLowerCase().includes('csv')) return true;
+  try {
+    const pathname = new URL(url).pathname.toLowerCase();
+    return pathname.endsWith('.csv');
+  } catch {
+    return false;
+  }
+}
+
+async function fileDownload(monitor, source) {
+  const url = source.access?.endpoint;
+  if (!url) {
+    return {
+      status: 'acquisition_error',
+      error: `file_download: sources.json no declara access.endpoint (URL directa de archivo) para '${source.id}' - solo existe access.url de pagina institucional, que no es un archivo descargable. No se descarga una URL no declarada explicitamente para este fin.`,
+    };
+  }
+
+  const start = Date.now();
+  const elapsed = () => Date.now() - start;
+  try {
+    const res = await fetch(url, { redirect: 'follow', signal: AbortSignal.timeout(config.acquisitionTimeoutMs) });
+
+    if (!res.ok) {
+      await res.body?.cancel?.().catch(() => {});
+      return { status: 'source_unavailable', error: `HTTP ${res.status}`, latency_ms: elapsed() };
+    }
+
+    const contentType = res.headers.get('content-type') ?? null;
+    const declaredLength = Number(res.headers.get('content-length') ?? 0);
+    if (declaredLength > config.acquisitionMaxBytes) {
+      await res.body?.cancel?.().catch(() => {});
+      return { status: 'acquisition_error', error: `file_download: Content-Length declarado (${declaredLength} bytes) supera el limite configurado (${config.acquisitionMaxBytes} bytes)`, latency_ms: elapsed() };
+    }
+
+    // Limite real por bytes leidos en streaming (protege tambien respuestas
+    // sin Content-Length, p. ej. chunked) - no confiar solo en el header.
+    const chunks = [];
+    let total = 0;
+    const reader = res.body?.getReader();
+    if (reader) {
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        total += value.byteLength;
+        if (total > config.acquisitionMaxBytes) {
+          await reader.cancel().catch(() => {});
+          return { status: 'acquisition_error', error: `file_download: la descarga supera el limite configurado (${config.acquisitionMaxBytes} bytes) - abortada en curso`, latency_ms: elapsed() };
+        }
+        chunks.push(Buffer.from(value));
+      }
+    }
+    const buffer = Buffer.concat(chunks);
+
+    if (buffer.length === 0) {
+      return { status: 'acquisition_error', error: 'file_download: contenido vacio', latency_ms: elapsed() };
+    }
+
+    if (looksLikeCsv(contentType, url)) {
+      let parsed;
+      try {
+        parsed = parseCsv(buffer.toString('utf-8'));
+      } catch (err) {
+        return { status: 'acquisition_error', error: `file_download: CSV invalido - ${err.message}`, latency_ms: elapsed() };
+      }
+      return {
+        status: 'ok',
+        normalized: { kind: 'csv_table', content_type: contentType, headers: parsed.headers, rows: parsed.rows, row_count: parsed.row_count },
+        hash: hashOf(buffer),
+        size_bytes: buffer.length,
+        latency_ms: elapsed(),
+      };
+    }
+
+    return {
+      status: 'ok',
+      normalized: { kind: 'raw_file', content_type: contentType, byte_length: buffer.length },
+      hash: hashOf(buffer),
+      size_bytes: buffer.length,
+      latency_ms: elapsed(),
+    };
+  } catch (err) {
+    const isTimeout = err.name === 'TimeoutError' || err.name === 'AbortError';
+    return { status: 'acquisition_error', error: isTimeout ? `file_download: timeout tras ${config.acquisitionTimeoutMs}ms` : `file_download: ${err.message}` };
+  }
+}
+
 // --- Adaptadores con interfaz definida, implementacion minima (no requeridos
 // por los casos de prueba de esta etapa, ver README de _build) ---
 async function apiSoap() {
@@ -84,9 +197,6 @@ async function apiSoap() {
 }
 async function feed() {
   return { status: 'acquisition_error', error: 'feed: adaptador con interfaz definida, sin implementacion real en esta etapa.' };
-}
-async function fileDownload() {
-  return { status: 'acquisition_error', error: 'file_download: adaptador con interfaz definida, sin implementacion real en esta etapa.' };
 }
 async function manualCapture() {
   return { status: 'acquisition_error', error: 'manual_capture: requiere el flujo de knowledge/monitoring/manual-capture-workflow.json (captura asistida) - no ejecutable automaticamente.' };
